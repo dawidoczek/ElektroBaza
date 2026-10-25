@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="pl" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trenażer Egzaminacyjny: Elektrotechnika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            },
+            startup: {
+                typeset: false // Do NOT automatically scan and typeset document.body on load!
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: rgba(156, 163, 175, 0.5);
+            border-radius: 20px;
+        }
+        .cursor-zoom-in {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors duration-200">
+
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-blue-600 text-white rounded-xl shadow-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </span>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight">Trenażer Elektrotechnika</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Laboratoria 1, 2, 3 • Zoptymalizowana baza pytań</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+                <button id="theme-toggle" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700 transition" aria-label="Przełącz motyw">
+                    <svg id="theme-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row gap-6">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <nav class="space-y-1 bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <button id="nav-dashboard" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Panel Główny</span>
+                </button>
+                <button id="nav-study" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <span>Tryb Nauki</span>
+                </button>
+                <button id="nav-exam" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    <span>Tryb Egzaminu</span>
+                </button>
+                <button id="nav-browse" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                    <span>Przeglądaj Bazę</span>
+                </button>
+                <button id="nav-starred" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                    <span>Ulubione pytania</span>
+                </button>
+            </nav>
+
+            <!-- Quick Stats in sidebar -->
+            <div class="mt-6 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+                <h3 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Postęp ogólny</h3>
+                <div>
+                    <div class="flex justify-between text-sm font-semibold mb-1">
+                        <span>Opanowane pytania</span>
+                        <span id="stat-solved">0 / 37</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
+                        <div id="stat-progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="flex justify-between border-t border-slate-100 dark:border-slate-700 pt-3">
+                    <span class="text-xs text-slate-500">Skuteczność:</span>
+                    <span id="stat-accuracy" class="text-xs font-bold text-green-600 dark:text-green-400">0%</span>
+                </div>
+                <button onclick="resetStats()" class="w-full text-center text-xs text-red-500 hover:text-red-700 dark:text-red-400 font-medium py-1">Resetuj statystyki</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0">
+            
+            <!-- SECTION: Dashboard -->
+            <section id="sec-dashboard" class="space-y-6">
+                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-4">
+                    <span class="inline-block py-1 px-3 bg-white/20 rounded-full text-xs font-semibold backdrop-blur-sm">Elektrotechnika • Laboratoria 1, 2, 3</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Test Elektrotechnika - Baza Zadań i Pytań</h2>
+                    <p class="text-blue-100 text-sm max-w-2xl leading-relaxed">
+                        Interaktywny panel przygotowujący do kartkówek i egzaminu z Elektrotechniki. Baza zawiera kompletne zadania teoretyczne, klasyfikacje elementów oraz zadania obliczeniowe ze szczegółowymi wzorami w LaTeX i objaśnieniem symboli.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button onclick="switchTab('study')" class="bg-white text-blue-600 hover:bg-blue-50 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-sm">Rozpocznij Naukę</button>
+                        <button onclick="switchTab('exam')" class="bg-blue-800/60 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition backdrop-blur-sm">Symulacja Egzaminu</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Laboratorium 1</span>
+                        <h4 class="font-bold text-base">Elementy i relacje</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Klasyfikacja transformatora, diody, rezystora, kondensatora, cewki, prawo Ohma, rezystancja przewodów, pojemność i indukcyjność.</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">Laboratorium 2</span>
+                        <h4 class="font-bold text-base">Twierdzenia i obwody DC</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Thevenin, Norton, superpozycja, zasada wzajemności, sprawność źródła, moc maksymalna w dopasowaniu, I i II prawo Kirchhoffa.</p>
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide">Laboratorium 3</span>
+                        <h4 class="font-bold text-base">Sygnały AC i prostowniki</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Klasyfikacja sygnałów zmiennych i aperiodycznych, ciepło Joule'a dla prądów zmiennych, mostek Graetza, pomiar ładunku miernikami DC/AC.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: Study Mode -->
+            <section id="sec-study" class="hidden space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <h2 class="text-xl font-bold">Interaktywny Tryb Nauki</h2>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <select id="study-lab-filter" onchange="onStudyLabFilterChange()" class="text-xs font-semibold px-3 py-1.5 border rounded-lg bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">Wszystkie laboratoria (37)</option>
+                            <option value="1">Laboratorium 1</option>
+                            <option value="2">Laboratorium 2</option>
+                            <option value="3">Laboratorium 3</option>
+                        </select>
+                        <label class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-400">Idź do pytania:</span>
+                            <input type="number" id="study-go-to" min="1" max="37" class="w-16 px-2 py-1 text-xs border rounded-lg bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-center font-bold" onchange="jumpToStudyQuestion(this.value)">
+                        </label>
+                        <button id="study-shuffle" onclick="toggleStudyShuffle()" class="p-2 border rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700 transition" title="Losuj kolejność pytań">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="study-card" class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                    <!-- Dynamic Question Content Injected via JS -->
+                </div>
+            </section>
+
+            <!-- SECTION: Exam Mode -->
+            <section id="sec-exam" class="hidden space-y-6">
+                <div id="exam-setup" class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                    <h2 class="text-xl font-bold">Ustawienia Egzaminu próbnego</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Zakres laboratoriów:</label>
+                            <select id="exam-lab-filter" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
+                                <option value="all">Wszystkie laboratoria (Lab 1, 2, 3)</option>
+                                <option value="1">Tylko Laboratorium 1</option>
+                                <option value="2">Tylko Laboratorium 2</option>
+                                <option value="3">Tylko Laboratorium 3</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Liczba pytań w teście:</label>
+                            <select id="exam-count" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
+                                <option value="5">5 pytań</option>
+                                <option value="10">10 pytań</option>
+                                <option value="15">15 pytań</option>
+                                <option value="20">20 pytań</option>
+                                <option value="all" selected>Wszystkie dostępne pytania</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Limit czasu na cały egzamin:</label>
+                            <select id="exam-time" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
+                                <option value="5">5 minut</option>
+                                <option value="10">10 minut</option>
+                                <option value="15">15 minut</option>
+                                <option value="20" selected>20 minut</option>
+                                <option value="30">30 minut</option>
+                                <option value="no-limit">Brak limitu czasu</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <button onclick="startExam()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">Rozpocznij Egzamin</button>
+                    </div>
+                </div>
+
+                <div id="exam-active" class="hidden space-y-6">
+                    <div class="flex items-center justify-between bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <span id="exam-progress-badge" class="font-bold text-sm text-slate-600 dark:text-slate-300">Pytanie 1 / 10</span>
+                        <div id="exam-timer-wrapper" class="flex items-center space-x-2 text-rose-600 dark:text-rose-400 font-mono font-bold text-sm bg-rose-50 dark:bg-rose-900/30 px-3 py-1 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span id="exam-timer">00:00</span>
+                        </div>
+                    </div>
+
+                    <div id="exam-question-card" class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                        <!-- Injected Exam Question -->
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <button id="exam-prev-btn" onclick="prevExamQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 font-semibold px-5 py-2.5 rounded-xl text-sm transition">Poprzednie</button>
+                        <div class="space-x-3">
+                            <button id="exam-next-btn" onclick="nextExamQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 font-semibold px-5 py-2.5 rounded-xl text-sm transition">Następne</button>
+                            <button onclick="finishExam()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition shadow-sm">Zakończ Egzamin</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="exam-results" class="hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm text-center space-y-4">
+                        <div id="exam-result-icon-bg" class="inline-flex p-4 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
+                            <svg id="exam-result-icon" class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 id="exam-result-title" class="text-2xl font-bold">Wynik Egzaminu</h3>
+                        <p id="exam-result-subtitle" class="text-slate-500 max-w-md mx-auto text-sm">Poniżej znajduje się podsumowanie Twoich odpowiedzi oraz szczegółowe rozwiązania z prawidłowymi wzorami.</p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto pt-4 text-left">
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400">Wynik ogólny:</span>
+                                <p id="exam-score" class="text-2xl font-bold mt-1">0%</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400">Poprawne odp:</span>
+                                <p id="exam-correct-count" class="text-2xl font-bold mt-1">0 / 0</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400">Wykorzystany czas:</span>
+                                <p id="exam-time-elapsed" class="text-2xl font-bold mt-1">00:00</p>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                <span class="text-xs text-slate-400">Ocena:</span>
+                                <p id="exam-final-grade" class="text-2xl font-bold mt-1 text-blue-600">--</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex justify-center space-x-3">
+                            <button onclick="exitExam()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-xl text-sm transition">Wróć do konfiguracji</button>
+                        </div>
+                    </div>
+
+                    <!-- Exam Detail Review -->
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold">Szczegółowy przegląd pytań:</h4>
+                        <div id="exam-results-review" class="space-y-4">
+                            <!-- Injected Review Elements -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: Browse Database -->
+            <section id="sec-browse" class="hidden space-y-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <h2 class="text-xl font-bold" id="browse-title">Wszystkie pytania bazy (37 pytań)</h2>
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1 max-w-xl">
+                        <select id="browse-lab-filter" onchange="onBrowseFilterChange()" class="text-sm font-medium px-3 py-2.5 border rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">Wszystkie laboratoria</option>
+                            <option value="1">Lab 1</option>
+                            <option value="2">Lab 2</option>
+                            <option value="3">Lab 3</option>
+                        </select>
+                        <div class="relative flex-1">
+                            <input type="text" id="search-input" oninput="onSearchInput(this.value)" placeholder="Wyszukaj zagadnienie np. Thevenin, prawo Ohma..." class="w-full pl-10 pr-4 py-2.5 border rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="absolute left-3.5 top-3 text-slate-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="browse-list" class="space-y-4">
+                    <!-- Lazy rendered question cards -->
+                </div>
+
+                <!-- Load More / Pagination container -->
+                <div id="browse-load-more-wrap" class="text-center pt-2 pb-6 hidden">
+                    <button id="browse-load-more-btn" onclick="loadMoreBrowseQuestions()" class="bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400 font-bold px-6 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm shadow-sm transition">
+                        Załaduj więcej pytań (<span id="browse-loaded-count">0</span> z <span id="browse-total-count">0</span>)
+                    </button>
+                    <div id="browse-infinite-sentinel" class="h-4 w-full"></div>
+                </div>
+            </section>
+
+            <!-- SECTION: Starred Questions -->
+            <section id="sec-starred" class="hidden space-y-6">
+                <h2 class="text-xl font-bold">Twoje Ulubione Pytania</h2>
+                <div id="starred-list" class="space-y-4">
+                    <!-- Starred questions injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-lg transition-transform duration-300 transform translate-y-20 flex items-center space-x-2 text-sm z-50">
+        <span id="toast-msg">Notyfikacja</span>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-200" onclick="closeImageModal()">
+        <div class="relative max-w-4xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-3xl p-4 overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700" onclick="event.stopPropagation()">
+            <button onclick="closeImageModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition" aria-label="Zamknij podgląd">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="image-modal-img" src="" alt="Powiększony schemat" decoding="async" class="max-h-[80vh] w-auto mx-auto object-contain rounded-2xl bg-white p-2">
+        </div>
+    </div>
+
+    <script>
+        const questionBank = [
+        {
+                "id": 1,
+                "labs": [
+                        1
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia dotyczące transformatora idealnego:",
+                "a": "jest elementem pasywnym",
+                "b": "jest wielobiegunnikiem (czwórnikiem)",
+                "c": "jest elementem odwracalnym",
+                "d": "jest elementem aktywnym",
+                "e": "jest elementem nieodwracalnym",
+                "f": "jest dwójnikiem",
+                "correct": "a,b,c",
+                "exp": "Transformator idealny nie wytwarza własnej energii (jest elementem pasywnym), posiada co najmniej dwa sprzężone uzwojenia i 4 zaciski (jest wielobiegunnikiem/czwórnikiem) oraz spełnia zasadę wzajemności/odwracalności (jest odwracalny)."
+        },
+        {
+                "id": 2,
+                "labs": [
+                        1
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia dotyczące diody idealnej:",
+                "a": "jest dwójnikiem",
+                "b": "jest elementem aktywnym",
+                "c": "jest elementem pasywnym",
+                "d": "jest elementem odwracalnym",
+                "e": "jest elementem nieodwracalnym",
+                "correct": "a,c,e",
+                "exp": "Dioda idealna posiada 2 zaciski (dwójnik), nie generuje energii (jest elementem pasywnym) i przewodzi prąd jednokierunkowo, zatem zmiana polaryzacji zmienia jej stan z przewodzenia na zatkanie (jest elementem niesymetrycznym/nieodwracalnym)."
+        },
+        {
+                "id": 3,
+                "labs": [
+                        1
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia dotyczące rezystora idealnego:",
+                "a": "jest dwójnikiem",
+                "b": "jest elementem pasywnym",
+                "c": "jest elementem dyssypatywnym",
+                "d": "jest elementem odwracalnym",
+                "e": "jest elementem konserwatywnym",
+                "f": "jest elementem aktywnym",
+                "correct": "a,b,c,d",
+                "exp": "Rezystor idealny posiada 2 zaciski (dwójnik), zamienia energię elektryczną nieodwracalnie na ciepło (jest dyssypatywny, a więc pasywny) oraz zachowuje identyczną charakterystykę prądowo-napięciową przy zmianie zwrotu napięcia/prądu (jest odwracalny)."
+        },
+        {
+                "id": 4,
+                "labs": [
+                        1
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia dotyczące kondensatora idealnego:",
+                "a": "jest dwójnikiem",
+                "b": "jest elementem pasywnym",
+                "c": "jest elementem konserwatywnym",
+                "d": "jest elementem odwracalnym",
+                "e": "jest elementem dyssypatywnym",
+                "f": "jest elementem aktywnym",
+                "correct": "a,b,c,d",
+                "exp": "Kondensator idealny posiada 2 zaciski (dwójnik), magazynuje energię w polu elektrycznym bez strat cieplnych (jest elementem zachowawczym / konserwatywnym oraz pasywnym) i jest elementem odwracalnym."
+        },
+        {
+                "id": 5,
+                "labs": [
+                        1
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia dotyczące cewki (induktora) idealnej:",
+                "a": "jest dwójnikiem",
+                "b": "jest elementem pasywnym",
+                "c": "jest elementem konserwatywnym",
+                "d": "jest elementem odwracalnym",
+                "e": "jest elementem dyssypatywnym",
+                "f": "jest elementem aktywnym",
+                "correct": "a,b,c,d",
+                "exp": "Cewka idealna posiada 2 zaciski (dwójnik), magazynuje energię w polu magnetycznym bez rozpraszania na ciepło (jest elementem konserwatywnym i pasywnym) oraz spełnia warunek odwracalności."
+        },
+        {
+                "id": 6,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Oblicz natężenie prądu \\(I\\) płynącego przez rezystor o rezystancji \\(R\\) podłączony do napięcia \\(U\\).",
+                "correct": "Wzór: \\(I = \\frac{U}{R}\\). Dla wariantów: U=8V, R=15Ω -> I ≈ 0,533 A | U=15V, R=6Ω -> I = 2,5 A | U=12V, R=4Ω -> I = 3 A",
+                "exp": "Wzór ogólny (prawo Ohma):\n\\[I = \\frac{U}{R}\\]\ngdzie: \\(U\\) – napięcie na rezystorze [V], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(I\\) – natężenie prądu [A].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U = 8\\text{ V}, R = 15\\,\\Omega\\)): \\(I = \\frac{8}{15} \\approx 0{,}533\\text{ A}\\)\n• Wariant 2 (\\(U = 15\\text{ V}, R = 6\\,\\Omega\\)): \\(I = \\frac{15}{6} = 2{,}5\\text{ A}\\)\n• Wariant 3 (\\(U = 12\\text{ V}, R = 4\\,\\Omega\\)): \\(I = \\frac{12}{4} = 3{,}0\\text{ A}\\)\n• Wariant 4 (\\(U = 5\\text{ V}, R = 20\\,\\Omega\\)): \\(I = \\frac{5}{20} = 0{,}25\\text{ A}\\)"
+        },
+        {
+                "id": 7,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Do rezystora przyłożono napięcie \\(U\\). Zmierzony prąd wynosi \\(I\\). Oblicz rezystancję rezystora \\(R\\).",
+                "correct": "Wzór: \\(R = \\frac{U}{I}\\). Dla wariantów: U=6,1V, I=2,47A -> R ≈ 2,47 Ω | U=12V, I=200mA -> R = 60 Ω | U=5V, I=25mA -> R = 200 Ω",
+                "exp": "Wzór ogólny (przekształcone prawo Ohma):\n\\[R = \\frac{U}{I}\\]\ngdzie: \\(U\\) – napięcie [V], \\(I\\) – natężenie prądu [A] (pamiętaj o zamianie mA na A: \\(1\\text{ mA} = 10^{-3}\\text{ A}\\)), \\(R\\) – rezystancja [\\(\\Omega\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U = 6{,}1\\text{ V}, I = 2{,}47\\text{ A}\\)): \\(R = \\frac{6{,}1}{2{,}47} \\approx 2{,}47\\,\\Omega\\)\n• Wariant 2 (\\(U = 12\\text{ V}, I = 200\\text{ mA} = 0{,}2\\text{ A}\\)): \\(R = \\frac{12}{0{,}2} = 60\\,\\Omega\\)\n• Wariant 3 (\\(U = 5\\text{ V}, I = 25\\text{ mA} = 0{,}025\\text{ A}\\)): \\(R = \\frac{5}{0{,}025} = 200\\,\\Omega\\)"
+        },
+        {
+                "id": 8,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Oblicz rezystancję \\(R\\) taśmy metalowej o przekroju prostokątnym o wymiarach \\(a \\times b\\), długości \\(l\\) i rezystywności materiału \\(\\rho\\).",
+                "correct": "Wzór: \\(R = \\rho \\frac{l}{a \\cdot b}\\). Dla a=2mm, b=0,4mm, l=16m, ρ=19 nΩm -> R = 0,38 Ω",
+                "exp": "Wzór ogólny na rezystancję przewodnika o stałym przekroju:\n\\[R = \\rho \\frac{l}{S}\\]\nDla przekroju prostokątnego o bokach \\(a\\) i \\(b\\): \\(S = a \\cdot b\\), stąd:\n\\[R = \\frac{\\rho \\cdot l}{a \\cdot b}\\]\ngdzie: \\(\\rho\\) – rezystywność [\\(\\Omega\\cdot\\text{m}\\)], \\(l\\) – długość [m], \\(S\\) – pole przekroju poprzecznego [\\(\\text{m}^2\\)].\n\nPodstawienie dla danych ze zrzutu:\n\\(a = 2\\text{ mm} = 2 \\cdot 10^{-3}\\text{ m}\\), \\(b = 0{,}4\\text{ mm} = 0{,}4 \\cdot 10^{-3}\\text{ m}\\)\n\\(S = (2 \\cdot 10^{-3}) \\cdot (0{,}4 \\cdot 10^{-3}) = 0{,}8 \\cdot 10^{-6}\\text{ m}^2\\)\n\\(l = 16\\text{ m}\\), \\(\\rho = 19\\text{ n}\\Omega\\text{m} = 19 \\cdot 10^{-9}\\,\\Omega\\cdot\\text{m}\\)\n\\[R = \\frac{19 \\cdot 10^{-9} \\cdot 16}{0{,}8 \\cdot 10^{-6}} = \\frac{304 \\cdot 10^{-9}}{0{,}8 \\cdot 10^{-6}} = 380 \\cdot 10^{-3}\\,\\Omega = 0{,}38\\,\\Omega\\]"
+        },
+        {
+                "id": 9,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Oblicz rezystancję \\(R\\) przewodu metalowego o przekroju kołowym o średnicy \\(d\\), długości \\(l\\) i rezystywności \\(\\rho\\).",
+                "correct": "Wzór: \\(R = \\frac{4 \\rho l}{\\pi d^2}\\). Dla wariantów: d=0,1mm, l=30m, ρ=22 nΩm -> R ≈ 84,03 Ω | d=0,4mm, l=30m, ρ=22 nΩm -> R ≈ 5,25 Ω",
+                "exp": "Wzór ogólny na rezystancję przewodu kołowego:\nPole koła: \\(S = \\frac{\\pi d^2}{4}\\), stąd:\n\\[R = \\rho \\frac{l}{S} = \\frac{4 \\rho l}{\\pi d^2}\\]\ngdzie: \\(d\\) – średnica żyły [m], \\(l\\) – długość [m], \\(\\rho\\) – rezystywność [\\(\\Omega\\cdot\\text{m}\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(d = 0{,}1\\text{ mm} = 10^{-4}\\text{ m}, l = 30\\text{ m}, \\rho = 22\\text{ n}\\Omega\\text{m} = 22 \\cdot 10^{-9}\\,\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 22 \\cdot 10^{-9} \\cdot 30}{\\pi \\cdot (10^{-4})^2} = \\frac{2640 \\cdot 10^{-9}}{\\pi \\cdot 10^{-8}} = \\frac{264}{\\pi} \\approx 84{,}03\\,\\Omega\\]\n• Wariant 2 (\\(d = 0{,}4\\text{ mm} = 4 \\cdot 10^{-4}\\text{ m}, l = 30\\text{ m}, \\rho = 22\\text{ n}\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 22 \\cdot 10^{-9} \\cdot 30}{\\pi \\cdot (4 \\cdot 10^{-4})^2} = \\frac{2640 \\cdot 10^{-9}}{16\\pi \\cdot 10^{-8}} = \\frac{264}{16\\pi} \\approx 5{,}25\\,\\Omega\\]\n• Wariant 3 (\\(d = 0{,}2\\text{ mm} = 2 \\cdot 10^{-4}\\text{ m}, l = 50\\text{ m}, \\rho = 17{,}5\\text{ n}\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 17{,}5 \\cdot 10^{-9} \\cdot 50}{\\pi \\cdot (2 \\cdot 10^{-4})^2} = \\frac{3500 \\cdot 10^{-9}}{4\\pi \\cdot 10^{-8}} = \\frac{87{,}5}{\\pi} \\approx 27{,}85\\,\\Omega\\]"
+        },
+        {
+                "id": 10,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Na okładkach kondensatora zgromadzono ładunek \\(Q\\) przy napięciu \\(U\\). Oblicz pojemność \\(C\\) kondensatora.",
+                "correct": "Wzór: \\(C = \\frac{Q}{U}\\). Dla wariantów: Q=14mC, U=7V -> C = 2 mF | Q=45mC, U=15V -> C = 3 mF",
+                "exp": "Wzór ogólny definiujący pojemność elektryczną:\n\\[C = \\frac{Q}{U}\\]\ngdzie: \\(Q\\) – ładunek zgromadzony na okładkach [C] (\\(1\\text{ mC} = 10^{-3}\\text{ C}\\)), \\(U\\) – napięcie [V], \\(C\\) – pojemność [F].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(Q = 14\\text{ mC} = 14 \\cdot 10^{-3}\\text{ C}, U = 7\\text{ V}\\)):\n\\[C = \\frac{14 \\cdot 10^{-3}}{7} = 2 \\cdot 10^{-3}\\text{ F} = 2\\text{ mF}\\]\n• Wariant 2 (\\(Q = 45\\text{ mC} = 45 \\cdot 10^{-3}\\text{ C}, U = 15\\text{ V}\\)):\n\\[C = \\frac{45 \\cdot 10^{-3}}{15} = 3 \\cdot 10^{-3}\\text{ F} = 3\\text{ mF}\\]\n• Wariant 3 (\\(Q = 50\\,\\mu\\text{C} = 50 \\cdot 10^{-6}\\text{ C}, U = 10\\text{ V}\\)):\n\\[C = \\frac{50 \\cdot 10^{-6}}{10} = 5\\,\\mu\\text{F}\\]"
+        },
+        {
+                "id": 11,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Kondensator o pojemności \\(C\\) naładowano ładunkiem \\(Q\\). Oblicz napięcie \\(U\\) na zaciskach kondensatora.",
+                "correct": "Wzór: \\(U = \\frac{Q}{C}\\). Dla wariantów: Q=68mC, C=47μF -> U ≈ 1446,8 V | Q=10mC, C=100μF -> U = 100 V",
+                "exp": "Wzór ogólny:\n\\[U = \\frac{Q}{C}\\]\ngdzie: \\(Q\\) – ładunek [C], \\(C\\) – pojemność [F] (\\(1\\,\\mu\\text{F} = 10^{-6}\\text{ F}\\)), \\(U\\) – napięcie [V].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(Q = 68\\text{ mC} = 68 \\cdot 10^{-3}\\text{ C}, C = 47\\,\\mu\\text{F} = 47 \\cdot 10^{-6}\\text{ F}\\)):\n\\[U = \\frac{68 \\cdot 10^{-3}}{47 \\cdot 10^{-6}} = \\frac{68000}{47} \\approx 1446{,}8\\text{ V} \\approx 1{,}45\\text{ kV}\\]\n• Wariant 2 (\\(Q = 10\\text{ mC} = 10 \\cdot 10^{-3}\\text{ C}, C = 100\\,\\mu\\text{F} = 10^{-4}\\text{ F}\\)):\n\\[U = \\frac{10 \\cdot 10^{-3}}{10^{-4}} = 100\\text{ V}\\]\n• Wariant 3 (\\(Q = 2\\text{ mC} = 2 \\cdot 10^{-3}\\text{ C}, C = 10\\,\\mu\\text{F} = 10^{-5}\\text{ F}\\)):\n\\[U = \\frac{2 \\cdot 10^{-3}}{10^{-5}} = 200\\text{ V}\\]"
+        },
+        {
+                "id": 12,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Kondensator o pojemności \\(C\\) został naładowany do napięcia \\(U\\). Oblicz zgromadzony ładunek \\(Q\\).",
+                "correct": "Wzór: \\(Q = C \\cdot U\\). Dla wariantów: C=47μF, U=18V -> Q = 0,846 mC (846 μC) | C=100μF, U=12V -> Q = 1,2 mC",
+                "exp": "Wzór ogólny:\n\\[Q = C \\cdot U\\]\ngdzie: \\(C\\) – pojemność [F], \\(U\\) – napięcie [V], \\(Q\\) – ładunek [C].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(C = 47\\,\\mu\\text{F} = 47 \\cdot 10^{-6}\\text{ F}, U = 18\\text{ V}\\)):\n\\[Q = 47 \\cdot 10^{-6} \\cdot 18 = 846 \\cdot 10^{-6}\\text{ C} = 0{,}846\\text{ mC} = 846\\,\\mu\\text{C}\\]\n• Wariant 2 (\\(C = 100\\,\\mu\\text{F} = 10^{-4}\\text{ F}, U = 12\\text{ V}\\)):\n\\[Q = 10^{-4} \\cdot 12 = 1{,}2 \\cdot 10^{-3}\\text{ C} = 1{,}2\\text{ mC}\\]\n• Wariant 3 (\\(C = 22\\,\\mu\\text{F} = 22 \\cdot 10^{-6}\\text{ F}, U = 24\\text{ V}\\)):\n\\[Q = 22 \\cdot 10^{-6} \\cdot 24 = 528 \\cdot 10^{-6}\\text{ C} = 0{,}528\\text{ mC}\\]"
+        },
+        {
+                "id": 13,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Kondensator płaski składa się z dwóch elektrod o powierzchni \\(S\\) każda, oddzielonych dielektrykiem o grubości \\(d\\) i przenikalności względnej \\(\\varepsilon_r\\). Oblicz pojemność kondensatora \\(C\\) (przyjmij \\(\\varepsilon_0 = 8{,}854 \\cdot 10^{-12}\\text{ F/m}\\)).",
+                "correct": "Wzór: \\(C = \\varepsilon_0 \\varepsilon_r \\frac{S}{d}\\). Dla wariantów: S=53cm², d=12μm, ε_r=3 -> C ≈ 11,73 nF | S=34cm², d=10μm, ε_r=3 -> C ≈ 9,03 nF",
+                "exp": "Wzór ogólny na pojemność kondensatora płaskiego:\n\\[C = \\varepsilon_0 \\varepsilon_r \\frac{S}{d}\\]\ngdzie: \\(\\varepsilon_0 = 8{,}854 \\cdot 10^{-12}\\text{ F/m}\\) – przenikalność elektryczna próżni, \\(\\varepsilon_r\\) – względna przenikalność dielektryka, \\(S\\) – powierzchnia elektrod [\\(\\text{m}^2\\)] (\\(1\\text{ cm}^2 = 10^{-4}\\text{ m}^2\\)), \\(d\\) – grubość dielektryka [m] (\\(1\\,\\mu\\text{m} = 10^{-6}\\text{ m}\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(S = 53\\text{ cm}^2 = 53 \\cdot 10^{-4}\\text{ m}^2, d = 12\\,\\mu\\text{m} = 12 \\cdot 10^{-6}\\text{ m}, \\varepsilon_r = 3\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 3 \\cdot \\frac{53 \\cdot 10^{-4}}{12 \\cdot 10^{-6}} = 26{,}562 \\cdot 10^{-12} \\cdot 441{,}67 \\approx 11{,}73 \\cdot 10^{-9}\\text{ F} = 11{,}73\\text{ nF}\\]\n• Wariant 2 (\\(S = 34\\text{ cm}^2 = 34 \\cdot 10^{-4}\\text{ m}^2, d = 10\\,\\mu\\text{m} = 10^{-5}\\text{ m}, \\varepsilon_r = 3\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 3 \\cdot \\frac{34 \\cdot 10^{-4}}{10^{-5}} = 26{,}562 \\cdot 10^{-12} \\cdot 340 \\approx 9{,}03 \\cdot 10^{-9}\\text{ F} = 9{,}03\\text{ nF}\\]\n• Wariant 3 (\\(S = 50\\text{ cm}^2 = 5 \\cdot 10^{-3}\\text{ m}^2, d = 20\\,\\mu\\text{m} = 2 \\cdot 10^{-5}\\text{ m}, \\varepsilon_r = 4\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 4 \\cdot \\frac{5 \\cdot 10^{-3}}{2 \\cdot 10^{-5}} = 35{,}416 \\cdot 10^{-12} \\cdot 250 = 8{,}854\\text{ nF}\\]"
+        },
+        {
+                "id": 14,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "W cewce przez którą płynie prąd \\(I\\), wytworzony strumień skojarzony wynosi \\(\\Psi\\). Oblicz indukcyjność własną \\(L\\) cewki.",
+                "correct": "Wzór: \\(L = \\frac{\\Psi}{I}\\). Dla wariantów: Ψ=6mWb, I=2A -> L = 3 mH | Ψ=28mWb, I=4A -> L = 7 mH",
+                "exp": "Wzór ogólny definiujący indukcyjność własną cewki:\n\\[L = \\frac{\\Psi}{I}\\]\ngdzie: \\(\\Psi\\) – strumień skojarzony [Wb] (\\(1\\text{ mWb} = 10^{-3}\\text{ Wb}\\)), \\(I\\) – natężenie prądu [A], \\(L\\) – indukcyjność [H].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(\\Psi = 6\\text{ mWb} = 6 \\cdot 10^{-3}\\text{ Wb}, I = 2\\text{ A}\\)):\n\\[L = \\frac{6 \\cdot 10^{-3}}{2} = 3 \\cdot 10^{-3}\\text{ H} = 3\\text{ mH}\\]\n• Wariant 2 (\\(\\Psi = 28\\text{ mWb} = 28 \\cdot 10^{-3}\\text{ Wb}, I = 4\\text{ A}\\)):\n\\[L = \\frac{28 \\cdot 10^{-3}}{4} = 7 \\cdot 10^{-3}\\text{ H} = 7\\text{ mH}\\]\n• Wariant 3 (\\(\\Psi = 15\\text{ mWb}, I = 3\\text{ A}\\)):\n\\[L = \\frac{15 \\cdot 10^{-3}}{3} = 5\\text{ mH}\\]"
+        },
+        {
+                "id": 15,
+                "labs": [
+                        1
+                ],
+                "type": "open",
+                "q": "Dla cewki o indukcyjności \\(L\\) wyznacz prąd \\(I\\) wywołujący strumień \\(\\Psi\\) lub strumień skojarzony \\(\\Psi\\) wywołany prądem \\(I\\).",
+                "correct": "Wzory: \\(I = \\frac{\\Psi}{L}\\) oraz \\(\\Psi = L \\cdot I\\). Dla L=5mH, Ψ=25mWb -> I = 5 A | Dla L=10mH, I=2A -> Ψ = 20 mWb",
+                "exp": "Wzór ogólny łączący strumień magnetyczny z indukcyjnością:\n\\[\\Psi = L \\cdot I \\iff I = \\frac{\\Psi}{L}\\]\ngdzie: \\(L\\) – indukcyjność [H], \\(\\Psi\\) – strumień skojarzony [Wb], \\(I\\) – natężenie prądu [A].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (obliczenie prądu \\(I\\) dla \\(L = 5\\text{ mH} = 5 \\cdot 10^{-3}\\text{ H}, \\Psi = 25\\text{ mWb} = 25 \\cdot 10^{-3}\\text{ Wb}\\)):\n\\[I = \\frac{25 \\cdot 10^{-3}}{5 \\cdot 10^{-3}} = 5\\text{ A}\\]\n• Wariant 2 (obliczenie strumienia \\(\\Psi\\) dla \\(L = 10\\text{ mH} = 10^{-2}\\text{ H}, I = 2\\text{ A}\\)):\n\\[\\Psi = 10^{-2} \\cdot 2 = 2 \\cdot 10^{-2}\\text{ Wb} = 20\\text{ mWb}\\]\n• Wariant 3 (obliczenie prądu \\(I\\) dla \\(L = 4\\text{ mH}, \\Psi = 16\\text{ mWb}\\)):\n\\[I = \\frac{16 \\cdot 10^{-3}}{4 \\cdot 10^{-3}} = 4\\text{ A}\\]"
+        },
+        {
+                "id": 16,
+                "labs": [
+                        1,
+                        2
+                ],
+                "type": "open",
+                "q": "Oblicz przybliżoną indukcyjność \\(L\\) cewki cylindrycznej powietrznej (solenoidu) o liczbie zwojów \\(z\\), długości \\(l\\) i powierzchni przekroju poprzecznego \\(S\\) (przyjmij \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\)).",
+                "correct": "Wzór: \\(L = \\mu_0 \\frac{z^2 \\cdot S}{l}\\). Dla wariantów: z=400, l=20cm, S=10cm² -> L ≈ 1,01 mH | z=500, l=25cm, S=15cm² -> L ≈ 1,88 mH",
+                "exp": "Wzór ogólny na indukcyjność cewki jednowarstwowej długiej (powietrznej):\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l}\\]\ngdzie: \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\) – przenikalność magnetyczna próżni, \\(z\\) – liczba zwojów, \\(S\\) – powierzchnia przekroju poprzecznego [\\(\\text{m}^2\\)] (\\(1\\text{ cm}^2 = 10^{-4}\\text{ m}^2\\)), \\(l\\) – długość solenoidu [m].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(z = 400, l = 20\\text{ cm} = 0{,}2\\text{ m}, S = 10\\text{ cm}^2 = 10^{-3}\\text{ m}^2\\)):\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{400^2 \\cdot 10^{-3}}{0{,}2} = 4\\pi \\cdot 10^{-7} \\cdot \\frac{160000 \\cdot 10^{-3}}{0{,}2} = 4\\pi \\cdot 10^{-7} \\cdot 800 \\approx 1{,}005 \\cdot 10^{-3}\\text{ H} \\approx 1{,}01\\text{ mH}\\]\n• Wariant 2 (\\(z = 500, l = 25\\text{ cm} = 0{,}25\\text{ m}, S = 15\\text{ cm}^2 = 15 \\cdot 10^{-4}\\text{ m}^2\\)):\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{250000 \\cdot 15 \\cdot 10^{-4}}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot 1500 \\approx 1{,}885 \\cdot 10^{-3}\\text{ H} \\approx 1{,}88\\text{ mH}\\]"
+        },
+        {
+                "id": 17,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "Dowolny aktywny liniowy obwód zasilający widziany z zacisków odbiornika można zastąpić obwodem równoważnym Thevenina składającym się z:",
+                "a": "rzeczywistego źródła napięcia (SEM E_Th i rezystancji wewnętrznej R_Th połączonych szeregowo)",
+                "b": "rzeczywistego źródła prądu (źródła prądowego I_N i połączonej równolegle konduktancji G_N)",
+                "c": "pojedynczego idealnego rezystora bezźródłowego",
+                "d": "idealnego bezstratnego kondensatora i cewki",
+                "correct": "a",
+                "exp": "Zgodnie z twierdzeniem Thevenina, liniowy aktywny układ zasilający widziany z pary zacisków zastępuje się rzeczywistym źródłem napięcia o sile elektromotorycznej \\(E_{Th}\\) równej napięciu stanu jałowego \\(U_0\\) oraz rezystancji wewnętrznej \\(R_{Th}\\) równej rezystancji zastępczej obwodu pasywnego przy wygaszonych źródłach niezależnych."
+        },
+        {
+                "id": 18,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "Dowolny aktywny liniowy obwód zasilający widziany z zacisków odbiornika można zastąpić obwodem równoważnym Nortona składającym się z:",
+                "a": "rzeczywistego źródła prądowego (źródła prądowego I_N połączonego równolegle z rezystancją/konduktancją wewnętrzną R_N)",
+                "b": "rzeczywistego źródła napięciowego (SEM połączonej szeregowo z rezystancją)",
+                "c": "wyłącznie pojedynczego idealnego źródła napięcia",
+                "d": "układu bezźródłowego z samymi rezystorami",
+                "correct": "a",
+                "exp": "Twierdzenie Nortona jest dualne do twierdzenia Thevenina: aktywny obwód liniowy zastępuje się rzeczywistym źródłem prądowym o wydajności prądowej \\(I_N\\) równej prądowi zwarcia \\(I_z\\) zacisków wyjściowych połączonym równolegle z rezystancją wewnętrzną \\(R_N = R_{Th}\\)."
+        },
+        {
+                "id": 19,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "Odpowiedź (prąd lub napięcie) w dowolnej gałęzi liniowego obwodu elektrycznego zawierającego wiele niezależnych źródeł energii jest równa (zasada superpozycji):",
+                "a": "sumie algebraicznej odpowiedzi wywołanych przez każde ze źródeł działające z osobna (przy wygaszeniu pozostałych źródeł)",
+                "b": "iloczynowi prądów cząstkowych wywołanych przez poszczególne źródła",
+                "c": "odpowiedzi wywołanej przez źródło o największej sile elektromotorycznej lub wydajności",
+                "d": "średniej arytmetycznej napięć wszystkich źródeł w obwodzie",
+                "correct": "a",
+                "exp": "Zasada superpozycji (nakładania) wynika z liniowości równań obwodu: prąd lub napięcie w gałęzi obwodu ze źródłami \\(E_1, E_2, \\dots\\) jest sumą odpowiedzi wywołanych przez poszczególne źródła działające pojedynczo. Podczas analizy źródła napięciowe nieaktywne zastępuje się zwarciem (\\(U=0\\)), a źródła prądowe rozwarciem (\\(I=0\\))."
+        },
+        {
+                "id": 20,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "Którego z poniższych twierdzeń teorii obwodów NIE można bezpośrednio zastosować do analizy obwodu, jeżeli w badanym obwodzie występuje jednocześnie wiele niezależnych źródeł energii?",
+                "a": "twierdzenia o wzajemności",
+                "b": "twierdzenia Thevenina",
+                "c": "twierdzenia Nortona",
+                "d": "zasady superpozycji",
+                "correct": "a",
+                "exp": "Twierdzenie o wzajemności (reciprocity theorem) dotyczy pasywnych układów liniowych pobudzanych jednym pojedynczym źródłem energii (porównuje odpowiedź w gałęzi 'k' na wymuszenie w gałęzi 'j' po zamianie miejsc źródła i miernika). Przy wielu źródłach niezależnych twierdzenie to nie ma bezpośredniego zastosowania."
+        },
+        {
+                "id": 21,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "W obwodzie elektrycznym zasilanym z tylko jednego źródła energii NIE MA zastosowania:",
+                "a": "zasada superpozycji",
+                "b": "twierdzenie Thevenina",
+                "c": "twierdzenie Nortona",
+                "d": "prawa Kirchhoffa",
+                "correct": "a",
+                "exp": "Zasada superpozycji służy do sumowania skutków wielu niezależnych źródeł energii. Przy obecności tylko jednego źródła nie ma innych wymuszeń do wygaszania i nakładania, stąd zasada ta traci cel i zastosowanie praktyczne."
+        },
+        {
+                "id": 22,
+                "labs": [
+                        2
+                ],
+                "type": "choice",
+                "q": "Do analizy obwodów elektrycznych zawierających elementy nieliniowe można zastosować:",
+                "a": "wyłącznie prawa Kirchhoffa (metodę bezpośredniego stosowania praw Kirchhoffa)",
+                "b": "metodę prądów oczkowych",
+                "c": "metodę potencjałów węzłowych",
+                "d": "zasadę superpozycji",
+                "correct": "a",
+                "exp": "Prawa Kirchhoffa (I i II prawo) wynikają z fundamentalnych praw zachowania ładunku i energii w polach elektromagnetycznych i są bezwzględnie uniwersalne – obowiązują zarówno dla obwodów liniowych, jak i nieliniowych. Metody macierzowe (oczkowa, węzłowa) oraz zasada superpozycji opierają się na założeniu liniowości i stałości parametrów (\\(R = \\text{const}\\))."
+        },
+        {
+                "id": 23,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Rzeczywiste źródło napięcia o rezystancji wewnętrznej \\(R_w\\) zasila odbiornik o rezystancji \\(R_{odb}\\). Oblicz sprawność \\(\\eta\\) (w procentach) przekazywania energii ze źródła do odbiornika.",
+                "correct": "Wzór: \\(\\eta = \\frac{R_{odb}}{R_{odb} + R_w} \\cdot 100\\%\\). Dla wariantów: R_odb=13Ω, Rw=1,8Ω -> η ≈ 87,84% | R_odb=7Ω, Rw=1,8Ω -> η ≈ 79,55% | R_odb=14Ω, Rw=2,5Ω -> η ≈ 84,85% | R_odb=22Ω, Rw=1Ω -> η ≈ 95,65%",
+                "exp": "Wzór ogólny na sprawność układu źródło-odbiornik:\n\\[\\eta = \\frac{P_{odb}}{P_{calk}} = \\frac{I^2 R_{odb}}{I^2 (R_{odb} + R_w)} = \\frac{R_{odb}}{R_{odb} + R_w} \\cdot 100\\%\\]\nUwaga: sprawność układu zależy wyłącznie od stosunku rezystancji odbiornika do rezystancji wewnętrznej źródła i NIE zależy od siły elektromotorycznej \\(E\\) źródła.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R_{odb} = 13\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)):\n\\[\\eta = \\frac{13}{13 + 1{,}8} \\cdot 100\\% = \\frac{13}{14{,}8} \\cdot 100\\% \\approx 87{,}84\\%\\]\n• Wariant 2 (\\(R_{odb} = 7\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)):\n\\[\\eta = \\frac{7}{7 + 1{,}8} \\cdot 100\\% = \\frac{7}{8{,}8} \\cdot 100\\% \\approx 79{,}55\\%\\]\n• Wariant 3 (\\(R_{odb} = 14\\,\\Omega, R_w = 2{,}5\\,\\Omega\\)):\n\\[\\eta = \\frac{14}{14 + 2{,}5} \\cdot 100\\% = \\frac{14}{16{,}5} \\cdot 100\\% \\approx 84{,}85\\%\\]\n• Wariant 4 (\\(R_{odb} = 22\\,\\Omega, R_w = 1\\,\\Omega\\)):\n\\[\\eta = \\frac{22}{22 + 1} \\cdot 100\\% = \\frac{22}{23} \\cdot 100\\% \\approx 95{,}65\\%\\]\n• Wariant 5 (\\(R_{odb} = 15\\,\\Omega, R_w = 3\\,\\Omega\\)):\n\\[\\eta = \\frac{15}{15 + 3} \\cdot 100\\% = \\frac{15}{18} \\cdot 100\\% \\approx 83{,}33\\%\\]"
+        },
+        {
+                "id": 24,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Rzeczywiste źródło napięcia o sile elektromotorycznej \\(E\\) i rezystancji wewnętrznej \\(R_w\\) zasila odbiornik w stanie dopasowania energetycznego (\\(R_{odb} = R_w\\)). Oblicz maksymalną moc \\(P_{max}\\) wydzieloną w odbiorniku.",
+                "correct": "Wzór: \\(P_{max} = \\frac{E^2}{4 R_w}\\). Dla wariantów: E=12V, Rw=1,1Ω -> P ≈ 32,73 W | E=17V, Rw=2,9Ω -> P ≈ 24,91 W | E=15V, Rw=2,5Ω -> P = 22,5 W | E=24V, Rw=6Ω -> P = 24 W",
+                "exp": "Wzór ogólny na maksymalną moc przekazywaną do odbiornika (stan dopasowania na moc):\nW stanie dopasowania zachodzi \\(R_{odb} = R_w\\). Prąd w obwodzie wynosi \\(I = \\frac{E}{R_{odb} + R_w} = \\frac{E}{2 R_w}\\).\nMoc odbiornika wynosi zatem:\n\\[P_{max} = I^2 R_{odb} = \\left(\\frac{E}{2 R_w}\\right)^2 R_w = \\frac{E^2}{4 R_w}\\]\ngdzie: \\(E\\) – siła elektromotoryczna źródła [V], \\(R_w\\) – rezystancja wewnętrzna źródła [\\(\\Omega\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E = 12\\text{ V}, R_w = 1{,}1\\,\\Omega\\)):\n\\[P_{max} = \\frac{12^2}{4 \\cdot 1{,}1} = \\frac{144}{4{,}4} \\approx 32{,}73\\text{ W}\\]\n• Wariant 2 (\\(E = 17\\text{ V}, R_w = 2{,}9\\,\\Omega\\)):\n\\[P_{max} = \\frac{17^2}{4 \\cdot 2{,}9} = \\frac{289}{11{,}6} \\approx 24{,}91\\text{ W}\\]\n• Wariant 3 (\\(E = 15\\text{ V}, R_w = 2{,}5\\,\\Omega\\)):\n\\[P_{max} = \\frac{15^2}{4 \\cdot 2{,}5} = \\frac{225}{10} = 22{,}5\\text{ W}\\]\n• Wariant 4 (\\(E = 24\\text{ V}, R_w = 6\\,\\Omega\\)):\n\\[P_{max} = \\frac{24^2}{4 \\cdot 6} = \\frac{576}{24} = 24\\text{ W}\\]\n• Wariant 5 (\\(E = 10\\text{ V}, R_w = 2\\,\\Omega\\)):\n\\[P_{max} = \\frac{10^2}{4 \\cdot 2} = \\frac{100}{8} = 12{,}5\\text{ W}\\]"
+        },
+        {
+                "id": 25,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Dla obwodu przedstawionego na schemacie (Obwód A) wyznacz prąd gałęziowy \\(I_1\\), znając wartości prądów \\(I_2\\) i \\(I_3\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_3\\) wpływa, \\(I_2\\) wypływa.",
+                "img": "img/lab2_obwod_a.png",
+                "correct": "Wzór: \\(I_1 = I_2 - I_3\\). Dla wariantów: I2=0,31A, I3=0,80A -> I1 = -0,49 A | I2=0,5A, I3=1,2A -> I1 = -0,7 A | I2=1,0A, I3=0,4A -> I1 = 0,6 A",
+                "exp": "Wzór ogólny z I prawa Kirchhoffa dla węzła górnego:\nSuma prądów wpływających do węzła jest równa sumie prądów wypływających:\n\\[I_1 + I_3 = I_2 \\implies I_1 = I_2 - I_3\\]\nZnak minus w wyniku oznacza, że rzeczywisty kierunek przepływu prądu \\(I_1\\) jest przeciwny do przyjętego na schemacie zwrotu strzałki.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_2 = 0{,}31\\text{ A}, I_3 = 0{,}80\\text{ A}\\)):\n\\[I_1 = 0{,}31 - 0{,}80 = -0{,}49\\text{ A}\\]\n• Wariant 2 (\\(I_2 = 0{,}5\\text{ A}, I_3 = 1{,}2\\text{ A}\\)):\n\\[I_1 = 0{,}5 - 1{,}2 = -0{,}7\\text{ A}\\]\n• Wariant 3 (\\(I_2 = 1{,}0\\text{ A}, I_3 = 0{,}4\\text{ A}\\)):\n\\[I_1 = 1{,}0 - 0{,}4 = 0{,}6\\text{ A}\\]"
+        },
+        {
+                "id": 26,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd gałęziowy \\(I_1\\), znając wartości prądów \\(I_2\\) i \\(I_3\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_2\\) wpływa, \\(I_3\\) wypływa.",
+                "img": "img/lab2_obwod_bc.png",
+                "correct": "Wzór: \\(I_1 = I_3 - I_2\\). Dla wariantów: I2=0,8A, I3=0,31A -> I1 = -0,49 A | I2=0,4A, I3=1,1A -> I1 = 0,7 A | I2=1,2A, I3=0,5A -> I1 = -0,7 A | I2=0,65A, I3=0,15A -> I1 = -0,50 A",
+                "exp": "Wzór ogólny z I prawa Kirchhoffa dla węzła:\nPrądy \\(I_1\\) oraz \\(I_2\\) wpływają do węzła, natomiast prąd \\(I_3\\) wypływa z węzła:\n\\[I_1 + I_2 = I_3 \\implies I_1 = I_3 - I_2\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_2 = 0{,}80\\text{ A}, I_3 = 0{,}31\\text{ A}\\)):\n\\[I_1 = 0{,}31 - 0{,}80 = -0{,}49\\text{ A}\\]\n• Wariant 2 (\\(I_2 = 0{,}40\\text{ A}, I_3 = 1{,}10\\text{ A}\\)):\n\\[I_1 = 1{,}10 - 0{,}40 = 0{,}70\\text{ A}\\]\n• Wariant 3 (\\(I_2 = 1{,}20\\text{ A}, I_3 = 0{,}50\\text{ A}\\)):\n\\[I_1 = 0{,}50 - 1{,}20 = -0{,}70\\text{ A}\\]\n• Wariant 4 (\\(I_2 = 0{,}65\\text{ A}, I_3 = 0{,}15\\text{ A}\\)):\n\\[I_1 = 0{,}15 - 0{,}65 = -0{,}50\\text{ A}\\]"
+        },
+        {
+                "id": 27,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd \\(I_3\\) płynący przez rezystor \\(R_3\\), znając wartości \\(E_2, I_2, R_2, R_3\\). Zwroty w prawym oczku: źródło \\(E_2\\) w górę, \\(I_2\\) w górę, \\(I_3\\) w dół.",
+                "img": "img/lab2_obwod_bc.png",
+                "correct": "Wzór: \\(I_3 = \\frac{E_2 - I_2 R_2}{R_3}\\). Dla wariantów: E2=12V, I2=0,5A, R2=12Ω, R3=5Ω -> I3 = 1,2 A | E2=10V, I2=0,4A, R2=10Ω, R3=10Ω -> I3 = 0,6 A",
+                "exp": "Wzór ogólny z II prawa Kirchhoffa dla prawego oczka:\nObiegając prawe oczko zgodnie ze zwrotem wskazówek zegara (od góry przez gałąź środkową z \\(I_3\\) w dół, a następnie przez gałąź prawą z \\(E_2\\) i \\(I_2\\) ku dołowi):\n\\[E_2 - I_2 R_2 - I_3 R_3 = 0 \\implies I_3 R_3 = E_2 - I_2 R_2 \\implies I_3 = \\frac{E_2 - I_2 R_2}{R_3}\\]\ngdzie: \\(E_2\\) – SEM źródła w gałęzi 2, \\(I_2\\) – prąd gałęzi 2, \\(R_2\\) – rezystancja w gałęzi 2, \\(R_3\\) – rezystancja w gałęzi 3.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E_2 = 12\\text{ V}, I_2 = 0{,}5\\text{ A}, R_2 = 12\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{12 - 0{,}5 \\cdot 12}{5} = \\frac{12 - 6}{5} = \\frac{6}{5} = 1{,}2\\text{ A}\\]\n• Wariant 2 (\\(E_2 = 10\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{10 - 0{,}4 \\cdot 10}{10} = \\frac{10 - 4}{10} = 0{,}6\\text{ A}\\]\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{15 - 1{,}0 \\cdot 5}{10} = \\frac{10}{10} = 1{,}0\\text{ A}\\]\n• Wariant 4 (\\(E_2 = 24\\text{ V}, I_2 = 2{,}0\\text{ A}, R_2 = 6\\,\\Omega, R_3 = 4\\,\\Omega\\)):\n\\[I_3 = \\frac{24 - 2 \\cdot 6}{4} = \\frac{12}{4} = 3{,}0\\text{ A}\\]"
+        },
+        {
+                "id": 28,
+                "labs": [
+                        2
+                ],
+                "type": "open",
+                "q": "Dla obwodu przedstawionego na schemacie (Obwód D) wyznacz prąd \\(I_3\\) płynący przez rezystor \\(R_3\\), znając wartości \\(E_2, I_2, R_2, R_3\\). Zwroty w prawym oczku: źródło \\(E_2\\) w dół, \\(I_2\\) w dół, \\(I_3\\) w dół.",
+                "img": "img/lab2_obwod_d.png",
+                "correct": "Wzór: \\(I_3 = \\frac{-E_2 + I_2 R_2}{R_3}\\). Dla wariantów: E2=10V, I2=0,5A, R2=6Ω, R3=4Ω -> I3 = -1,75 A | E2=12V, I2=0,8A, R2=10Ω, R3=10Ω -> I3 = -0,4 A",
+                "exp": "Wzór ogólny z II prawa Kirchhoffa dla prawego oczka:\nW obwodzie D źródło \\(E_2\\) jest skierowane przeciwnie (w dół), a prąd \\(I_2\\) płynie w dół. Równanie napięciowe dla oczka prawego daje:\n\\[-E_2 + I_2 R_2 - I_3 R_3 = 0 \\implies I_3 = \\frac{-E_2 + I_2 R_2}{R_3}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E_2 = 10\\text{ V}, I_2 = 0{,}5\\text{ A}, R_2 = 6\\,\\Omega, R_3 = 4\\,\\Omega\\)):\n\\[I_3 = \\frac{-10 + 0{,}5 \\cdot 6}{4} = \\frac{-10 + 3}{4} = \\frac{-7}{4} = -1{,}75\\text{ A}\\]\n• Wariant 2 (\\(E_2 = 12\\text{ V}, I_2 = 0{,}8\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{-12 + 0{,}8 \\cdot 10}{10} = \\frac{-12 + 8}{10} = \\frac{-4}{10} = -0{,}4\\text{ A}\\]\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{-15 + 1{,}0 \\cdot 5}{5} = \\frac{-10}{5} = -2{,}0\\text{ A}\\]\n• Wariant 4 (\\(E_2 = 8\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{-8 + 0{,}4 \\cdot 10}{5} = \\frac{-8 + 4}{5} = -0{,}8\\text{ A}\\]"
+        },
+        {
+                "id": 29,
+                "labs": [
+                        3
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia charakteryzujące sygnał przedstawiony na wykresie (symetryczna fala trójkątna zmienna w czasie):",
+                "img": "img/lab3_sygnal_trojkatny.png",
+                "a": "ciągły w czasie",
+                "b": "okresowy",
+                "c": "zmienny",
+                "d": "przemienny",
+                "e": "dyskretny",
+                "f": "nieokresowy (aperiodyczny)",
+                "g": "stały",
+                "correct": "a,b,c,d",
+                "exp": "Sygnał jest określony dla każdego momentu czasu (ciągły), powtarza się cyklicznie co okres \\(T\\) (okresowy), jego wartość ulega zmianie w czasie (zmienny) oraz przyjmuje wartości zarówno dodatnie jak i ujemne przy zerowej wartości średniej (przemienny)."
+        },
+        {
+                "id": 30,
+                "labs": [
+                        3
+                ],
+                "type": "multi",
+                "q": "Wskaż prawidłowe określenia charakteryzujące sygnał przedstawiony na wykresie (zanikający sygnał wykładniczy \\(u(t) = U_0 e^{-t/\\tau}\\) dla \\(t \\ge 0\\)):",
+                "img": "img/lab3_sygnal_wykladniczy.png",
+                "a": "ciągły w czasie",
+                "b": "zmienny",
+                "c": "nieokresowy (aperiodyczny)",
+                "d": "okresowy",
+                "e": "przemienny",
+                "f": "dyskretny",
+                "correct": "a,b,c",
+                "exp": "Sygnał zaniku wykładniczego \\(u(t) = U_0 e^{-t/\\tau}\\) jest zdefiniowany ciągle w czasie dla \\(t \\ge 0\\), zmienia swoją wartość dążąc asymptotycznie do zera (jest zmienny) i nie powtarza się w kolejnych cyklach (jest aperiodyczny/nieokresowy). Ponieważ nie zmienia znaku na przeciwny, nie jest przemienny."
+        },
+        {
+                "id": 31,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Przez rezystor o rezystancji \\(R\\) płynie prąd przemienny o przebiegu trójkątnym symetrycznym o wartości szczytowej \\(I_m\\). Oblicz energię cieplną (ciepło Joule'a) \\(W\\) wydzieloną na rezystorze w czasie \\(t\\).",
+                "correct": "Wzór: \\(W = \\frac{I_m^2 \\cdot R}{3} \\cdot t\\). Dla wariantów: R=8Ω, Im=4A, t=7min (420s) -> W = 17,92 kJ | R=16Ω, Im=4A, t=7min -> W = 35,84 kJ | R=12Ω, Im=3A, t=5min (300s) -> W = 10,8 kJ",
+                "exp": "Wzór ogólny na energię cieplną wydzieloną na rezystancji:\n\\[W = P \\cdot t = I_{sk}^2 \\cdot R \\cdot t\\]\nDla symetrycznego przebiegu trójkątnego wartość skuteczna prądu wynosi:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{3}}\\]\nPodstawiając do wzoru na energię:\n\\[W = \\left(\\frac{I_m}{\\sqrt{3}}\\right)^2 \\cdot R \\cdot t = \\frac{I_m^2 \\cdot R}{3} \\cdot t\\]\ngdzie: \\(I_m\\) – wartość szczytowa [A], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(t\\) – czas [s] (pamiętaj o zamianie minut na sekundy: \\(t = \\text{minuty} \\cdot 60\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R = 8\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min} = 420\\text{ s}\\)):\n\\[W = \\frac{4^2 \\cdot 8}{3} \\cdot 420 = \\frac{16 \\cdot 8}{3} \\cdot 420 = 128 \\cdot 140 = 17920\\text{ J} = 17{,}92\\text{ kJ}\\]\n• Wariant 2 (\\(R = 16\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min} = 420\\text{ s}\\)):\n\\[W = \\frac{16 \\cdot 16}{3} \\cdot 420 = 256 \\cdot 140 = 35840\\text{ J} = 35{,}84\\text{ kJ}\\]\n• Wariant 3 (\\(R = 12\\,\\Omega, I_m = 3\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)):\n\\[W = \\frac{3^2 \\cdot 12}{3} \\cdot 300 = \\frac{9 \\cdot 12}{3} \\cdot 300 = 36 \\cdot 300 = 10800\\text{ J} = 10{,}8\\text{ kJ}\\]"
+        },
+        {
+                "id": 32,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Przez rezystor o rezystancji \\(R\\) płynie prąd przemienny sinusoidalny o amplitudzie \\(I_m\\). Oblicz energię cieplną \\(W\\) wydzieloną na rezystorze w czasie \\(t\\).",
+                "correct": "Wzór: \\(W = \\frac{I_m^2 \\cdot R}{2} \\cdot t\\). Dla wariantów: R=14Ω, Im=2A, t=5min (300s) -> W = 8,4 kJ | R=10Ω, Im=3A, t=10min (600s) -> W = 27 kJ | R=20Ω, Im=1,5A, t=4min (240s) -> W = 5,4 kJ",
+                "exp": "Wzór ogólny na energię cieplną:\n\\[W = I_{sk}^2 \\cdot R \\cdot t\\]\nDla przebiegu sinusoidalnego wartość skuteczna prądu wynosi:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{2}}\\]\nStąd energia wynosi:\n\\[W = \\left(\\frac{I_m}{\\sqrt{2}}\\right)^2 \\cdot R \\cdot t = \\frac{I_m^2 \\cdot R}{2} \\cdot t\\]\ngdzie: \\(I_m\\) – amplituda prądu [A], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(t\\) – czas [s] (\\(t = \\text{min} \\cdot 60\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R = 14\\,\\Omega, I_m = 2\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)):\n\\[W = \\frac{2^2 \\cdot 14}{2} \\cdot 300 = \\frac{4 \\cdot 14}{2} \\cdot 300 = 28 \\cdot 300 = 8400\\text{ J} = 8{,}4\\text{ kJ}\\]\n• Wariant 2 (\\(R = 10\\,\\Omega, I_m = 3\\text{ A}, t = 10\\text{ min} = 600\\text{ s}\\)):\n\\[W = \\frac{3^2 \\cdot 10}{2} \\cdot 600 = \\frac{90}{2} \\cdot 600 = 45 \\cdot 600 = 27000\\text{ J} = 27\\text{ kJ}\\]\n• Wariant 3 (\\(R = 20\\,\\Omega, I_m = 1{,}5\\text{ A}, t = 4\\text{ min} = 240\\text{ s}\\)):\n\\[W = \\frac{1{,}5^2 \\cdot 20}{2} \\cdot 240 = \\frac{2{,}25 \\cdot 20}{2} \\cdot 240 = 22{,}5 \\cdot 240 = 5400\\text{ J} = 5{,}4\\text{ kJ}\\]"
+        },
+        {
+                "id": 33,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym o przebiegu prostokątnym o amplitudzie \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\).",
+                "correct": "Wzór: \\(I_{sr} = \\frac{U_m}{R}\\). Dla wariantów: Um=57V, R=10Ω -> Isr = 5,7 A | Um=65V, R=5Ω -> Isr = 13 A | Um=84V, R=12Ω -> Isr = 7 A",
+                "exp": "Wzór ogólny:\nPo wyprostowaniu dwupołówkowym (mostek Graetza) symetrycznego napięcia prostokątnego o amplitudzie \\(U_m\\), przebieg napięcia wyjściowego jest idealnie stały i wynosi \\(|u(t)| = U_m\\). Wartość średnia napięcia jest zatem równa amplitudzie:\n\\[U_{sr} = U_m\\]\nStąd wartość średnia prądu w rezystorze wynosi z prawa Ohma:\n\\[I_{sr} = \\frac{U_{sr}}{R} = \\frac{U_m}{R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 57\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sr} = \\frac{57}{10} = 5{,}7\\text{ A}\\]\n• Wariant 2 (\\(U_m = 65\\text{ V}, R = 5\\,\\Omega\\)):\n\\[I_{sr} = \\frac{65}{5} = 13{,}0\\text{ A}\\]\n• Wariant 3 (\\(U_m = 84\\text{ V}, R = 12\\,\\Omega\\)):\n\\[I_{sr} = \\frac{84}{12} = 7{,}0\\text{ A}\\]"
+        },
+        {
+                "id": 34,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym o symetrycznym przebiegu trójkątnym o wartości szczytowej \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\).",
+                "correct": "Wzór: \\(I_{sr} = \\frac{U_m}{2 R}\\). Dla wariantów: Um=50V, R=13Ω -> Isr ≈ 1,923 A | Um=80V, R=10Ω -> Isr = 4 A | Um=60V, R=15Ω -> Isr = 2 A",
+                "exp": "Wzór ogólny:\nWyprostowany dwupołówkowo sygnał trójkątny składa się z powtarzających się trójkątów o wysokości \\(U_m\\) i podstawie równej połowie okresu \\(T/2\\). Średnia wartość napięcia to pole pod wykresem podzielone przez czas:\n\\[U_{sr} = \\frac{1}{T/2} \\cdot \\left(\\frac{1}{2} \\cdot \\frac{T}{2} \\cdot U_m\\right) = \\frac{U_m}{2}\\]\nZ prawa Ohma prąd średni wynosi:\n\\[I_{sr} = \\frac{U_{sr}}{R} = \\frac{U_m}{2 R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 50\\text{ V}, R = 13\\,\\Omega\\)):\n\\[I_{sr} = \\frac{50}{2 \\cdot 13} = \\frac{50}{26} \\approx 1{,}923\\text{ A}\\]\n• Wariant 2 (\\(U_m = 80\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sr} = \\frac{80}{2 \\cdot 10} = \\frac{80}{20} = 4{,}0\\text{ A}\\]\n• Wariant 3 (\\(U_m = 60\\text{ V}, R = 15\\,\\Omega\\)):\n\\[I_{sr} = \\frac{60}{2 \\cdot 15} = \\frac{60}{30} = 2{,}0\\text{ A}\\]"
+        },
+        {
+                "id": 35,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Mostek Graetza zasilany jest napięciem trójkątnym o wartości szczytowej \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\).",
+                "correct": "Wzór: \\(I_{sk} = \\frac{U_m}{\\sqrt{3} \\cdot R}\\). Dla wariantów: Um=134V, R=14Ω -> Isk ≈ 5,53 A | Um=130V, R=7Ω -> Isk ≈ 10,72 A | Um=89V, R=12Ω -> Isk ≈ 4,28 A",
+                "exp": "Wzór ogólny:\nWartość skuteczna (RMS) napięcia zależy od kwadratu wartości chwilowych, więc wyprostowanie dwupołówkowe nie zmienia wartości skutecznej: \\(U_{sk} = \\frac{U_m}{\\sqrt{3}}\\).\nStąd prąd skuteczny płynący przez rezystancję \\(R\\) wynosi:\n\\[I_{sk} = \\frac{U_{sk}}{R} = \\frac{U_m}{\\sqrt{3} \\cdot R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 134\\text{ V}, R = 14\\,\\Omega\\)):\n\\[I_{sk} = \\frac{134}{\\sqrt{3} \\cdot 14} = \\frac{134}{24{,}2487} \\approx 5{,}526\\text{ A} \\approx 5{,}53\\text{ A}\\]\n• Wariant 2 (\\(U_m = 130\\text{ V}, R = 7\\,\\Omega\\)):\n\\[I_{sk} = \\frac{130}{\\sqrt{3} \\cdot 7} = \\frac{130}{12{,}1244} \\approx 10{,}722\\text{ A} \\approx 10{,}72\\text{ A}\\]\n• Wariant 3 (\\(U_m = 89\\text{ V}, R = 12\\,\\Omega\\)):\n\\[I_{sk} = \\frac{89}{\\sqrt{3} \\cdot 12} = \\frac{89}{20{,}7846} \\approx 4{,}282\\text{ A} \\approx 4{,}28\\text{ A}\\]"
+        },
+        {
+                "id": 36,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "Mostek Graetza zasilany jest napięciem sinusoidalnym o amplitudzie \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\).",
+                "correct": "Wzór: \\(I_{sk} = \\frac{U_m}{\\sqrt{2} \\cdot R}\\). Dla wariantów: Um=83V, R=10Ω -> Isk ≈ 5,87 A | Um=100V, R=20Ω -> Isk ≈ 3,54 A | Um=325V, R=50Ω -> Isk = 4,6 A",
+                "exp": "Wzór ogólny:\nWartość skuteczna napięcia sinusoidalnego po wyprostowaniu dwupołówkowym wynosi niezmiennie:\n\\[U_{sk} = \\frac{U_m}{\\sqrt{2}}\\]\nPrąd skuteczny w gałęzi obciążenia wynosi zatem:\n\\[I_{sk} = \\frac{U_{sk}}{R} = \\frac{U_m}{\\sqrt{2} \\cdot R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 83\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sk} = \\frac{83}{\\sqrt{2} \\cdot 10} = \\frac{83}{14{,}142} \\approx 5{,}869\\text{ A} \\approx 5{,}87\\text{ A}\\]\n• Wariant 2 (\\(U_m = 100\\text{ V}, R = 20\\,\\Omega\\)):\n\\[I_{sk} = \\frac{100}{20\\sqrt{2}} = \\frac{5}{\\sqrt{2}} \\approx 3{,}536\\text{ A} \\approx 3{,}54\\text{ A}\\]\n• Wariant 3 (\\(U_m = 230\\sqrt{2}\\text{ V} \\approx 325\\text{ V}, R = 50\\,\\Omega\\)):\n\\[I_{sk} = \\frac{230}{50} = 4{,}60\\text{ A}\\]"
+        },
+        {
+                "id": 37,
+                "labs": [
+                        3
+                ],
+                "type": "open",
+                "q": "W obwodzie włączono szeregowo amperomierz magnetoelektryczny (DC) oraz elektromagnetyczny (AC/RMS). Amperomierz magnetoelektryczny wskazał prąd \\(I_{DC}\\) (średni), a elektromagnetyczny prąd \\(I_{AC}\\) (skuteczny). Oblicz ładunek elektryczny \\(Q\\), który przepłynął w obwodzie w czasie \\(t\\).",
+                "correct": "Wzór: \\(Q = I_{DC} \\cdot t\\). Dla wariantów: I_DC=0,7A, I_AC=2,8A, t=100s -> Q = 70 C | I_DC=1,2A, I_AC=3,5A, t=200s -> Q = 240 C | I_DC=2A, I_AC=5A, t=1h (3600s) -> Q = 7,2 kC",
+                "exp": "Wzór ogólny na ładunek elektryczny przepływający przez przewodnik:\nCałkowity ładunek \\(Q\\) to całka z prądu w czasie:\n\\[Q = \\int_0^t i(\\tau)\\, d\\tau = I_{sr} \\cdot t = I_{DC} \\cdot t\\]\nZasada pomiaru:\n• Miernik magnetoelektryczny (DC) mierzy wartość średnią prądu \\(I_{sr} = I_{DC}\\), która odpowiada bezpośredniemu wypadkowemu transportowi ładunku elektrycznego.\n• Miernik elektromagnetyczny (AC) mierzy wartość skuteczną \\(I_{sk} = I_{AC}\\), która odzwierciedla działanie termiczne prądu (energię) i nie mierzy bezpośrednio transportowanego ładunku netto.\nStąd do obliczenia ładunku używamy wyłącznie wskazania \\(I_{DC}\\):\n\\[Q = I_{DC} \\cdot t\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_{DC} = 0{,}7\\text{ A}, I_{AC} = 2{,}8\\text{ A}, t = 100\\text{ s}\\)):\n\\[Q = 0{,}7 \\cdot 100 = 70\\text{ C}\\]\n• Wariant 2 (\\(I_{DC} = 1{,}2\\text{ A}, I_{AC} = 3{,}5\\text{ A}, t = 200\\text{ s}\\)):\n\\[Q = 1{,}2 \\cdot 200 = 240\\text{ C}\\]\n• Wariant 3 (\\(I_{DC} = 2{,}0\\text{ A}, I_{AC} = 5{,}0\\text{ A}, t = 1\\text{ h} = 3600\\text{ s}\\)):\n\\[Q = 2{,}0 \\cdot 3600 = 7200\\text{ C} = 7{,}2\\text{ kC}\\]\n• Wariant 4 (\\(I_{DC} = 1{,}5\\text{ A}, I_{AC} = 4{,}0\\text{ A}, t = 60\\text{ s}\\)):\n\\[Q = 1{,}5 \\cdot 60 = 90\\text{ C}\\]"
+        }
+];
+
+        // ==========================================
+        // PERFORMANCE & IN-MEMORY INDEXING
+        // ==========================================
+        // Pre-compute normalized search indices and question maps once at startup
+        const questionMap = new Map();
+        questionBank.forEach((q, idx) => {
+            q._idx = idx;
+            q._searchText = `${q.id} ${q.q} ${q.exp} ${q.correct || ''} ${(q.labs || []).join(' ')}`.toLowerCase();
+            questionMap.set(q.id, q);
+        });
+
+        // State variables
+        let studyIndex = 0;
+        let studyOrderPos = 0;
+        let currentStudyLab = 'all';
+        let studyRandom = false;
+        let studyOrder = Array.from(Array(questionBank.length).keys()); // indices
+        let studyMultiSelections = {};
+        let examState = {
+            active: false,
+            questions: [],
+            currentIndex: 0,
+            answers: {},
+            timer: null,
+            timeRemaining: 0,
+            timeLimit: 0
+        };
+
+        // Lazy Rendering flags
+        const tabLoaded = {
+            dashboard: true,
+            study: false,
+            exam: false,
+            browse: false,
+            starred: false
+        };
+
+        // Browse Pagination state
+        const BROWSE_PAGE_SIZE = 10;
+        let browseFilteredList = [...questionBank];
+        let browseRenderedCount = 0;
+        let browseSearchTimeout = null;
+        let browseIntersectionObserver = null;
+
+        // ==========================================
+        // HIGH PERFORMANCE MATHJAX TARGETING
+        // ==========================================
+        function triggerMathJax(targetEl) {
+            if (!window.MathJax || typeof window.MathJax.typesetPromise !== 'function') return;
+            if (!targetEl) return;
+            const elements = Array.isArray(targetEl) ? targetEl.filter(Boolean) : [targetEl];
+            if (elements.length === 0) return;
+            
+            try {
+                if (typeof window.MathJax.typesetClear === 'function') {
+                    window.MathJax.typesetClear(elements);
+                }
+                window.MathJax.typesetPromise(elements).catch(err => {
+                    // MathJax promise catch
+                });
+            } catch (e) {
+                console.debug('MathJax error:', e);
+            }
+        }
+
+        // Utility: Render Lab Badges
+        function renderLabBadges(labs) {
+            if (!labs || !Array.isArray(labs) || labs.length === 0) return '';
+            return labs.map(lab => `<span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Lab ${lab}</span>`).join(' ');
+        }
+
+        // Utility: Render Question Image with lazy loading
+        function renderQuestionImage(img) {
+            if (!img) return '';
+            return `
+                <div class="my-3 text-center">
+                    <img src="${img}" loading="lazy" decoding="async" alt="Schemat / Wykres do zadania" onclick="openImageModal('${img}')" class="bg-white p-2 rounded-xl border border-slate-200 dark:border-slate-700 max-h-72 mx-auto cursor-zoom-in shadow-sm hover:shadow-md transition object-contain inline-block" title="Kliknij, aby powiększyć schemat">
+                </div>
+            `;
+        }
+
+        // Image Modal Open / Close
+        function openImageModal(src) {
+            const modal = document.getElementById('image-modal');
+            const img = document.getElementById('image-modal-img');
+            if (modal && img) {
+                img.src = src;
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+
+        // Question helper functions
+        function getChoiceKeys(q) {
+            return Object.keys(q)
+                .filter(key => key !== 'q' && /^[a-z]$/i.test(key) && q[key] !== undefined && q[key] !== null && String(q[key]).trim() !== '')
+                .sort((left, right) => left.localeCompare(right, 'pl', { sensitivity: 'base' }));
+        }
+
+        function getCorrectAnswers(q) {
+            return String(q.correct || '')
+                .split(',')
+                .map(part => part.trim())
+                .filter(Boolean);
+        }
+
+        function isMultiChoiceQuestion(q) {
+            if (q.type === 'open') return false;
+            return q.type === 'multi' || q.type === 'multiple' || getCorrectAnswers(q).length > 1;
+        }
+
+        function normalizeAnswerList(answer) {
+            return String(answer || '')
+                .split(',')
+                .map(part => part.trim())
+                .filter(Boolean)
+                .sort();
+        }
+
+        function isAnswerCorrect(q, answer) {
+            const correctAnswers = getCorrectAnswers(q).sort();
+            if (isMultiChoiceQuestion(q)) {
+                return normalizeAnswerList(answer).join(',') === correctAnswers.join(',');
+            }
+            return normalizeAnswerList(answer)[0] === correctAnswers[0];
+        }
+
+        function formatAnswerText(q, answer) {
+            if (isMultiChoiceQuestion(q)) {
+                const answers = normalizeAnswerList(answer);
+                if (answers.length === 0) return 'Brak odpowiedzi';
+                return answers.map(key => `${key.toUpperCase()}) ${escapeHtml(q[key])}`).join(', ');
+            }
+            if (!answer) return 'Brak odpowiedzi';
+            return `${String(answer).toUpperCase()}) ${escapeHtml(q[answer])}`;
+        }
+
+        function getChoiceOptionClasses(isSelected, useCompactGrid) {
+            if (useCompactGrid) {
+                return isSelected
+                    ? "w-full min-h-24 rounded-xl border border-blue-500 bg-blue-50 dark:bg-blue-900/30 p-3 text-left flex flex-col items-start justify-between gap-2 transition-all font-semibold"
+                    : "w-full min-h-24 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 text-left flex flex-col items-start justify-between gap-2 transition-all hover:border-slate-300 dark:hover:border-slate-600";
+            }
+            return isSelected
+                ? "w-full p-4 rounded-xl border border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-left flex items-center space-x-3 transition-all font-semibold"
+                : "w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-left flex items-center space-x-3 transition-all hover:border-slate-300 dark:hover:border-slate-600";
+        }
+
+        function getChoiceBadgeClasses(isSelected, useCompactGrid) {
+            const sizeClass = useCompactGrid ? 'w-6 h-6 text-xs' : 'w-7 h-7 text-xs';
+            return isSelected
+                ? `${sizeClass} rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0`
+                : `${sizeClass} rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 flex items-center justify-center font-bold flex-shrink-0`;
+        }
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        // ==========================================
+        // APP INITIALIZATION (LIGHTNING FAST ONLOAD)
+        // ==========================================
+        window.onload = function() {
+            initProgress();
+            
+            // Check system preferences for theme
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-sun').classList.remove('hidden');
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-moon').classList.remove('hidden');
+            }
+
+            // Theme toggle listener
+            document.getElementById('theme-toggle').onclick = function() {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                    document.getElementById('theme-sun').classList.add('hidden');
+                    document.getElementById('theme-moon').classList.remove('hidden');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                    document.getElementById('theme-moon').classList.add('hidden');
+                    document.getElementById('theme-sun').classList.remove('hidden');
+                }
+            };
+
+            // Pre-calculate study pool in memory
+            rebuildStudyOrder();
+        };
+
+        // Navigation Switching Handler (Lazy Tab Initialization)
+        function switchTab(tabName) {
+            const sections = ['sec-dashboard', 'sec-study', 'sec-exam', 'sec-browse', 'sec-starred'];
+            const navButtons = {
+                'dashboard': 'nav-dashboard',
+                'study': 'nav-study',
+                'exam': 'nav-exam',
+                'browse': 'nav-browse',
+                'starred': 'nav-starred'
+            };
+
+            sections.forEach(sec => document.getElementById(sec).classList.add('hidden'));
+            document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+
+            Object.keys(navButtons).forEach(key => {
+                const btn = document.getElementById(navButtons[key]);
+                if (key === tabName) {
+                    btn.className = "w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400";
+                } else {
+                    btn.className = "w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50";
+                }
+            });
+
+            // Lazy initialization of tabs
+            if (tabName === 'study') {
+                if (!tabLoaded.study) {
+                    loadStudyQuestion();
+                    tabLoaded.study = true;
+                }
+            } else if (tabName === 'browse') {
+                if (!tabLoaded.browse) {
+                    initBrowseDatabase();
+                    tabLoaded.browse = true;
+                }
+            } else if (tabName === 'starred') {
+                loadStarredQuestions();
+                tabLoaded.starred = true;
+            }
+        }
+
+        document.getElementById('nav-dashboard').onclick = () => switchTab('dashboard');
+        document.getElementById('nav-study').onclick = () => switchTab('study');
+        document.getElementById('nav-exam').onclick = () => switchTab('exam');
+        document.getElementById('nav-browse').onclick = () => switchTab('browse');
+        document.getElementById('nav-starred').onclick = () => switchTab('starred');
+
+        // Progress & Statistics Core Logic
+        function initProgress() {
+            let userStats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || {
+                solved: {},
+                correctCount: 0,
+                wrongCount: 0,
+                stars: []
+            };
+            localStorage.setItem('elektrotechnika_stats', JSON.stringify(userStats));
+            updateProgressDOM();
+        }
+
+        function updateProgressDOM() {
+            const stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { solved: {}, correctCount: 0, wrongCount: 0, stars: [] };
+            const totalQuestions = questionBank.length;
+            const solvedCount = Object.keys(stats.solved).length;
+            
+            document.getElementById('stat-solved').innerText = `${solvedCount} / ${totalQuestions}`;
+            
+            const totalAttempts = stats.correctCount + stats.wrongCount;
+            const accuracy = totalAttempts > 0 ? Math.round((stats.correctCount / totalAttempts) * 100) : 0;
+            document.getElementById('stat-accuracy').innerText = `${accuracy}%`;
+
+            const percent = Math.round((solvedCount / totalQuestions) * 100);
+            document.getElementById('stat-progress-bar').style.width = `${percent}%`;
+        }
+
+        function toggleStar(id) {
+            let stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { solved: {}, correctCount: 0, wrongCount: 0, stars: [] };
+            if (stats.stars.includes(id)) {
+                stats.stars = stats.stars.filter(starId => starId !== id);
+                showToast("Pytanie usunięte z ulubionych");
+            } else {
+                stats.stars.push(id);
+                showToast("Pytanie dodane do ulubionych");
+            }
+            localStorage.setItem('elektrotechnika_stats', JSON.stringify(stats));
+            
+            if (tabLoaded.starred && !document.getElementById('sec-starred').classList.contains('hidden')) {
+                loadStarredQuestions();
+            }
+            if (tabLoaded.study && !document.getElementById('sec-study').classList.contains('hidden')) {
+                loadStudyQuestion();
+            }
+        }
+
+        function resetStats() {
+            if (confirm("Czy na pewno chcesz zresetować wszystkie statystyki, historię odpowiedzi i ulubione pytania?")) {
+                localStorage.removeItem('elektrotechnika_stats');
+                initProgress();
+                studyIndex = 0;
+                studyOrderPos = 0;
+                rebuildStudyOrder();
+                if (tabLoaded.study) loadStudyQuestion();
+                if (tabLoaded.starred) loadStarredQuestions();
+                showToast("Wszystkie postępy zostały zresetowane.");
+                switchTab('dashboard');
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('translate-y-20');
+            toast.classList.add('translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0');
+                toast.classList.add('translate-y-20');
+            }, 2500);
+        }
+
+        // ==========================================
+        // STUDY MODE ENGINE (INSTANT TARGETED TYPESETTING)
+        // ==========================================
+        function getStudyQuestionPool() {
+            if (currentStudyLab === 'all') {
+                return questionBank.map((q, idx) => idx);
+            }
+            const labNum = parseInt(currentStudyLab);
+            const indices = [];
+            questionBank.forEach((q, idx) => {
+                if (q.labs && q.labs.includes(labNum)) {
+                    indices.push(idx);
+                }
+            });
+            return indices;
+        }
+
+        function onStudyLabFilterChange() {
+            currentStudyLab = document.getElementById('study-lab-filter').value;
+            rebuildStudyOrder();
+            studyOrderPos = 0;
+            if (studyOrder.length > 0) {
+                studyIndex = studyOrder[0];
+            }
+            loadStudyQuestion();
+        }
+
+        function rebuildStudyOrder() {
+            const pool = getStudyQuestionPool();
+            if (studyRandom) {
+                studyOrder = shuffleArray([...pool]);
+            } else {
+                studyOrder = [...pool];
+            }
+            studyOrderPos = studyOrder.indexOf(studyIndex);
+            if (studyOrderPos === -1) {
+                studyOrderPos = 0;
+                if (studyOrder.length > 0) {
+                    studyIndex = studyOrder[0];
+                }
+            }
+            const goTo = document.getElementById('study-go-to');
+            if (goTo) {
+                goTo.max = studyOrder.length;
+                goTo.value = studyOrderPos + 1;
+            }
+        }
+
+        function loadStudyQuestion() {
+            const card = document.getElementById('study-card');
+            if (studyOrder.length === 0) {
+                card.innerHTML = `<div class="text-center py-8 text-slate-400">Brak pytań w tym laboratorium.</div>`;
+                return;
+            }
+
+            const q = questionBank[studyIndex];
+            const stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { stars: [] };
+            const isStarred = stats.stars.includes(q.id);
+            const multiChoice = isMultiChoiceQuestion(q);
+            studyMultiSelections[q.id] = [];
+            const savedStudyAnswer = studyMultiSelections[q.id] || [];
+
+            let optionsHTML = '';
+            if (q.type === 'choice' || multiChoice) {
+                const keys = getChoiceKeys(q);
+                const opts = shuffleArray(keys.map(k => ({ k, text: q[k] })));
+                const useCompactGrid = opts.length > 4;
+
+                if (multiChoice) {
+                    optionsHTML = `
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                            ${opts.map((opt, idx) => `
+                                <button onclick="toggleStudyMultiAnswer('${opt.k}')" id="opt-${opt.k}" class="${getChoiceOptionClasses(savedStudyAnswer.includes(opt.k), useCompactGrid)}" aria-pressed="${savedStudyAnswer.includes(opt.k)}">
+                                    <div class="flex items-center gap-2">
+                                        <span class="${getChoiceBadgeClasses(savedStudyAnswer.includes(opt.k), useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
+                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Wybór</span>' : ''}
+                                    </div>
+                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                </button>
+                            `).join('')}
+                        </div>
+                        <div class="flex items-center justify-between gap-3 pt-2">
+                            <p class="text-xs text-slate-400">Zaznacz wszystkie poprawne odpowiedzi, potem kliknij sprawdzenie.</p>
+                            <button onclick="checkStudyMultiAnswer()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition shadow-sm">Sprawdź odpowiedź</button>
+                        </div>
+                    `;
+                } else {
+                    optionsHTML = `
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                            ${opts.map((opt, idx) => `
+                                <button onclick="checkStudyAnswer('${opt.k}')" id="opt-${opt.k}" class="${getChoiceOptionClasses(false, useCompactGrid)}">
+                                    <div class="flex items-center gap-2">
+                                        <span class="${getChoiceBadgeClasses(false, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
+                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Odpowiedź</span>' : ''}
+                                    </div>
+                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                </button>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+            } else if (q.type === 'open') {
+                optionsHTML = `
+                    <div class="space-y-4">
+                        <textarea id="open-answer" placeholder="Wpisz swoje obliczenia, wzór lub wynik..." rows="3" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"></textarea>
+                        <div class="flex space-x-3">
+                            <button onclick="showOpenExplanation(true)" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition duration-150 shadow-sm">Znam rozwiązanie / Pokaż wzór</button>
+                            <button onclick="showOpenExplanation(false)" class="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold py-2.5 px-4 rounded-xl text-sm transition duration-150">Pokaż wzorzec i warianty</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between border-b pb-4 border-slate-100 dark:border-slate-700">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Pytanie ${studyOrderPos + 1} z ${studyOrder.length} (ID: ${q.id})</span>
+                        ${renderLabBadges(q.labs)}
+                    </div>
+                    <button onclick="toggleStar(${q.id})" class="text-slate-400 hover:text-amber-500 transition-colors" title="Dodaj do ulubionych">
+                        <svg class="w-6 h-6 ${isStarred ? 'text-amber-500 fill-current' : 'fill-none'}" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-lg font-bold leading-snug">${escapeHtml(q.q)}</p>
+                    ${renderQuestionImage(q.img)}
+                    ${optionsHTML}
+                </div>
+
+                <div id="study-exp" class="hidden mt-6 p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/40 border-l-4 border-blue-500 text-slate-700 dark:text-slate-300 space-y-3">
+                    <p class="font-bold text-sm text-blue-600 dark:text-blue-400 uppercase tracking-wider">Wyjaśnienie i Wzory (LaTeX):</p>
+                    <div class="text-sm leading-relaxed whitespace-pre-line">${escapeHtml(q.exp)}</div>
+                    ${q.correct && q.type === 'open' ? `<div class="mt-2 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 p-2.5 rounded-xl"><strong>Krótka odpowiedź / Wzór:</strong> ${escapeHtml(q.correct)}</div>` : ''}
+                </div>
+
+                <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <button onclick="prevStudyQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold px-5 py-2.5 rounded-xl text-sm transition" ${studyOrderPos === 0 ? 'disabled' : ''}>Poprzednie</button>
+                    <button onclick="nextStudyQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-sm">Następne</button>
+                </div>
+            `;
+
+            const goTo = document.getElementById('study-go-to');
+            if (goTo) {
+                goTo.value = studyOrderPos + 1;
+                goTo.max = studyOrder.length;
+            }
+
+            // Targeted typesetting only for study-card (super fast!)
+            triggerMathJax(card);
+        }
+
+        function moveStudyQuestion(direction) {
+            if (studyOrder.length === 0) return;
+
+            if (direction === 'next') {
+                if (studyOrderPos < studyOrder.length - 1) {
+                    studyOrderPos++;
+                    studyIndex = studyOrder[studyOrderPos];
+                    loadStudyQuestion();
+                } else {
+                    showToast("Gratulacje! Przeszedłeś wszystkie pytania w wybranej kategorii!");
+                }
+            } else if (direction === 'prev') {
+                if (studyOrderPos > 0) {
+                    studyOrderPos--;
+                    studyIndex = studyOrder[studyOrderPos];
+                    loadStudyQuestion();
+                }
+            }
+        }
+
+        function checkStudyAnswer(choice) {
+            const q = questionBank[studyIndex];
+            const keys = getChoiceKeys(q);
+            const correctAnswers = getCorrectAnswers(q);
+            const useCompactGrid = keys.length > 4;
+
+            keys.forEach(opt => {
+                const btn = document.getElementById(`opt-${opt}`);
+                if (!btn) return;
+                btn.disabled = true;
+                if (correctAnswers.includes(opt)) {
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300');
+                } else if (opt === choice) {
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300');
+                }
+            });
+
+            const isCorrect = correctAnswers.includes(choice);
+            updateQuestionHistory(q.id, isCorrect);
+            const expEl = document.getElementById('study-exp');
+            expEl.classList.remove('hidden');
+            triggerMathJax(expEl);
+        }
+
+        function toggleStudyMultiAnswer(choice) {
+            const q = questionBank[studyIndex];
+            const currentSelected = studyMultiSelections[q.id] || [];
+            const useCompactGrid = getChoiceKeys(q).length > 4;
+
+            if (currentSelected.includes(choice)) {
+                studyMultiSelections[q.id] = currentSelected.filter(k => k !== choice);
+            } else {
+                studyMultiSelections[q.id] = [...currentSelected, choice];
+            }
+
+            const isSelected = studyMultiSelections[q.id].includes(choice);
+            const btn = document.getElementById(`opt-${choice}`);
+            if (btn) {
+                btn.className = getChoiceOptionClasses(isSelected, useCompactGrid);
+                btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+                const badge = btn.querySelector('span');
+                if (badge) {
+                    badge.className = getChoiceBadgeClasses(isSelected, useCompactGrid);
+                }
+            }
+        }
+
+        function checkStudyMultiAnswer() {
+            const q = questionBank[studyIndex];
+            const keys = getChoiceKeys(q);
+            const useCompactGrid = keys.length > 4;
+            const correctAnswers = getCorrectAnswers(q).sort();
+            const selectedAnswers = normalizeAnswerList(studyMultiSelections[q.id]);
+
+            keys.forEach(opt => {
+                const btn = document.getElementById(`opt-${opt}`);
+                if (!btn) return;
+                btn.disabled = true;
+                if (correctAnswers.includes(opt)) {
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300');
+                } else if (selectedAnswers.includes(opt)) {
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300');
+                }
+            });
+
+            const isCorrect = selectedAnswers.join(',') === correctAnswers.join(',');
+            updateQuestionHistory(q.id, isCorrect);
+            const expEl = document.getElementById('study-exp');
+            expEl.classList.remove('hidden');
+            triggerMathJax(expEl);
+        }
+
+        function showOpenExplanation(isCorrect) {
+            updateQuestionHistory(questionBank[studyIndex].id, isCorrect);
+            const expEl = document.getElementById('study-exp');
+            expEl.classList.remove('hidden');
+            triggerMathJax(expEl);
+        }
+
+        function updateQuestionHistory(id, isCorrect) {
+            let stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { solved: {}, correctCount: 0, wrongCount: 0, stars: [] };
+            stats.solved[id] = true;
+            if (isCorrect) {
+                stats.correctCount++;
+            } else {
+                stats.wrongCount++;
+            }
+            localStorage.setItem('elektrotechnika_stats', JSON.stringify(stats));
+            updateProgressDOM();
+        }
+
+        function prevStudyQuestion() {
+            moveStudyQuestion('prev');
+        }
+
+        function nextStudyQuestion() {
+            moveStudyQuestion('next');
+        }
+
+        function jumpToStudyQuestion(val) {
+            const num = parseInt(val);
+            if (num >= 1 && num <= studyOrder.length) {
+                studyOrderPos = num - 1;
+                studyIndex = studyOrder[studyOrderPos];
+                loadStudyQuestion();
+            } else {
+                showToast(`Wprowadź numer od 1 do ${studyOrder.length}`);
+            }
+        }
+
+        function toggleStudyShuffle() {
+            studyRandom = !studyRandom;
+            const btn = document.getElementById('study-shuffle');
+            if (studyRandom) {
+                btn.classList.add('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/40', 'dark:text-blue-300');
+                showToast("Włączono losową kolejność pytań");
+            } else {
+                btn.classList.remove('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/40', 'dark:text-blue-300');
+                showToast("Wyłączono losową kolejność pytań");
+            }
+            rebuildStudyOrder();
+            loadStudyQuestion();
+        }
+
+        // ==========================================
+        // EXAM MODE ENGINE (TARGETED TYPESETTING)
+        // ==========================================
+        function startExam() {
+            const labVal = document.getElementById('exam-lab-filter') ? document.getElementById('exam-lab-filter').value : 'all';
+            const countVal = document.getElementById('exam-count').value;
+            const timeVal = document.getElementById('exam-time').value;
+
+            let pool = questionBank;
+            if (labVal !== 'all') {
+                const labNum = parseInt(labVal);
+                pool = questionBank.filter(q => q.labs && q.labs.includes(labNum));
+            }
+
+            if (pool.length === 0) {
+                showToast("Brak pytań dla wybranego laboratorium.");
+                return;
+            }
+
+            let shuffled = shuffleArray([...pool]);
+            let qCount = countVal === 'all' ? pool.length : Math.min(parseInt(countVal), pool.length);
+
+            examState.questions = shuffled.slice(0, qCount);
+            examState.currentIndex = 0;
+            examState.answers = {};
+            examState.active = true;
+
+            if (timeVal === 'no-limit') {
+                examState.timeLimit = 0;
+                document.getElementById('exam-timer-wrapper').classList.add('hidden');
+            } else {
+                examState.timeLimit = parseInt(timeVal) * 60;
+                examState.timeRemaining = examState.timeLimit;
+                document.getElementById('exam-timer-wrapper').classList.remove('hidden');
+                updateExamTimerDisplay();
+                
+                clearInterval(examState.timer);
+                examState.timer = setInterval(() => {
+                    examState.timeRemaining--;
+                    updateExamTimerDisplay();
+                    if (examState.timeRemaining <= 0) {
+                        clearInterval(examState.timer);
+                        finishExam();
+                        showToast("Czas egzaminu minął!");
+                    }
+                }, 1000);
+            }
+
+            document.getElementById('exam-setup').classList.add('hidden');
+            document.getElementById('exam-results').classList.add('hidden');
+            document.getElementById('exam-active').classList.remove('hidden');
+            loadExamQuestion();
+        }
+
+        function updateExamTimerDisplay() {
+            const mins = Math.floor(examState.timeRemaining / 60);
+            const secs = examState.timeRemaining % 60;
+            document.getElementById('exam-timer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function loadExamQuestion() {
+            const card = document.getElementById('exam-question-card');
+            const q = examState.questions[examState.currentIndex];
+            const savedAns = examState.answers[q.id];
+            const multiChoice = isMultiChoiceQuestion(q);
+
+            document.getElementById('exam-progress-badge').innerHTML = `
+                <div class="flex items-center gap-2">
+                    <span>Pytanie ${examState.currentIndex + 1} / ${examState.questions.length}</span>
+                    ${renderLabBadges(q.labs)}
+                </div>
+            `;
+
+            let inputHTML = '';
+            if (q.type === 'choice' || multiChoice) {
+                const keys = getChoiceKeys(q);
+                const opts = keys.map(k => ({ k, text: q[k] }));
+                const useCompactGrid = opts.length > 4;
+
+                if (multiChoice) {
+                    const savedMulti = Array.isArray(savedAns) ? savedAns : [];
+                    inputHTML = `
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                            ${opts.map((opt, idx) => {
+                                const isSelected = savedMulti.includes(opt.k);
+                                return `
+                                    <button onclick="toggleExamAnswer('${opt.k}')" class="${getChoiceOptionClasses(isSelected, useCompactGrid)}" aria-pressed="${isSelected}">
+                                        <div class="flex items-center gap-2">
+                                            <span class="${getChoiceBadgeClasses(isSelected, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
+                                            ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Wybór</span>' : ''}
+                                        </div>
+                                        <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                } else {
+                    inputHTML = `
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                            ${opts.map((opt, idx) => `
+                                <button onclick="selectExamAnswer('${opt.k}')" class="${getChoiceOptionClasses(savedAns === opt.k, useCompactGrid)}">
+                                    <div class="flex items-center gap-2">
+                                        <span class="${getChoiceBadgeClasses(savedAns === opt.k, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
+                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Odpowiedź</span>' : ''}
+                                    </div>
+                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                </button>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+            } else if (q.type === 'open') {
+                inputHTML = `
+                    <div class="space-y-2">
+                        <textarea id="exam-open-answer" onchange="saveExamOpenAnswer(this.value)" oninput="saveExamOpenAnswer(this.value)" placeholder="Wpisz swoją odpowiedź..." rows="4" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-sans">${savedAns ? escapeHtml(savedAns) : ''}</textarea>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="space-y-4">
+                    <p class="text-lg font-bold leading-snug">${escapeHtml(q.q)}</p>
+                    ${renderQuestionImage(q.img)}
+                    ${inputHTML}
+                </div>
+            `;
+
+            document.getElementById('exam-prev-btn').disabled = (examState.currentIndex === 0);
+            document.getElementById('exam-next-btn').disabled = (examState.currentIndex === examState.questions.length - 1);
+
+            triggerMathJax(card);
+        }
+
+        function selectExamAnswer(key) {
+            const q = examState.questions[examState.currentIndex];
+            examState.answers[q.id] = key;
+            loadExamQuestion();
+        }
+
+        function toggleExamAnswer(key) {
+            const q = examState.questions[examState.currentIndex];
+            const currentSelected = Array.isArray(examState.answers[q.id]) ? examState.answers[q.id] : [];
+            if (currentSelected.includes(key)) {
+                examState.answers[q.id] = currentSelected.filter(k => k !== key);
+            } else {
+                examState.answers[q.id] = [...currentSelected, key];
+            }
+            loadExamQuestion();
+        }
+
+        function saveExamOpenAnswer(val) {
+            const q = examState.questions[examState.currentIndex];
+            examState.answers[q.id] = val;
+        }
+
+        function prevExamQuestion() {
+            if (examState.currentIndex > 0) {
+                examState.currentIndex--;
+                loadExamQuestion();
+            }
+        }
+
+        function nextExamQuestion() {
+            if (examState.currentIndex < examState.questions.length - 1) {
+                examState.currentIndex++;
+                loadExamQuestion();
+            }
+        }
+
+        function finishExam() {
+            if (examState.timer) clearInterval(examState.timer);
+            examState.active = false;
+            document.getElementById('exam-active').classList.add('hidden');
+            document.getElementById('exam-results').classList.remove('hidden');
+            calculateAndDisplayResults();
+        }
+
+        function calculateAndDisplayResults() {
+            let correctCount = 0;
+            let totalEvaluated = 0;
+            let reviewHTML = '';
+
+            examState.questions.forEach((q, idx) => {
+                const userAns = examState.answers[q.id];
+                const isCorrect = isAnswerCorrect(q, userAns);
+                
+                if (q.type === 'choice' || isMultiChoiceQuestion(q)) {
+                    totalEvaluated++;
+                    if (isCorrect) correctCount++;
+
+                    const correctAnswers = getCorrectAnswers(q);
+
+                    reviewHTML += `
+                        <div class="p-4 rounded-2xl border ${isCorrect ? 'border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10' : 'border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/10'} space-y-2">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-sm text-slate-500 dark:text-slate-400">Pytanie ${idx + 1} (ID: ${q.id})</span>
+                                    ${renderLabBadges(q.labs)}
+                                </div>
+                                <span class="text-xs font-bold ${isCorrect ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}">${isCorrect ? 'Poprawna' : 'Błędna'}</span>
+                            </div>
+                            <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                            ${renderQuestionImage(q.img)}
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm pt-2">
+                                <div class="${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}">
+                                    <strong>Twoja odpowiedź:</strong> ${formatAnswerText(q, userAns)}
+                                </div>
+                                <div class="text-green-700 dark:text-green-400">
+                                    <strong>Poprawna odpowiedź:</strong> ${correctAnswers.map(key => `${key.toUpperCase()}) ${escapeHtml(q[key])}`).join(', ')}
+                                </div>
+                            </div>
+                            <div class="mt-2 text-xs text-slate-600 dark:text-slate-300 border-t pt-2 dark:border-slate-700 whitespace-pre-line">${escapeHtml(q.exp)}</div>
+                        </div>
+                    `;
+                } else if (q.type === 'open') {
+                    reviewHTML += `
+                        <div id="self-assess-${q.id}" class="p-4 rounded-2xl border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-bold text-sm text-slate-500 dark:text-slate-400">Pytanie ${idx + 1} (Otwarte ID: ${q.id})</span>
+                                    ${renderLabBadges(q.labs)}
+                                </div>
+                                <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2 py-0.5 rounded">Zadanie obliczeniowe</span>
+                            </div>
+                            <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                            ${renderQuestionImage(q.img)}
+                            <div class="p-3 bg-white dark:bg-slate-700 rounded-xl text-sm border border-slate-200 dark:border-slate-600">
+                                <strong class="block text-xs text-slate-400 mb-1">Twoja odpowiedź:</strong>
+                                ${userAns ? escapeHtml(userAns) : '<span class="italic text-red-500">Brak odpowiedzi</span>'}
+                            </div>
+                            <div class="p-3 bg-blue-50/60 dark:bg-blue-900/10 rounded-xl text-sm border border-blue-100 dark:border-blue-900/30 space-y-2">
+                                <strong class="block text-xs text-blue-500">Wzorzec rozwiązania, wzór i wyniki wariantów:</strong>
+                                <div class="font-semibold text-slate-800 dark:text-slate-100">${escapeHtml(q.correct)}</div>
+                                <div class="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-line border-t border-blue-100 dark:border-blue-900/30 pt-2">${escapeHtml(q.exp)}</div>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-xs text-slate-500 font-medium">Czy zaliczasz to pytanie?</span>
+                                <div class="flex space-x-2">
+                                    <button onclick="selfAssess(${q.id}, false)" class="px-3 py-1.5 text-xs bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded-lg font-bold hover:bg-red-200">Niezaliczone</button>
+                                    <button onclick="selfAssess(${q.id}, true)" class="px-3 py-1.5 text-xs bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-lg font-bold hover:bg-green-200">Zaliczone</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            const reviewContainer = document.getElementById('exam-results-review');
+            reviewContainer.innerHTML = reviewHTML;
+
+            const percentage = totalEvaluated > 0 ? Math.round((correctCount / totalEvaluated) * 100) : 0;
+            document.getElementById('exam-score').innerText = `${percentage}%`;
+            document.getElementById('exam-correct-count').innerText = `${correctCount} / ${totalEvaluated}`;
+
+            const elapsed = examState.timeLimit > 0 ? (examState.timeLimit - examState.timeRemaining) : 0;
+            const mins = Math.floor(elapsed / 60);
+            const secs = elapsed % 60;
+            document.getElementById('exam-time-elapsed').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+            const isPassed = percentage >= 50;
+            const statusTitle = document.getElementById('exam-result-title');
+            const finalGrade = document.getElementById('exam-final-grade');
+            const iconBg = document.getElementById('exam-result-icon-bg');
+            const icon = document.getElementById('exam-result-icon');
+
+            if (isPassed) {
+                statusTitle.innerText = "Gratulacje! Zdałeś Egzamin!";
+                finalGrade.innerText = "Pozytywna";
+                finalGrade.className = "text-2xl font-bold mt-1 text-green-600 dark:text-green-400";
+                iconBg.className = "inline-flex p-4 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400";
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>`;
+            } else {
+                statusTitle.innerText = "Niestety, nie zdałeś!";
+                finalGrade.innerText = "Negatywna";
+                finalGrade.className = "text-2xl font-bold mt-1 text-red-600 dark:text-red-400";
+                iconBg.className = "inline-flex p-4 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400";
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>`;
+            }
+
+            triggerMathJax(reviewContainer);
+        }
+
+        window.selfAssess = function(qId, status) {
+            const card = document.getElementById(`self-assess-${qId}`);
+            if (status) {
+                card.className = "p-4 rounded-2xl border border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10 space-y-3";
+                card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-green-600 font-bold flex items-center space-x-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span>Oznaczono jako zaliczone</span>
+                </span>`;
+            } else {
+                card.className = "p-4 rounded-2xl border border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/10 space-y-3";
+                card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-red-600 font-bold flex items-center space-x-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    <span>Oznaczono jako niezaliczone</span>
+                </span>`;
+            }
+            updateQuestionHistory(qId, status);
+        }
+
+        function exitExam() {
+            document.getElementById('exam-results').classList.add('hidden');
+            document.getElementById('exam-setup').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // BROWSE DATABASE ENGINE (LAZY BATCH RENDERING)
+        // ==========================================
+        function initBrowseDatabase() {
+            applyBrowseFilter();
+            setupBrowseInfiniteScroll();
+        }
+
+        function onBrowseFilterChange() {
+            applyBrowseFilter();
+        }
+
+        function onSearchInput(val) {
+            clearTimeout(browseSearchTimeout);
+            browseSearchTimeout = setTimeout(() => {
+                applyBrowseFilter();
+            }, 150);
+        }
+
+        function applyBrowseFilter() {
+            const query = (document.getElementById('search-input').value || '').trim().toLowerCase();
+            const labFilter = document.getElementById('browse-lab-filter') ? document.getElementById('browse-lab-filter').value : 'all';
+
+            // Filter in-memory questions in 0.1ms without DOM inspection
+            browseFilteredList = questionBank.filter(q => {
+                const matchesLab = (labFilter === 'all') || (q.labs && q.labs.includes(parseInt(labFilter)));
+                if (!matchesLab) return false;
+                if (!query) return true;
+                return q._searchText.includes(query) || String(q.id) === query;
+            });
+
+            document.getElementById('browse-title').innerText = `Wszystkie pytania bazy (${browseFilteredList.length} ${browseFilteredList.length === 1 ? 'pytanie' : (browseFilteredList.length < 5 ? 'pytania' : 'pytań')})`;
+
+            const list = document.getElementById('browse-list');
+            list.innerHTML = '';
+            browseRenderedCount = 0;
+
+            if (browseFilteredList.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 bg-white dark:bg-slate-800 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
+                        <p class="text-slate-400">Nie znaleziono pytań spełniających kryteria.</p>
+                    </div>
+                `;
+                document.getElementById('browse-load-more-wrap').classList.add('hidden');
+                return;
+            }
+
+            loadMoreBrowseQuestions();
+        }
+
+        function createBrowseCardHTML(q) {
+            const badgeHTML = q.type === 'open' ? 
+                `<span class="text-xs bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 font-bold px-2.5 py-1 rounded-lg">Otwarte</span>` : 
+                `<span class="text-xs ${isMultiChoiceQuestion(q) ? 'bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'} font-bold px-2.5 py-1 rounded-lg">${isMultiChoiceQuestion(q) ? 'Wielokrotny wybór' : 'Pojedynczy wybór'}</span>`;
+
+            return `
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition duration-150 space-y-3 browse-card" data-qid="${q.id}">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-400">Pytanie ${q.id}</span>
+                            ${renderLabBadges(q.labs)}
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            ${badgeHTML}
+                            <button onclick="studyNow(${q.id})" class="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 px-2.5 py-1 rounded-lg transition-colors font-semibold">Ucz się teraz</button>
+                        </div>
+                    </div>
+                    <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                    ${renderQuestionImage(q.img)}
+                    <div class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                        <p class="font-bold text-blue-600 dark:text-blue-400">Wzorzec / Wyjaśnienie:</p>
+                        <div class="leading-relaxed whitespace-pre-line">${escapeHtml(q.exp)}</div>
+                        ${q.type === 'open' && q.correct ? `<div class="mt-2 font-semibold text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-slate-600 pt-1.5">Wynik / Wzór: ${escapeHtml(q.correct)}</div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadMoreBrowseQuestions() {
+            const list = document.getElementById('browse-list');
+            const total = browseFilteredList.length;
+            if (browseRenderedCount >= total) {
+                document.getElementById('browse-load-more-wrap').classList.add('hidden');
+                return;
+            }
+
+            const nextBatch = browseFilteredList.slice(browseRenderedCount, browseRenderedCount + BROWSE_PAGE_SIZE);
+            const fragment = document.createElement('div');
+            fragment.className = 'space-y-4';
+            fragment.innerHTML = nextBatch.map(createBrowseCardHTML).join('');
+
+            list.appendChild(fragment);
+            browseRenderedCount += nextBatch.length;
+
+            document.getElementById('browse-loaded-count').innerText = browseRenderedCount;
+            document.getElementById('browse-total-count').innerText = total;
+
+            const wrap = document.getElementById('browse-load-more-wrap');
+            if (browseRenderedCount < total) {
+                wrap.classList.remove('hidden');
+            } else {
+                wrap.classList.add('hidden');
+            }
+
+            // Typeset ONLY the newly added fragment
+            triggerMathJax(fragment);
+        }
+
+        function setupBrowseInfiniteScroll() {
+            if (browseIntersectionObserver) return;
+            const sentinel = document.getElementById('browse-infinite-sentinel');
+            if (!sentinel) return;
+
+            browseIntersectionObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && browseRenderedCount < browseFilteredList.length) {
+                    loadMoreBrowseQuestions();
+                }
+            }, { rootMargin: '250px' });
+
+            browseIntersectionObserver.observe(sentinel);
+        }
+
+        window.studyNow = function(id) {
+            const targetId = typeof id === 'string' ? parseFloat(id) : id;
+            const targetQ = questionMap.get(targetId);
+            if (targetQ) {
+                currentStudyLab = 'all';
+                const filterSelect = document.getElementById('study-lab-filter');
+                if (filterSelect) filterSelect.value = 'all';
+                rebuildStudyOrder();
+                studyIndex = targetQ._idx;
+                studyOrderPos = studyOrder.indexOf(studyIndex);
+                if (studyOrderPos === -1) studyOrderPos = 0;
+                studyMultiSelections = {};
+                tabLoaded.study = true;
+                loadStudyQuestion();
+                switchTab('study');
+            }
+        };
+
+        // ==========================================
+        // STARRED / FAVORITES ENGINE (TARGETED TYPESETTING)
+        // ==========================================
+        function loadStarredQuestions() {
+            const list = document.getElementById('starred-list');
+            const stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { stars: [] };
+
+            if (stats.stars.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-12 bg-white dark:bg-slate-800 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
+                        <p class="text-slate-400">Nie dodałeś jeszcze żadnego pytania do ulubionych.</p>
+                        <button onclick="switchTab('study')" class="mt-4 text-blue-600 hover:underline font-semibold text-sm">Przejdź do nauki i oznacz gwiazdką</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const starredQuestions = questionBank.filter(q => stats.stars.includes(q.id));
+            list.innerHTML = starredQuestions.map(q => {
+                return `
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-slate-400">Pytanie ${q.id}</span>
+                                ${renderLabBadges(q.labs)}
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="toggleStar(${q.id})" class="text-amber-500 hover:text-slate-400 transition-colors" title="Usuń z ulubionych">
+                                    <svg class="w-5 h-5 fill-current" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                    </svg>
+                                </button>
+                                <button onclick="studyNow(${q.id})" class="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 px-2.5 py-1 rounded-lg transition-colors font-semibold">Ucz się teraz</button>
+                            </div>
+                        </div>
+                        <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                        ${renderQuestionImage(q.img)}
+                    </div>
+                `;
+            }).join('');
+
+            triggerMathJax(list);
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>

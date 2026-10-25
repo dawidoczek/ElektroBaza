@@ -84,9 +84,10 @@
             1
         ],
         "type": "open",
-        "q": "Oblicz natężenie prądu \\(I\\) płynącego przez rezystor o rezystancji \\(R\\) podłączony do napięcia \\(U\\).",
-        "correct": "Wzór: \\(I = \\frac{U}{R}\\). Dla wariantów: U=8V, R=15Ω -> I ≈ 0,533 A | U=15V, R=6Ω -> I = 2,5 A | U=12V, R=4Ω -> I = 3 A",
-        "exp": "Wzór ogólny (prawo Ohma):\n\\[I = \\frac{U}{R}\\]\ngdzie: \\(U\\) – napięcie na rezystorze [V], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(I\\) – natężenie prądu [A].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U = 8\\text{ V}, R = 15\\,\\Omega\\)): \\(I = \\frac{8}{15} \\approx 0{,}533\\text{ A}\\)\n• Wariant 2 (\\(U = 15\\text{ V}, R = 6\\,\\Omega\\)): \\(I = \\frac{15}{6} = 2{,}5\\text{ A}\\)\n• Wariant 3 (\\(U = 12\\text{ V}, R = 4\\,\\Omega\\)): \\(I = \\frac{12}{4} = 3{,}0\\text{ A}\\)\n• Wariant 4 (\\(U = 5\\text{ V}, R = 20\\,\\Omega\\)): \\(I = \\frac{5}{20} = 0{,}25\\text{ A}\\)"
+        "numericTarget": 0.533,
+        "q": "Rezystor o rezystancji \\(R = 15\\,\\Omega\\) podłączono do źródła napięcia stałego \\(U = 8\\text{ V}\\). Oblicz natężenie prądu \\(I\\) płynącego przez ten rezystor (w amperach [A]).",
+        "correct": "0,53 A (lub 0,533 A)",
+        "exp": "Wzór ogólny (prawo Ohma):\n\\[I = \\frac{U}{R}\\]\ngdzie: \\(U\\) – napięcie [V], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(I\\) – natężenie prądu [A].\n\nPodstawienie dla danych z pytania:\n\\[I = \\frac{8\\text{ V}}{15\\,\\Omega} \\approx 0{,}533\\text{ A} \\approx 0{,}53\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U = 15\\text{ V}, R = 6\\,\\Omega\\)): \\(I = \\frac{15}{6} = 2{,}5\\text{ A}\\)\n• Wariant 3 (\\(U = 12\\text{ V}, R = 4\\,\\Omega\\)): \\(I = \\frac{12}{4} = 3{,}0\\text{ A}\\)\n• Wariant 4 (\\(U = 5\\text{ V}, R = 20\\,\\Omega\\)): \\(I = \\frac{5}{20} = 0{,}25\\text{ A}\\)"
     },
     {
         "id": 7,
@@ -94,9 +95,10 @@
             1
         ],
         "type": "open",
-        "q": "Do rezystora przyłożono napięcie \\(U\\). Zmierzony prąd wynosi \\(I\\). Oblicz rezystancję rezystora \\(R\\).",
-        "correct": "Wzór: \\(R = \\frac{U}{I}\\). Dla wariantów: U=6,1V, I=2,47A -> R ≈ 2,47 Ω | U=12V, I=200mA -> R = 60 Ω | U=5V, I=25mA -> R = 200 Ω",
-        "exp": "Wzór ogólny (przekształcone prawo Ohma):\n\\[R = \\frac{U}{I}\\]\ngdzie: \\(U\\) – napięcie [V], \\(I\\) – natężenie prądu [A] (pamiętaj o zamianie mA na A: \\(1\\text{ mA} = 10^{-3}\\text{ A}\\)), \\(R\\) – rezystancja [\\(\\Omega\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U = 6{,}1\\text{ V}, I = 2{,}47\\text{ A}\\)): \\(R = \\frac{6{,}1}{2{,}47} \\approx 2{,}47\\,\\Omega\\)\n• Wariant 2 (\\(U = 12\\text{ V}, I = 200\\text{ mA} = 0{,}2\\text{ A}\\)): \\(R = \\frac{12}{0{,}2} = 60\\,\\Omega\\)\n• Wariant 3 (\\(U = 5\\text{ V}, I = 25\\text{ mA} = 0{,}025\\text{ A}\\)): \\(R = \\frac{5}{0{,}025} = 200\\,\\Omega\\)"
+        "numericTarget": 2.47,
+        "q": "Do rezystora przyłożono napięcie \\(U = 6{,}1\\text{ V}\\). Zmierzony prąd wynosi \\(I = 2{,}47\\text{ A}\\). Oblicz rezystancję \\(R\\) tego rezystora (w omach [\\(\\Omega\\)]).",
+        "correct": "2,47 Ω",
+        "exp": "Wzór ogólny:\n\\[R = \\frac{U}{I}\\]\ngdzie: \\(U\\) – napięcie [V], \\(I\\) – prąd [A], \\(R\\) – rezystancja [\\(\\Omega\\)].\n\nPodstawienie dla danych z pytania:\n\\[R = \\frac{6{,}1\\text{ V}}{2{,}47\\text{ A}} \\approx 2{,}47\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U = 12\\text{ V}, I = 200\\text{ mA} = 0{,}2\\text{ A}\\)): \\(R = \\frac{12}{0{,}2} = 60\\,\\Omega\\)\n• Wariant 3 (\\(U = 5\\text{ V}, I = 25\\text{ mA} = 0{,}025\\text{ A}\\)): \\(R = \\frac{5}{0{,}025} = 200\\,\\Omega\\)"
     },
     {
         "id": 8,
@@ -104,9 +106,10 @@
             1
         ],
         "type": "open",
-        "q": "Oblicz rezystancję \\(R\\) taśmy metalowej o przekroju prostokątnym o wymiarach \\(a \\times b\\), długości \\(l\\) i rezystywności materiału \\(\\rho\\).",
-        "correct": "Wzór: \\(R = \\rho \\frac{l}{a \\cdot b}\\). Dla a=2mm, b=0,4mm, l=16m, ρ=19 nΩm -> R = 0,38 Ω",
-        "exp": "Wzór ogólny na rezystancję przewodnika o stałym przekroju:\n\\[R = \\rho \\frac{l}{S}\\]\nDla przekroju prostokątnego o bokach \\(a\\) i \\(b\\): \\(S = a \\cdot b\\), stąd:\n\\[R = \\frac{\\rho \\cdot l}{a \\cdot b}\\]\ngdzie: \\(\\rho\\) – rezystywność [\\(\\Omega\\cdot\\text{m}\\)], \\(l\\) – długość [m], \\(S\\) – pole przekroju poprzecznego [\\(\\text{m}^2\\)].\n\nPodstawienie dla danych ze zrzutu:\n\\(a = 2\\text{ mm} = 2 \\cdot 10^{-3}\\text{ m}\\), \\(b = 0{,}4\\text{ mm} = 0{,}4 \\cdot 10^{-3}\\text{ m}\\)\n\\(S = (2 \\cdot 10^{-3}) \\cdot (0{,}4 \\cdot 10^{-3}) = 0{,}8 \\cdot 10^{-6}\\text{ m}^2\\)\n\\(l = 16\\text{ m}\\), \\(\\rho = 19\\text{ n}\\Omega\\text{m} = 19 \\cdot 10^{-9}\\,\\Omega\\cdot\\text{m}\\)\n\\[R = \\frac{19 \\cdot 10^{-9} \\cdot 16}{0{,}8 \\cdot 10^{-6}} = \\frac{304 \\cdot 10^{-9}}{0{,}8 \\cdot 10^{-6}} = 380 \\cdot 10^{-3}\\,\\Omega = 0{,}38\\,\\Omega\\]"
+        "numericTarget": 0.38,
+        "q": "Oblicz rezystancję \\(R\\) taśmy metalowej o przekroju prostokątnym o bokach \\(a = 2\\text{ mm}\\), \\(b = 0{,}4\\text{ mm}\\), długości \\(l = 16\\text{ m}\\) i rezystywności materiału \\(\\rho = 19\\text{ n}\\Omega\\text{m}\\) (w omach [\\(\\Omega\\)]).",
+        "correct": "0,38 Ω",
+        "exp": "Wzór ogólny:\n\\[S = a \\cdot b, \\quad R = \\rho \\frac{l}{S} = \\frac{\\rho \\cdot l}{a \\cdot b}\\]\nPrzeliczenie jednostek na układ SI:\n\\(a = 2\\text{ mm} = 2 \\cdot 10^{-3}\\text{ m}\\), \\(b = 0{,}4\\text{ mm} = 0{,}4 \\cdot 10^{-3}\\text{ m}\\)\n\\(S = (2 \\cdot 10^{-3}) \\cdot (0{,}4 \\cdot 10^{-3}) = 0{,}8 \\cdot 10^{-6}\\text{ m}^2\\)\n\\(l = 16\\text{ m}\\), \\(\\rho = 19\\text{ n}\\Omega\\text{m} = 19 \\cdot 10^{-9}\\,\\Omega\\cdot\\text{m}\\)\n\nPodstawienie:\n\\[R = \\frac{19 \\cdot 10^{-9} \\cdot 16}{0{,}8 \\cdot 10^{-6}} = \\frac{304 \\cdot 10^{-9}}{0{,}8 \\cdot 10^{-6}} = 0{,}38\\,\\Omega\\]"
     },
     {
         "id": 9,
@@ -114,9 +117,10 @@
             1
         ],
         "type": "open",
-        "q": "Oblicz rezystancję \\(R\\) przewodu metalowego o przekroju kołowym o średnicy \\(d\\), długości \\(l\\) i rezystywności \\(\\rho\\).",
-        "correct": "Wzór: \\(R = \\frac{4 \\rho l}{\\pi d^2}\\). Dla wariantów: d=0,1mm, l=30m, ρ=22 nΩm -> R ≈ 84,03 Ω | d=0,4mm, l=30m, ρ=22 nΩm -> R ≈ 5,25 Ω",
-        "exp": "Wzór ogólny na rezystancję przewodu kołowego:\nPole koła: \\(S = \\frac{\\pi d^2}{4}\\), stąd:\n\\[R = \\rho \\frac{l}{S} = \\frac{4 \\rho l}{\\pi d^2}\\]\ngdzie: \\(d\\) – średnica żyły [m], \\(l\\) – długość [m], \\(\\rho\\) – rezystywność [\\(\\Omega\\cdot\\text{m}\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(d = 0{,}1\\text{ mm} = 10^{-4}\\text{ m}, l = 30\\text{ m}, \\rho = 22\\text{ n}\\Omega\\text{m} = 22 \\cdot 10^{-9}\\,\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 22 \\cdot 10^{-9} \\cdot 30}{\\pi \\cdot (10^{-4})^2} = \\frac{2640 \\cdot 10^{-9}}{\\pi \\cdot 10^{-8}} = \\frac{264}{\\pi} \\approx 84{,}03\\,\\Omega\\]\n• Wariant 2 (\\(d = 0{,}4\\text{ mm} = 4 \\cdot 10^{-4}\\text{ m}, l = 30\\text{ m}, \\rho = 22\\text{ n}\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 22 \\cdot 10^{-9} \\cdot 30}{\\pi \\cdot (4 \\cdot 10^{-4})^2} = \\frac{2640 \\cdot 10^{-9}}{16\\pi \\cdot 10^{-8}} = \\frac{264}{16\\pi} \\approx 5{,}25\\,\\Omega\\]\n• Wariant 3 (\\(d = 0{,}2\\text{ mm} = 2 \\cdot 10^{-4}\\text{ m}, l = 50\\text{ m}, \\rho = 17{,}5\\text{ n}\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 17{,}5 \\cdot 10^{-9} \\cdot 50}{\\pi \\cdot (2 \\cdot 10^{-4})^2} = \\frac{3500 \\cdot 10^{-9}}{4\\pi \\cdot 10^{-8}} = \\frac{87{,}5}{\\pi} \\approx 27{,}85\\,\\Omega\\]"
+        "numericTarget": 84.03,
+        "q": "Oblicz rezystancję \\(R\\) przewodu metalowego o przekroju kołowym o średnicy \\(d = 0{,}1\\text{ mm}\\), długości \\(l = 30\\text{ m}\\) i rezystywności \\(\\rho = 22\\text{ n}\\Omega\\text{m}\\) (w omach [\\(\\Omega\\)]).",
+        "correct": "84,03 Ω",
+        "exp": "Wzór ogólny:\nPole koła: \\(S = \\frac{\\pi d^2}{4} \\implies R = \\frac{4 \\rho l}{\\pi d^2}\\]\nPodstawienie dla danych z pytania (\\(d = 0{,}1\\text{ mm} = 10^{-4}\\text{ m}, l = 30\\text{ m}, \\rho = 22 \\cdot 10^{-9}\\,\\Omega\\text{m}\\)):\n\\[R = \\frac{4 \\cdot 22 \\cdot 10^{-9} \\cdot 30}{\\pi \\cdot (10^{-4})^2} = \\frac{2640 \\cdot 10^{-9}}{\\pi \\cdot 10^{-8}} = \\frac{264}{\\pi} \\approx 84{,}03\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(d = 0{,}4\\text{ mm}, l = 30\\text{ m}, \\rho = 22\\text{ n}\\Omega\\text{m}\\)): \\(R = \\frac{264}{16\\pi} \\approx 5{,}25\\,\\Omega\\)\n• Wariant 3 (\\(d = 0{,}2\\text{ mm}, l = 50\\text{ m}, \\rho = 17{,}5\\text{ n}\\Omega\\text{m}\\)): \\(R = \\frac{87{,}5}{\\pi} \\approx 27{,}85\\,\\Omega\\)"
     },
     {
         "id": 10,
@@ -124,9 +128,10 @@
             1
         ],
         "type": "open",
-        "q": "Na okładkach kondensatora zgromadzono ładunek \\(Q\\) przy napięciu \\(U\\). Oblicz pojemność \\(C\\) kondensatora.",
-        "correct": "Wzór: \\(C = \\frac{Q}{U}\\). Dla wariantów: Q=14mC, U=7V -> C = 2 mF | Q=45mC, U=15V -> C = 3 mF",
-        "exp": "Wzór ogólny definiujący pojemność elektryczną:\n\\[C = \\frac{Q}{U}\\]\ngdzie: \\(Q\\) – ładunek zgromadzony na okładkach [C] (\\(1\\text{ mC} = 10^{-3}\\text{ C}\\)), \\(U\\) – napięcie [V], \\(C\\) – pojemność [F].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(Q = 14\\text{ mC} = 14 \\cdot 10^{-3}\\text{ C}, U = 7\\text{ V}\\)):\n\\[C = \\frac{14 \\cdot 10^{-3}}{7} = 2 \\cdot 10^{-3}\\text{ F} = 2\\text{ mF}\\]\n• Wariant 2 (\\(Q = 45\\text{ mC} = 45 \\cdot 10^{-3}\\text{ C}, U = 15\\text{ V}\\)):\n\\[C = \\frac{45 \\cdot 10^{-3}}{15} = 3 \\cdot 10^{-3}\\text{ F} = 3\\text{ mF}\\]\n• Wariant 3 (\\(Q = 50\\,\\mu\\text{C} = 50 \\cdot 10^{-6}\\text{ C}, U = 10\\text{ V}\\)):\n\\[C = \\frac{50 \\cdot 10^{-6}}{10} = 5\\,\\mu\\text{F}\\]"
+        "numericTarget": 2.0,
+        "q": "Na okładkach kondensatora zgromadzono ładunek \\(Q = 14\\text{ mC}\\) przy napięciu \\(U = 7\\text{ V}\\). Oblicz pojemność \\(C\\) kondensatora (w milikondensatorach / milifaradach [mF]).",
+        "correct": "2 mF (lub 0,002 F)",
+        "exp": "Wzór ogólny:\n\\[C = \\frac{Q}{U}\\]\nPodstawienie dla danych z pytania (\\(Q = 14\\text{ mC} = 14 \\cdot 10^{-3}\\text{ C}, U = 7\\text{ V}\\)):\n\\[C = \\frac{14 \\cdot 10^{-3}\\text{ C}}{7\\text{ V}} = 2 \\cdot 10^{-3}\\text{ F} = 2\\text{ mF}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(Q = 45\\text{ mC}, U = 15\\text{ V}\\)): \\(C = \\frac{45}{15} = 3\\text{ mF}\\]\n• Wariant 3 (\\(Q = 50\\,\\mu\\text{C}, U = 10\\text{ V}\\)): \\(C = \\frac{50}{10} = 5\\,\\mu\\text{F}\\)"
     },
     {
         "id": 11,
@@ -134,9 +139,10 @@
             1
         ],
         "type": "open",
-        "q": "Kondensator o pojemności \\(C\\) naładowano ładunkiem \\(Q\\). Oblicz napięcie \\(U\\) na zaciskach kondensatora.",
-        "correct": "Wzór: \\(U = \\frac{Q}{C}\\). Dla wariantów: Q=68mC, C=47μF -> U ≈ 1446,8 V | Q=10mC, C=100μF -> U = 100 V",
-        "exp": "Wzór ogólny:\n\\[U = \\frac{Q}{C}\\]\ngdzie: \\(Q\\) – ładunek [C], \\(C\\) – pojemność [F] (\\(1\\,\\mu\\text{F} = 10^{-6}\\text{ F}\\)), \\(U\\) – napięcie [V].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(Q = 68\\text{ mC} = 68 \\cdot 10^{-3}\\text{ C}, C = 47\\,\\mu\\text{F} = 47 \\cdot 10^{-6}\\text{ F}\\)):\n\\[U = \\frac{68 \\cdot 10^{-3}}{47 \\cdot 10^{-6}} = \\frac{68000}{47} \\approx 1446{,}8\\text{ V} \\approx 1{,}45\\text{ kV}\\]\n• Wariant 2 (\\(Q = 10\\text{ mC} = 10 \\cdot 10^{-3}\\text{ C}, C = 100\\,\\mu\\text{F} = 10^{-4}\\text{ F}\\)):\n\\[U = \\frac{10 \\cdot 10^{-3}}{10^{-4}} = 100\\text{ V}\\]\n• Wariant 3 (\\(Q = 2\\text{ mC} = 2 \\cdot 10^{-3}\\text{ C}, C = 10\\,\\mu\\text{F} = 10^{-5}\\text{ F}\\)):\n\\[U = \\frac{2 \\cdot 10^{-3}}{10^{-5}} = 200\\text{ V}\\]"
+        "numericTarget": 1446.8,
+        "q": "Kondensator o pojemności \\(C = 47\\,\\mu\\text{F}\\) naładowano ładunkiem \\(Q = 68\\text{ mC}\\). Oblicz napięcie \\(U\\) na zaciskach kondensatora (w woltach [V]).",
+        "correct": "1446,8 V (lub 1,45 kV)",
+        "exp": "Wzór ogólny:\n\\[U = \\frac{Q}{C}\\]\nPodstawienie dla danych z pytania (\\(Q = 68 \\cdot 10^{-3}\\text{ C}, C = 47 \\cdot 10^{-6}\\text{ F}\\)):\n\\[U = \\frac{68 \\cdot 10^{-3}}{47 \\cdot 10^{-6}} = \\frac{68000}{47} \\approx 1446{,}8\\text{ V} \\approx 1{,}45\\text{ kV}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(Q = 10\\text{ mC}, C = 100\\,\\mu\\text{F}\\)): \\(U = \\frac{10 \\cdot 10^{-3}}{10^{-4}} = 100\\text{ V}\\)\n• Wariant 3 (\\(Q = 2\\text{ mC}, C = 10\\,\\mu\\text{F}\\)): \\(U = \\frac{2 \\cdot 10^{-3}}{10^{-5}} = 200\\text{ V}\\)"
     },
     {
         "id": 12,
@@ -144,9 +150,10 @@
             1
         ],
         "type": "open",
-        "q": "Kondensator o pojemności \\(C\\) został naładowany do napięcia \\(U\\). Oblicz zgromadzony ładunek \\(Q\\).",
-        "correct": "Wzór: \\(Q = C \\cdot U\\). Dla wariantów: C=47μF, U=18V -> Q = 0,846 mC (846 μC) | C=100μF, U=12V -> Q = 1,2 mC",
-        "exp": "Wzór ogólny:\n\\[Q = C \\cdot U\\]\ngdzie: \\(C\\) – pojemność [F], \\(U\\) – napięcie [V], \\(Q\\) – ładunek [C].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(C = 47\\,\\mu\\text{F} = 47 \\cdot 10^{-6}\\text{ F}, U = 18\\text{ V}\\)):\n\\[Q = 47 \\cdot 10^{-6} \\cdot 18 = 846 \\cdot 10^{-6}\\text{ C} = 0{,}846\\text{ mC} = 846\\,\\mu\\text{C}\\]\n• Wariant 2 (\\(C = 100\\,\\mu\\text{F} = 10^{-4}\\text{ F}, U = 12\\text{ V}\\)):\n\\[Q = 10^{-4} \\cdot 12 = 1{,}2 \\cdot 10^{-3}\\text{ C} = 1{,}2\\text{ mC}\\]\n• Wariant 3 (\\(C = 22\\,\\mu\\text{F} = 22 \\cdot 10^{-6}\\text{ F}, U = 24\\text{ V}\\)):\n\\[Q = 22 \\cdot 10^{-6} \\cdot 24 = 528 \\cdot 10^{-6}\\text{ C} = 0{,}528\\text{ mC}\\]"
+        "numericTarget": 0.846,
+        "q": "Kondensator o pojemności \\(C = 47\\,\\mu\\text{F}\\) został naładowany do napięcia \\(U = 18\\text{ V}\\). Oblicz zgromadzony ładunek \\(Q\\) (w milikulombach [mC] lub mikrokulombach [\\(\\mu\\text{C}\\)]).",
+        "correct": "0,846 mC (lub 846 μC)",
+        "exp": "Wzór ogólny:\n\\[Q = C \\cdot U\\]\nPodstawienie dla danych z pytania (\\(C = 47 \\cdot 10^{-6}\\text{ F}, U = 18\\text{ V}\\)):\n\\[Q = 47 \\cdot 10^{-6} \\cdot 18 = 846 \\cdot 10^{-6}\\text{ C} = 0{,}846\\text{ mC} = 846\\,\\mu\\text{C}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(C = 100\\,\\mu\\text{F}, U = 12\\text{ V}\\)): \\(Q = 1{,}2\\text{ mC}\\)\n• Wariant 3 (\\(C = 22\\,\\mu\\text{F}, U = 24\\text{ V}\\)): \\(Q = 0{,}528\\text{ mC}\\)"
     },
     {
         "id": 13,
@@ -154,9 +161,10 @@
             1
         ],
         "type": "open",
-        "q": "Kondensator płaski składa się z dwóch elektrod o powierzchni \\(S\\) każda, oddzielonych dielektrykiem o grubości \\(d\\) i przenikalności względnej \\(\\varepsilon_r\\). Oblicz pojemność kondensatora \\(C\\) (przyjmij \\(\\varepsilon_0 = 8{,}854 \\cdot 10^{-12}\\text{ F/m}\\)).",
-        "correct": "Wzór: \\(C = \\varepsilon_0 \\varepsilon_r \\frac{S}{d}\\). Dla wariantów: S=53cm², d=12μm, ε_r=3 -> C ≈ 11,73 nF | S=34cm², d=10μm, ε_r=3 -> C ≈ 9,03 nF",
-        "exp": "Wzór ogólny na pojemność kondensatora płaskiego:\n\\[C = \\varepsilon_0 \\varepsilon_r \\frac{S}{d}\\]\ngdzie: \\(\\varepsilon_0 = 8{,}854 \\cdot 10^{-12}\\text{ F/m}\\) – przenikalność elektryczna próżni, \\(\\varepsilon_r\\) – względna przenikalność dielektryka, \\(S\\) – powierzchnia elektrod [\\(\\text{m}^2\\)] (\\(1\\text{ cm}^2 = 10^{-4}\\text{ m}^2\\)), \\(d\\) – grubość dielektryka [m] (\\(1\\,\\mu\\text{m} = 10^{-6}\\text{ m}\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(S = 53\\text{ cm}^2 = 53 \\cdot 10^{-4}\\text{ m}^2, d = 12\\,\\mu\\text{m} = 12 \\cdot 10^{-6}\\text{ m}, \\varepsilon_r = 3\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 3 \\cdot \\frac{53 \\cdot 10^{-4}}{12 \\cdot 10^{-6}} = 26{,}562 \\cdot 10^{-12} \\cdot 441{,}67 \\approx 11{,}73 \\cdot 10^{-9}\\text{ F} = 11{,}73\\text{ nF}\\]\n• Wariant 2 (\\(S = 34\\text{ cm}^2 = 34 \\cdot 10^{-4}\\text{ m}^2, d = 10\\,\\mu\\text{m} = 10^{-5}\\text{ m}, \\varepsilon_r = 3\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 3 \\cdot \\frac{34 \\cdot 10^{-4}}{10^{-5}} = 26{,}562 \\cdot 10^{-12} \\cdot 340 \\approx 9{,}03 \\cdot 10^{-9}\\text{ F} = 9{,}03\\text{ nF}\\]\n• Wariant 3 (\\(S = 50\\text{ cm}^2 = 5 \\cdot 10^{-3}\\text{ m}^2, d = 20\\,\\mu\\text{m} = 2 \\cdot 10^{-5}\\text{ m}, \\varepsilon_r = 4\\)):\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 4 \\cdot \\frac{5 \\cdot 10^{-3}}{2 \\cdot 10^{-5}} = 35{,}416 \\cdot 10^{-12} \\cdot 250 = 8{,}854\\text{ nF}\\]"
+        "numericTarget": 11.73,
+        "q": "Kondensator płaski składa się z dwóch elektrod o powierzchni \\(S = 53\\text{ cm}^2\\) każda, oddzielonych dielektrykiem o grubości \\(d = 12\\,\\mu\\text{m}\\) i przenikalności względnej \\(\\varepsilon_r = 3\\). Oblicz pojemność \\(C\\) kondensatora w nanofaradach [nF] (przyjmij \\(\\varepsilon_0 = 8{,}854 \\cdot 10^{-12}\\text{ F/m}\\)).",
+        "correct": "11,73 nF",
+        "exp": "Wzór ogólny:\n\\[C = \\varepsilon_0 \\varepsilon_r \\frac{S}{d}\\]\nPrzeliczenia: \\(S = 53 \\cdot 10^{-4}\\text{ m}^2\\), \\(d = 12 \\cdot 10^{-6}\\text{ m}\\), \\(\\varepsilon_r = 3\\)\n\\[C = 8{,}854 \\cdot 10^{-12} \\cdot 3 \\cdot \\frac{53 \\cdot 10^{-4}}{12 \\cdot 10^{-6}} = 26{,}562 \\cdot 10^{-12} \\cdot 441{,}67 \\approx 11{,}73 \\cdot 10^{-9}\\text{ F} = 11{,}73\\text{ nF}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(S = 34\\text{ cm}^2, d = 10\\,\\mu\\text{m}, \\varepsilon_r = 3\\)): \\(C \\approx 9{,}03\\text{ nF}\\)\n• Wariant 3 (\\(S = 50\\text{ cm}^2, d = 20\\,\\mu\\text{m}, \\varepsilon_r = 4\\)): \\(C = 8{,}854\\text{ nF}\\)"
     },
     {
         "id": 14,
@@ -164,9 +172,10 @@
             1
         ],
         "type": "open",
-        "q": "W cewce przez którą płynie prąd \\(I\\), wytworzony strumień skojarzony wynosi \\(\\Psi\\). Oblicz indukcyjność własną \\(L\\) cewki.",
-        "correct": "Wzór: \\(L = \\frac{\\Psi}{I}\\). Dla wariantów: Ψ=6mWb, I=2A -> L = 3 mH | Ψ=28mWb, I=4A -> L = 7 mH",
-        "exp": "Wzór ogólny definiujący indukcyjność własną cewki:\n\\[L = \\frac{\\Psi}{I}\\]\ngdzie: \\(\\Psi\\) – strumień skojarzony [Wb] (\\(1\\text{ mWb} = 10^{-3}\\text{ Wb}\\)), \\(I\\) – natężenie prądu [A], \\(L\\) – indukcyjność [H].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(\\Psi = 6\\text{ mWb} = 6 \\cdot 10^{-3}\\text{ Wb}, I = 2\\text{ A}\\)):\n\\[L = \\frac{6 \\cdot 10^{-3}}{2} = 3 \\cdot 10^{-3}\\text{ H} = 3\\text{ mH}\\]\n• Wariant 2 (\\(\\Psi = 28\\text{ mWb} = 28 \\cdot 10^{-3}\\text{ Wb}, I = 4\\text{ A}\\)):\n\\[L = \\frac{28 \\cdot 10^{-3}}{4} = 7 \\cdot 10^{-3}\\text{ H} = 7\\text{ mH}\\]\n• Wariant 3 (\\(\\Psi = 15\\text{ mWb}, I = 3\\text{ A}\\)):\n\\[L = \\frac{15 \\cdot 10^{-3}}{3} = 5\\text{ mH}\\]"
+        "numericTarget": 3.0,
+        "q": "W cewce przez którą płynie prąd \\(I = 2\\text{ A}\\), wytworzony strumień skojarzony wynosi \\(\\Psi = 6\\text{ mWb}\\). Oblicz indukcyjność własną \\(L\\) cewki (w milihenrach [mH]).",
+        "correct": "3 mH",
+        "exp": "Wzór ogólny:\n\\[L = \\frac{\\Psi}{I}\\]\nPodstawienie dla danych z pytania (\\(\\Psi = 6\\text{ mWb} = 6 \\cdot 10^{-3}\\text{ Wb}, I = 2\\text{ A}\\)):\n\\[L = \\frac{6 \\cdot 10^{-3}}{2} = 3 \\cdot 10^{-3}\\text{ H} = 3\\text{ mH}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(\\Psi = 28\\text{ mWb}, I = 4\\text{ A}\\)): \\(L = \\frac{28}{4} = 7\\text{ mH}\\)\n• Wariant 3 (\\(\\Psi = 15\\text{ mWb}, I = 3\\text{ A}\\)): \\(L = \\frac{15}{3} = 5\\text{ mH}\\)"
     },
     {
         "id": 15,
@@ -174,9 +183,10 @@
             1
         ],
         "type": "open",
-        "q": "Dla cewki o indukcyjności \\(L\\) wyznacz prąd \\(I\\) wywołujący strumień \\(\\Psi\\) lub strumień skojarzony \\(\\Psi\\) wywołany prądem \\(I\\).",
-        "correct": "Wzory: \\(I = \\frac{\\Psi}{L}\\) oraz \\(\\Psi = L \\cdot I\\). Dla L=5mH, Ψ=25mWb -> I = 5 A | Dla L=10mH, I=2A -> Ψ = 20 mWb",
-        "exp": "Wzór ogólny łączący strumień magnetyczny z indukcyjnością:\n\\[\\Psi = L \\cdot I \\iff I = \\frac{\\Psi}{L}\\]\ngdzie: \\(L\\) – indukcyjność [H], \\(\\Psi\\) – strumień skojarzony [Wb], \\(I\\) – natężenie prądu [A].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (obliczenie prądu \\(I\\) dla \\(L = 5\\text{ mH} = 5 \\cdot 10^{-3}\\text{ H}, \\Psi = 25\\text{ mWb} = 25 \\cdot 10^{-3}\\text{ Wb}\\)):\n\\[I = \\frac{25 \\cdot 10^{-3}}{5 \\cdot 10^{-3}} = 5\\text{ A}\\]\n• Wariant 2 (obliczenie strumienia \\(\\Psi\\) dla \\(L = 10\\text{ mH} = 10^{-2}\\text{ H}, I = 2\\text{ A}\\)):\n\\[\\Psi = 10^{-2} \\cdot 2 = 2 \\cdot 10^{-2}\\text{ Wb} = 20\\text{ mWb}\\]\n• Wariant 3 (obliczenie prądu \\(I\\) dla \\(L = 4\\text{ mH}, \\Psi = 16\\text{ mWb}\\)):\n\\[I = \\frac{16 \\cdot 10^{-3}}{4 \\cdot 10^{-3}} = 4\\text{ A}\\]"
+        "numericTarget": 5.0,
+        "q": "Dla cewki o indukcyjności \\(L = 5\\text{ mH}\\) wyznacz natężenie prądu \\(I\\) wywołujące strumień skojarzony \\(\\Psi = 25\\text{ mWb}\\) (w amperach [A]).",
+        "correct": "5 A",
+        "exp": "Wzór ogólny:\n\\[\\Psi = L \\cdot I \\iff I = \\frac{\\Psi}{L}\\]\nPodstawienie dla danych z pytania (\\(L = 5\\text{ mH} = 5 \\cdot 10^{-3}\\text{ H}, \\Psi = 25\\text{ mWb} = 25 \\cdot 10^{-3}\\text{ Wb}\\)):\n\\[I = \\frac{25 \\cdot 10^{-3}}{5 \\cdot 10^{-3}} = 5\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(L = 10\\text{ mH}, I = 2\\text{ A} \\implies \\Psi = 10 \\cdot 10^{-3} \\cdot 2 = 20\\text{ mWb}\\))\n• Wariant 3 (\\(L = 4\\text{ mH}, \\Psi = 16\\text{ mWb} \\implies I = 4\\text{ A}\\))"
     },
     {
         "id": 16,
@@ -185,9 +195,10 @@
             2
         ],
         "type": "open",
-        "q": "Oblicz przybliżoną indukcyjność \\(L\\) cewki cylindrycznej powietrznej (solenoidu) o liczbie zwojów \\(z\\), długości \\(l\\) i powierzchni przekroju poprzecznego \\(S\\) (przyjmij \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\)).",
-        "correct": "Wzór: \\(L = \\mu_0 \\frac{z^2 \\cdot S}{l}\\). Dla wariantów: z=400, l=20cm, S=10cm² -> L ≈ 1,01 mH | z=500, l=25cm, S=15cm² -> L ≈ 1,88 mH",
-        "exp": "Wzór ogólny na indukcyjność cewki jednowarstwowej długiej (powietrznej):\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l}\\]\ngdzie: \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\) – przenikalność magnetyczna próżni, \\(z\\) – liczba zwojów, \\(S\\) – powierzchnia przekroju poprzecznego [\\(\\text{m}^2\\)] (\\(1\\text{ cm}^2 = 10^{-4}\\text{ m}^2\\)), \\(l\\) – długość solenoidu [m].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(z = 400, l = 20\\text{ cm} = 0{,}2\\text{ m}, S = 10\\text{ cm}^2 = 10^{-3}\\text{ m}^2\\)):\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{400^2 \\cdot 10^{-3}}{0{,}2} = 4\\pi \\cdot 10^{-7} \\cdot \\frac{160000 \\cdot 10^{-3}}{0{,}2} = 4\\pi \\cdot 10^{-7} \\cdot 800 \\approx 1{,}005 \\cdot 10^{-3}\\text{ H} \\approx 1{,}01\\text{ mH}\\]\n• Wariant 2 (\\(z = 500, l = 25\\text{ cm} = 0{,}25\\text{ m}, S = 15\\text{ cm}^2 = 15 \\cdot 10^{-4}\\text{ m}^2\\)):\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{250000 \\cdot 15 \\cdot 10^{-4}}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot 1500 \\approx 1{,}885 \\cdot 10^{-3}\\text{ H} \\approx 1{,}88\\text{ mH}\\]"
+        "numericTarget": 1.01,
+        "q": "Oblicz przybliżoną indukcyjność \\(L\\) cewki cylindrycznej powietrznej (solenoidu) o liczbie zwojów \\(z = 400\\), długości \\(l = 20\\text{ cm}\\) i powierzchni przekroju poprzecznego \\(S = 10\\text{ cm}^2\\) w milihenrach [mH] (przyjmij \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\)).",
+        "correct": "1,01 mH (lub 1,005 mH)",
+        "exp": "Wzór ogólny:\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l}\\]\nPrzeliczenia: \\(z = 400, l = 0{,}2\\text{ m}, S = 10 \\cdot 10^{-4}\\text{ m}^2 = 10^{-3}\\text{ m}^2\\)\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{400^2 \\cdot 10^{-3}}{0{,}2} = 4\\pi \\cdot 10^{-7} \\cdot 800 \\approx 1{,}005 \\cdot 10^{-3}\\text{ H} \\approx 1{,}01\\text{ mH}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(z = 500, l = 25\\text{ cm}, S = 15\\text{ cm}^2\\)): \\(L \\approx 1{,}88\\text{ mH}\\)"
     },
     {
         "id": 17,
@@ -279,9 +290,10 @@
             2
         ],
         "type": "open",
-        "q": "Rzeczywiste źródło napięcia o rezystancji wewnętrznej \\(R_w\\) zasila odbiornik o rezystancji \\(R_{odb}\\). Oblicz sprawność \\(\\eta\\) (w procentach) przekazywania energii ze źródła do odbiornika.",
-        "correct": "Wzór: \\(\\eta = \\frac{R_{odb}}{R_{odb} + R_w} \\cdot 100\\%\\). Dla wariantów: R_odb=13Ω, Rw=1,8Ω -> η ≈ 87,84% | R_odb=7Ω, Rw=1,8Ω -> η ≈ 79,55% | R_odb=14Ω, Rw=2,5Ω -> η ≈ 84,85% | R_odb=22Ω, Rw=1Ω -> η ≈ 95,65%",
-        "exp": "Wzór ogólny na sprawność układu źródło-odbiornik:\n\\[\\eta = \\frac{P_{odb}}{P_{calk}} = \\frac{I^2 R_{odb}}{I^2 (R_{odb} + R_w)} = \\frac{R_{odb}}{R_{odb} + R_w} \\cdot 100\\%\\]\nUwaga: sprawność układu zależy wyłącznie od stosunku rezystancji odbiornika do rezystancji wewnętrznej źródła i NIE zależy od siły elektromotorycznej \\(E\\) źródła.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R_{odb} = 13\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)):\n\\[\\eta = \\frac{13}{13 + 1{,}8} \\cdot 100\\% = \\frac{13}{14{,}8} \\cdot 100\\% \\approx 87{,}84\\%\\]\n• Wariant 2 (\\(R_{odb} = 7\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)):\n\\[\\eta = \\frac{7}{7 + 1{,}8} \\cdot 100\\% = \\frac{7}{8{,}8} \\cdot 100\\% \\approx 79{,}55\\%\\]\n• Wariant 3 (\\(R_{odb} = 14\\,\\Omega, R_w = 2{,}5\\,\\Omega\\)):\n\\[\\eta = \\frac{14}{14 + 2{,}5} \\cdot 100\\% = \\frac{14}{16{,}5} \\cdot 100\\% \\approx 84{,}85\\%\\]\n• Wariant 4 (\\(R_{odb} = 22\\,\\Omega, R_w = 1\\,\\Omega\\)):\n\\[\\eta = \\frac{22}{22 + 1} \\cdot 100\\% = \\frac{22}{23} \\cdot 100\\% \\approx 95{,}65\\%\\]\n• Wariant 5 (\\(R_{odb} = 15\\,\\Omega, R_w = 3\\,\\Omega\\)):\n\\[\\eta = \\frac{15}{15 + 3} \\cdot 100\\% = \\frac{15}{18} \\cdot 100\\% \\approx 83{,}33\\%\\]"
+        "numericTarget": 87.84,
+        "q": "Rzeczywiste źródło napięcia o rezystancji wewnętrznej \\(R_w = 1{,}8\\,\\Omega\\) zasila odbiornik o rezystancji \\(R_{odb} = 13\\,\\Omega\\). Oblicz sprawność \\(\\eta\\) przekazywania energii ze źródła do odbiornika (w procentach [%]).",
+        "correct": "87,84%",
+        "exp": "Wzór ogólny:\n\\[\\eta = \\frac{R_{odb}}{R_{odb} + R_w} \\cdot 100\\%\\]\nPodstawienie dla danych z zadania (\\(R_{odb} = 13\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)):\n\\[\\eta = \\frac{13}{13 + 1{,}8} \\cdot 100\\% = \\frac{13}{14{,}8} \\cdot 100\\% \\approx 87{,}84\\%\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(R_{odb} = 7\\,\\Omega, R_w = 1{,}8\\,\\Omega\\)): \\(\\eta = \\frac{7}{8{,}8} \\cdot 100\\% \\approx 79{,}55\\%\\)\n• Wariant 3 (\\(R_{odb} = 14\\,\\Omega, R_w = 2{,}5\\,\\Omega\\)): \\(\\eta = \\frac{14}{16{,}5} \\cdot 100\\% \\approx 84{,}85\\%\\)\n• Wariant 4 (\\(R_{odb} = 22\\,\\Omega, R_w = 1\\,\\Omega\\)): \\(\\eta = \\frac{22}{23} \\cdot 100\\% \\approx 95{,}65\\%\\)\n• Wariant 5 (\\(R_{odb} = 15\\,\\Omega, R_w = 3\\,\\Omega\\)): \\(\\eta = \\frac{15}{18} \\cdot 100\\% \\approx 83{,}33\\%\\)"
     },
     {
         "id": 24,
@@ -289,9 +301,10 @@
             2
         ],
         "type": "open",
-        "q": "Rzeczywiste źródło napięcia o sile elektromotorycznej \\(E\\) i rezystancji wewnętrznej \\(R_w\\) zasila odbiornik w stanie dopasowania energetycznego (\\(R_{odb} = R_w\\)). Oblicz maksymalną moc \\(P_{max}\\) wydzieloną w odbiorniku.",
-        "correct": "Wzór: \\(P_{max} = \\frac{E^2}{4 R_w}\\). Dla wariantów: E=12V, Rw=1,1Ω -> P ≈ 32,73 W | E=17V, Rw=2,9Ω -> P ≈ 24,91 W | E=15V, Rw=2,5Ω -> P = 22,5 W | E=24V, Rw=6Ω -> P = 24 W",
-        "exp": "Wzór ogólny na maksymalną moc przekazywaną do odbiornika (stan dopasowania na moc):\nW stanie dopasowania zachodzi \\(R_{odb} = R_w\\). Prąd w obwodzie wynosi \\(I = \\frac{E}{R_{odb} + R_w} = \\frac{E}{2 R_w}\\).\nMoc odbiornika wynosi zatem:\n\\[P_{max} = I^2 R_{odb} = \\left(\\frac{E}{2 R_w}\\right)^2 R_w = \\frac{E^2}{4 R_w}\\]\ngdzie: \\(E\\) – siła elektromotoryczna źródła [V], \\(R_w\\) – rezystancja wewnętrzna źródła [\\(\\Omega\\)].\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E = 12\\text{ V}, R_w = 1{,}1\\,\\Omega\\)):\n\\[P_{max} = \\frac{12^2}{4 \\cdot 1{,}1} = \\frac{144}{4{,}4} \\approx 32{,}73\\text{ W}\\]\n• Wariant 2 (\\(E = 17\\text{ V}, R_w = 2{,}9\\,\\Omega\\)):\n\\[P_{max} = \\frac{17^2}{4 \\cdot 2{,}9} = \\frac{289}{11{,}6} \\approx 24{,}91\\text{ W}\\]\n• Wariant 3 (\\(E = 15\\text{ V}, R_w = 2{,}5\\,\\Omega\\)):\n\\[P_{max} = \\frac{15^2}{4 \\cdot 2{,}5} = \\frac{225}{10} = 22{,}5\\text{ W}\\]\n• Wariant 4 (\\(E = 24\\text{ V}, R_w = 6\\,\\Omega\\)):\n\\[P_{max} = \\frac{24^2}{4 \\cdot 6} = \\frac{576}{24} = 24\\text{ W}\\]\n• Wariant 5 (\\(E = 10\\text{ V}, R_w = 2\\,\\Omega\\)):\n\\[P_{max} = \\frac{10^2}{4 \\cdot 2} = \\frac{100}{8} = 12{,}5\\text{ W}\\]"
+        "numericTarget": 32.73,
+        "q": "Rzeczywiste źródło napięcia o sile elektromotorycznej \\(E = 12\\text{ V}\\) i rezystancji wewnętrznej \\(R_w = 1{,}1\\,\\Omega\\) zasila odbiornik w stanie dopasowania energetycznego (\\(R_{odb} = R_w\\)). Oblicz maksymalną moc \\(P_{max}\\) wydzieloną w odbiorniku (w watach [W]).",
+        "correct": "32,73 W",
+        "exp": "Wzór ogólny:\n\\[P_{max} = \\frac{E^2}{4 R_w}\\]\nPodstawienie dla danych z zadania (\\(E = 12\\text{ V}, R_w = 1{,}1\\,\\Omega\\)):\n\\[P_{max} = \\frac{12^2}{4 \\cdot 1{,}1} = \\frac{144}{4{,}4} \\approx 32{,}73\\text{ W}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(E = 17\\text{ V}, R_w = 2{,}9\\,\\Omega\\)): \\(P_{max} = \\frac{289}{11{,}6} \\approx 24{,}91\\text{ W}\\)\n• Wariant 3 (\\(E = 15\\text{ V}, R_w = 2{,}5\\,\\Omega\\)): \\(P_{max} = \\frac{225}{10} = 22{,}5\\text{ W}\\)\n• Wariant 4 (\\(E = 24\\text{ V}, R_w = 6\\,\\Omega\\)): \\(P_{max} = \\frac{576}{24} = 24\\text{ W}\\)\n• Wariant 5 (\\(E = 10\\text{ V}, R_w = 2\\,\\Omega\\)): \\(P_{max} = \\frac{100}{8} = 12{,}5\\text{ W}\\)"
     },
     {
         "id": 25,
@@ -299,10 +312,11 @@
             2
         ],
         "type": "open",
-        "q": "Dla obwodu przedstawionego na schemacie (Obwód A) wyznacz prąd gałęziowy \\(I_1\\), znając wartości prądów \\(I_2\\) i \\(I_3\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_3\\) wpływa, \\(I_2\\) wypływa.",
+        "numericTarget": -0.49,
+        "q": "Dla obwodu przedstawionego na schemacie (Obwód A) wyznacz prąd gałęziowy \\(I_1\\) (w amperach [A]), znając wartości \\(I_2 = 0{,}31\\text{ A}\\) oraz \\(I_3 = 0{,}80\\text{ A}\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_3\\) wpływa, \\(I_2\\) wypływa.",
         "img": "img/lab2_obwod_a.png",
-        "correct": "Wzór: \\(I_1 = I_2 - I_3\\). Dla wariantów: I2=0,31A, I3=0,80A -> I1 = -0,49 A | I2=0,5A, I3=1,2A -> I1 = -0,7 A | I2=1,0A, I3=0,4A -> I1 = 0,6 A",
-        "exp": "Wzór ogólny z I prawa Kirchhoffa dla węzła górnego:\nSuma prądów wpływających do węzła jest równa sumie prądów wypływających:\n\\[I_1 + I_3 = I_2 \\implies I_1 = I_2 - I_3\\]\nZnak minus w wyniku oznacza, że rzeczywisty kierunek przepływu prądu \\(I_1\\) jest przeciwny do przyjętego na schemacie zwrotu strzałki.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_2 = 0{,}31\\text{ A}, I_3 = 0{,}80\\text{ A}\\)):\n\\[I_1 = 0{,}31 - 0{,}80 = -0{,}49\\text{ A}\\]\n• Wariant 2 (\\(I_2 = 0{,}5\\text{ A}, I_3 = 1{,}2\\text{ A}\\)):\n\\[I_1 = 0{,}5 - 1{,}2 = -0{,}7\\text{ A}\\]\n• Wariant 3 (\\(I_2 = 1{,}0\\text{ A}, I_3 = 0{,}4\\text{ A}\\)):\n\\[I_1 = 1{,}0 - 0{,}4 = 0{,}6\\text{ A}\\]"
+        "correct": "-0,49 A",
+        "exp": "Wzór ogólny z I prawa Kirchhoffa:\n\\[I_1 + I_3 = I_2 \\implies I_1 = I_2 - I_3\\]\nPodstawienie dla danych z pytania:\n\\[I_1 = 0{,}31\\text{ A} - 0{,}80\\text{ A} = -0{,}49\\text{ A}\\]\nZnak minus oznacza przepływ przeciwny do zwrotu strzałki.\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_2 = 0{,}5\\text{ A}, I_3 = 1{,}2\\text{ A}\\)): \\(I_1 = 0{,}5 - 1{,}2 = -0{,}7\\text{ A}\\)\n• Wariant 3 (\\(I_2 = 1{,}0\\text{ A}, I_3 = 0{,}4\\text{ A}\\)): \\(I_1 = 1{,}0 - 0{,}4 = 0{,}6\\text{ A}\\)"
     },
     {
         "id": 26,
@@ -310,10 +324,11 @@
             2
         ],
         "type": "open",
-        "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd gałęziowy \\(I_1\\), znając wartości prądów \\(I_2\\) i \\(I_3\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_2\\) wpływa, \\(I_3\\) wypływa.",
+        "numericTarget": -0.49,
+        "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd gałęziowy \\(I_1\\) (w amperach [A]), znając wartości \\(I_2 = 0{,}80\\text{ A}\\) oraz \\(I_3 = 0{,}31\\text{ A}\\). Zwroty w węźle: \\(I_1\\) wpływa, \\(I_2\\) wpływa, \\(I_3\\) wypływa.",
         "img": "img/lab2_obwod_bc.png",
-        "correct": "Wzór: \\(I_1 = I_3 - I_2\\). Dla wariantów: I2=0,8A, I3=0,31A -> I1 = -0,49 A | I2=0,4A, I3=1,1A -> I1 = 0,7 A | I2=1,2A, I3=0,5A -> I1 = -0,7 A | I2=0,65A, I3=0,15A -> I1 = -0,50 A",
-        "exp": "Wzór ogólny z I prawa Kirchhoffa dla węzła:\nPrądy \\(I_1\\) oraz \\(I_2\\) wpływają do węzła, natomiast prąd \\(I_3\\) wypływa z węzła:\n\\[I_1 + I_2 = I_3 \\implies I_1 = I_3 - I_2\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_2 = 0{,}80\\text{ A}, I_3 = 0{,}31\\text{ A}\\)):\n\\[I_1 = 0{,}31 - 0{,}80 = -0{,}49\\text{ A}\\]\n• Wariant 2 (\\(I_2 = 0{,}40\\text{ A}, I_3 = 1{,}10\\text{ A}\\)):\n\\[I_1 = 1{,}10 - 0{,}40 = 0{,}70\\text{ A}\\]\n• Wariant 3 (\\(I_2 = 1{,}20\\text{ A}, I_3 = 0{,}50\\text{ A}\\)):\n\\[I_1 = 0{,}50 - 1{,}20 = -0{,}70\\text{ A}\\]\n• Wariant 4 (\\(I_2 = 0{,}65\\text{ A}, I_3 = 0{,}15\\text{ A}\\)):\n\\[I_1 = 0{,}15 - 0{,}65 = -0{,}50\\text{ A}\\]"
+        "correct": "-0,49 A",
+        "exp": "Wzór ogólny z I prawa Kirchhoffa:\n\\[I_1 + I_2 = I_3 \\implies I_1 = I_3 - I_2\\]\nPodstawienie dla danych z pytania:\n\\[I_1 = 0{,}31\\text{ A} - 0{,}80\\text{ A} = -0{,}49\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_2 = 0{,}40\\text{ A}, I_3 = 1{,}10\\text{ A}\\)): \\(I_1 = 1{,}10 - 0{,}40 = 0{,}70\\text{ A}\\)\n• Wariant 3 (\\(I_2 = 1{,}20\\text{ A}, I_3 = 0{,}50\\text{ A}\\)): \\(I_1 = 0{,}50 - 1{,}20 = -0{,}70\\text{ A}\\)\n• Wariant 4 (\\(I_2 = 0{,}65\\text{ A}, I_3 = 0{,}15\\text{ A}\\)): \\(I_1 = 0{,}15 - 0{,}65 = -0{,}50\\text{ A}\\)"
     },
     {
         "id": 27,
@@ -321,10 +336,11 @@
             2
         ],
         "type": "open",
-        "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd \\(I_3\\) płynący przez rezystor \\(R_3\\), znając wartości \\(E_2, I_2, R_2, R_3\\). Zwroty w prawym oczku: źródło \\(E_2\\) w górę, \\(I_2\\) w górę, \\(I_3\\) w dół.",
+        "numericTarget": 1.2,
+        "q": "Dla obwodu przedstawionego na schemacie (Obwód BC) wyznacz prąd \\(I_3\\) (w amperach [A]) płynący przez rezystor \\(R_3\\), znając wartości: \\(E_2 = 12\\text{ V}\\), \\(I_2 = 0{,}5\\text{ A}\\), \\(R_2 = 12\\,\\Omega\\), \\(R_3 = 5\\,\\Omega\\). Zwroty w prawym oczku: źródło \\(E_2\\) w górę, \\(I_2\\) w górę, \\(I_3\\) w dół.",
         "img": "img/lab2_obwod_bc.png",
-        "correct": "Wzór: \\(I_3 = \\frac{E_2 - I_2 R_2}{R_3}\\). Dla wariantów: E2=12V, I2=0,5A, R2=12Ω, R3=5Ω -> I3 = 1,2 A | E2=10V, I2=0,4A, R2=10Ω, R3=10Ω -> I3 = 0,6 A",
-        "exp": "Wzór ogólny z II prawa Kirchhoffa dla prawego oczka:\nObiegając prawe oczko zgodnie ze zwrotem wskazówek zegara (od góry przez gałąź środkową z \\(I_3\\) w dół, a następnie przez gałąź prawą z \\(E_2\\) i \\(I_2\\) ku dołowi):\n\\[E_2 - I_2 R_2 - I_3 R_3 = 0 \\implies I_3 R_3 = E_2 - I_2 R_2 \\implies I_3 = \\frac{E_2 - I_2 R_2}{R_3}\\]\ngdzie: \\(E_2\\) – SEM źródła w gałęzi 2, \\(I_2\\) – prąd gałęzi 2, \\(R_2\\) – rezystancja w gałęzi 2, \\(R_3\\) – rezystancja w gałęzi 3.\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E_2 = 12\\text{ V}, I_2 = 0{,}5\\text{ A}, R_2 = 12\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{12 - 0{,}5 \\cdot 12}{5} = \\frac{12 - 6}{5} = \\frac{6}{5} = 1{,}2\\text{ A}\\]\n• Wariant 2 (\\(E_2 = 10\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{10 - 0{,}4 \\cdot 10}{10} = \\frac{10 - 4}{10} = 0{,}6\\text{ A}\\]\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{15 - 1{,}0 \\cdot 5}{10} = \\frac{10}{10} = 1{,}0\\text{ A}\\]\n• Wariant 4 (\\(E_2 = 24\\text{ V}, I_2 = 2{,}0\\text{ A}, R_2 = 6\\,\\Omega, R_3 = 4\\,\\Omega\\)):\n\\[I_3 = \\frac{24 - 2 \\cdot 6}{4} = \\frac{12}{4} = 3{,}0\\text{ A}\\]"
+        "correct": "1,2 A",
+        "exp": "Wzór z II prawa Kirchhoffa dla prawego oczka:\n\\[E_2 - I_2 R_2 - I_3 R_3 = 0 \\implies I_3 = \\frac{E_2 - I_2 R_2}{R_3}\\]\nPodstawienie dla danych z pytania:\n\\[I_3 = \\frac{12 - 0{,}5 \\cdot 12}{5} = \\frac{12 - 6}{5} = \\frac{6}{5} = 1{,}2\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(E_2 = 10\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)): \\(I_3 = \\frac{10 - 4}{10} = 0{,}6\\text{ A}\\)\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 10\\,\\Omega\\)): \\(I_3 = \\frac{15 - 5}{10} = 1{,}0\\text{ A}\\)\n• Wariant 4 (\\(E_2 = 24\\text{ V}, I_2 = 2{,}0\\text{ A}, R_2 = 6\\,\\Omega, R_3 = 4\\,\\Omega\\)): \\(I_3 = \\frac{24 - 12}{4} = 3{,}0\\text{ A}\\)"
     },
     {
         "id": 28,
@@ -332,10 +348,11 @@
             2
         ],
         "type": "open",
-        "q": "Dla obwodu przedstawionego na schemacie (Obwód D) wyznacz prąd \\(I_3\\) płynący przez rezystor \\(R_3\\), znając wartości \\(E_2, I_2, R_2, R_3\\). Zwroty w prawym oczku: źródło \\(E_2\\) w dół, \\(I_2\\) w dół, \\(I_3\\) w dół.",
+        "numericTarget": -1.75,
+        "q": "Dla obwodu przedstawionego na schemacie (Obwód D) wyznacz prąd \\(I_3\\) (w amperach [A]) płynący przez rezystor \\(R_3\\), znając wartości: \\(E_2 = 10\\text{ V}\\), \\(I_2 = 0{,}5\\text{ A}\\), \\(R_2 = 6\\,\\Omega\\), \\(R_3 = 4\\,\\Omega\\). Zwroty w prawym oczku: źródło \\(E_2\\) w dół, \\(I_2\\) w dół, \\(I_3\\) w dół.",
         "img": "img/lab2_obwod_d.png",
-        "correct": "Wzór: \\(I_3 = \\frac{-E_2 + I_2 R_2}{R_3}\\). Dla wariantów: E2=10V, I2=0,5A, R2=6Ω, R3=4Ω -> I3 = -1,75 A | E2=12V, I2=0,8A, R2=10Ω, R3=10Ω -> I3 = -0,4 A",
-        "exp": "Wzór ogólny z II prawa Kirchhoffa dla prawego oczka:\nW obwodzie D źródło \\(E_2\\) jest skierowane przeciwnie (w dół), a prąd \\(I_2\\) płynie w dół. Równanie napięciowe dla oczka prawego daje:\n\\[-E_2 + I_2 R_2 - I_3 R_3 = 0 \\implies I_3 = \\frac{-E_2 + I_2 R_2}{R_3}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(E_2 = 10\\text{ V}, I_2 = 0{,}5\\text{ A}, R_2 = 6\\,\\Omega, R_3 = 4\\,\\Omega\\)):\n\\[I_3 = \\frac{-10 + 0{,}5 \\cdot 6}{4} = \\frac{-10 + 3}{4} = \\frac{-7}{4} = -1{,}75\\text{ A}\\]\n• Wariant 2 (\\(E_2 = 12\\text{ V}, I_2 = 0{,}8\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)):\n\\[I_3 = \\frac{-12 + 0{,}8 \\cdot 10}{10} = \\frac{-12 + 8}{10} = \\frac{-4}{10} = -0{,}4\\text{ A}\\]\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{-15 + 1{,}0 \\cdot 5}{5} = \\frac{-10}{5} = -2{,}0\\text{ A}\\]\n• Wariant 4 (\\(E_2 = 8\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 5\\,\\Omega\\)):\n\\[I_3 = \\frac{-8 + 0{,}4 \\cdot 10}{5} = \\frac{-8 + 4}{5} = -0{,}8\\text{ A}\\]"
+        "correct": "-1,75 A",
+        "exp": "Wzór z II prawa Kirchhoffa dla prawego oczka:\n\\[-E_2 + I_2 R_2 - I_3 R_3 = 0 \\implies I_3 = \\frac{-E_2 + I_2 R_2}{R_3}\\]\nPodstawienie dla danych z pytania:\n\\[I_3 = \\frac{-10 + 0{,}5 \\cdot 6}{4} = \\frac{-10 + 3}{4} = \\frac{-7}{4} = -1{,}75\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(E_2 = 12\\text{ V}, I_2 = 0{,}8\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 10\\,\\Omega\\)): \\(I_3 = \\frac{-12 + 8}{10} = -0{,}4\\text{ A}\\)\n• Wariant 3 (\\(E_2 = 15\\text{ V}, I_2 = 1{,}0\\text{ A}, R_2 = 5\\,\\Omega, R_3 = 5\\,\\Omega\\)): \\(I_3 = \\frac{-15 + 5}{5} = -2{,}0\\text{ A}\\)\n• Wariant 4 (\\(E_2 = 8\\text{ V}, I_2 = 0{,}4\\text{ A}, R_2 = 10\\,\\Omega, R_3 = 5\\,\\Omega\\)): \\(I_3 = \\frac{-8 + 4}{5} = -0{,}8\\text{ A}\\)"
     },
     {
         "id": 29,
@@ -378,9 +395,10 @@
             3
         ],
         "type": "open",
-        "q": "Przez rezystor o rezystancji \\(R\\) płynie prąd przemienny o przebiegu trójkątnym symetrycznym o wartości szczytowej \\(I_m\\). Oblicz energię cieplną (ciepło Joule'a) \\(W\\) wydzieloną na rezystorze w czasie \\(t\\).",
-        "correct": "Wzór: \\(W = \\frac{I_m^2 \\cdot R}{3} \\cdot t\\). Dla wariantów: R=8Ω, Im=4A, t=7min (420s) -> W = 17,92 kJ | R=16Ω, Im=4A, t=7min -> W = 35,84 kJ | R=12Ω, Im=3A, t=5min (300s) -> W = 10,8 kJ",
-        "exp": "Wzór ogólny na energię cieplną wydzieloną na rezystancji:\n\\[W = P \\cdot t = I_{sk}^2 \\cdot R \\cdot t\\]\nDla symetrycznego przebiegu trójkątnego wartość skuteczna prądu wynosi:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{3}}\\]\nPodstawiając do wzoru na energię:\n\\[W = \\left(\\frac{I_m}{\\sqrt{3}}\\right)^2 \\cdot R \\cdot t = \\frac{I_m^2 \\cdot R}{3} \\cdot t\\]\ngdzie: \\(I_m\\) – wartość szczytowa [A], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(t\\) – czas [s] (pamiętaj o zamianie minut na sekundy: \\(t = \\text{minuty} \\cdot 60\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R = 8\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min} = 420\\text{ s}\\)):\n\\[W = \\frac{4^2 \\cdot 8}{3} \\cdot 420 = \\frac{16 \\cdot 8}{3} \\cdot 420 = 128 \\cdot 140 = 17920\\text{ J} = 17{,}92\\text{ kJ}\\]\n• Wariant 2 (\\(R = 16\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min} = 420\\text{ s}\\)):\n\\[W = \\frac{16 \\cdot 16}{3} \\cdot 420 = 256 \\cdot 140 = 35840\\text{ J} = 35{,}84\\text{ kJ}\\]\n• Wariant 3 (\\(R = 12\\,\\Omega, I_m = 3\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)):\n\\[W = \\frac{3^2 \\cdot 12}{3} \\cdot 300 = \\frac{9 \\cdot 12}{3} \\cdot 300 = 36 \\cdot 300 = 10800\\text{ J} = 10{,}8\\text{ kJ}\\]"
+        "numericTarget": 17.92,
+        "q": "Przez rezystor o rezystancji \\(R = 8\\,\\Omega\\) płynie prąd przemienny o symetrycznym przebiegu trójkątnym o wartości szczytowej \\(I_m = 4\\text{ A}\\). Oblicz energię cieplną (ciepło Joule'a) \\(W\\) wydzieloną na rezystorze w czasie \\(t = 7\\text{ min}\\) (w kilodżulach [kJ]).",
+        "correct": "17,92 kJ",
+        "exp": "Wzór ogólny:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{3}} \\implies W = I_{sk}^2 \\cdot R \\cdot t = \\frac{I_m^2 \\cdot R}{3} \\cdot t\\]\nPodstawienie dla danych z pytania (\\(R = 8\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min} = 420\\text{ s}\\)):\n\\[W = \\frac{4^2 \\cdot 8}{3} \\cdot 420 = \\frac{16 \\cdot 8}{3} \\cdot 420 = 128 \\cdot 140 = 17920\\text{ J} = 17{,}92\\text{ kJ}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(R = 16\\,\\Omega, I_m = 4\\text{ A}, t = 7\\text{ min}\\)): \\(W = \\frac{256}{3} \\cdot 420 = 35{,}84\\text{ kJ}\\)\n• Wariant 3 (\\(R = 12\\,\\Omega, I_m = 3\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)): \\(W = \\frac{9 \\cdot 12}{3} \\cdot 300 = 10{,}8\\text{ kJ}\\)"
     },
     {
         "id": 32,
@@ -388,9 +406,10 @@
             3
         ],
         "type": "open",
-        "q": "Przez rezystor o rezystancji \\(R\\) płynie prąd przemienny sinusoidalny o amplitudzie \\(I_m\\). Oblicz energię cieplną \\(W\\) wydzieloną na rezystorze w czasie \\(t\\).",
-        "correct": "Wzór: \\(W = \\frac{I_m^2 \\cdot R}{2} \\cdot t\\). Dla wariantów: R=14Ω, Im=2A, t=5min (300s) -> W = 8,4 kJ | R=10Ω, Im=3A, t=10min (600s) -> W = 27 kJ | R=20Ω, Im=1,5A, t=4min (240s) -> W = 5,4 kJ",
-        "exp": "Wzór ogólny na energię cieplną:\n\\[W = I_{sk}^2 \\cdot R \\cdot t\\]\nDla przebiegu sinusoidalnego wartość skuteczna prądu wynosi:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{2}}\\]\nStąd energia wynosi:\n\\[W = \\left(\\frac{I_m}{\\sqrt{2}}\\right)^2 \\cdot R \\cdot t = \\frac{I_m^2 \\cdot R}{2} \\cdot t\\]\ngdzie: \\(I_m\\) – amplituda prądu [A], \\(R\\) – rezystancja [\\(\\Omega\\)], \\(t\\) – czas [s] (\\(t = \\text{min} \\cdot 60\\)).\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(R = 14\\,\\Omega, I_m = 2\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)):\n\\[W = \\frac{2^2 \\cdot 14}{2} \\cdot 300 = \\frac{4 \\cdot 14}{2} \\cdot 300 = 28 \\cdot 300 = 8400\\text{ J} = 8{,}4\\text{ kJ}\\]\n• Wariant 2 (\\(R = 10\\,\\Omega, I_m = 3\\text{ A}, t = 10\\text{ min} = 600\\text{ s}\\)):\n\\[W = \\frac{3^2 \\cdot 10}{2} \\cdot 600 = \\frac{90}{2} \\cdot 600 = 45 \\cdot 600 = 27000\\text{ J} = 27\\text{ kJ}\\]\n• Wariant 3 (\\(R = 20\\,\\Omega, I_m = 1{,}5\\text{ A}, t = 4\\text{ min} = 240\\text{ s}\\)):\n\\[W = \\frac{1{,}5^2 \\cdot 20}{2} \\cdot 240 = \\frac{2{,}25 \\cdot 20}{2} \\cdot 240 = 22{,}5 \\cdot 240 = 5400\\text{ J} = 5{,}4\\text{ kJ}\\]"
+        "numericTarget": 8.4,
+        "q": "Przez rezystor o rezystancji \\(R = 14\\,\\Omega\\) płynie prąd przemienny sinusoidalny o amplitudzie \\(I_m = 2\\text{ A}\\). Oblicz energię cieplną \\(W\\) wydzieloną na rezystorze w czasie \\(t = 5\\text{ min}\\) (w kilodżulach [kJ]).",
+        "correct": "8,4 kJ",
+        "exp": "Wzór ogólny:\n\\[I_{sk} = \\frac{I_m}{\\sqrt{2}} \\implies W = \\frac{I_m^2 \\cdot R}{2} \\cdot t\\]\nPodstawienie dla danych z pytania (\\(R = 14\\,\\Omega, I_m = 2\\text{ A}, t = 5\\text{ min} = 300\\text{ s}\\)):\n\\[W = \\frac{2^2 \\cdot 14}{2} \\cdot 300 = 28 \\cdot 300 = 8400\\text{ J} = 8{,}4\\text{ kJ}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(R = 10\\,\\Omega, I_m = 3\\text{ A}, t = 10\\text{ min} = 600\\text{ s}\\)): \\(W = \\frac{90}{2} \\cdot 600 = 27\\text{ kJ}\\)\n• Wariant 3 (\\(R = 20\\,\\Omega, I_m = 1{,}5\\text{ A}, t = 4\\text{ min} = 240\\text{ s}\\)): \\(W = 5{,}4\\text{ kJ}\\)"
     },
     {
         "id": 33,
@@ -398,9 +417,10 @@
             3
         ],
         "type": "open",
-        "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym o przebiegu prostokątnym o amplitudzie \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\).",
-        "correct": "Wzór: \\(I_{sr} = \\frac{U_m}{R}\\). Dla wariantów: Um=57V, R=10Ω -> Isr = 5,7 A | Um=65V, R=5Ω -> Isr = 13 A | Um=84V, R=12Ω -> Isr = 7 A",
-        "exp": "Wzór ogólny:\nPo wyprostowaniu dwupołówkowym (mostek Graetza) symetrycznego napięcia prostokątnego o amplitudzie \\(U_m\\), przebieg napięcia wyjściowego jest idealnie stały i wynosi \\(|u(t)| = U_m\\). Wartość średnia napięcia jest zatem równa amplitudzie:\n\\[U_{sr} = U_m\\]\nStąd wartość średnia prądu w rezystorze wynosi z prawa Ohma:\n\\[I_{sr} = \\frac{U_{sr}}{R} = \\frac{U_m}{R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 57\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sr} = \\frac{57}{10} = 5{,}7\\text{ A}\\]\n• Wariant 2 (\\(U_m = 65\\text{ V}, R = 5\\,\\Omega\\)):\n\\[I_{sr} = \\frac{65}{5} = 13{,}0\\text{ A}\\]\n• Wariant 3 (\\(U_m = 84\\text{ V}, R = 12\\,\\Omega\\)):\n\\[I_{sr} = \\frac{84}{12} = 7{,}0\\text{ A}\\]"
+        "numericTarget": 5.7,
+        "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym prostokątnym o amplitudzie \\(U_m = 57\\text{ V}\\) i obciążony rezystorem \\(R = 10\\,\\Omega\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\) (w amperach [A]).",
+        "correct": "5,7 A",
+        "exp": "Wzór ogólny:\n\\[U_{sr} = U_m \\implies I_{sr} = \\frac{U_m}{R}\\]\nPodstawienie dla danych z pytania (\\(U_m = 57\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sr} = \\frac{57}{10} = 5{,}7\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_m = 65\\text{ V}, R = 5\\,\\Omega\\)): \\(I_{sr} = \\frac{65}{5} = 13{,}0\\text{ A}\\)\n• Wariant 3 (\\(U_m = 84\\text{ V}, R = 12\\,\\Omega\\)): \\(I_{sr} = \\frac{84}{12} = 7{,}0\\text{ A}\\)"
     },
     {
         "id": 34,
@@ -408,9 +428,10 @@
             3
         ],
         "type": "open",
-        "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym o symetrycznym przebiegu trójkątnym o wartości szczytowej \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\).",
-        "correct": "Wzór: \\(I_{sr} = \\frac{U_m}{2 R}\\). Dla wariantów: Um=50V, R=13Ω -> Isr ≈ 1,923 A | Um=80V, R=10Ω -> Isr = 4 A | Um=60V, R=15Ω -> Isr = 2 A",
-        "exp": "Wzór ogólny:\nWyprostowany dwupołówkowo sygnał trójkątny składa się z powtarzających się trójkątów o wysokości \\(U_m\\) i podstawie równej połowie okresu \\(T/2\\). Średnia wartość napięcia to pole pod wykresem podzielone przez czas:\n\\[U_{sr} = \\frac{1}{T/2} \\cdot \\left(\\frac{1}{2} \\cdot \\frac{T}{2} \\cdot U_m\\right) = \\frac{U_m}{2}\\]\nZ prawa Ohma prąd średni wynosi:\n\\[I_{sr} = \\frac{U_{sr}}{R} = \\frac{U_m}{2 R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 50\\text{ V}, R = 13\\,\\Omega\\)):\n\\[I_{sr} = \\frac{50}{2 \\cdot 13} = \\frac{50}{26} \\approx 1{,}923\\text{ A}\\]\n• Wariant 2 (\\(U_m = 80\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sr} = \\frac{80}{2 \\cdot 10} = \\frac{80}{20} = 4{,}0\\text{ A}\\]\n• Wariant 3 (\\(U_m = 60\\text{ V}, R = 15\\,\\Omega\\)):\n\\[I_{sr} = \\frac{60}{2 \\cdot 15} = \\frac{60}{30} = 2{,}0\\text{ A}\\]"
+        "numericTarget": 1.923,
+        "q": "Mostek prostowniczy Graetza zasilany jest napięciem przemiennym o symetrycznym przebiegu trójkątnym o wartości szczytowej \\(U_m = 50\\text{ V}\\) i obciążony rezystorem \\(R = 13\\,\\Omega\\). Oblicz wartość średnią prądu wyprostowanego \\(I_{sr}\\) (w amperach [A]).",
+        "correct": "1,92 A (lub 1,923 A)",
+        "exp": "Wzór ogólny:\n\\[U_{sr} = \\frac{U_m}{2} \\implies I_{sr} = \\frac{U_m}{2 R}\\]\nPodstawienie dla danych z pytania (\\(U_m = 50\\text{ V}, R = 13\\,\\Omega\\)):\n\\[I_{sr} = \\frac{50}{2 \\cdot 13} = \\frac{50}{26} \\approx 1{,}923\\text{ A} \\approx 1{,}92\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_m = 80\\text{ V}, R = 10\\,\\Omega\\)): \\(I_{sr} = \\frac{80}{20} = 4{,}0\\text{ A}\\)\n• Wariant 3 (\\(U_m = 60\\text{ V}, R = 15\\,\\Omega\\)): \\(I_{sr} = \\frac{60}{30} = 2{,}0\\text{ A}\\)"
     },
     {
         "id": 35,
@@ -418,9 +439,10 @@
             3
         ],
         "type": "open",
-        "q": "Mostek Graetza zasilany jest napięciem trójkątnym o wartości szczytowej \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\).",
-        "correct": "Wzór: \\(I_{sk} = \\frac{U_m}{\\sqrt{3} \\cdot R}\\). Dla wariantów: Um=134V, R=14Ω -> Isk ≈ 5,53 A | Um=130V, R=7Ω -> Isk ≈ 10,72 A | Um=89V, R=12Ω -> Isk ≈ 4,28 A",
-        "exp": "Wzór ogólny:\nWartość skuteczna (RMS) napięcia zależy od kwadratu wartości chwilowych, więc wyprostowanie dwupołówkowe nie zmienia wartości skutecznej: \\(U_{sk} = \\frac{U_m}{\\sqrt{3}}\\).\nStąd prąd skuteczny płynący przez rezystancję \\(R\\) wynosi:\n\\[I_{sk} = \\frac{U_{sk}}{R} = \\frac{U_m}{\\sqrt{3} \\cdot R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 134\\text{ V}, R = 14\\,\\Omega\\)):\n\\[I_{sk} = \\frac{134}{\\sqrt{3} \\cdot 14} = \\frac{134}{24{,}2487} \\approx 5{,}526\\text{ A} \\approx 5{,}53\\text{ A}\\]\n• Wariant 2 (\\(U_m = 130\\text{ V}, R = 7\\,\\Omega\\)):\n\\[I_{sk} = \\frac{130}{\\sqrt{3} \\cdot 7} = \\frac{130}{12{,}1244} \\approx 10{,}722\\text{ A} \\approx 10{,}72\\text{ A}\\]\n• Wariant 3 (\\(U_m = 89\\text{ V}, R = 12\\,\\Omega\\)):\n\\[I_{sk} = \\frac{89}{\\sqrt{3} \\cdot 12} = \\frac{89}{20{,}7846} \\approx 4{,}282\\text{ A} \\approx 4{,}28\\text{ A}\\]"
+        "numericTarget": 5.53,
+        "q": "Mostek Graetza zasilany jest napięciem trójkątnym o wartości szczytowej \\(U_m = 134\\text{ V}\\) i obciążony rezystorem \\(R = 14\\,\\Omega\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\) (w amperach [A]).",
+        "correct": "5,53 A",
+        "exp": "Wzór ogólny:\n\\[U_{sk} = \\frac{U_m}{\\sqrt{3}} \\implies I_{sk} = \\frac{U_m}{\\sqrt{3} \\cdot R}\\]\nPodstawienie dla danych z pytania (\\(U_m = 134\\text{ V}, R = 14\\,\\Omega\\)):\n\\[I_{sk} = \\frac{134}{\\sqrt{3} \\cdot 14} = \\frac{134}{24{,}2487} \\approx 5{,}53\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_m = 130\\text{ V}, R = 7\\,\\Omega\\)): \\(I_{sk} = \\frac{130}{\\sqrt{3} \\cdot 7} \\approx 10{,}72\\text{ A}\\)\n• Wariant 3 (\\(U_m = 89\\text{ V}, R = 12\\,\\Omega\\)): \\(I_{sk} = \\frac{89}{\\sqrt{3} \\cdot 12} \\approx 4{,}28\\text{ A}\\)"
     },
     {
         "id": 36,
@@ -428,9 +450,10 @@
             3
         ],
         "type": "open",
-        "q": "Mostek Graetza zasilany jest napięciem sinusoidalnym o amplitudzie \\(U_m\\) i obciążony rezystorem \\(R\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\).",
-        "correct": "Wzór: \\(I_{sk} = \\frac{U_m}{\\sqrt{2} \\cdot R}\\). Dla wariantów: Um=83V, R=10Ω -> Isk ≈ 5,87 A | Um=100V, R=20Ω -> Isk ≈ 3,54 A | Um=325V, R=50Ω -> Isk = 4,6 A",
-        "exp": "Wzór ogólny:\nWartość skuteczna napięcia sinusoidalnego po wyprostowaniu dwupołówkowym wynosi niezmiennie:\n\\[U_{sk} = \\frac{U_m}{\\sqrt{2}}\\]\nPrąd skuteczny w gałęzi obciążenia wynosi zatem:\n\\[I_{sk} = \\frac{U_{sk}}{R} = \\frac{U_m}{\\sqrt{2} \\cdot R}\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(U_m = 83\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sk} = \\frac{83}{\\sqrt{2} \\cdot 10} = \\frac{83}{14{,}142} \\approx 5{,}869\\text{ A} \\approx 5{,}87\\text{ A}\\]\n• Wariant 2 (\\(U_m = 100\\text{ V}, R = 20\\,\\Omega\\)):\n\\[I_{sk} = \\frac{100}{20\\sqrt{2}} = \\frac{5}{\\sqrt{2}} \\approx 3{,}536\\text{ A} \\approx 3{,}54\\text{ A}\\]\n• Wariant 3 (\\(U_m = 230\\sqrt{2}\\text{ V} \\approx 325\\text{ V}, R = 50\\,\\Omega\\)):\n\\[I_{sk} = \\frac{230}{50} = 4{,}60\\text{ A}\\]"
+        "numericTarget": 5.87,
+        "q": "Mostek Graetza zasilany jest napięciem sinusoidalnym o amplitudzie \\(U_m = 83\\text{ V}\\) i obciążony rezystorem \\(R = 10\\,\\Omega\\). Oblicz wartość skuteczną prądu obciążenia \\(I_{sk}\\) (w amperach [A]).",
+        "correct": "5,87 A",
+        "exp": "Wzór ogólny:\n\\[U_{sk} = \\frac{U_m}{\\sqrt{2}} \\implies I_{sk} = \\frac{U_m}{\\sqrt{2} \\cdot R}\\]\nPodstawienie dla danych z pytania (\\(U_m = 83\\text{ V}, R = 10\\,\\Omega\\)):\n\\[I_{sk} = \\frac{83}{\\sqrt{2} \\cdot 10} = \\frac{83}{14{,}142} \\approx 5{,}87\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_m = 100\\text{ V}, R = 20\\,\\Omega\\)): \\(I_{sk} = \\frac{5}{\\sqrt{2}} \\approx 3{,}54\\text{ A}\\)\n• Wariant 3 (\\(U_m = 325\\text{ V}, R = 50\\,\\Omega\\)): \\(I_{sk} = 4{,}60\\text{ A}\\)"
     },
     {
         "id": 37,
@@ -438,8 +461,9 @@
             3
         ],
         "type": "open",
-        "q": "W obwodzie włączono szeregowo amperomierz magnetoelektryczny (DC) oraz elektromagnetyczny (AC/RMS). Amperomierz magnetoelektryczny wskazał prąd \\(I_{DC}\\) (średni), a elektromagnetyczny prąd \\(I_{AC}\\) (skuteczny). Oblicz ładunek elektryczny \\(Q\\), który przepłynął w obwodzie w czasie \\(t\\).",
-        "correct": "Wzór: \\(Q = I_{DC} \\cdot t\\). Dla wariantów: I_DC=0,7A, I_AC=2,8A, t=100s -> Q = 70 C | I_DC=1,2A, I_AC=3,5A, t=200s -> Q = 240 C | I_DC=2A, I_AC=5A, t=1h (3600s) -> Q = 7,2 kC",
-        "exp": "Wzór ogólny na ładunek elektryczny przepływający przez przewodnik:\nCałkowity ładunek \\(Q\\) to całka z prądu w czasie:\n\\[Q = \\int_0^t i(\\tau)\\, d\\tau = I_{sr} \\cdot t = I_{DC} \\cdot t\\]\nZasada pomiaru:\n• Miernik magnetoelektryczny (DC) mierzy wartość średnią prądu \\(I_{sr} = I_{DC}\\), która odpowiada bezpośredniemu wypadkowemu transportowi ładunku elektrycznego.\n• Miernik elektromagnetyczny (AC) mierzy wartość skuteczną \\(I_{sk} = I_{AC}\\), która odzwierciedla działanie termiczne prądu (energię) i nie mierzy bezpośrednio transportowanego ładunku netto.\nStąd do obliczenia ładunku używamy wyłącznie wskazania \\(I_{DC}\\):\n\\[Q = I_{DC} \\cdot t\\]\n\nPodstawienia dla wariantów ze zdjęć:\n• Wariant 1 (\\(I_{DC} = 0{,}7\\text{ A}, I_{AC} = 2{,}8\\text{ A}, t = 100\\text{ s}\\)):\n\\[Q = 0{,}7 \\cdot 100 = 70\\text{ C}\\]\n• Wariant 2 (\\(I_{DC} = 1{,}2\\text{ A}, I_{AC} = 3{,}5\\text{ A}, t = 200\\text{ s}\\)):\n\\[Q = 1{,}2 \\cdot 200 = 240\\text{ C}\\]\n• Wariant 3 (\\(I_{DC} = 2{,}0\\text{ A}, I_{AC} = 5{,}0\\text{ A}, t = 1\\text{ h} = 3600\\text{ s}\\)):\n\\[Q = 2{,}0 \\cdot 3600 = 7200\\text{ C} = 7{,}2\\text{ kC}\\]\n• Wariant 4 (\\(I_{DC} = 1{,}5\\text{ A}, I_{AC} = 4{,}0\\text{ A}, t = 60\\text{ s}\\)):\n\\[Q = 1{,}5 \\cdot 60 = 90\\text{ C}\\]"
+        "numericTarget": 70.0,
+        "q": "W obwodzie włączono szeregowo amperomierz magnetoelektryczny (DC) oraz elektromagnetyczny (AC). Amperomierz magnetoelektryczny wskazał prąd \\(I_{DC} = 0{,}7\\text{ A}\\), a elektromagnetyczny prąd \\(I_{AC} = 2{,}8\\text{ A}\\). Oblicz ładunek elektryczny \\(Q\\), który przepłynął w obwodzie w czasie \\(t = 100\\text{ s}\\) (w kulombach [C]).",
+        "correct": "70 C",
+        "exp": "Wzór ogólny:\n\\[Q = I_{DC} \\cdot t\\]\nWyjaśnienie: Miernik magnetoelektryczny (DC) mierzy prąd średni związany z wypadkowym transportem ładunku elektrycznego, podczas gdy miernik elektromagnetyczny (AC) mierzy wartość skuteczną (działanie cieplne).\n\nPodstawienie dla danych z pytania (\\(I_{DC} = 0{,}7\\text{ A}, t = 100\\text{ s}\\)):\n\\[Q = 0{,}7\\text{ A} \\cdot 100\\text{ s} = 70\\text{ C}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_{DC} = 1{,}2\\text{ A}, I_{AC} = 3{,}5\\text{ A}, t = 200\\text{ s}\\)): \\(Q = 1{,}2 \\cdot 200 = 240\\text{ C}\\)\n• Wariant 3 (\\(I_{DC} = 2{,}0\\text{ A}, I_{AC} = 5{,}0\\text{ A}, t = 1\\text{ h} = 3600\\text{ s}\\)): \\(Q = 2 \\cdot 3600 = 7200\\text{ C} = 7{,}2\\text{ kC}\\)\n• Wariant 4 (\\(I_{DC} = 1{,}5\\text{ A}, I_{AC} = 4{,}0\\text{ A}, t = 60\\text{ s}\\)): \\(Q = 1{,}5 \\cdot 60 = 90\\text{ C}\\)"
     }
 ]

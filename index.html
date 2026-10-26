@@ -1351,7 +1351,7 @@
                                 <div>Oblicz zadanie dla podanych wartości i wpisz wynik poniżej. Sprawdzenie dopuszcza drobne zaokrąglenia.</div>
                             </div>
                             <div class="flex flex-col sm:flex-row gap-2">
-                                <input type="text" id="open-numeric-input" placeholder="Wpisz obliczony wynik (np. ${q.numericTarget})..." 
+                                <input type="text" id="open-numeric-input" placeholder="Wpisz obliczony wynik (np. 1,23)..." 
                                     onkeydown="if(event.key==='Enter') checkStudyNumericAnswer()"
                                     class="flex-1 p-3.5 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold text-slate-800 dark:text-slate-100">
                                 <button onclick="checkStudyNumericAnswer()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition shadow-sm whitespace-nowrap">
@@ -1525,7 +1525,7 @@
             const parsed = parseNumericAnswer(userValStr);
             if (parsed === null) {
                 feedback.className = "p-3 rounded-xl bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 text-xs font-semibold";
-                feedback.innerHTML = "Wpisz poprawną wartość liczbową (np. 0.53 lub 12).";
+                feedback.innerHTML = "Wpisz poprawną wartość liczbową (np. 1,23).";
                 feedback.classList.remove('hidden');
                 return;
             }
@@ -1722,7 +1722,7 @@
                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400">
                             ${isNumeric ? 'Wpisz obliczony wynik liczbowy (dla podanych danych w treści):' : 'Wpisz swoją odpowiedź / wzór:'}
                         </label>
-                        <input type="text" id="exam-open-answer" onchange="saveExamOpenAnswer(this.value)" oninput="saveExamOpenAnswer(this.value)" value="${savedAns ? escapeHtml(savedAns) : ''}" placeholder="${isNumeric ? 'Wpisz wynik liczbowy (np. ' + q.numericTarget + ')...' : 'Wpisz swoją odpowiedź...'}" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold text-slate-800 dark:text-slate-100">
+                        <input type="text" id="exam-open-answer" onchange="saveExamOpenAnswer(this.value)" oninput="saveExamOpenAnswer(this.value)" value="${savedAns ? escapeHtml(savedAns) : ''}" placeholder="${isNumeric ? 'Wpisz wynik liczbowy (np. 1,23)...' : 'Wpisz swoją odpowiedź...'}" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold text-slate-800 dark:text-slate-100">
                     </div>
                 `;
             }

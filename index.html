@@ -114,7 +114,11 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
                     <span>Przeglądaj Bazę</span>
                 </button>
-                <button id="nav-starred" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <button id="nav-formulas" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <span>Wzory i Ściągawka</span>
+                </button>
+<button id="nav-starred" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
                     <span>Ulubione pytania</span>
                 </button>
@@ -153,6 +157,7 @@
                     </p>
                     <div class="flex flex-wrap gap-3 pt-2">
                         <button onclick="switchTab('study')" class="bg-white text-blue-600 hover:bg-blue-50 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-sm">Rozpocznij Naukę</button>
+                        <button onclick="switchTab('formulas')" class="bg-indigo-900/60 hover:bg-indigo-900 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition backdrop-blur-sm flex items-center gap-2"><span>📐</span> Ściągawka Wzorów</button>
                         <button onclick="switchTab('exam')" class="bg-blue-800/60 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition backdrop-blur-sm">Symulacja Egzaminu</button>
                     </div>
                 </div>
@@ -347,6 +352,337 @@
                     <!-- Starred questions injected here -->
                 </div>
             </section>
+        
+            <!-- FORMULAS / CHEAT SHEET TAB -->
+            <section id="sec-formulas" class="hidden space-y-6">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-indigo-700 via-blue-700 to-sky-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <span class="inline-block py-1 px-3 bg-white/20 rounded-full text-xs font-semibold backdrop-blur-sm">Kompendium Elektrotechniki</span>
+                        <span class="text-xs text-blue-100 font-medium">Wszystkie wzory z kartkówek 1, 2 i 3</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Ściągawka Wzorów i Zależności</h2>
+                    <p class="text-blue-100 text-sm max-w-2xl leading-relaxed">
+                        Zestawienie wszystkich wzorów fizycznych i elektrotechnicznych użytych w zadaniach, objaśnienia symboli, jednostek w układzie SI oraz typowe pułapki obliczeniowe.
+                    </p>
+                </div>
+
+                <!-- Filters and Search Toolbar -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                    <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+                        <!-- Lab Category Pills -->
+                        <div class="flex flex-wrap gap-2" id="formula-category-filters">
+                            <button onclick="filterFormulas('all', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-sm" data-filter="all">Wszystkie</button>
+                            <button onclick="filterFormulas('1', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="1">Lab 1: Podstawy &amp; Elementy</button>
+                            <button onclick="filterFormulas('2', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="2">Lab 2: Obwody DC &amp; Kirchhoff</button>
+                            <button onclick="filterFormulas('3', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="3">Lab 3: AC, Graetz &amp; Sygnały</button>
+                        </div>
+
+                        <!-- Live Search -->
+                        <div class="relative w-full md:w-72">
+                            <svg class="w-4 h-4 absolute left-3 top-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" id="formula-search-input" oninput="searchFormulas(this.value)" placeholder="Szukaj wzoru (np. Graetz, Ohma)..." class="w-full pl-9 pr-3 py-2 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula Cards Grid -->
+                <div id="formula-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <!-- ================= LAB 1 ================= -->
+                    <!-- Card 1: Prawo Ohma -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="ohm prawo ohma napięcie prąd rezystancja opór u r i">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Rezystancja</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Prawo Ohma (DC)</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Prawo Ohma dla prądu stałego</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 text-center font-mono">
+                            \[I = \frac{U}{R} \iff R = \frac{U}{I} \iff U = I \cdot R\]
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p><strong>Symbole i jednostki:</strong> \(U\) – napięcie [V], \(I\) – natężenie prądu [A], \(R\) – rezystancja [\(\Omega\)].</p>
+                            <p class="text-slate-400"><strong>Wskazówka:</strong> Pamiętaj o przeliczeniu miliamperów na ampery: \(1\text{ mA} = 10^{-3}\text{ A}\) (np. \(25\text{ mA} = 0{,}025\text{ A}\)).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Rezystancja przewodnika -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="taśma drut przewód rezystywność opór przekrój kołowy prostokątny">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Przewodniki</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Geometria przewodu</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Rezystancja drutu i taśmy metalowej</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                            <div>\[\text{Taśma (prostokąt): } R = \frac{\rho \cdot l}{a \cdot b}\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[\text{Drut (koło): } R = \frac{4 \rho \cdot l}{\pi d^2}\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p><strong>Symbole:</strong> \(\rho\) – rezystywność [\(\Omega\cdot\text{m}\)], \(l\) – długość [m], \(a, b\) – boki przekroju [m], \(d\) – średnica [m].</p>
+                            <p class="text-slate-400"><strong>Przeliczenia:</strong> \(1\text{ n}\Omega\text{m} = 10^{-9}\,\Omega\cdot\text{m}\), \(1\text{ mm} = 10^{-3}\text{ m}\) (np. \(d = 0{,}1\text{ mm} = 10^{-4}\text{ m}\)).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Kondensatory -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="kondensator pojemność ładunek dielektryk przenikalność płaski">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Kondensator</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Pojemność elektryczna</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Pojemność i kondensator płaski</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                            <div>\[Q = C \cdot U \iff C = \frac{Q}{U} \iff U = \frac{Q}{C}\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[C = \varepsilon_0 \varepsilon_r \frac{S}{d}\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p><strong>Stała:</strong> \(\varepsilon_0 \approx 8{,}854 \cdot 10^{-12}\text{ F/m}\), \(\varepsilon_r\) – przenikalność względna.</p>
+                            <p><strong>Przeliczenia:</strong> \(S\) w \(\text{cm}^2 = 10^{-4}\text{ m}^2\), \(d\) w \(\mu\text{m} = 10^{-6}\text{ m}\), \(Q\) w \(\text{mC} = 10^{-3}\text{ C}\).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Cewki -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="cewka indukcyjność strumień magnetyczny solenoid zwoje prąd">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Cewka</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Indukcyjność własna</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Indukcyjność cewki i solenoid powietrzny</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                            <div>\[\Psi = L \cdot I \iff L = \frac{\Psi}{I} \iff I = \frac{\Psi}{L}\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[L = \mu_0 \frac{z^2 \cdot S}{l}\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p><strong>Symbole:</strong> \(\Psi\) – strumień skojarzony [Wb], \(L\) – indukcyjność [H], \(\mu_0 = 4\pi \cdot 10^{-7}\text{ H/m}\).</p>
+                            <p><strong>Wymiary:</strong> \(z\) – liczba zwojów, \(S\) – pole przekroju [\(\text{m}^2\)], \(l\) – długość cewki [m].</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Kwalifikacja elementów idealnych -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3 md:col-span-2" data-lab="1" data-keywords="rezystor kondensator cewka dioda transformator pasywny aktywny odwracalny konserwatywny dyssypatywny dwójnik czwórnik">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Teoria</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Klasyfikacja elementów idealnych</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Kwalifikacja elementów obwodowych w teście</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400">
+                                        <th class="py-2 pr-3">Element</th>
+                                        <th class="py-2 px-2">Biegunowość</th>
+                                        <th class="py-2 px-2">Energia</th>
+                                        <th class="py-2 px-2">Stratność</th>
+                                        <th class="py-2 px-2">Odwracalność</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-medium text-slate-700 dark:text-slate-300">
+                                    <tr>
+                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Rezystor idealny</td>
+                                        <td class="py-2.5 px-2">Dwójnik</td>
+                                        <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
+                                        <td class="py-2.5 px-2 text-amber-600 dark:text-amber-400">Dyssypatywny (ciepło)</td>
+                                        <td class="py-2.5 px-2">Odwracalny</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Kondensator idealny</td>
+                                        <td class="py-2.5 px-2">Dwójnik</td>
+                                        <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
+                                        <td class="py-2.5 px-2 text-indigo-600 dark:text-indigo-400">Konserwatywny (pole E)</td>
+                                        <td class="py-2.5 px-2">Odwracalny</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Cewka idealna</td>
+                                        <td class="py-2.5 px-2">Dwójnik</td>
+                                        <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
+                                        <td class="py-2.5 px-2 text-indigo-600 dark:text-indigo-400">Konserwatywny (pole B)</td>
+                                        <td class="py-2.5 px-2">Odwracalny</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Dioda idealna</td>
+                                        <td class="py-2.5 px-2">Dwójnik</td>
+                                        <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
+                                        <td class="py-2.5 px-2 text-slate-400">Niesymetryczna</td>
+                                        <td class="py-2.5 px-2 text-rose-600 dark:text-rose-400">Nieodwracalna</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Transformator idealny</td>
+                                        <td class="py-2.5 px-2">Wielobiegunnik (czwórnik)</td>
+                                        <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
+                                        <td class="py-2.5 px-2 text-slate-400">Bezstratny sprzężony</td>
+                                        <td class="py-2.5 px-2">Odwracalny</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- ================= LAB 2 ================= -->
+                    <!-- Card 6: Prawa Kirchhoffa -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="2" data-keywords="kirchhoff kcl kvl węzeł oczko prąd gałęziowy i1 i2 i3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Obwody DC</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Prawa Kirchhoffa</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">I i II Prawo Kirchhoffa w układach z testu</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-xs">
+                            <div><strong>Węzeł A:</strong> \[I_1 + I_3 = I_2 \implies I_1 = I_2 - I_3\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Węzeł BC:</strong> \[I_1 + I_2 = I_3 \implies I_1 = I_3 - I_2\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Oczko prawe (\(E_2\) w górę):</strong> \[I_3 = \frac{E_2 - I_2 R_2}{R_3}\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Oczko prawe (\(E_2\) w dół):</strong> \[I_3 = \frac{-E_2 + I_2 R_2}{R_3}\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p class="text-slate-400"><strong>Uwaga na znak:</strong> Wynik ujemny natężenia prądu oznacza po prostu, że prąd płynie w kierunku przeciwnym do strzałki na schemacie.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Sprawność i dopasowanie mocy -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="2" data-keywords="sprawność dopasowanie moc maksymalna sem rezystancja wewnętrzna odbiornik pmax eta">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Źródło DC</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Bilans mocy</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Sprawność i dopasowanie energetyczne</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                            <div>\[\eta = \frac{R_{odb}}{R_{odb} + R_w} \cdot 100\%\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[P_{max} = \frac{E^2}{4 R_w} \quad (\text{dla } R_{odb} = R_w)\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p><strong>Warunek dopasowania energetycznego:</strong> Odbiornik pobiera maksymalną moc, gdy \(R_{odb} = R_w\).</p>
+                            <p><strong>Sprawność przy dopasowaniu:</strong> Zawsze wynosi dokładnie \(\eta = 50\%\).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Twierdzenia obwodowe -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3 md:col-span-2" data-lab="2" data-keywords="thevenin norton superpozycja wzajemność nieliniowe twierdzenia zasady">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Twierdzenia</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Pytania testowe Moodle</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Kluczowe reguły i twierdzenia obwodowe</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                                <strong class="text-blue-600 dark:text-blue-400 block font-bold">Twierdzenie Thevenina:</strong>
+                                <p>Zastępuje aktywny obwód liniowy <strong>rzeczywistym źródłem napięcia</strong>: SEM \(E_{Th}\) w szereg z rezystancją wewnętrzną \(R_{Th}\).</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                                <strong class="text-blue-600 dark:text-blue-400 block font-bold">Twierdzenie Nortona:</strong>
+                                <p>Zastępuje aktywny obwód liniowy <strong>rzeczywistym źródłem prądu</strong>: źródło \(I_N\) połączone równolegle z konduktancją/rezystancją \(R_N\).</p>
+                            </div>
+                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                                <strong class="text-amber-600 dark:text-amber-400 block font-bold">Zasada Superpozycji:</strong>
+                                <p>Odpowiedź = suma odpowiedzi od każdego źródła z osobna. <em>Gdy jest tylko 1 źródło w obwodzie – NIE MA zastosowania!</em></p>
+                            </div>
+                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                                <strong class="text-rose-600 dark:text-rose-400 block font-bold">Twierdzenie o Wzajemności:</strong>
+                                <p>Dotyczy układów z jednym wymuszeniem. <em>Gdy w obwodzie jest WIELE źródeł niezależnych – NIE MOŻNA go zastosować!</em></p>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-purple-50 dark:bg-purple-900/25 border border-purple-200 dark:border-purple-800 rounded-xl text-xs text-purple-900 dark:text-purple-200">
+                            ⚡ <strong>Elementy nieliniowe w obwodzie:</strong> Analizę można wykonać <strong>wyłącznie bezpośrednio metodą praw Kirchhoffa</strong> (metody oczkowa, węzłowa i superpozycja odpadają ze względu na nieliniowość!).
+                        </div>
+                    </div>
+
+                    <!-- ================= LAB 3 ================= -->
+                    <!-- Card 9: Ciepło Joule'a dla prądów zmiennych -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="ciepło joule energia rezystor prąd przemienny sinus trójkąt prostokąt w">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Efekt cieplny</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Ciepło Joule'a \(W = I_{sk}^2 R t\)</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Energia cieplna prądu przemiennego</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-xs">
+                            <div><strong>Sinusoida:</strong> \[I_{sk} = \frac{I_m}{\sqrt{2}} \implies W = \frac{I_m^2 \cdot R}{2} \cdot t\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Fala trójkątna:</strong> \[I_{sk} = \frac{I_m}{\sqrt{3}} \implies W = \frac{I_m^2 \cdot R}{3} \cdot t\]</div>
+                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Fala prostokątna:</strong> \[I_{sk} = I_m \implies W = I_m^2 \cdot R \cdot t\]</div>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300">
+                            <p class="text-slate-400"><strong>Czas \(t\):</strong> Zawsze przeliczaj minuty na sekundy: \(t = \text{minuty} \cdot 60\text{ s}\). Wynik w dżulach przelicz na kilodżule: \(1\text{ kJ} = 1000\text{ J}\).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 10: Mostek Graetza Tabela -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="mostek graetza prostownik skuteczna średnia sinus trójkąt prostokąt isk isr">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Prostownik</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Mostek Graetza</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Prąd obciążenia mostka Graetza</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400">
+                                        <th class="py-1.5 pr-2">Kształt fali</th>
+                                        <th class="py-1.5 px-2">Wartość skuteczna \(I_{sk}\)</th>
+                                        <th class="py-1.5 px-2">Wartość średnia \(I_{sr}\)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-mono text-slate-700 dark:text-slate-300">
+                                    <tr>
+                                        <td class="py-2 pr-2 font-sans font-bold">Sinusoidalny</td>
+                                        <td class="py-2 px-2">\[\frac{U_m}{\sqrt{2} \cdot R}\]</td>
+                                        <td class="py-2 px-2">\[\frac{2 U_m}{\pi \cdot R}\]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 pr-2 font-sans font-bold">Trójkątny</td>
+                                        <td class="py-2 px-2">\[\frac{U_m}{\sqrt{3} \cdot R}\]</td>
+                                        <td class="py-2 px-2">\[\frac{U_m}{2 R}\]</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 pr-2 font-sans font-bold">Prostokątny</td>
+                                        <td class="py-2 px-2">\[\frac{U_m}{R}\]</td>
+                                        <td class="py-2 px-2">\[\frac{U_m}{R}\]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-[11px] text-slate-400">Wszystkie wzory wynikają bezpośrednio z definicji całkowych dla dwupołówkowo wyprostowanego sygnału.</p>
+                    </div>
+
+                    <!-- Card 11: Ładunek i amperomierze DC/AC -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="amperomierz magnetoelektryczny elektromagnetyczny dc ac ładunek q">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Pomiary</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Ładunek w obwodzie</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Pomiary prądu: ładunek elektryczny</h3>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 font-mono text-center">
+                            \[Q = I_{DC} \cdot t\]
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
+                            <p><strong>Miernik magnetoelektryczny (DC):</strong> Mierzy wartość <em>średnią</em> prądu, która odpowiada rzeczywistemu przenoszeniu ładunku (\(Q = \int I \, dt\)).</p>
+                            <p><strong>Miernik elektromagnetyczny (AC):</strong> Mierzy wartość <em>skuteczną</em> (działanie cieplne).</p>
+                            <div class="p-2.5 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-200 font-semibold text-[11px]">
+                                ⚠️ Wskazanie amperomierza AC w zadaniu o ładunek jest ZMYŁKĄ! Zawsze mnożymy prąd DC przez czas w sekundach.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 12: Klasyfikacja sygnałów zmiennych -->
+                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="sygnał klasyfikacja tętniący przemienny okresowy ciągły aperiodyczny">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Przebiegi</span>
+                            <span class="text-[11px] font-semibold text-slate-400">Klasyfikacja sygnałów</span>
+                        </div>
+                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Klasyfikacja sygnałów elektrycznych z wykresu</h3>
+                        <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
+                                <strong class="text-blue-600 dark:text-blue-400">Fala trójkątna symetryczna:</strong>
+                                <p>Ciągły, okresowy, zmienny, <strong>przemienny</strong> (wartości dodatnie i ujemne).</p>
+                            </div>
+                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
+                                <strong class="text-indigo-600 dark:text-indigo-400">Zanik wykładniczy (\(u = U_0 e^{-t/\tau}\)):</strong>
+                                <p>Ciągły, zmienny, <strong>nieokresowy (aperiodyczny)</strong>. Nie jest przemienny.</p>
+                            </div>
+                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
+                                <strong class="text-purple-600 dark:text-purple-400">Jednopołówkowa sinusoida:</strong>
+                                <p>Ciągły, okresowy, zmienny, <strong>tętniący</strong> (nie zmienia znaku na ujemny).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
         </main>
     </div>
 
@@ -922,7 +1258,8 @@
             study: false,
             exam: false,
             browse: false,
-            starred: false
+            starred: false,
+            formulas: false
         };
 
         // Browse Pagination state
@@ -1125,13 +1462,14 @@
 
         // Navigation Switching Handler (Lazy Tab Initialization)
         function switchTab(tabName) {
-            const sections = ['sec-dashboard', 'sec-study', 'sec-exam', 'sec-browse', 'sec-starred'];
+            const sections = ['sec-dashboard', 'sec-study', 'sec-exam', 'sec-browse', 'sec-starred', 'sec-formulas'];
             const navButtons = {
                 'dashboard': 'nav-dashboard',
                 'study': 'nav-study',
                 'exam': 'nav-exam',
                 'browse': 'nav-browse',
-                'starred': 'nav-starred'
+                'starred': 'nav-starred',
+                'formulas': 'nav-formulas'
             };
 
             sections.forEach(sec => document.getElementById(sec).classList.add('hidden'));
@@ -1160,6 +1498,12 @@
             } else if (tabName === 'starred') {
                 loadStarredQuestions();
                 tabLoaded.starred = true;
+            } else if (tabName === 'formulas') {
+                if (!tabLoaded.formulas) {
+                    const sec = document.getElementById('sec-formulas');
+                    if (sec) triggerMathJax(sec);
+                    tabLoaded.formulas = true;
+                }
             }
         }
 
@@ -1168,6 +1512,8 @@
         document.getElementById('nav-exam').onclick = () => switchTab('exam');
         document.getElementById('nav-browse').onclick = () => switchTab('browse');
         document.getElementById('nav-starred').onclick = () => switchTab('starred');
+        const navFormulasBtn = document.getElementById('nav-formulas');
+        if (navFormulasBtn) navFormulasBtn.onclick = () => switchTab('formulas');
 
         // Progress & Statistics Core Logic
         function initProgress() {
@@ -2149,6 +2495,48 @@
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#039;");
         }
+
+        // ==========================================
+        // FORMULAS / CHEAT SHEET ENGINE
+        // ==========================================
+        let currentFormulaFilter = 'all';
+        let currentFormulaSearch = '';
+
+        function filterFormulas(lab, btn) {
+            currentFormulaFilter = String(lab);
+            const btns = document.querySelectorAll('.formula-filter-btn');
+            btns.forEach(b => {
+                b.className = "formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600";
+            });
+            if (btn) {
+                btn.className = "formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-sm";
+            }
+            applyFormulaFilters();
+        }
+
+        function searchFormulas(val) {
+            currentFormulaSearch = String(val || '').toLowerCase().trim();
+            applyFormulaFilters();
+        }
+
+        function applyFormulaFilters() {
+            const cards = document.querySelectorAll('.formula-card');
+            cards.forEach(card => {
+                const cardLab = card.getAttribute('data-lab');
+                const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+                const cardText = card.innerText.toLowerCase();
+
+                const matchesLab = (currentFormulaFilter === 'all' || cardLab === currentFormulaFilter);
+                const matchesSearch = (!currentFormulaSearch || cardKeywords.includes(currentFormulaSearch) || cardText.includes(currentFormulaSearch));
+
+                if (matchesLab && matchesSearch) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
     </script>
 </body>
 </html>

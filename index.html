@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trenażer Egzaminacyjny: Elektrotechnika</title>
+    <title>ElektroLeszek – Trenażer Egzaminacyjny</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -85,7 +85,7 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <span class="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">ElektroBaza</span>
+                    <span class="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">ElektroLeszek</span>
                     <span class="text-neutral-400 dark:text-neutral-600 text-xs">/</span>
                     <span class="text-xs text-neutral-500 dark:text-neutral-400">Trenażer: Lab 1–4 i Wejściówka 1</span>
                 </div>
@@ -180,100 +180,100 @@
                     </div>
                 </div>
 
-                <!-- 5 Lab Modules -->
+                <!-- 5 Labs & Wejściówka -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Lab 1 -->
-                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                    <div onclick="filterToLabStudy('1')" class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group">
                         <div class="space-y-1.5">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Laboratorium</span>
                                 <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">16 pytań</span>
                             </div>
-                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Lab 1: Podstawy i Elementy</h3>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">Lab 1: Podstawy i Elementy</h3>
                             <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
                                 Klasyfikacja transformatora, diody, rezystora, kondensatora i cewki. Prawo Ohma, rezystancja drutu i taśmy, pojemność i indukcyjność.
                             </p>
                         </div>
                         <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                            <button onclick="filterToLabStudy('1')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
-                                Ćwicz ten moduł &rarr;
-                            </button>
+                            <span class="text-xs font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                                Ćwicz &rarr;
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lab 2 -->
-                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                    <div onclick="filterToLabStudy('2')" class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group">
                         <div class="space-y-1.5">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Laboratorium</span>
                                 <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">13 pytań</span>
                             </div>
-                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Lab 2: Twierdzenia i Obwody DC</h3>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">Lab 2: Twierdzenia i Obwody DC</h3>
                             <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
                                 Thevenin, Norton, superpozycja, zasada wzajemności, sprawność źródła, moc maksymalna w dopasowaniu oraz I i II prawo Kirchhoffa.
                             </p>
                         </div>
                         <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                            <button onclick="filterToLabStudy('2')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
-                                Ćwicz ten moduł &rarr;
-                            </button>
+                            <span class="text-xs font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                                Ćwicz &rarr;
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lab 3 -->
-                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                    <div onclick="filterToLabStudy('3')" class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group">
                         <div class="space-y-1.5">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Laboratorium</span>
                                 <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">13 pytań</span>
                             </div>
-                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Lab 3: Sygnały AC i Prostowniki</h3>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">Lab 3: Sygnały AC i Prostowniki</h3>
                             <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
                                 Przebiegi okresowe i aperiodyczne, ciepło Joule'a dla prądów zmiennych, mostek Graetza, pomiar ładunku miernikami DC i AC.
                             </p>
                         </div>
                         <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                            <button onclick="filterToLabStudy('3')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
-                                Ćwicz ten moduł &rarr;
-                            </button>
+                            <span class="text-xs font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                                Ćwicz &rarr;
+                            </span>
                         </div>
                     </div>
 
                     <!-- Lab 4 -->
-                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                    <div onclick="filterToLabStudy('4')" class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group">
                         <div class="space-y-1.5">
                             <div class="flex items-center justify-between">
                                 <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Laboratorium</span>
                                 <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">11 pytań</span>
                             </div>
-                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Lab 4: Obwody RLC i Liczby Zespolone</h3>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">Lab 4: Obwody RLC i Liczby Zespolone</h3>
                             <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                                Pomiary dwójnika RC (U, I, P), moduł impedancji obwodów RL, RC i RLC, faza początkowa w II ćwiartce, rezonans LC oraz amperomierze/woltomierze AC.
+                                Pomiary dwójnika RC (U, I, P), impedancja obwodów RL, RC i RLC, faza początkowa w II ćwiartce, rezonans LC oraz amperomierze/woltomierze AC.
                             </p>
                         </div>
                         <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                            <button onclick="filterToLabStudy('4')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
-                                Ćwicz ten moduł &rarr;
-                            </button>
+                            <span class="text-xs font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                                Ćwicz &rarr;
+                            </span>
                         </div>
                     </div>
 
                     <!-- Wejściówka 1 -->
-                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-amber-300/80 dark:border-amber-700/80 flex flex-col justify-between space-y-3">
+                    <div onclick="filterToLabStudy('wejsciowka1')" class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group">
                         <div class="space-y-1.5">
                             <div class="flex items-center justify-between">
-                                <span class="text-[11px] font-mono text-amber-700 dark:text-amber-400">Specjalne</span>
-                                <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300">4 pytania</span>
+                                <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Wejściówka</span>
+                                <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">4 pytania</span>
                             </div>
-                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Wejściówka 1: Zagadnienia Kolokwialne</h3>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white transition-colors">Wejściówka 1: Zagadnienia Kolokwialne</h3>
                             <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                                Rezystancja w funkcji temperatury (α, T), obwód z 4 rezystorami i 1 źródłem (I i II prawo Kirchhoffa), porównanie prostowanego sinusa z trójkątem (√2 vs √3), cewka powietrzna.
+                                Rezystancja w funkcji temperatury (\(\alpha, T\)), obwód z 4 rezystorami i 1 źródłem (I i II prawo Kirchhoffa), porównanie prostowanego sinusa z trójkątem (\(\sqrt{2}\) vs \(\sqrt{3}\)), cewka powietrzna.
                             </p>
                         </div>
                         <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                            <button onclick="filterToLabStudy('wejsciowka1')" class="text-xs font-medium text-amber-700 dark:text-amber-400 hover:underline">
-                                Ćwicz ten moduł &rarr;
-                            </button>
+                            <span class="text-xs font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline">
+                                Ćwicz &rarr;
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -282,17 +282,32 @@
                 <div class="bg-white dark:bg-[#18181b] rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 space-y-3">
                     <h3 class="text-xs font-medium text-neutral-500 dark:text-neutral-400">Podsumowanie trybów pracy</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
-                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Tryb Nauki:</strong>
-                            <p class="text-neutral-500 dark:text-neutral-400">Natychmiastowe sprawdzanie, wyraziste kolory odpowiedzi, objaśnienia ze wzorami w LaTeX.</p>
+                        <div onclick="switchTab('study')" class="p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-2 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <strong class="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white flex items-center gap-1.5">
+                                    <span>Tryb Nauki</span>
+                                </strong>
+                                <p class="text-neutral-500 dark:text-neutral-400 leading-relaxed">Natychmiastowe sprawdzanie, wyraziste kolory odpowiedzi, objaśnienia ze wzorami w LaTeX.</p>
+                            </div>
+                            <span class="text-[11px] font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline pt-1 inline-block">Ćwicz pytania &rarr;</span>
                         </div>
-                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
-                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Symulacja Egzaminu:</strong>
-                            <p class="text-neutral-500 dark:text-neutral-400">Losowy zestaw pytań, limit czasu, automatyczna punktacja i kolorowa analiza błędów.</p>
+                        <div onclick="switchTab('exam')" class="p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-2 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <strong class="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white flex items-center gap-1.5">
+                                    <span>Symulacja Egzaminu</span>
+                                </strong>
+                                <p class="text-neutral-500 dark:text-neutral-400 leading-relaxed">Wybierz dowolne laboratoria, włącz limit czasu i sprawdź wiedzę z automatyczną oceną.</p>
+                            </div>
+                            <span class="text-[11px] font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline pt-1 inline-block">Skonfiguruj egzamin &rarr;</span>
                         </div>
-                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
-                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Ściągawka Wzorów:</strong>
-                            <p class="text-neutral-500 dark:text-neutral-400">Kompletne wzory z SI, tabelami mostka Graetza, układami RLC i zagadnieniami z Wejściówki 1.</p>
+                        <div onclick="switchTab('formulas')" class="p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-2 cursor-pointer hover:border-neutral-400 dark:hover:border-neutral-600 transition-all group flex flex-col justify-between">
+                            <div class="space-y-1">
+                                <strong class="font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-black dark:group-hover:text-white flex items-center gap-1.5">
+                                    <span>Ściągawka Wzorów</span>
+                                </strong>
+                                <p class="text-neutral-500 dark:text-neutral-400 leading-relaxed">Kompletne wzory z SI, tabelami mostka Graetza, układami RLC i zagadnieniami z Wejściówki 1.</p>
+                            </div>
+                            <span class="text-[11px] font-medium text-neutral-900 dark:text-neutral-100 group-hover:underline pt-1 inline-block">Przejdź do wzorów &rarr;</span>
                         </div>
                     </div>
                 </div>
@@ -334,38 +349,62 @@
                         <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Ustawienia Egzaminu Próbnego</h2>
                         <p class="text-xs text-neutral-500 mt-0.5">Wybierz zakres materiału i rozpocznij symulację.</p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="space-y-1.5">
-                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Zakres pytań:</label>
-                            <select id="exam-lab-filter" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
-                                <option value="all">Wszystkie laboratoria (Lab 1–4 i Wejściówka)</option>
-                                <option value="1">Lab 1: Podstawy i Elementy</option>
-                                <option value="2">Lab 2: Obwody DC i Twierdzenia</option>
-                                <option value="3">Lab 3: AC i Prostowniki</option>
-                                <option value="4">Lab 4: Obwody RLC i AC</option>
-                                <option value="wejsciowka1">Wejściówka 1: Zagadnienia</option>
-                            </select>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <label class="block text-xs font-medium text-neutral-700 dark:text-neutral-300">Wybierz zakres laboratoriów i wejściówki do egzaminu:</label>
+                                <div class="flex items-center space-x-2 text-xs">
+                                    <button type="button" onclick="selectAllExamLabs(true)" class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 underline text-[11px]">Zaznacz wszystkie</button>
+                                    <span class="text-neutral-300 dark:text-neutral-700">•</span>
+                                    <button type="button" onclick="selectAllExamLabs(false)" class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 underline text-[11px]">Odznacz wszystkie</button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
+                                <label class="flex items-center gap-2 p-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-850/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer transition-colors text-xs text-neutral-800 dark:text-neutral-200 font-medium select-none">
+                                    <input type="checkbox" name="exam-lab" value="1" checked onchange="updateExamPoolCount()" class="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-0">
+                                    <span>Lab 1 (16)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-850/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer transition-colors text-xs text-neutral-800 dark:text-neutral-200 font-medium select-none">
+                                    <input type="checkbox" name="exam-lab" value="2" checked onchange="updateExamPoolCount()" class="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-0">
+                                    <span>Lab 2 (13)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-850/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer transition-colors text-xs text-neutral-800 dark:text-neutral-200 font-medium select-none">
+                                    <input type="checkbox" name="exam-lab" value="3" checked onchange="updateExamPoolCount()" class="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-0">
+                                    <span>Lab 3 (13)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-850/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer transition-colors text-xs text-neutral-800 dark:text-neutral-200 font-medium select-none">
+                                    <input type="checkbox" name="exam-lab" value="4" checked onchange="updateExamPoolCount()" class="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-0">
+                                    <span>Lab 4 (11)</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-2.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-850/50 hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer transition-colors text-xs text-neutral-800 dark:text-neutral-200 font-medium select-none">
+                                    <input type="checkbox" name="exam-lab" value="wejsciowka1" checked onchange="updateExamPoolCount()" class="w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-0">
+                                    <span>Wejściówka 1 (4)</span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="space-y-1.5">
-                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Liczba pytań:</label>
-                            <select id="exam-count" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
-                                <option value="5">5 pytań</option>
-                                <option value="10">10 pytań</option>
-                                <option value="15">15 pytań</option>
-                                <option value="20">20 pytań</option>
-                                <option value="all" selected>Wszystkie dostępne pytania</option>
-                            </select>
-                        </div>
-                        <div class="space-y-1.5">
-                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Limit czasu:</label>
-                            <select id="exam-time" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
-                                <option value="5">5 minut</option>
-                                <option value="10">10 minut</option>
-                                <option value="15">15 minut</option>
-                                <option value="20" selected>20 minut</option>
-                                <option value="30">30 minut</option>
-                                <option value="no-limit">Brak limitu czasu</option>
-                            </select>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Liczba pytań:</label>
+                                <select id="exam-count" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
+                                    <option value="5">5 pytań</option>
+                                    <option value="10">10 pytań</option>
+                                    <option value="15">15 pytań</option>
+                                    <option value="20">20 pytań</option>
+                                    <option value="all" selected id="exam-count-all-opt">Wszystkie wybrane pytania (56)</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Limit czasu:</label>
+                                <select id="exam-time" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
+                                    <option value="5">5 minut</option>
+                                    <option value="10">10 minut</option>
+                                    <option value="15">15 minut</option>
+                                    <option value="20" selected>20 minut</option>
+                                    <option value="30">30 minut</option>
+                                    <option value="no-limit">Brak limitu czasu</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="pt-2">
@@ -1600,31 +1639,15 @@
         "labs": [
             "wejsciowka1"
         ],
-        "type": "multi",
-        "img": "img/wejsciowka1_obwod_4rezystory.png",
-        "q": "Dla przedstawionego obwodu ze źródłem SEM \\(E\\) i czterema rezystorami \\(R_1, R_2, R_3, R_4\\), wskaż poprawne równania I i II prawa Kirchhoffa dla prądów gałęziowych \\(I_1, I_2, I_3\\):",
-        "a": "I Prawo Kirchhoffa dla węzła A: \\(I_1 = I_2 + I_3\\)",
-        "b": "II Prawo Kirchhoffa dla oczka I: \\(E = I_1 R_1 + I_2 R_2\\)",
-        "c": "II Prawo Kirchhoffa dla oczka II: \\(I_2 R_2 = I_3 (R_3 + R_4)\\)",
-        "d": "I Prawo Kirchhoffa dla węzła A: \\(I_1 + I_2 + I_3 = 0\\)",
-        "e": "II Prawo Kirchhoffa dla oczka zewnętrznego: \\(E = I_1 R_1 + I_3 (R_3 + R_4)\\)",
-        "correct": "a,b,c,e",
-        "exp": "Wyjaśnienie praw Kirchhoffa w obwodzie:\n1. I Prawo Kirchhoffa (bilans prądów w węźle A):\nPrąd \\(I_1\\) dopływa do węzła A, a prądy \\(I_2\\) i \\(I_3\\) odpływają:\n\\[\\sum I_{\\text{dopływ}} = \\sum I_{\\text{odpływ}} \\implies I_1 = I_2 + I_3\\]\n(Równanie d jest błędne, ponieważ prądy nie mają jednakowego zwrotu względem węzła).\n\n2. II Prawo Kirchhoffa (bilans napięć w oczkach zgodnie z ruchem wskazówek zegara):\n• Oczko I (źródło \\(E\\), rezystory \\(R_1\\) i \\(R_2\\)):\n\\[E - I_1 R_1 - I_2 R_2 = 0 \\implies E = I_1 R_1 + I_2 R_2\\]\n• Oczko II (gałąź z \\(R_2\\) oraz gałąź z szeregowo połączonymi \\(R_3\\) i \\(R_4\\)):\n\\[I_2 R_2 - I_3 R_3 - I_3 R_4 = 0 \\implies I_2 R_2 = I_3 (R_3 + R_4)\\]\n• Oczko zewnętrzne (obwód obwiedniowy całego układu):\n\\[E - I_1 R_1 - I_3 R_3 - I_3 R_4 = 0 \\implies E = I_1 R_1 + I_3 (R_3 + R_4)\\]\n\nPrzykładowe wartości liczbowe:\nDla \\(E = 24\\text{ V}, R_1 = 4\\,\\Omega, R_2 = 12\\,\\Omega, R_3 = 8\\,\\Omega, R_4 = 4\\,\\Omega\\):\n\\(R_{34} = 8 + 4 = 12\\,\\Omega\\), \\(R_{2 \\parallel 34} = 12 \\parallel 12 = 6\\,\\Omega\\).\nRezystancja wypadkowa: \\(R_z = R_1 + 6 = 10\\,\\Omega\\).\nPrądy gałęziowe: \\(I_1 = \\frac{E}{R_z} = \\frac{24}{10} = 2{,}4\\text{ A}\\); \\(I_2 = 1{,}2\\text{ A}\\); \\(I_3 = 1{,}2\\text{ A}\\)."
-    },
-    {
-        "id": 55,
-        "labs": [
-            "wejsciowka1"
-        ],
         "type": "open",
         "numericTarget": 22.47,
         "tolerance": 0.1,
-        "q": "Dla wyprostowanego prądu porównaj wartość skuteczną przebiegu sinusoidalnego oraz trójkątnego o tej samej amplitudzie \\(I_m\\). O ile procent wartość skuteczna prądu sinusoidalnego (\\(I_{sk} = \\frac{I_m}{\\sqrt{2}}\\)) jest większa od wartości skutecznej prądu trójkątnego (\\(I_{sk} = \\frac{I_m}{\\sqrt{3}}\\))? Wynik podaj w procentach (np. 22,5).",
+        "q": "Dla wyprostowanego prądu porównaj wartość skuteczną przebiegu sinusoidalnego oraz trójkątnego o tej samej amplitudzie \\(I_m\\). O ile procent wartość skuteczna prądu sinusoidalnego  jest większa od wartości skutecznej prądu trójkątnego ? Wynik podaj w procentach.",
         "correct": "22,47",
         "exp": "Wzór ogólny:\nWartość skuteczna prądu sinusoidalnego:\n\\[I_{sk,\\text{sin}} = \\frac{I_m}{\\sqrt{2}}\\]\nWartość skuteczna prądu trójkątnego:\n\\[I_{sk,\\text{tr}} = \\frac{I_m}{\\sqrt{3}}\\]\n\nStosunek wartości skutecznych:\n\\[\\frac{I_{sk,\\text{sin}}}{I_{sk,\\text{tr}}} = \\frac{I_m / \\sqrt{2}}{I_m / \\sqrt{3}} = \\frac{\\sqrt{3}}{\\sqrt{2}} = \\sqrt{\\frac{3}{2}} = \\sqrt{1{,}5} \\approx 1{,}224745\\]\n\nRóżnica względna (o ile procent większa):\n\\[\\delta = \\left(\\frac{I_{sk,\\text{sin}} - I_{sk,\\text{tr}}}{I_{sk,\\text{tr}}}\\right) \\cdot 100\\% = (\\sqrt{1{,}5} - 1) \\cdot 100\\% \\approx 22{,}47\\% \\approx 22{,}5\\%\\]\n\nUwaga dodatkowa (dla wartości średnich):\nDla wartości średnich: \\(I_{sr,\\text{sin}} = \\frac{2}{\\pi} I_m \\approx 0{,}6366 I_m\\) oraz \\(I_{sr,\\text{tr}} = \\frac{I_m}{2} = 0{,}5 I_m\\).\nStosunek średnich: \\(\\frac{2/\\pi}{0{,}5} = \\frac{4}{\\pi} \\approx 1{,}2732 \\implies\\) o \\(27{,}32\\%\\) większa."
     },
     {
-        "id": 56,
+        "id": 55,
         "labs": [
             "wejsciowka1"
         ],
@@ -1851,6 +1874,64 @@
             };
 
             rebuildStudyOrder();
+            if (typeof updateExamPoolCount === 'function') updateExamPoolCount();
+            handleUrlRouting();
+        };
+
+        window.addEventListener('popstate', function() {
+            handleUrlRouting();
+        });
+
+        // URL Query Routing & Deep Linking (?q=ID, ?tab=TAB, ?lab=LAB)
+        function handleUrlRouting() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const qParam = params.get('q') || params.get('id');
+                const tabParam = params.get('tab');
+                const labParam = params.get('lab');
+
+                if (qParam) {
+                    const qid = parseInt(qParam);
+                    if (!isNaN(qid) && questionMap.has(qid)) {
+                        studyNow(qid);
+                        return;
+                    }
+                }
+
+                if (labParam) {
+                    filterToLabStudy(labParam);
+                    return;
+                }
+
+                if (tabParam && ['dashboard', 'study', 'exam', 'browse', 'starred', 'formulas'].includes(tabParam)) {
+                    switchTab(tabParam);
+                    return;
+                }
+            } catch (e) {
+                console.debug('handleUrlRouting error:', e);
+            }
+        }
+
+        window.copyQuestionLink = function(id) {
+            try {
+                const currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('tab', 'study');
+                currentUrl.searchParams.set('q', id);
+                const shareUrl = currentUrl.toString();
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(shareUrl).then(() => {
+                        showToast(`Skopiowano bezpośredni link do pytania #${id}!`);
+                    }).catch(() => {
+                        window.prompt(`Skopiuj bezpośredni link do pytania #${id}:`, shareUrl);
+                    });
+                } else {
+                    window.prompt(`Skopiuj bezpośredni link do pytania #${id}:`, shareUrl);
+                }
+            } catch (err) {
+                const shareUrl = window.location.href.split('?')[0] + '?q=' + id;
+                window.prompt(`Skopiuj bezpośredni link do pytania #${id}:`, shareUrl);
+            }
         };
 
         // Navigation Switching Handler
@@ -1877,6 +1958,18 @@
                     btn.className = "w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200";
                 }
             });
+
+            if (window.history && window.history.replaceState) {
+                try {
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('tab', tabName);
+                    if (tabName !== 'study') {
+                        currentUrl.searchParams.delete('q');
+                        currentUrl.searchParams.delete('id');
+                    }
+                    window.history.replaceState({ tab: tabName }, '', currentUrl.toString());
+                } catch (e) {}
+            }
 
             if (tabName === 'study') {
                 if (!tabLoaded.study) {
@@ -2130,11 +2223,17 @@
                         <span class="text-xs font-mono text-neutral-400">Pytanie ${studyOrderPos + 1} z ${studyOrder.length} (#${q.id})</span>
                         ${renderLabBadges(q.labs)}
                     </div>
-                    <button onclick="toggleStar(${q.id})" class="text-neutral-400 hover:text-amber-500 transition-colors p-1" title="Dodaj do ulubionych">
-                        <svg class="w-4 h-4 ${isStarred ? 'text-amber-500 fill-current' : 'fill-none'}" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-                        </svg>
-                    </button>
+                    <div class="flex items-center space-x-1.5">
+                        <button onclick="copyQuestionLink(${q.id})" class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors px-2 py-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center gap-1.5 border border-neutral-200 dark:border-neutral-700" title="Kopiuj bezpośredni link do tego pytania">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            <span class="text-[11px] font-mono">Kopiuj link</span>
+                        </button>
+                        <button onclick="toggleStar(${q.id})" class="text-neutral-400 hover:text-amber-500 transition-colors p-1" title="Dodaj do ulubionych">
+                            <svg class="w-4 h-4 ${isStarred ? 'text-amber-500 fill-current' : 'fill-none'}" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="space-y-4">
@@ -2159,6 +2258,15 @@
             if (goTo) {
                 goTo.value = studyOrderPos + 1;
                 goTo.max = studyOrder.length;
+            }
+
+            if (window.history && window.history.replaceState) {
+                try {
+                    const currentUrl = new URL(window.location.href);
+                    currentUrl.searchParams.set('tab', 'study');
+                    currentUrl.searchParams.set('q', q.id);
+                    window.history.replaceState({ tab: 'study', q: q.id }, '', currentUrl.toString());
+                } catch (e) {}
             }
 
             triggerMathJax(card);
@@ -2388,18 +2496,34 @@
         // ==========================================
         // EXAM MODE ENGINE
         // ==========================================
+        window.selectAllExamLabs = function(val) {
+            document.querySelectorAll('input[name="exam-lab"]').forEach(cb => cb.checked = val);
+            updateExamPoolCount();
+        };
+
+        window.updateExamPoolCount = function() {
+            const checked = Array.from(document.querySelectorAll('input[name="exam-lab"]:checked')).map(cb => cb.value);
+            const pool = questionBank.filter(q => q.labs && q.labs.some(l => checked.includes(String(l))));
+            const opt = document.getElementById('exam-count-all-opt');
+            if (opt) {
+                opt.textContent = `Wszystkie wybrane pytania (${pool.length})`;
+            }
+        };
+
         function startExam() {
-            const labVal = document.getElementById('exam-lab-filter') ? document.getElementById('exam-lab-filter').value : 'all';
+            const checkedLabs = Array.from(document.querySelectorAll('input[name="exam-lab"]:checked')).map(cb => cb.value);
+            if (checkedLabs.length === 0) {
+                showToast("Zaznacz co najmniej jedno laboratorium lub wejściówkę.");
+                return;
+            }
+
             const countVal = document.getElementById('exam-count').value;
             const timeVal = document.getElementById('exam-time').value;
 
-            let pool = questionBank;
-            if (labVal !== 'all') {
-                pool = questionBank.filter(q => q.labs && q.labs.some(l => String(l) === String(labVal)));
-            }
+            let pool = questionBank.filter(q => q.labs && q.labs.some(l => checkedLabs.includes(String(l))));
 
             if (pool.length === 0) {
-                showToast("Brak pytań dla wybranego laboratorium.");
+                showToast("Brak pytań dla wybranego zakresu.");
                 return;
             }
 
@@ -2790,9 +2914,13 @@
                             <span class="text-xs font-mono text-neutral-400">#${q.id}</span>
                             ${renderLabBadges(q.labs)}
                         </div>
-                        <div class="flex items-center space-x-2">
+                        <div class="flex items-center space-x-1.5">
                             <span class="text-[11px] font-medium border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400">${badgeText}</span>
-                            <button onclick="studyNow(${q.id})" class="text-xs font-medium px-2.5 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 text-neutral-700 dark:text-neutral-300 transition-colors">Ćwicz &rarr;</button>
+                            <button onclick="copyQuestionLink(${q.id})" class="text-xs font-medium px-2 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-600 dark:text-neutral-300 transition-colors flex items-center gap-1" title="Kopiuj link do pytania #${q.id}">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                                <span>Link</span>
+                            </button>
+                            <button onclick="studyNow(${q.id})" class="text-xs font-medium px-2.5 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors">Ćwicz &rarr;</button>
                         </div>
                     </div>
                     <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>

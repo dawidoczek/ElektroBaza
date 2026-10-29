@@ -383,7 +383,15 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Typ pytań:</label>
+                                <select id="exam-type" onchange="updateExamPoolCount()" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
+                                    <option value="all" selected>Wszystkie (otwarte i zamknięte)</option>
+                                    <option value="closed">Tylko zamknięte (testowe)</option>
+                                    <option value="open">Tylko otwarte (obliczeniowe)</option>
+                                </select>
+                            </div>
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Liczba pytań:</label>
                                 <select id="exam-count" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
@@ -2503,7 +2511,16 @@
 
         window.updateExamPoolCount = function() {
             const checked = Array.from(document.querySelectorAll('input[name="exam-lab"]:checked')).map(cb => cb.value);
-            const pool = questionBank.filter(q => q.labs && q.labs.some(l => checked.includes(String(l))));
+            const typeSelect = document.getElementById('exam-type');
+            const typeVal = typeSelect ? typeSelect.value : 'all';
+
+            let pool = questionBank.filter(q => q.labs && q.labs.some(l => checked.includes(String(l))));
+            if (typeVal === 'closed') {
+                pool = pool.filter(q => q.type === 'choice' || q.type === 'multi');
+            } else if (typeVal === 'open') {
+                pool = pool.filter(q => q.type === 'open');
+            }
+
             const opt = document.getElementById('exam-count-all-opt');
             if (opt) {
                 opt.textContent = `Wszystkie wybrane pytania (${pool.length})`;
@@ -2517,13 +2534,21 @@
                 return;
             }
 
+            const typeSelect = document.getElementById('exam-type');
+            const typeVal = typeSelect ? typeSelect.value : 'all';
+
             const countVal = document.getElementById('exam-count').value;
             const timeVal = document.getElementById('exam-time').value;
 
             let pool = questionBank.filter(q => q.labs && q.labs.some(l => checkedLabs.includes(String(l))));
+            if (typeVal === 'closed') {
+                pool = pool.filter(q => q.type === 'choice' || q.type === 'multi');
+            } else if (typeVal === 'open') {
+                pool = pool.filter(q => q.type === 'open');
+            }
 
             if (pool.length === 0) {
-                showToast("Brak pytań dla wybranego zakresu.");
+                showToast("Brak pytań dla wybranego zakresu i typu.");
                 return;
             }
 

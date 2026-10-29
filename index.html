@@ -11,13 +11,19 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#075985',
+                        neutral: {
+                            750: '#26262a',
+                            850: '#1b1b1e',
+                            950: '#09090b',
+                        },
+                        accent: {
+                            DEFAULT: '#00d4aa',
+                            hover: '#00be98',
                         }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
                     }
                 }
             }
@@ -55,185 +61,262 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
             background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(156, 163, 175, 0.5);
-            border-radius: 20px;
+            background-color: rgba(160, 160, 160, 0.3);
+            border-radius: 4px;
         }
         .cursor-zoom-in {
             cursor: zoom-in;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors duration-200">
+<body class="bg-[#f8f9fa] text-neutral-900 dark:bg-[#0f0f0f] dark:text-neutral-100 min-h-full flex flex-col font-sans transition-colors duration-150">
 
-    <!-- Top Navigation -->
-    <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="p-2 bg-blue-600 text-white rounded-xl shadow-md">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </span>
-                <div>
-                    <h1 class="text-lg font-bold tracking-tight">Trenażer Elektrotechnika</h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Laboratoria 1, 2, 3 • Zoptymalizowana baza pytań</p>
+    <!-- Top Navigation Bar -->
+    <header class="h-13 bg-white dark:bg-[#141416] border-b border-neutral-200 dark:border-neutral-800 sticky top-0 z-40">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-7 h-7 rounded border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-800 dark:text-neutral-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">ElektroBaza</span>
+                    <span class="text-neutral-400 dark:text-neutral-600 text-xs">/</span>
+                    <span class="text-xs text-neutral-500 dark:text-neutral-400">Trenażer Elektrotechnika</span>
                 </div>
             </div>
             
             <div class="flex items-center space-x-2">
-                <button id="theme-toggle" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-700 transition" aria-label="Przełącz motyw">
-                    <svg id="theme-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    <svg id="theme-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <button id="theme-toggle" class="w-7 h-7 rounded border border-neutral-200 dark:border-neutral-800 flex items-center justify-center text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors" aria-label="Przełącz motyw" title="Przełącz motyw jasny / ciemny">
+                    <svg id="theme-moon" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-sun" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row gap-6">
+    <!-- App Container -->
+    <div class="max-w-[1440px] mx-auto min-h-[calc(100vh-3.25rem)] flex flex-col md:flex-row w-full flex-1">
         
         <!-- Sidebar Navigation -->
-        <aside class="w-full md:w-64 flex-shrink-0">
-            <nav class="space-y-1 bg-white dark:bg-slate-800 p-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                <button id="nav-dashboard" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-                    <span>Panel Główny</span>
-                </button>
-                <button id="nav-study" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                    <span>Tryb Nauki</span>
-                </button>
-                <button id="nav-exam" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-                    <span>Tryb Egzaminu</span>
-                </button>
-                <button id="nav-browse" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
-                    <span>Przeglądaj Bazę</span>
-                </button>
-                                <button id="nav-formulas" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    <span>Wzory i Ściągawka</span>
-                </button>
-<button id="nav-starred" class="w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                    <span>Ulubione pytania</span>
-                </button>
-            </nav>
+        <aside class="w-full md:w-60 flex-shrink-0 bg-white dark:bg-[#141416] border-b md:border-b-0 md:border-r border-neutral-200 dark:border-neutral-800 p-3 md:p-4 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+                <div class="text-[11px] font-mono text-neutral-400 dark:text-neutral-500 px-2 uppercase">Menu</div>
+                <nav class="space-y-0.5">
+                    <button id="nav-dashboard" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                        <span>Panel Główny</span>
+                    </button>
+                    <button id="nav-study" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <span>Tryb Nauki</span>
+                    </button>
+                    <button id="nav-exam" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        <span>Tryb Egzaminu</span>
+                    </button>
+                    <button id="nav-browse" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                        <span>Przeglądaj Bazę</span>
+                    </button>
+                    <button id="nav-formulas" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <span>Wzory i Ściągawka</span>
+                    </button>
+                    <button id="nav-starred" class="w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200">
+                        <svg class="w-4 h-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                        <span>Ulubione pytania</span>
+                    </button>
+                </nav>
+            </div>
 
-            <!-- Quick Stats in sidebar -->
-            <div class="mt-6 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-                <h3 class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Postęp ogólny</h3>
-                <div>
-                    <div class="flex justify-between text-sm font-semibold mb-1">
-                        <span>Opanowane pytania</span>
-                        <span id="stat-solved">0 / 37</span>
-                    </div>
-                    <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
-                        <div id="stat-progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
+            <!-- Progress Panel -->
+            <div class="border border-neutral-200 dark:border-neutral-800 rounded-md p-3 bg-neutral-50 dark:bg-[#18181b] space-y-2.5">
+                <div class="flex items-center justify-between text-xs">
+                    <span class="text-neutral-500 dark:text-neutral-400">Postęp</span>
+                    <span id="stat-solved" class="font-mono font-medium text-neutral-900 dark:text-neutral-100">0 / 41</span>
                 </div>
-                <div class="flex justify-between border-t border-slate-100 dark:border-slate-700 pt-3">
-                    <span class="text-xs text-slate-500">Skuteczność:</span>
-                    <span id="stat-accuracy" class="text-xs font-bold text-green-600 dark:text-green-400">0%</span>
+                <div class="w-full bg-neutral-200 dark:bg-neutral-800 rounded-sm h-1.5 overflow-hidden">
+                    <div id="stat-progress-bar" class="bg-neutral-900 dark:bg-neutral-100 h-1.5 rounded-sm transition-all duration-200" style="width: 0%"></div>
                 </div>
-                <button onclick="resetStats()" class="w-full text-center text-xs text-red-500 hover:text-red-700 dark:text-red-400 font-medium py-1">Resetuj statystyki</button>
+                <div class="flex items-center justify-between text-[11px] text-neutral-500 dark:text-neutral-400 pt-1 border-t border-neutral-200 dark:border-neutral-800">
+                    <span>Skuteczność:</span>
+                    <span id="stat-accuracy" class="font-mono font-medium text-neutral-900 dark:text-neutral-100">0%</span>
+                </div>
+                <button onclick="resetStats()" class="w-full text-left text-[11px] text-neutral-400 hover:text-rose-500 transition-colors pt-1">
+                    Resetuj postęp
+                </button>
             </div>
         </aside>
 
         <!-- Main Content Area -->
-        <main class="flex-1 min-w-0">
+        <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 bg-neutral-50 dark:bg-[#0f0f0f]">
             
             <!-- SECTION: Dashboard -->
             <section id="sec-dashboard" class="space-y-6">
-                <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-4">
-                    <span class="inline-block py-1 px-3 bg-white/20 rounded-full text-xs font-semibold backdrop-blur-sm">Elektrotechnika • Laboratoria 1, 2, 3</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Test Elektrotechnika - Baza Zadań i Pytań</h2>
-                    <p class="text-blue-100 text-sm max-w-2xl leading-relaxed">
-                        Interaktywny panel przygotowujący do kartkówek i egzaminu z Elektrotechniki. Baza zawiera kompletne zadania teoretyczne, klasyfikacje elementów oraz zadania obliczeniowe ze szczegółowymi wzorami w LaTeX i objaśnieniem symboli.
-                    </p>
-                    <div class="flex flex-wrap gap-3 pt-2">
-                        <button onclick="switchTab('study')" class="bg-white text-blue-600 hover:bg-blue-50 font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-sm">Rozpocznij Naukę</button>
-                        <button onclick="switchTab('formulas')" class="bg-indigo-900/60 hover:bg-indigo-900 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition backdrop-blur-sm flex items-center gap-2"><span>📐</span> Ściągawka Wzorów</button>
-                        <button onclick="switchTab('exam')" class="bg-blue-800/60 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition backdrop-blur-sm">Symulacja Egzaminu</button>
+                <!-- Dashboard Header -->
+                <div class="border-b border-neutral-200 dark:border-neutral-800 pb-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div>
+                            <h1 class="text-lg font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">Panel Przygotowawczy</h1>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Kompleksowa baza pytań i zadań obliczeniowych z Elektrotechniki (41 pytań)</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="switchTab('study')" class="px-3.5 py-1.5 text-xs font-medium rounded-md bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors">
+                                Rozpocznij naukę
+                            </button>
+                            <button onclick="switchTab('formulas')" class="px-3 py-1.5 text-xs font-medium rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors">
+                                Ściągawka wzorów
+                            </button>
+                            <button onclick="switchTab('exam')" class="px-3 py-1.5 text-xs font-medium rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors">
+                                Egzamin próbny
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
-                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Laboratorium 1</span>
-                        <h4 class="font-bold text-base">Elementy i relacje</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Klasyfikacja transformatora, diody, rezystora, kondensatora, cewki, prawo Ohma, rezystancja przewodów, pojemność i indukcyjność.</p>
+                <!-- 3 Lab Modules -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Module 1 -->
+                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Moduł 01</span>
+                                <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">16 pytań</span>
+                            </div>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Elementy i relacje obwodowe</h3>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                Klasyfikacja transformatora, diody, rezystora, kondensatora i cewki. Prawo Ohma, rezystancja drutu i taśmy, pojemność i indukcyjność.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
+                            <button onclick="filterToLabStudy('1')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
+                                Ćwicz ten moduł &rarr;
+                            </button>
+                        </div>
                     </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
-                        <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">Laboratorium 2</span>
-                        <h4 class="font-bold text-base">Twierdzenia i obwody DC</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Thevenin, Norton, superpozycja, zasada wzajemności, sprawność źródła, moc maksymalna w dopasowaniu, I i II prawo Kirchhoffa.</p>
+
+                    <!-- Module 2 -->
+                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Moduł 02</span>
+                                <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">13 pytań</span>
+                            </div>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Twierdzenia i obwody DC</h3>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                Thevenin, Norton, superpozycja, zasada wzajemności, sprawność źródła, moc maksymalna w dopasowaniu oraz I i II prawo Kirchhoffa.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
+                            <button onclick="filterToLabStudy('2')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
+                                Ćwicz ten moduł &rarr;
+                            </button>
+                        </div>
                     </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
-                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wide">Laboratorium 3</span>
-                        <h4 class="font-bold text-base">Sygnały AC i prostowniki</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">Klasyfikacja sygnałów zmiennych i aperiodycznych, ciepło Joule'a dla prądów zmiennych, mostek Graetza, pomiar ładunku miernikami DC/AC.</p>
+
+                    <!-- Module 3 -->
+                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between space-y-3">
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[11px] font-mono text-neutral-500 dark:text-neutral-400">Moduł 03</span>
+                                <span class="text-[11px] font-mono px-1.5 py-0.5 rounded border border-neutral-200 dark:border-neutral-700 text-neutral-500">13 pytań</span>
+                            </div>
+                            <h3 class="text-sm font-semibold text-neutral-900 dark:text-neutral-100">Sygnały AC i prostowniki</h3>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                                Przebiegi okresowe i aperiodyczne, ciepło Joule'a dla prądów zmiennych, mostek Graetza, pomiar ładunku miernikami DC i AC.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
+                            <button onclick="filterToLabStudy('3')" class="text-xs font-medium text-neutral-900 dark:text-neutral-100 hover:underline">
+                                Ćwicz ten moduł &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="bg-white dark:bg-[#18181b] rounded-lg border border-neutral-200 dark:border-neutral-800 p-4 space-y-3">
+                    <h3 class="text-xs font-medium text-neutral-500 dark:text-neutral-400">Podsumowanie trybów pracy</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
+                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Tryb Nauki:</strong>
+                            <p class="text-neutral-500 dark:text-neutral-400">Natychmiastowe sprawdzanie, objaśnienia ze wzorami w LaTeX i krokowe rozwiązania.</p>
+                        </div>
+                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
+                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Symulacja Egzaminu:</strong>
+                            <p class="text-neutral-500 dark:text-neutral-400">Losowy zestaw zadań, opcjonalny limit czasu, automatyczna punktacja i analiza błędów.</p>
+                        </div>
+                        <div class="p-3 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-850 space-y-1">
+                            <strong class="font-medium text-neutral-900 dark:text-neutral-100">Ściągawka Wzorów:</strong>
+                            <p class="text-neutral-500 dark:text-neutral-400">Wszystkie formuły z jednostkami SI, tabelami mostka Graetza i elementami idealnymi.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- SECTION: Study Mode -->
             <section id="sec-study" class="hidden space-y-6">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                    <h2 class="text-xl font-bold">Interaktywny Tryb Nauki</h2>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <select id="study-lab-filter" onchange="onStudyLabFilterChange()" class="text-xs font-semibold px-3 py-1.5 border rounded-lg bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="all">Wszystkie laboratoria (37)</option>
-                            <option value="1">Laboratorium 1</option>
-                            <option value="2">Laboratorium 2</option>
-                            <option value="3">Laboratorium 3</option>
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                    <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Tryb Nauki</h2>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <select id="study-lab-filter" onchange="onStudyLabFilterChange()" class="text-xs font-medium px-2.5 py-1.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 focus:outline-none">
+                            <option value="all">Wszystkie moduły (41)</option>
+                            <option value="1">Moduł 1 (Lab 1)</option>
+                            <option value="2">Moduł 2 (Lab 2)</option>
+                            <option value="3">Moduł 3 (Lab 3)</option>
                         </select>
-                        <label class="flex items-center space-x-2">
-                            <span class="text-xs text-slate-400">Idź do pytania:</span>
-                            <input type="number" id="study-go-to" min="1" max="37" class="w-16 px-2 py-1 text-xs border rounded-lg bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-center font-bold" onchange="jumpToStudyQuestion(this.value)">
-                        </label>
-                        <button id="study-shuffle" onclick="toggleStudyShuffle()" class="p-2 border rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700 transition" title="Losuj kolejność pytań">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div class="flex items-center space-x-1.5 text-xs text-neutral-500">
+                            <span>Idź do:</span>
+                            <input type="number" id="study-go-to" min="1" max="41" class="w-14 px-2 py-1 text-xs font-mono border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-center" onchange="jumpToStudyQuestion(this.value)">
+                        </div>
+                        <button id="study-shuffle" onclick="toggleStudyShuffle()" class="p-1.5 border rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 border-neutral-300 dark:border-neutral-700 transition" title="Losuj kolejność pytań">
+                            <svg class="w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                         </button>
                     </div>
                 </div>
 
-                <div id="study-card" class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                <div id="study-card" class="bg-white dark:bg-[#18181b] p-5 sm:p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-5">
                     <!-- Dynamic Question Content Injected via JS -->
                 </div>
             </section>
 
             <!-- SECTION: Exam Mode -->
             <section id="sec-exam" class="hidden space-y-6">
-                <div id="exam-setup" class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
-                    <h2 class="text-xl font-bold">Ustawienia Egzaminu próbnego</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="space-y-2">
-                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Zakres laboratoriów:</label>
-                            <select id="exam-lab-filter" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
-                                <option value="all">Wszystkie laboratoria (Lab 1, 2, 3)</option>
-                                <option value="1">Tylko Laboratorium 1</option>
-                                <option value="2">Tylko Laboratorium 2</option>
-                                <option value="3">Tylko Laboratorium 3</option>
+                <!-- Exam Setup -->
+                <div id="exam-setup" class="bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-5">
+                    <div>
+                        <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Ustawienia Egzaminu Próbnego</h2>
+                        <p class="text-xs text-neutral-500 mt-0.5">Wybierz parametry testu i rozpocznij symulację.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Zakres pytań:</label>
+                            <select id="exam-lab-filter" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
+                                <option value="all">Wszystkie moduły (Lab 1, 2, 3)</option>
+                                <option value="1">Moduł 1 (Lab 1)</option>
+                                <option value="2">Moduł 2 (Lab 2)</option>
+                                <option value="3">Moduł 3 (Lab 3)</option>
                             </select>
                         </div>
-                        <div class="space-y-2">
-                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Liczba pytań w teście:</label>
-                            <select id="exam-count" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Liczba pytań:</label>
+                            <select id="exam-count" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
                                 <option value="5">5 pytań</option>
-                                <option value="10">10 pytań</option>
+                                <option value="10">16 pytań</option>
                                 <option value="15">15 pytań</option>
                                 <option value="20">20 pytań</option>
                                 <option value="all" selected>Wszystkie dostępne pytania</option>
                             </select>
                         </div>
-                        <div class="space-y-2">
-                            <label class="block text-sm font-medium text-slate-600 dark:text-slate-400">Limit czasu na cały egzamin:</label>
-                            <select id="exam-time" class="w-full p-2.5 border rounded-xl bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-100 font-medium">
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">Limit czasu:</label>
+                            <select id="exam-time" class="w-full p-2 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-800 dark:text-neutral-200">
                                 <option value="5">5 minut</option>
                                 <option value="10">10 minut</option>
                                 <option value="15">15 minut</option>
@@ -244,68 +327,70 @@
                         </div>
                     </div>
                     <div class="pt-2">
-                        <button onclick="startExam()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition shadow-md">Rozpocznij Egzamin</button>
+                        <button onclick="startExam()" class="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium py-2 px-5 rounded-md text-xs transition-colors">
+                            Rozpocznij egzamin
+                        </button>
                     </div>
                 </div>
 
-                <div id="exam-active" class="hidden space-y-6">
-                    <div class="flex items-center justify-between bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                        <span id="exam-progress-badge" class="font-bold text-sm text-slate-600 dark:text-slate-300">Pytanie 1 / 10</span>
-                        <div id="exam-timer-wrapper" class="flex items-center space-x-2 text-rose-600 dark:text-rose-400 font-mono font-bold text-sm bg-rose-50 dark:bg-rose-900/30 px-3 py-1 rounded-lg">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <!-- Active Exam -->
+                <div id="exam-active" class="hidden space-y-4">
+                    <div class="flex items-center justify-between bg-white dark:bg-[#18181b] p-3 rounded-lg border border-neutral-200 dark:border-neutral-800">
+                        <span id="exam-progress-badge" class="font-mono text-xs text-neutral-600 dark:text-neutral-300">Pytanie 1 / 10</span>
+                        <div id="exam-timer-wrapper" class="flex items-center space-x-1.5 text-neutral-800 dark:text-neutral-200 font-mono text-xs border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850 px-2.5 py-1 rounded">
+                            <svg class="w-3.5 h-3.5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <span id="exam-timer">00:00</span>
                         </div>
                     </div>
 
-                    <div id="exam-question-card" class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                    <div id="exam-question-card" class="bg-white dark:bg-[#18181b] p-5 sm:p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-5">
                         <!-- Injected Exam Question -->
                     </div>
 
-                    <div class="flex justify-between items-center">
-                        <button id="exam-prev-btn" onclick="prevExamQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 font-semibold px-5 py-2.5 rounded-xl text-sm transition">Poprzednie</button>
-                        <div class="space-x-3">
-                            <button id="exam-next-btn" onclick="nextExamQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 font-semibold px-5 py-2.5 rounded-xl text-sm transition">Następne</button>
-                            <button onclick="finishExam()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition shadow-sm">Zakończ Egzamin</button>
+                    <div class="flex justify-between items-center pt-2">
+                        <button id="exam-prev-btn" onclick="prevExamQuestion()" class="border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium px-4 py-2 rounded-md text-xs transition-colors">Poprzednie</button>
+                        <div class="space-x-2">
+                            <button id="exam-next-btn" onclick="nextExamQuestion()" class="border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium px-4 py-2 rounded-md text-xs transition-colors">Następne</button>
+                            <button onclick="finishExam()" class="bg-rose-600 hover:bg-rose-700 text-white font-medium px-4 py-2 rounded-md text-xs transition-colors">Zakończ Egzamin</button>
                         </div>
                     </div>
                 </div>
 
+                <!-- Exam Results -->
                 <div id="exam-results" class="hidden space-y-6">
-                    <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm text-center space-y-4">
-                        <div id="exam-result-icon-bg" class="inline-flex p-4 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400">
-                            <svg id="exam-result-icon" class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="bg-white dark:bg-[#18181b] p-5 sm:p-6 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                            <div>
+                                <h3 id="exam-result-title" class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Podsumowanie Wyników</h3>
+                                <p class="text-xs text-neutral-500 mt-0.5">Szczegółowy przegląd odpowiedzi i wzorców rozwiązań.</p>
+                            </div>
+                            <button onclick="exitExam()" class="self-start sm:self-auto bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium py-1.5 px-4 rounded-md text-xs transition-colors">Wróć do konfiguracji</button>
                         </div>
-                        <h3 id="exam-result-title" class="text-2xl font-bold">Wynik Egzaminu</h3>
-                        <p id="exam-result-subtitle" class="text-slate-500 max-w-md mx-auto text-sm">Poniżej znajduje się podsumowanie Twoich odpowiedzi oraz szczegółowe rozwiązania z prawidłowymi wzorami.</p>
                         
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto pt-4 text-left">
-                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <span class="text-xs text-slate-400">Wynik ogólny:</span>
-                                <p id="exam-score" class="text-2xl font-bold mt-1">0%</p>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="bg-neutral-50 dark:bg-neutral-850 p-3 rounded-md border border-neutral-200 dark:border-neutral-800">
+                                <span class="text-[11px] text-neutral-500">Wynik:</span>
+                                <p id="exam-score" class="text-lg font-mono font-bold mt-0.5">0%</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <span class="text-xs text-slate-400">Poprawne odp:</span>
-                                <p id="exam-correct-count" class="text-2xl font-bold mt-1">0 / 0</p>
+                            <div class="bg-neutral-50 dark:bg-neutral-850 p-3 rounded-md border border-neutral-200 dark:border-neutral-800">
+                                <span class="text-[11px] text-neutral-500">Poprawne:</span>
+                                <p id="exam-correct-count" class="text-lg font-mono font-bold mt-0.5">0 / 0</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <span class="text-xs text-slate-400">Wykorzystany czas:</span>
-                                <p id="exam-time-elapsed" class="text-2xl font-bold mt-1">00:00</p>
+                            <div class="bg-neutral-50 dark:bg-neutral-850 p-3 rounded-md border border-neutral-200 dark:border-neutral-800">
+                                <span class="text-[11px] text-neutral-500">Czas:</span>
+                                <p id="exam-time-elapsed" class="text-lg font-mono font-bold mt-0.5">00:00</p>
                             </div>
-                            <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
-                                <span class="text-xs text-slate-400">Ocena:</span>
-                                <p id="exam-final-grade" class="text-2xl font-bold mt-1 text-blue-600">--</p>
+                            <div class="bg-neutral-50 dark:bg-neutral-850 p-3 rounded-md border border-neutral-200 dark:border-neutral-800">
+                                <span class="text-[11px] text-neutral-500">Ocena:</span>
+                                <p id="exam-final-grade" class="text-lg font-mono font-bold mt-0.5">--</p>
                             </div>
-                        </div>
-
-                        <div class="pt-4 flex justify-center space-x-3">
-                            <button onclick="exitExam()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-xl text-sm transition">Wróć do konfiguracji</button>
                         </div>
                     </div>
 
                     <!-- Exam Detail Review -->
-                    <div class="space-y-4">
-                        <h4 class="text-lg font-bold">Szczegółowy przegląd pytań:</h4>
-                        <div id="exam-results-review" class="space-y-4">
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-mono uppercase text-neutral-500">Przegląd odpowiedzi</h4>
+                        <div id="exam-results-review" class="space-y-3">
                             <!-- Injected Review Elements -->
                         </div>
                     </div>
@@ -313,76 +398,74 @@
             </section>
 
             <!-- SECTION: Browse Database -->
-            <section id="sec-browse" class="hidden space-y-6">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <h2 class="text-xl font-bold" id="browse-title">Wszystkie pytania bazy (37 pytań)</h2>
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 flex-1 max-w-xl">
-                        <select id="browse-lab-filter" onchange="onBrowseFilterChange()" class="text-sm font-medium px-3 py-2.5 border rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="all">Wszystkie laboratoria</option>
-                            <option value="1">Lab 1</option>
-                            <option value="2">Lab 2</option>
-                            <option value="3">Lab 3</option>
+            <section id="sec-browse" class="hidden space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100" id="browse-title">Baza pytań (41)</h2>
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1 max-w-lg">
+                        <select id="browse-lab-filter" onchange="onBrowseFilterChange()" class="text-xs font-medium px-2.5 py-1.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200">
+                            <option value="all">Wszystkie moduły</option>
+                            <option value="1">Moduł 1 (Lab 1)</option>
+                            <option value="2">Moduł 2 (Lab 2)</option>
+                            <option value="3">Moduł 3 (Lab 3)</option>
                         </select>
                         <div class="relative flex-1">
-                            <input type="text" id="search-input" oninput="onSearchInput(this.value)" placeholder="Wyszukaj zagadnienie np. Thevenin, prawo Ohma..." class="w-full pl-10 pr-4 py-2.5 border rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <span class="absolute left-3.5 top-3 text-slate-400">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" id="search-input" oninput="onSearchInput(this.value)" placeholder="Szukaj (np. Thevenin, Ohm)..." class="w-full pl-8 pr-3 py-1.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100">
+                            <span class="absolute left-2.5 top-2 text-neutral-400">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div id="browse-list" class="space-y-4">
+                <div id="browse-list" class="space-y-3">
                     <!-- Lazy rendered question cards -->
                 </div>
 
-                <!-- Load More / Pagination container -->
+                <!-- Load More container -->
                 <div id="browse-load-more-wrap" class="text-center pt-2 pb-6 hidden">
-                    <button id="browse-load-more-btn" onclick="loadMoreBrowseQuestions()" class="bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-blue-600 dark:text-blue-400 font-bold px-6 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm shadow-sm transition">
-                        Załaduj więcej pytań (<span id="browse-loaded-count">0</span> z <span id="browse-total-count">0</span>)
+                    <button id="browse-load-more-btn" onclick="loadMoreBrowseQuestions()" class="bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-750 text-neutral-800 dark:text-neutral-200 font-medium px-4 py-2 rounded-md border border-neutral-300 dark:border-neutral-700 text-xs transition-colors">
+                        Załaduj więcej (<span id="browse-loaded-count">0</span> z <span id="browse-total-count">0</span>)
                     </button>
                     <div id="browse-infinite-sentinel" class="h-4 w-full"></div>
                 </div>
             </section>
 
             <!-- SECTION: Starred Questions -->
-            <section id="sec-starred" class="hidden space-y-6">
-                <h2 class="text-xl font-bold">Twoje Ulubione Pytania</h2>
-                <div id="starred-list" class="space-y-4">
+            <section id="sec-starred" class="hidden space-y-4">
+                <div class="border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                    <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Ulubione Pytania</h2>
+                </div>
+                <div id="starred-list" class="space-y-3">
                     <!-- Starred questions injected here -->
                 </div>
             </section>
         
-            <!-- FORMULAS / CHEAT SHEET TAB -->
-            <section id="sec-formulas" class="hidden space-y-6">
-                <!-- Header -->
-                <div class="bg-gradient-to-r from-indigo-700 via-blue-700 to-sky-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <span class="inline-block py-1 px-3 bg-white/20 rounded-full text-xs font-semibold backdrop-blur-sm">Kompendium Elektrotechniki</span>
-                        <span class="text-xs text-blue-100 font-medium">Wszystkie wzory z kartkówek 1, 2 i 3</span>
+            <!-- SECTION: Formulas / Cheat Sheet -->
+            <section id="sec-formulas" class="hidden space-y-5">
+                <!-- Formulas Header -->
+                <div class="border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div>
+                            <h2 class="text-base font-semibold text-neutral-900 dark:text-neutral-100">Wzory i Zależności</h2>
+                            <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">Zestawienie formuł, tabeli mostka Graetza i klasyfikacji elementów dla laboratoriów 1, 2 i 3</p>
+                        </div>
                     </div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Ściągawka Wzorów i Zależności</h2>
-                    <p class="text-blue-100 text-sm max-w-2xl leading-relaxed">
-                        Zestawienie wszystkich wzorów fizycznych i elektrotechnicznych użytych w zadaniach, objaśnienia symboli, jednostek w układzie SI oraz typowe pułapki obliczeniowe.
-                    </p>
                 </div>
 
                 <!-- Filters and Search Toolbar -->
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
-                    <div class="flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
-                        <!-- Lab Category Pills -->
-                        <div class="flex flex-wrap gap-2" id="formula-category-filters">
-                            <button onclick="filterFormulas('all', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-sm" data-filter="all">Wszystkie</button>
-                            <button onclick="filterFormulas('1', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="1">Lab 1: Podstawy &amp; Elementy</button>
-                            <button onclick="filterFormulas('2', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="2">Lab 2: Obwody DC &amp; Kirchhoff</button>
-                            <button onclick="filterFormulas('3', this)" class="formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200" data-filter="3">Lab 3: AC, Graetz &amp; Sygnały</button>
-                        </div>
+                <div class="flex flex-col sm:flex-row gap-2.5 items-stretch sm:items-center justify-between">
+                    <!-- Lab Category Filter Buttons -->
+                    <div class="flex flex-wrap gap-1.5" id="formula-category-filters">
+                        <button onclick="filterFormulas('all', this)" class="formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-900 dark:border-neutral-100 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900" data-filter="all">Wszystkie</button>
+                        <button onclick="filterFormulas('1', this)" class="formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-750" data-filter="1">Lab 1: Podstawy</button>
+                        <button onclick="filterFormulas('2', this)" class="formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-750" data-filter="2">Lab 2: Obwody DC</button>
+                        <button onclick="filterFormulas('3', this)" class="formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-750" data-filter="3">Lab 3: AC i Sygnały</button>
+                    </div>
 
-                        <!-- Live Search -->
-                        <div class="relative w-full md:w-72">
-                            <svg class="w-4 h-4 absolute left-3 top-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                            <input type="text" id="formula-search-input" oninput="searchFormulas(this.value)" placeholder="Szukaj wzoru (np. Graetz, Ohma)..." class="w-full pl-9 pr-3 py-2 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
+                    <!-- Live Search -->
+                    <div class="relative w-full sm:w-64">
+                        <svg class="w-3.5 h-3.5 absolute left-2.5 top-2 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <input type="text" id="formula-search-input" oninput="searchFormulas(this.value)" placeholder="Szukaj wzoru..." class="w-full pl-8 pr-3 py-1.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100">
                     </div>
                 </div>
 
@@ -391,83 +474,83 @@
 
                     <!-- ================= LAB 1 ================= -->
                     <!-- Card 1: Prawo Ohma -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="ohm prawo ohma napięcie prąd rezystancja opór u r i">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="1" data-keywords="ohm prawo ohma napięcie prąd rezystancja opór u r i">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Rezystancja</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Prawo Ohma (DC)</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 1 • Rezystancja</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Prawo Ohma (DC)</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Prawo Ohma dla prądu stałego</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 text-center font-mono">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Prawo Ohma dla prądu stałego</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 text-center font-mono">
                             \[I = \frac{U}{R} \iff R = \frac{U}{I} \iff U = I \cdot R\]
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
                             <p><strong>Symbole i jednostki:</strong> \(U\) – napięcie [V], \(I\) – natężenie prądu [A], \(R\) – rezystancja [\(\Omega\)].</p>
-                            <p class="text-slate-400"><strong>Wskazówka:</strong> Pamiętaj o przeliczeniu miliamperów na ampery: \(1\text{ mA} = 10^{-3}\text{ A}\) (np. \(25\text{ mA} = 0{,}025\text{ A}\)).</p>
+                            <p class="text-neutral-500"><strong>Wskazówka:</strong> Pamiętaj o przeliczeniu miliamperów na ampery: \(1\text{ mA} = 10^{-3}\text{ A}\) (np. \(25\text{ mA} = 0{,}025\text{ A}\)).</p>
                         </div>
                     </div>
 
                     <!-- Card 2: Rezystancja przewodnika -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="taśma drut przewód rezystywność opór przekrój kołowy prostokątny">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="1" data-keywords="taśma drut przewód rezystywność opór przekrój kołowy prostokątny">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Przewodniki</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Geometria przewodu</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 1 • Przewodniki</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Geometria przewodu</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Rezystancja drutu i taśmy metalowej</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Rezystancja drutu i taśmy metalowej</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-center">
                             <div>\[\text{Taśma (prostokąt): } R = \frac{\rho \cdot l}{a \cdot b}\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[\text{Drut (koło): } R = \frac{4 \rho \cdot l}{\pi d^2}\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-2">\[\text{Drut (koło): } R = \frac{4 \rho \cdot l}{\pi d^2}\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
                             <p><strong>Symbole:</strong> \(\rho\) – rezystywność [\(\Omega\cdot\text{m}\)], \(l\) – długość [m], \(a, b\) – boki przekroju [m], \(d\) – średnica [m].</p>
-                            <p class="text-slate-400"><strong>Przeliczenia:</strong> \(1\text{ n}\Omega\text{m} = 10^{-9}\,\Omega\cdot\text{m}\), \(1\text{ mm} = 10^{-3}\text{ m}\) (np. \(d = 0{,}1\text{ mm} = 10^{-4}\text{ m}\)).</p>
+                            <p class="text-neutral-500"><strong>Przeliczenia:</strong> \(1\text{ n}\Omega\text{m} = 10^{-9}\,\Omega\cdot\text{m}\), \(1\text{ mm} = 10^{-3}\text{ m}\) (np. \(d = 0{,}1\text{ mm} = 10^{-4}\text{ m}\)).</p>
                         </div>
                     </div>
 
                     <!-- Card 3: Kondensatory -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="kondensator pojemność ładunek dielektryk przenikalność płaski">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="1" data-keywords="kondensator pojemność ładunek dielektryk przenikalność płaski">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Kondensator</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Pojemność elektryczna</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 1 • Kondensator</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Pojemność elektryczna</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Pojemność i kondensator płaski</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Pojemność i kondensator płaski</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-center">
                             <div>\[Q = C \cdot U \iff C = \frac{Q}{U} \iff U = \frac{Q}{C}\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[C = \varepsilon_0 \varepsilon_r \frac{S}{d}\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-2">\[C = \varepsilon_0 \varepsilon_r \frac{S}{d}\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
                             <p><strong>Stała:</strong> \(\varepsilon_0 \approx 8{,}854 \cdot 10^{-12}\text{ F/m}\), \(\varepsilon_r\) – przenikalność względna.</p>
                             <p><strong>Przeliczenia:</strong> \(S\) w \(\text{cm}^2 = 10^{-4}\text{ m}^2\), \(d\) w \(\mu\text{m} = 10^{-6}\text{ m}\), \(Q\) w \(\text{mC} = 10^{-3}\text{ C}\).</p>
                         </div>
                     </div>
 
                     <!-- Card 4: Cewki -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="1" data-keywords="cewka indukcyjność strumień magnetyczny solenoid zwoje prąd">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="1" data-keywords="cewka indukcyjność strumień magnetyczny solenoid zwoje prąd">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Cewka</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Indukcyjność własna</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 1 • Cewka</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Indukcyjność własna</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Indukcyjność cewki i solenoid powietrzny</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Indukcyjność cewki i solenoid powietrzny</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-center">
                             <div>\[\Psi = L \cdot I \iff L = \frac{\Psi}{I} \iff I = \frac{\Psi}{L}\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[L = \mu_0 \frac{z^2 \cdot S}{l}\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-2">\[L = \mu_0 \frac{z^2 \cdot S}{l}\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
                             <p><strong>Symbole:</strong> \(\Psi\) – strumień skojarzony [Wb], \(L\) – indukcyjność [H], \(\mu_0 = 4\pi \cdot 10^{-7}\text{ H/m}\).</p>
                             <p><strong>Wymiary:</strong> \(z\) – liczba zwojów, \(S\) – pole przekroju [\(\text{m}^2\)], \(l\) – długość cewki [m].</p>
                         </div>
                     </div>
 
                     <!-- Card 5: Kwalifikacja elementów idealnych -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3 md:col-span-2" data-lab="1" data-keywords="rezystor kondensator cewka dioda transformator pasywny aktywny odwracalny konserwatywny dyssypatywny dwójnik czwórnik">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3 md:col-span-2" data-lab="1" data-keywords="rezystor kondensator cewka dioda transformator pasywny aktywny odwracalny konserwatywny dyssypatywny dwójnik czwórnik">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold px-2.5 py-1 rounded-lg">Lab 1 • Teoria</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Klasyfikacja elementów idealnych</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 1 • Teoria</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Klasyfikacja elementów idealnych</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Kwalifikacja elementów obwodowych w teście</h3>
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Kwalifikacja elementów obwodowych w teście</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs border-collapse">
                                 <thead>
-                                    <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400">
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-800 text-neutral-500">
                                         <th class="py-2 pr-3">Element</th>
                                         <th class="py-2 px-2">Biegunowość</th>
                                         <th class="py-2 px-2">Energia</th>
@@ -475,40 +558,40 @@
                                         <th class="py-2 px-2">Odwracalność</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-medium text-slate-700 dark:text-slate-300">
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-medium text-neutral-700 dark:text-neutral-300">
                                     <tr>
-                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Rezystor idealny</td>
+                                        <td class="py-2.5 pr-3 font-bold text-neutral-900 dark:text-neutral-100">Rezystor idealny</td>
                                         <td class="py-2.5 px-2">Dwójnik</td>
                                         <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
                                         <td class="py-2.5 px-2 text-amber-600 dark:text-amber-400">Dyssypatywny (ciepło)</td>
                                         <td class="py-2.5 px-2">Odwracalny</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Kondensator idealny</td>
+                                        <td class="py-2.5 pr-3 font-bold text-neutral-900 dark:text-neutral-100">Kondensator idealny</td>
                                         <td class="py-2.5 px-2">Dwójnik</td>
                                         <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
-                                        <td class="py-2.5 px-2 text-indigo-600 dark:text-indigo-400">Konserwatywny (pole E)</td>
+                                        <td class="py-2.5 px-2 text-neutral-900 dark:text-neutral-100">Konserwatywny (pole E)</td>
                                         <td class="py-2.5 px-2">Odwracalny</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Cewka idealna</td>
+                                        <td class="py-2.5 pr-3 font-bold text-neutral-900 dark:text-neutral-100">Cewka idealna</td>
                                         <td class="py-2.5 px-2">Dwójnik</td>
                                         <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
-                                        <td class="py-2.5 px-2 text-indigo-600 dark:text-indigo-400">Konserwatywny (pole B)</td>
+                                        <td class="py-2.5 px-2 text-neutral-900 dark:text-neutral-100">Konserwatywny (pole B)</td>
                                         <td class="py-2.5 px-2">Odwracalny</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Dioda idealna</td>
+                                        <td class="py-2.5 pr-3 font-bold text-neutral-900 dark:text-neutral-100">Dioda idealna</td>
                                         <td class="py-2.5 px-2">Dwójnik</td>
                                         <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
-                                        <td class="py-2.5 px-2 text-slate-400">Niesymetryczna</td>
+                                        <td class="py-2.5 px-2 text-neutral-500">Niesymetryczna</td>
                                         <td class="py-2.5 px-2 text-rose-600 dark:text-rose-400">Nieodwracalna</td>
                                     </tr>
                                     <tr>
-                                        <td class="py-2.5 pr-3 font-bold text-blue-600 dark:text-blue-400">Transformator idealny</td>
+                                        <td class="py-2.5 pr-3 font-bold text-neutral-900 dark:text-neutral-100">Transformator idealny</td>
                                         <td class="py-2.5 px-2">Wielobiegunnik (czwórnik)</td>
                                         <td class="py-2.5 px-2 text-emerald-600 dark:text-emerald-400">Pasywny</td>
-                                        <td class="py-2.5 px-2 text-slate-400">Bezstratny sprzężony</td>
+                                        <td class="py-2.5 px-2 text-neutral-500">Bezstratny sprzężony</td>
                                         <td class="py-2.5 px-2">Odwracalny</td>
                                     </tr>
                                 </tbody>
@@ -518,105 +601,105 @@
 
                     <!-- ================= LAB 2 ================= -->
                     <!-- Card 6: Prawa Kirchhoffa -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="2" data-keywords="kirchhoff kcl kvl węzeł oczko prąd gałęziowy i1 i2 i3">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="2" data-keywords="kirchhoff kcl kvl węzeł oczko prąd gałęziowy i1 i2 i3">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Obwody DC</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Prawa Kirchhoffa</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 2 • Obwody DC</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Prawa Kirchhoffa</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">I i II Prawo Kirchhoffa w układach z testu</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-xs">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">I i II Prawo Kirchhoffa w układach z testu</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-xs">
                             <div><strong>Węzeł A:</strong> \[I_1 + I_3 = I_2 \implies I_1 = I_2 - I_3\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Węzeł BC:</strong> \[I_1 + I_2 = I_3 \implies I_1 = I_3 - I_2\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Oczko prawe (\(E_2\) w górę):</strong> \[I_3 = \frac{E_2 - I_2 R_2}{R_3}\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Oczko prawe (\(E_2\) w dół):</strong> \[I_3 = \frac{-E_2 + I_2 R_2}{R_3}\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Węzeł BC:</strong> \[I_1 + I_2 = I_3 \implies I_1 = I_3 - I_2\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Oczko prawe (\(E_2\) w górę):</strong> \[I_3 = \frac{E_2 - I_2 R_2}{R_3}\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Oczko prawe (\(E_2\) w dół):</strong> \[I_3 = \frac{-E_2 + I_2 R_2}{R_3}\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
-                            <p class="text-slate-400"><strong>Uwaga na znak:</strong> Wynik ujemny natężenia prądu oznacza po prostu, że prąd płynie w kierunku przeciwnym do strzałki na schemacie.</p>
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+                            <p class="text-neutral-500"><strong>Uwaga na znak:</strong> Wynik ujemny natężenia prądu oznacza po prostu, że prąd płynie w kierunku przeciwnym do strzałki na schemacie.</p>
                         </div>
                     </div>
 
                     <!-- Card 7: Sprawność i dopasowanie mocy -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="2" data-keywords="sprawność dopasowanie moc maksymalna sem rezystancja wewnętrzna odbiornik pmax eta">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="2" data-keywords="sprawność dopasowanie moc maksymalna sem rezystancja wewnętrzna odbiornik pmax eta">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Źródło DC</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Bilans mocy</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 2 • Źródło DC</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Bilans mocy</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Sprawność i dopasowanie energetyczne</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-center">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Sprawność i dopasowanie energetyczne</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-center">
                             <div>\[\eta = \frac{R_{odb}}{R_{odb} + R_w} \cdot 100\%\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-2">\[P_{max} = \frac{E^2}{4 R_w} \quad (\text{dla } R_{odb} = R_w)\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-2">\[P_{max} = \frac{E^2}{4 R_w} \quad (\text{dla } R_{odb} = R_w)\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
                             <p><strong>Warunek dopasowania energetycznego:</strong> Odbiornik pobiera maksymalną moc, gdy \(R_{odb} = R_w\).</p>
                             <p><strong>Sprawność przy dopasowaniu:</strong> Zawsze wynosi dokładnie \(\eta = 50\%\).</p>
                         </div>
                     </div>
 
                     <!-- Card 8: Twierdzenia obwodowe -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3 md:col-span-2" data-lab="2" data-keywords="thevenin norton superpozycja wzajemność nieliniowe twierdzenia zasady">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3 md:col-span-2" data-lab="2" data-keywords="thevenin norton superpozycja wzajemność nieliniowe twierdzenia zasady">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 font-bold px-2.5 py-1 rounded-lg">Lab 2 • Twierdzenia</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Pytania testowe Moodle</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 2 • Twierdzenia</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Pytania testowe Moodle</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Kluczowe reguły i twierdzenia obwodowe</h3>
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Kluczowe reguły i twierdzenia obwodowe</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
-                                <strong class="text-blue-600 dark:text-blue-400 block font-bold">Twierdzenie Thevenina:</strong>
+                            <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1">
+                                <strong class="text-neutral-900 dark:text-neutral-100 block font-bold">Twierdzenie Thevenina:</strong>
                                 <p>Zastępuje aktywny obwód liniowy <strong>rzeczywistym źródłem napięcia</strong>: SEM \(E_{Th}\) w szereg z rezystancją wewnętrzną \(R_{Th}\).</p>
                             </div>
-                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
-                                <strong class="text-blue-600 dark:text-blue-400 block font-bold">Twierdzenie Nortona:</strong>
+                            <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1">
+                                <strong class="text-neutral-900 dark:text-neutral-100 block font-bold">Twierdzenie Nortona:</strong>
                                 <p>Zastępuje aktywny obwód liniowy <strong>rzeczywistym źródłem prądu</strong>: źródło \(I_N\) połączone równolegle z konduktancją/rezystancją \(R_N\).</p>
                             </div>
-                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                            <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1">
                                 <strong class="text-amber-600 dark:text-amber-400 block font-bold">Zasada Superpozycji:</strong>
                                 <p>Odpowiedź = suma odpowiedzi od każdego źródła z osobna. <em>Gdy jest tylko 1 źródło w obwodzie – NIE MA zastosowania!</em></p>
                             </div>
-                            <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
+                            <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1">
                                 <strong class="text-rose-600 dark:text-rose-400 block font-bold">Twierdzenie o Wzajemności:</strong>
                                 <p>Dotyczy układów z jednym wymuszeniem. <em>Gdy w obwodzie jest WIELE źródeł niezależnych – NIE MOŻNA go zastosować!</em></p>
                             </div>
                         </div>
-                        <div class="p-3 bg-purple-50 dark:bg-purple-900/25 border border-purple-200 dark:border-purple-800 rounded-xl text-xs text-purple-900 dark:text-purple-200">
+                        <div class="p-3 bg-purple-50 dark:bg-purple-900/25 border border-purple-200 dark:border-purple-800 rounded-md text-xs text-purple-900 dark:text-purple-200">
                             ⚡ <strong>Elementy nieliniowe w obwodzie:</strong> Analizę można wykonać <strong>wyłącznie bezpośrednio metodą praw Kirchhoffa</strong> (metody oczkowa, węzłowa i superpozycja odpadają ze względu na nieliniowość!).
                         </div>
                     </div>
 
                     <!-- ================= LAB 3 ================= -->
                     <!-- Card 9: Ciepło Joule'a dla prądów zmiennych -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="ciepło joule energia rezystor prąd przemienny sinus trójkąt prostokąt w">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="3" data-keywords="ciepło joule energia rezystor prąd przemienny sinus trójkąt prostokąt w">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Efekt cieplny</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Ciepło Joule'a \(W = I_{sk}^2 R t\)</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 3 • Efekt cieplny</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Ciepło Joule'a \(W = I_{sk}^2 R t\)</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Energia cieplna prądu przemiennego</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 space-y-2 font-mono text-xs">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Energia cieplna prądu przemiennego</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-xs">
                             <div><strong>Sinusoida:</strong> \[I_{sk} = \frac{I_m}{\sqrt{2}} \implies W = \frac{I_m^2 \cdot R}{2} \cdot t\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Fala trójkątna:</strong> \[I_{sk} = \frac{I_m}{\sqrt{3}} \implies W = \frac{I_m^2 \cdot R}{3} \cdot t\]</div>
-                            <div class="border-t border-slate-200 dark:border-slate-600 pt-1.5"><strong>Fala prostokątna:</strong> \[I_{sk} = I_m \implies W = I_m^2 \cdot R \cdot t\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Fala trójkątna:</strong> \[I_{sk} = \frac{I_m}{\sqrt{3}} \implies W = \frac{I_m^2 \cdot R}{3} \cdot t\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Fala prostokątna:</strong> \[I_{sk} = I_m \implies W = I_m^2 \cdot R \cdot t\]</div>
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300">
-                            <p class="text-slate-400"><strong>Czas \(t\):</strong> Zawsze przeliczaj minuty na sekundy: \(t = \text{minuty} \cdot 60\text{ s}\). Wynik w dżulach przelicz na kilodżule: \(1\text{ kJ} = 1000\text{ J}\).</p>
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400">
+                            <p class="text-neutral-500"><strong>Czas \(t\):</strong> Zawsze przeliczaj minuty na sekundy: \(t = \text{minuty} \cdot 60\text{ s}\). Wynik w dżulach przelicz na kilodżule: \(1\text{ kJ} = 1000\text{ J}\).</p>
                         </div>
                     </div>
 
                     <!-- Card 10: Mostek Graetza Tabela -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="mostek graetza prostownik skuteczna średnia sinus trójkąt prostokąt isk isr">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="3" data-keywords="mostek graetza prostownik skuteczna średnia sinus trójkąt prostokąt isk isr">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Prostownik</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Mostek Graetza</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 3 • Prostownik</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Mostek Graetza</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Prąd obciążenia mostka Graetza</h3>
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Prąd obciążenia mostka Graetza</h3>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs border-collapse">
                                 <thead>
-                                    <tr class="border-b border-slate-200 dark:border-slate-700 text-slate-400">
+                                    <tr class="border-b border-neutral-200 dark:border-neutral-800 text-neutral-500">
                                         <th class="py-1.5 pr-2">Kształt fali</th>
                                         <th class="py-1.5 px-2">Wartość skuteczna \(I_{sk}\)</th>
                                         <th class="py-1.5 px-2">Wartość średnia \(I_{sr}\)</th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-mono text-slate-700 dark:text-slate-300">
+                                <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 font-mono text-neutral-700 dark:text-neutral-300">
                                     <tr>
                                         <td class="py-2 pr-2 font-sans font-bold">Sinusoidalny</td>
                                         <td class="py-2 px-2">\[\frac{U_m}{\sqrt{2} \cdot R}\]</td>
@@ -635,46 +718,46 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p class="text-[11px] text-slate-400">Wszystkie wzory wynikają bezpośrednio z definicji całkowych dla dwupołówkowo wyprostowanego sygnału.</p>
+                        <p class="text-[11px] text-neutral-500">Wszystkie wzory wynikają bezpośrednio z definicji całkowych dla dwupołówkowo wyprostowanego sygnału.</p>
                     </div>
 
                     <!-- Card 11: Ładunek i amperomierze DC/AC -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="amperomierz magnetoelektryczny elektromagnetyczny dc ac ładunek q">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="3" data-keywords="amperomierz magnetoelektryczny elektromagnetyczny dc ac ładunek q">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Pomiary</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Ładunek w obwodzie</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 3 • Pomiary</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Ładunek w obwodzie</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Pomiary prądu: ładunek elektryczny</h3>
-                        <div class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700 font-mono text-center">
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Pomiary prądu: ładunek elektryczny</h3>
+                        <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 font-mono text-center">
                             \[Q = I_{DC} \cdot t\]
                         </div>
-                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5">
+                        <div class="text-xs text-neutral-600 dark:text-neutral-400 space-y-1.5">
                             <p><strong>Miernik magnetoelektryczny (DC):</strong> Mierzy wartość <em>średnią</em> prądu, która odpowiada rzeczywistemu przenoszeniu ładunku (\(Q = \int I \, dt\)).</p>
                             <p><strong>Miernik elektromagnetyczny (AC):</strong> Mierzy wartość <em>skuteczną</em> (działanie cieplne).</p>
-                            <div class="p-2.5 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg text-amber-800 dark:text-amber-200 font-semibold text-[11px]">
+                            <div class="p-2.5 bg-amber-50/70 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/60 rounded-md text-amber-800 dark:text-amber-300 font-semibold text-[11px]">
                                 ⚠️ Wskazanie amperomierza AC w zadaniu o ładunek jest ZMYŁKĄ! Zawsze mnożymy prąd DC przez czas w sekundach.
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 12: Klasyfikacja sygnałów zmiennych -->
-                    <div class="formula-card bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3" data-lab="3" data-keywords="sygnał klasyfikacja tętniący przemienny okresowy ciągły aperiodyczny">
+                    <div class="formula-card bg-white dark:bg-[#18181b] p-5 rounded-lg border border-neutral-200 dark:border-neutral-800  space-y-3" data-lab="3" data-keywords="sygnał klasyfikacja tętniący przemienny okresowy ciągły aperiodyczny">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2.5 py-1 rounded-lg">Lab 3 • Przebiegi</span>
-                            <span class="text-[11px] font-semibold text-slate-400">Klasyfikacja sygnałów</span>
+                            <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400 font-medium">Lab 3 • Przebiegi</span>
+                            <span class="text-[11px] font-semibold text-neutral-500">Klasyfikacja sygnałów</span>
                         </div>
-                        <h3 class="font-bold text-base text-slate-800 dark:text-slate-100">Klasyfikacja sygnałów elektrycznych z wykresu</h3>
-                        <div class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
-                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
-                                <strong class="text-blue-600 dark:text-blue-400">Fala trójkątna symetryczna:</strong>
+                        <h3 class="font-bold text-base text-neutral-900 dark:text-neutral-100">Klasyfikacja sygnałów elektrycznych z wykresu</h3>
+                        <div class="space-y-2 text-xs text-neutral-700 dark:text-neutral-300">
+                            <div class="p-2.5 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-0.5">
+                                <strong class="text-neutral-900 dark:text-neutral-100">Fala trójkątna symetryczna:</strong>
                                 <p>Ciągły, okresowy, zmienny, <strong>przemienny</strong> (wartości dodatnie i ujemne).</p>
                             </div>
-                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
-                                <strong class="text-indigo-600 dark:text-indigo-400">Zanik wykładniczy (\(u = U_0 e^{-t/\tau}\)):</strong>
+                            <div class="p-2.5 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-0.5">
+                                <strong class="text-neutral-900 dark:text-neutral-100">Zanik wykładniczy (\(u = U_0 e^{-t/\tau}\)):</strong>
                                 <p>Ciągły, zmienny, <strong>nieokresowy (aperiodyczny)</strong>. Nie jest przemienny.</p>
                             </div>
-                            <div class="p-2.5 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-0.5">
-                                <strong class="text-purple-600 dark:text-purple-400">Jednopołówkowa sinusoida:</strong>
+                            <div class="p-2.5 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-0.5">
+                                <strong class="text-neutral-900 dark:text-neutral-100">Jednopołówkowa sinusoida:</strong>
                                 <p>Ciągły, okresowy, zmienny, <strong>tętniący</strong> (nie zmienia znaku na ujemny).</p>
                             </div>
                         </div>
@@ -687,17 +770,17 @@
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-lg transition-transform duration-300 transform translate-y-20 flex items-center space-x-2 text-sm z-50">
+    <div id="toast" class="fixed bottom-4 right-4 hidden opacity-0 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 px-3.5 py-2 rounded-md border border-neutral-800 dark:border-neutral-200 text-xs font-medium z-50 transition-opacity duration-150">
         <span id="toast-msg">Notyfikacja</span>
     </div>
 
-    <!-- Image Lightbox Modal -->
-    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-200" onclick="closeImageModal()">
-        <div class="relative max-w-4xl max-h-[90vh] bg-white dark:bg-slate-900 rounded-3xl p-4 overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700" onclick="event.stopPropagation()">
-            <button onclick="closeImageModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition" aria-label="Zamknij podgląd">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-black/70 flex items-center justify-center p-4" onclick="closeImageModal()">
+        <div class="relative max-w-4xl max-h-[90vh] bg-white dark:bg-[#18181b] rounded-lg p-3 border border-neutral-200 dark:border-neutral-800" onclick="event.stopPropagation()">
+            <button onclick="closeImageModal()" class="absolute top-2.5 right-2.5 text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 p-1 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800" aria-label="Zamknij podgląd">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <img id="image-modal-img" src="" alt="Powiększony schemat" decoding="async" class="max-h-[80vh] w-auto mx-auto object-contain rounded-2xl bg-white p-2">
+            <img id="image-modal-img" src="" alt="Powiększony schemat" decoding="async" class="max-h-[80vh] w-auto mx-auto object-contain bg-white p-2 rounded">
         </div>
     </div>
 
@@ -1224,29 +1307,35 @@
         }
 ];
 
-        // ==========================================
-        // PERFORMANCE & IN-MEMORY INDEXING
-        // ==========================================
-        // Pre-compute normalized search indices and question maps once at startup
+        // Cache precalculated search texts
         const questionMap = new Map();
         questionBank.forEach((q, idx) => {
             q._idx = idx;
-            q._searchText = `${q.id} ${q.q} ${q.exp} ${q.correct || ''} ${(q.labs || []).join(' ')}`.toLowerCase();
             questionMap.set(q.id, q);
+            const searchable = [
+                q.q,
+                q.exp,
+                q.correct,
+                q.a, q.b, q.c, q.d, q.e, q.f,
+                q.numericTarget ? String(q.numericTarget) : ''
+            ].filter(Boolean).join(' ').toLowerCase();
+            q._searchText = searchable;
         });
 
-        // State variables
+        // State Management
         let studyIndex = 0;
+        let studyOrder = [];
         let studyOrderPos = 0;
-        let currentStudyLab = 'all';
         let studyRandom = false;
-        let studyOrder = Array.from(Array(questionBank.length).keys()); // indices
+        let currentStudyLab = 'all';
         let studyMultiSelections = {};
+
         let examState = {
             active: false,
             questions: [],
             currentIndex: 0,
             answers: {},
+            selfAssessments: {},
             timer: null,
             timeRemaining: 0,
             timeLimit: 0
@@ -1270,7 +1359,7 @@
         let browseIntersectionObserver = null;
 
         // ==========================================
-        // HIGH PERFORMANCE MATHJAX TARGETING
+        // MATHJAX TARGETED TYPESETTING
         // ==========================================
         function triggerMathJax(targetEl) {
             if (!targetEl) return;
@@ -1286,9 +1375,7 @@
                 if (typeof window.MathJax.typesetClear === 'function') {
                     window.MathJax.typesetClear(elements);
                 }
-                window.MathJax.typesetPromise(elements).catch(err => {
-                    // MathJax promise catch
-                });
+                window.MathJax.typesetPromise(elements).catch(() => {});
             } catch (e) {
                 console.debug('MathJax error:', e);
             }
@@ -1297,15 +1384,15 @@
         // Utility: Render Lab Badges
         function renderLabBadges(labs) {
             if (!labs || !Array.isArray(labs) || labs.length === 0) return '';
-            return labs.map(lab => `<span class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Lab ${lab}</span>`).join(' ');
+            return labs.map(lab => `<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">Lab ${lab}</span>`).join(' ');
         }
 
-        // Utility: Render Question Image with lazy loading
+        // Utility: Render Question Image
         function renderQuestionImage(img) {
             if (!img) return '';
             return `
                 <div class="my-3 text-center">
-                    <img src="${img}" loading="lazy" decoding="async" alt="Schemat / Wykres do zadania" onclick="openImageModal('${img}')" class="bg-white p-2 rounded-xl border border-slate-200 dark:border-slate-700 max-h-72 mx-auto cursor-zoom-in shadow-sm hover:shadow-md transition object-contain inline-block" title="Kliknij, aby powiększyć schemat">
+                    <img src="${img}" loading="lazy" decoding="async" alt="Schemat do zadania" onclick="openImageModal('${img}')" class="bg-white p-2 rounded-md border border-neutral-200 dark:border-neutral-700 max-h-64 mx-auto cursor-zoom-in transition-opacity hover:opacity-90 object-contain inline-block" title="Kliknij, aby powiększyć schemat">
                 </div>
             `;
         }
@@ -1360,35 +1447,6 @@
                 .sort();
         }
 
-        function parseNumericAnswer(val) {
-            if (val === null || val === undefined) return null;
-            const str = String(val).replace(',', '.').trim();
-            const match = str.match(/-?\d+(\.\d+)?/);
-            return match ? parseFloat(match[0]) : null;
-        }
-
-        function isAnswerCorrect(q, answer) {
-            if (q.type === 'open') {
-                if (q.numericTarget !== undefined && q.numericTarget !== null) {
-                    const parsed = parseNumericAnswer(answer);
-                    if (parsed === null) return false;
-                    const target = parseFloat(q.numericTarget);
-                    if (Math.abs(target) < 1e-6) {
-                        return Math.abs(parsed) < 0.05;
-                    }
-                    const relDiff = Math.abs(parsed - target) / Math.abs(target);
-                    const absDiff = Math.abs(parsed - target);
-                    return relDiff <= 0.05 || absDiff <= 0.08;
-                }
-                return false;
-            }
-            const correctAnswers = getCorrectAnswers(q).sort();
-            if (isMultiChoiceQuestion(q)) {
-                return normalizeAnswerList(answer).join(',') === correctAnswers.join(',');
-            }
-            return normalizeAnswerList(answer)[0] === correctAnswers[0];
-        }
-
         function formatAnswerText(q, answer) {
             if (isMultiChoiceQuestion(q)) {
                 const answers = normalizeAnswerList(answer);
@@ -1402,19 +1460,19 @@
         function getChoiceOptionClasses(isSelected, useCompactGrid) {
             if (useCompactGrid) {
                 return isSelected
-                    ? "w-full min-h-24 rounded-xl border border-blue-500 bg-blue-50 dark:bg-blue-900/30 p-3 text-left flex flex-col items-start justify-between gap-2 transition-all font-semibold"
-                    : "w-full min-h-24 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 text-left flex flex-col items-start justify-between gap-2 transition-all hover:border-slate-300 dark:hover:border-slate-600";
+                    ? "w-full min-h-20 rounded-md border border-neutral-900 dark:border-neutral-100 bg-neutral-100 dark:bg-neutral-800 p-2.5 text-left flex flex-col items-start justify-between gap-1.5 font-medium text-xs text-neutral-900 dark:text-neutral-100 transition-colors"
+                    : "w-full min-h-20 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-850 p-2.5 text-left flex flex-col items-start justify-between gap-1.5 text-xs text-neutral-700 dark:text-neutral-300 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors";
             }
             return isSelected
-                ? "w-full p-4 rounded-xl border border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-left flex items-center space-x-3 transition-all font-semibold"
-                : "w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-left flex items-center space-x-3 transition-all hover:border-slate-300 dark:hover:border-slate-600";
+                ? "w-full p-3.5 rounded-md border border-neutral-900 dark:border-neutral-100 bg-neutral-100/70 dark:bg-neutral-800 text-left flex items-center space-x-3 font-medium text-sm text-neutral-900 dark:text-neutral-100 transition-colors"
+                : "w-full p-3.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-850 text-left flex items-center space-x-3 text-sm text-neutral-700 dark:text-neutral-300 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors";
         }
 
         function getChoiceBadgeClasses(isSelected, useCompactGrid) {
-            const sizeClass = useCompactGrid ? 'w-6 h-6 text-xs' : 'w-7 h-7 text-xs';
+            const sizeClass = useCompactGrid ? 'w-5 h-5 text-[11px]' : 'w-6 h-6 text-xs';
             return isSelected
-                ? `${sizeClass} rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold flex-shrink-0`
-                : `${sizeClass} rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 flex items-center justify-center font-bold flex-shrink-0`;
+                ? `${sizeClass} rounded border border-neutral-900 dark:border-neutral-100 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 flex items-center justify-center font-mono font-medium flex-shrink-0`
+                : `${sizeClass} rounded border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 flex items-center justify-center font-mono font-medium flex-shrink-0`;
         }
 
         function shuffleArray(arr) {
@@ -1427,12 +1485,12 @@
         }
 
         // ==========================================
-        // APP INITIALIZATION (LIGHTNING FAST ONLOAD)
+        // APP INITIALIZATION
         // ==========================================
         window.onload = function() {
             initProgress();
             
-            // Check system preferences for theme
+            // Check theme preference
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
                 document.getElementById('theme-sun').classList.remove('hidden');
@@ -1441,7 +1499,7 @@
                 document.getElementById('theme-moon').classList.remove('hidden');
             }
 
-            // Theme toggle listener
+            // Theme toggle
             document.getElementById('theme-toggle').onclick = function() {
                 if (document.documentElement.classList.contains('dark')) {
                     document.documentElement.classList.remove('dark');
@@ -1456,11 +1514,10 @@
                 }
             };
 
-            // Pre-calculate study pool in memory
             rebuildStudyOrder();
         };
 
-        // Navigation Switching Handler (Lazy Tab Initialization)
+        // Navigation Switching Handler
         function switchTab(tabName) {
             const sections = ['sec-dashboard', 'sec-study', 'sec-exam', 'sec-browse', 'sec-starred', 'sec-formulas'];
             const navButtons = {
@@ -1477,14 +1534,14 @@
 
             Object.keys(navButtons).forEach(key => {
                 const btn = document.getElementById(navButtons[key]);
+                if (!btn) return;
                 if (key === tabName) {
-                    btn.className = "w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400";
+                    btn.className = "w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100";
                 } else {
-                    btn.className = "w-full flex items-center space-x-3 px-3 py-2.5 text-sm font-medium rounded-xl transition-all text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50";
+                    btn.className = "w-full flex items-center space-x-2.5 px-2.5 py-2 text-xs font-medium rounded-md transition-colors text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-850 hover:text-neutral-900 dark:hover:text-neutral-200";
                 }
             });
 
-            // Lazy initialization of tabs
             if (tabName === 'study') {
                 if (!tabLoaded.study) {
                     loadStudyQuestion();
@@ -1514,6 +1571,19 @@
         document.getElementById('nav-starred').onclick = () => switchTab('starred');
         const navFormulasBtn = document.getElementById('nav-formulas');
         if (navFormulasBtn) navFormulasBtn.onclick = () => switchTab('formulas');
+
+        // Shortcut to study specific module
+        window.filterToLabStudy = function(labNum) {
+            currentStudyLab = String(labNum);
+            const filterSelect = document.getElementById('study-lab-filter');
+            if (filterSelect) filterSelect.value = String(labNum);
+            rebuildStudyOrder();
+            studyIndex = studyOrder[0] || 0;
+            studyOrderPos = 0;
+            tabLoaded.study = true;
+            loadStudyQuestion();
+            switchTab('study');
+        };
 
         // Progress & Statistics Core Logic
         function initProgress() {
@@ -1562,7 +1632,7 @@
         }
 
         function resetStats() {
-            if (confirm("Czy na pewno chcesz zresetować wszystkie statystyki, historię odpowiedzi i ulubione pytania?")) {
+            if (confirm("Czy na pewno chcesz zresetować postępy, historię odpowiedzi i ulubione pytania?")) {
                 localStorage.removeItem('elektrotechnika_stats');
                 initProgress();
                 studyIndex = 0;
@@ -1578,16 +1648,18 @@
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-msg').innerText = msg;
-            toast.classList.remove('translate-y-20');
-            toast.classList.add('translate-y-0');
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0');
-                toast.classList.add('translate-y-20');
-            }, 2500);
+            toast.classList.remove('hidden', 'opacity-0');
+            toast.classList.add('opacity-100');
+            clearTimeout(window._toastTimeout);
+            window._toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.classList.add('hidden'), 150);
+            }, 2200);
         }
 
         // ==========================================
-        // STUDY MODE ENGINE (INSTANT TARGETED TYPESETTING)
+        // STUDY MODE ENGINE
         // ==========================================
         function getStudyQuestionPool() {
             if (currentStudyLab === 'all') {
@@ -1637,15 +1709,13 @@
         function loadStudyQuestion() {
             const card = document.getElementById('study-card');
             if (studyOrder.length === 0) {
-                card.innerHTML = `<div class="text-center py-8 text-slate-400">Brak pytań w tym laboratorium.</div>`;
+                card.innerHTML = `<div class="text-center py-8 text-neutral-400 text-xs">Brak pytań w tym laboratorium.</div>`;
                 return;
             }
 
             const q = questionBank[studyIndex];
-            const stats = JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { stars: [] };
-            const isStarred = stats.stars.includes(q.id);
+            const isStarred = (JSON.parse(localStorage.getItem('elektrotechnika_stats')) || { stars: [] }).stars.includes(q.id);
             const multiChoice = isMultiChoiceQuestion(q);
-            studyMultiSelections[q.id] = [];
             const savedStudyAnswer = studyMultiSelections[q.id] || [];
 
             let optionsHTML = '';
@@ -1656,32 +1726,30 @@
 
                 if (multiChoice) {
                     optionsHTML = `
-                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5' : 'space-y-2'}">
                             ${opts.map((opt, idx) => `
                                 <button onclick="toggleStudyMultiAnswer('${opt.k}')" id="opt-${opt.k}" class="${getChoiceOptionClasses(savedStudyAnswer.includes(opt.k), useCompactGrid)}" aria-pressed="${savedStudyAnswer.includes(opt.k)}">
                                     <div class="flex items-center gap-2">
                                         <span class="${getChoiceBadgeClasses(savedStudyAnswer.includes(opt.k), useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
-                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Wybór</span>' : ''}
                                     </div>
-                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                    <span class="${useCompactGrid ? 'text-xs leading-snug' : 'text-sm'}">${escapeHtml(opt.text)}</span>
                                 </button>
                             `).join('')}
                         </div>
                         <div class="flex items-center justify-between gap-3 pt-2">
-                            <p class="text-xs text-slate-400">Zaznacz wszystkie poprawne odpowiedzi, potem kliknij sprawdzenie.</p>
-                            <button onclick="checkStudyMultiAnswer()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition shadow-sm">Sprawdź odpowiedź</button>
+                            <p class="text-xs text-neutral-500">Zaznacz poprawne opcje, potem sprawdź odpowiedź.</p>
+                            <button onclick="checkStudyMultiAnswer()" class="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium px-4 py-2 rounded-md text-xs transition-colors">Sprawdź odpowiedź</button>
                         </div>
                     `;
                 } else {
                     optionsHTML = `
-                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5' : 'space-y-2'}">
                             ${opts.map((opt, idx) => `
                                 <button onclick="checkStudyAnswer('${opt.k}')" id="opt-${opt.k}" class="${getChoiceOptionClasses(false, useCompactGrid)}">
                                     <div class="flex items-center gap-2">
                                         <span class="${getChoiceBadgeClasses(false, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
-                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Odpowiedź</span>' : ''}
                                     </div>
-                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                    <span class="${useCompactGrid ? 'text-xs leading-snug' : 'text-sm'}">${escapeHtml(opt.text)}</span>
                                 </button>
                             `).join('')}
                         </div>
@@ -1690,31 +1758,30 @@
             } else if (q.type === 'open') {
                 const isNumeric = q.numericTarget !== undefined && q.numericTarget !== null;
                 optionsHTML = `
-                    <div class="space-y-4">
+                    <div class="space-y-3 pt-1">
                         ${isNumeric ? `
-                            <div class="p-3.5 bg-blue-50 dark:bg-blue-900/25 border border-blue-200 dark:border-blue-800 rounded-xl text-xs text-blue-900 dark:text-blue-200 flex items-start gap-2.5">
-                                <span class="text-base leading-none">💡</span>
-                                <div>Oblicz zadanie dla podanych wartości i wpisz wynik poniżej. Sprawdzenie dopuszcza drobne zaokrąglenia.</div>
-                            </div>
+                            <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">
+                                Wpisz obliczony wynik liczbowy (dla danych w treści):
+                            </label>
                             <div class="flex flex-col sm:flex-row gap-2">
                                 <input type="text" id="open-numeric-input" placeholder="Wpisz obliczony wynik (np. 1,23)..." 
                                     onkeydown="if(event.key==='Enter') checkStudyNumericAnswer()"
-                                    class="flex-1 p-3.5 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold text-slate-800 dark:text-slate-100">
-                                <button onclick="checkStudyNumericAnswer()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3.5 rounded-xl text-sm transition shadow-sm whitespace-nowrap">
+                                    class="flex-1 p-2.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-sm font-mono text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100">
+                                <button onclick="checkStudyNumericAnswer()" class="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium px-4 py-2.5 rounded-md text-xs transition-colors whitespace-nowrap">
                                     Sprawdź wynik
                                 </button>
                             </div>
                             <div id="numeric-feedback" class="hidden"></div>
                             <div class="flex justify-between items-center pt-1">
-                                <button onclick="showOpenExplanation(false)" class="text-xs text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 underline">
+                                <button onclick="showOpenExplanation(false)" class="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200 underline">
                                     Pokaż wzór i rozwiązanie bez sprawdzania
                                 </button>
                             </div>
                         ` : `
-                            <textarea id="open-answer" placeholder="Wpisz swoje obliczenia, wzór lub wynik..." rows="3" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"></textarea>
-                            <div class="flex space-x-3">
-                                <button onclick="showOpenExplanation(true)" class="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition duration-150 shadow-sm">Znam rozwiązanie / Pokaż wzór</button>
-                                <button onclick="showOpenExplanation(false)" class="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold py-2.5 px-4 rounded-xl text-sm transition duration-150">Pokaż wzorzec i warianty</button>
+                            <textarea id="open-answer" placeholder="Wpisz swoje obliczenia, wzór lub wynik..." rows="3" class="w-full p-3 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 text-xs text-neutral-900 dark:text-neutral-100 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"></textarea>
+                            <div class="flex space-x-2">
+                                <button onclick="showOpenExplanation(true)" class="flex-1 bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium py-2 px-3 rounded-md text-xs transition-colors">Znam rozwiązanie / Pokaż wzór</button>
+                                <button onclick="showOpenExplanation(false)" class="flex-1 border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 font-medium py-2 px-3 rounded-md text-xs transition-colors">Pokaż wzorzec i warianty</button>
                             </div>
                         `}
                     </div>
@@ -1722,33 +1789,33 @@
             }
 
             card.innerHTML = `
-                <div class="flex items-center justify-between border-b pb-4 border-slate-100 dark:border-slate-700">
+                <div class="flex items-center justify-between border-b pb-3 border-neutral-200 dark:border-neutral-800">
                     <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Pytanie ${studyOrderPos + 1} z ${studyOrder.length} (ID: ${q.id})</span>
+                        <span class="text-xs font-mono text-neutral-400">Pytanie ${studyOrderPos + 1} z ${studyOrder.length} (#${q.id})</span>
                         ${renderLabBadges(q.labs)}
                     </div>
-                    <button onclick="toggleStar(${q.id})" class="text-slate-400 hover:text-amber-500 transition-colors" title="Dodaj do ulubionych">
-                        <svg class="w-6 h-6 ${isStarred ? 'text-amber-500 fill-current' : 'fill-none'}" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="toggleStar(${q.id})" class="text-neutral-400 hover:text-amber-500 transition-colors p-1" title="Dodaj do ulubionych">
+                        <svg class="w-4 h-4 ${isStarred ? 'text-amber-500 fill-current' : 'fill-none'}" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                         </svg>
                     </button>
                 </div>
 
                 <div class="space-y-4">
-                    <p class="text-lg font-bold leading-snug">${escapeHtml(q.q)}</p>
+                    <p class="text-base font-medium leading-relaxed text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                     ${renderQuestionImage(q.img)}
                     ${optionsHTML}
                 </div>
 
-                <div id="study-exp" class="hidden mt-6 p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/40 border-l-4 border-blue-500 text-slate-700 dark:text-slate-300 space-y-3">
-                    <p class="font-bold text-sm text-blue-600 dark:text-blue-400 uppercase tracking-wider">Wyjaśnienie i Wzory (LaTeX):</p>
-                    <div class="text-sm leading-relaxed whitespace-pre-line">${escapeHtml(q.exp)}</div>
-                    ${q.correct && q.type === 'open' ? `<div class="mt-2 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 p-2.5 rounded-xl"><strong>Krótka odpowiedź / Wzór:</strong> ${escapeHtml(q.correct)}</div>` : ''}
+                <div id="study-exp" class="hidden mt-4 p-4 rounded-md bg-neutral-50 dark:bg-[#202024] border border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 space-y-2 text-xs">
+                    <p class="font-medium text-neutral-900 dark:text-neutral-200">Wzorzec i objaśnienie:</p>
+                    <div class="leading-relaxed whitespace-pre-line">${escapeHtml(q.exp)}</div>
+                    ${q.correct && q.type === 'open' ? `<div class="mt-2 font-mono font-medium text-neutral-900 dark:text-neutral-100 border-t border-neutral-200 dark:border-neutral-700 pt-2">Krótka odpowiedź / Wzór: ${escapeHtml(q.correct)}</div>` : ''}
                 </div>
 
-                <div class="flex justify-between items-center pt-4 border-t border-slate-100 dark:border-slate-700">
-                    <button onclick="prevStudyQuestion()" class="bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-semibold px-5 py-2.5 rounded-xl text-sm transition" ${studyOrderPos === 0 ? 'disabled' : ''}>Poprzednie</button>
-                    <button onclick="nextStudyQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition shadow-sm">Następne</button>
+                <div class="flex justify-between items-center pt-3 border-t border-neutral-200 dark:border-neutral-800">
+                    <button onclick="prevStudyQuestion()" class="border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-medium px-4 py-2 rounded-md text-xs transition-colors" ${studyOrderPos === 0 ? 'disabled' : ''}>Poprzednie</button>
+                    <button onclick="nextStudyQuestion()" class="bg-neutral-900 hover:bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 font-medium px-4 py-2 rounded-md text-xs transition-colors">Następne</button>
                 </div>
             `;
 
@@ -1758,7 +1825,6 @@
                 goTo.max = studyOrder.length;
             }
 
-            // Targeted typesetting only for study-card (super fast!)
             triggerMathJax(card);
         }
 
@@ -1771,7 +1837,7 @@
                     studyIndex = studyOrder[studyOrderPos];
                     loadStudyQuestion();
                 } else {
-                    showToast("Gratulacje! Przeszedłeś wszystkie pytania w wybranej kategorii!");
+                    showToast("Ukończono wszystkie pytania w tej kategorii.");
                 }
             } else if (direction === 'prev') {
                 if (studyOrderPos > 0) {
@@ -1793,9 +1859,9 @@
                 if (!btn) return;
                 btn.disabled = true;
                 if (correctAnswers.includes(opt)) {
-                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300');
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-neutral-900 dark:border-neutral-100 bg-neutral-100/70 dark:bg-neutral-800', 'border-emerald-600 dark:border-emerald-500 bg-emerald-50/60 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-100');
                 } else if (opt === choice) {
-                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300');
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-neutral-900 dark:border-neutral-100 bg-neutral-100/70 dark:bg-neutral-800', 'border-rose-600 dark:border-rose-500 bg-rose-50/60 dark:bg-rose-950/20 text-rose-900 dark:text-rose-100');
                 }
             });
 
@@ -1841,9 +1907,9 @@
                 if (!btn) return;
                 btn.disabled = true;
                 if (correctAnswers.includes(opt)) {
-                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-green-500 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300');
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-neutral-900 dark:border-neutral-100 bg-neutral-100/70 dark:bg-neutral-800', 'border-emerald-600 dark:border-emerald-500 bg-emerald-50/60 dark:bg-emerald-950/20 text-emerald-900 dark:text-emerald-100');
                 } else if (selectedAnswers.includes(opt)) {
-                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-blue-500 bg-blue-50 dark:bg-blue-900/30', 'border-red-500 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300');
+                    btn.className = getChoiceOptionClasses(true, useCompactGrid).replace('border-neutral-900 dark:border-neutral-100 bg-neutral-100/70 dark:bg-neutral-800', 'border-rose-600 dark:border-rose-500 bg-rose-50/60 dark:bg-rose-950/20 text-rose-900 dark:text-rose-100');
                 }
             });
 
@@ -1855,38 +1921,38 @@
         }
 
         function checkStudyNumericAnswer() {
-            const q = questionBank[studyIndex];
             const input = document.getElementById('open-numeric-input');
             const feedback = document.getElementById('numeric-feedback');
             if (!input || !feedback) return;
 
-            const userValStr = input.value.trim().replace(',', '.');
-            if (!userValStr) {
-                feedback.className = "p-3 rounded-xl bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 text-xs font-semibold";
+            const val = input.value.trim();
+            if (!val) {
+                feedback.className = "p-2.5 rounded-md border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-xs text-neutral-700 dark:text-neutral-300";
                 feedback.innerHTML = "Wpisz wynik liczbowy przed sprawdzeniem.";
                 feedback.classList.remove('hidden');
                 return;
             }
 
-            const parsed = parseNumericAnswer(userValStr);
-            if (parsed === null) {
-                feedback.className = "p-3 rounded-xl bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-200 text-xs font-semibold";
+            const parsed = parsePolishNumber(val);
+            if (isNaN(parsed)) {
+                feedback.className = "p-2.5 rounded-md border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-xs text-rose-800 dark:text-rose-200";
                 feedback.innerHTML = "Wpisz poprawną wartość liczbową (np. 1,23).";
                 feedback.classList.remove('hidden');
                 return;
             }
 
-            const isCorrect = isAnswerCorrect(q, parsed);
+            const q = questionBank[studyIndex];
+            const isCorrect = isAnswerCorrect(q, val);
             input.disabled = true;
 
             if (isCorrect) {
-                feedback.className = "p-3.5 rounded-xl bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 text-green-800 dark:text-green-200 text-sm font-semibold flex items-center gap-2";
-                feedback.innerHTML = `<span>✓</span> <span><strong>Świetnie! Wynik poprawny:</strong> ${parsed}. Poniżej znajduje się wzór i pełne rozwiązanie:</span>`;
+                feedback.className = "p-2.5 rounded-md border border-emerald-300 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/30 text-xs font-medium text-emerald-800 dark:text-emerald-200 flex items-center gap-2";
+                feedback.innerHTML = `<span>✓</span> <span><strong>Wynik poprawny:</strong> ${parsed}. Poniżej rozwiązanie i wzór:</span>`;
                 feedback.classList.remove('hidden');
                 updateQuestionHistory(q.id, true);
             } else {
-                feedback.className = "p-3.5 rounded-xl bg-rose-100 dark:bg-rose-900/30 border border-rose-300 dark:border-rose-700 text-rose-800 dark:text-rose-200 text-sm font-semibold flex items-center gap-2";
-                feedback.innerHTML = `<span>✗</span> <span><strong>Niepoprawny wynik:</strong> Twój wynik (${parsed}) różni się od oczekiwanego (ok. <strong>${escapeHtml(q.correct)}</strong>). Sprawdź poniżej wzór i obliczenia:</span>`;
+                feedback.className = "p-2.5 rounded-md border border-rose-300 dark:border-rose-800 bg-rose-50/70 dark:bg-rose-950/30 text-xs font-medium text-rose-800 dark:text-rose-200 flex items-center gap-2";
+                feedback.innerHTML = `<span>✗</span> <span><strong>Różnica w wyniku:</strong> Twój wynik (${parsed}) różni się od oczekiwanego (${escapeHtml(q.correct)}). Sprawdź wzór:</span>`;
                 feedback.classList.remove('hidden');
                 updateQuestionHistory(q.id, false);
             }
@@ -1938,18 +2004,18 @@
             studyRandom = !studyRandom;
             const btn = document.getElementById('study-shuffle');
             if (studyRandom) {
-                btn.classList.add('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/40', 'dark:text-blue-300');
-                showToast("Włączono losową kolejność pytań");
+                btn.classList.add('bg-neutral-200', 'dark:bg-neutral-700');
+                showToast("Włączono losową kolejność");
             } else {
-                btn.classList.remove('bg-blue-100', 'text-blue-700', 'dark:bg-blue-900/40', 'dark:text-blue-300');
-                showToast("Wyłączono losową kolejność pytań");
+                btn.classList.remove('bg-neutral-200', 'dark:bg-neutral-700');
+                showToast("Wyłączono losową kolejność");
             }
             rebuildStudyOrder();
             loadStudyQuestion();
         }
 
         // ==========================================
-        // EXAM MODE ENGINE (TARGETED TYPESETTING)
+        // EXAM MODE ENGINE
         // ==========================================
         function startExam() {
             const labVal = document.getElementById('exam-lab-filter') ? document.getElementById('exam-lab-filter').value : 'all';
@@ -2031,16 +2097,15 @@
                 if (multiChoice) {
                     const savedMulti = Array.isArray(savedAns) ? savedAns : [];
                     inputHTML = `
-                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5' : 'space-y-2'}">
                             ${opts.map((opt, idx) => {
                                 const isSelected = savedMulti.includes(opt.k);
                                 return `
                                     <button onclick="toggleExamAnswer('${opt.k}')" class="${getChoiceOptionClasses(isSelected, useCompactGrid)}" aria-pressed="${isSelected}">
                                         <div class="flex items-center gap-2">
                                             <span class="${getChoiceBadgeClasses(isSelected, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
-                                            ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Wybór</span>' : ''}
                                         </div>
-                                        <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                        <span class="${useCompactGrid ? 'text-xs leading-snug' : 'text-sm'}">${escapeHtml(opt.text)}</span>
                                     </button>
                                 `;
                             }).join('')}
@@ -2048,14 +2113,13 @@
                     `;
                 } else {
                     inputHTML = `
-                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3' : 'space-y-3'}">
+                        <div class="${useCompactGrid ? 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5' : 'space-y-2'}">
                             ${opts.map((opt, idx) => `
                                 <button onclick="selectExamAnswer('${opt.k}')" class="${getChoiceOptionClasses(savedAns === opt.k, useCompactGrid)}">
                                     <div class="flex items-center gap-2">
                                         <span class="${getChoiceBadgeClasses(savedAns === opt.k, useCompactGrid)}">${String.fromCharCode(65 + idx)}</span>
-                                        ${!useCompactGrid ? '<span class="text-[11px] uppercase tracking-wider text-slate-400 dark:text-slate-500">Odpowiedź</span>' : ''}
                                     </div>
-                                    <span class="${useCompactGrid ? 'text-sm leading-snug' : ''}">${escapeHtml(opt.text)}</span>
+                                    <span class="${useCompactGrid ? 'text-xs leading-snug' : 'text-sm'}">${escapeHtml(opt.text)}</span>
                                 </button>
                             `).join('')}
                         </div>
@@ -2064,18 +2128,18 @@
             } else if (q.type === 'open') {
                 const isNumeric = q.numericTarget !== undefined && q.numericTarget !== null;
                 inputHTML = `
-                    <div class="space-y-3">
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400">
-                            ${isNumeric ? 'Wpisz obliczony wynik liczbowy (dla podanych danych w treści):' : 'Wpisz swoją odpowiedź / wzór:'}
+                    <div class="space-y-2">
+                        <label class="block text-xs font-medium text-neutral-600 dark:text-neutral-400">
+                            ${isNumeric ? 'Wpisz obliczony wynik liczbowy:' : 'Wpisz swoją odpowiedź:'}
                         </label>
-                        <input type="text" id="exam-open-answer" onchange="saveExamOpenAnswer(this.value)" oninput="saveExamOpenAnswer(this.value)" value="${savedAns ? escapeHtml(savedAns) : ''}" placeholder="${isNumeric ? 'Wpisz wynik liczbowy (np. 1,23)...' : 'Wpisz swoją odpowiedź...'}" class="w-full p-4 border rounded-xl bg-slate-50 dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base font-semibold text-slate-800 dark:text-slate-100">
+                        <input type="text" id="exam-open-answer" onchange="saveExamOpenAnswer(this.value)" oninput="saveExamOpenAnswer(this.value)" value="${savedAns ? escapeHtml(savedAns) : ''}" placeholder="${isNumeric ? 'Wpisz wynik liczbowy (np. 1,23)...' : 'Wpisz swoją odpowiedź...'}" class="w-full p-2.5 border rounded-md bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 text-sm font-mono text-neutral-900 dark:text-neutral-100">
                     </div>
                 `;
             }
 
             card.innerHTML = `
                 <div class="space-y-4">
-                    <p class="text-lg font-bold leading-snug">${escapeHtml(q.q)}</p>
+                    <p class="text-base font-medium leading-relaxed text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                     ${renderQuestionImage(q.img)}
                     ${inputHTML}
                 </div>
@@ -2147,25 +2211,25 @@
                     const correctAnswers = getCorrectAnswers(q);
 
                     reviewHTML += `
-                        <div class="p-4 rounded-2xl border ${isCorrect ? 'border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10' : 'border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/10'} space-y-2">
+                        <div class="p-4 rounded-lg border ${isCorrect ? 'border-emerald-200 bg-emerald-50/40 dark:border-emerald-900/40 dark:bg-emerald-950/15' : 'border-rose-200 bg-rose-50/40 dark:border-rose-900/40 dark:bg-rose-950/15'} space-y-2">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <span class="font-bold text-sm text-slate-500 dark:text-slate-400">Pytanie ${idx + 1} (ID: ${q.id})</span>
+                                    <span class="font-mono text-xs text-neutral-500">Pytanie ${idx + 1} (#${q.id})</span>
                                     ${renderLabBadges(q.labs)}
                                 </div>
-                                <span class="text-xs font-bold ${isCorrect ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}">${isCorrect ? 'Poprawna' : 'Błędna'}</span>
+                                <span class="text-xs font-mono font-medium ${isCorrect ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400'}">${isCorrect ? '✓ Poprawna' : '✗ Błędna'}</span>
                             </div>
-                            <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                            <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                             ${renderQuestionImage(q.img)}
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm pt-2">
-                                <div class="${isCorrect ? 'text-green-700 dark:text-green-400' : 'text-red-700 dark:text-red-400'}">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs pt-2">
+                                <div class="${isCorrect ? 'text-emerald-800 dark:text-emerald-300' : 'text-rose-800 dark:text-rose-300'}">
                                     <strong>Twoja odpowiedź:</strong> ${formatAnswerText(q, userAns)}
                                 </div>
-                                <div class="text-green-700 dark:text-green-400">
-                                    <strong>Poprawna odpowiedź:</strong> ${correctAnswers.map(key => `${key.toUpperCase()}) ${escapeHtml(q[key])}`).join(', ')}
+                                <div class="text-emerald-800 dark:text-emerald-300">
+                                    <strong>Poprawna:</strong> ${correctAnswers.map(key => `${key.toUpperCase()}) ${escapeHtml(q[key])}`).join(', ')}
                                 </div>
                             </div>
-                            <div class="mt-2 text-xs text-slate-600 dark:text-slate-300 border-t pt-2 dark:border-slate-700 whitespace-pre-line">${escapeHtml(q.exp)}</div>
+                            <div class="mt-2 text-xs text-neutral-600 dark:text-neutral-400 border-t border-neutral-200/60 dark:border-neutral-800 pt-2 whitespace-pre-line">${escapeHtml(q.exp)}</div>
                         </div>
                     `;
                 } else if (q.type === 'open') {
@@ -2184,35 +2248,35 @@
                     if (isAssessed) correctCount++;
 
                     reviewHTML += `
-                        <div id="self-assess-${q.id}" class="p-4 rounded-2xl border ${isAssessed ? 'border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10' : 'border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-800'} space-y-3">
+                        <div id="self-assess-${q.id}" class="p-4 rounded-lg border ${isAssessed ? 'border-emerald-200 bg-emerald-50/40 dark:border-emerald-900/40 dark:bg-emerald-950/15' : 'border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-850'} space-y-3">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <span class="font-bold text-sm text-slate-500 dark:text-slate-400">Pytanie ${idx + 1} (Zadanie obliczeniowe ID: ${q.id})</span>
+                                    <span class="font-mono text-xs text-neutral-500">Pytanie ${idx + 1} (Zadanie obliczeniowe #${q.id})</span>
                                     ${renderLabBadges(q.labs)}
                                 </div>
-                                <span class="text-xs bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 font-bold px-2 py-0.5 rounded">Zadanie obliczeniowe</span>
+                                <span class="text-[11px] font-mono border border-neutral-200 dark:border-neutral-700 px-1.5 py-0.5 rounded text-neutral-500">Obliczeniowe</span>
                             </div>
-                            <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                            <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                             ${renderQuestionImage(q.img)}
-                            <div class="p-3 bg-white dark:bg-slate-700 rounded-xl text-sm border border-slate-200 dark:border-slate-600">
-                                <strong class="block text-xs text-slate-400 mb-1">Twoja odpowiedź:</strong>
-                                ${userAns ? `<span class="font-semibold text-slate-800 dark:text-slate-100">${escapeHtml(userAns)}</span>` : '<span class="italic text-red-500">Brak odpowiedzi</span>'}
+                            <div class="p-3 bg-white dark:bg-neutral-800 rounded-md text-xs border border-neutral-200 dark:border-neutral-700">
+                                <strong class="block text-neutral-400 mb-1">Twoja odpowiedź:</strong>
+                                ${userAns ? `<span class="font-mono font-medium text-neutral-900 dark:text-neutral-100">${escapeHtml(userAns)}</span>` : '<span class="italic text-rose-500">Brak odpowiedzi</span>'}
                                 ${isNumeric && userAns ? `
-                                    <div class="mt-1 text-xs ${autoMatch ? 'text-green-600 dark:text-green-400 font-semibold' : 'text-amber-600 dark:text-amber-400'}">
+                                    <div class="mt-1 font-mono text-[11px] ${autoMatch ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}">
                                         ${autoMatch ? '✓ Rozpoznano poprawną wartość liczbową' : 'Automatyczne sprawdzenie: brak zgodności ze wzorcem'}
                                     </div>
                                 ` : ''}
                             </div>
-                            <div class="p-3 bg-blue-50/60 dark:bg-blue-900/10 rounded-xl text-sm border border-blue-100 dark:border-blue-900/30 space-y-2">
-                                <strong class="block text-xs text-blue-500">Wzorzec rozwiązania, wzór i wyniki wariantów:</strong>
-                                <div class="font-semibold text-slate-800 dark:text-slate-100">${escapeHtml(q.correct)}</div>
-                                <div class="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-line border-t border-blue-100 dark:border-blue-900/30 pt-2">${escapeHtml(q.exp)}</div>
+                            <div class="p-3 bg-neutral-100/60 dark:bg-neutral-800/60 rounded-md text-xs border border-neutral-200 dark:border-neutral-700 space-y-1.5">
+                                <strong class="block text-neutral-600 dark:text-neutral-300">Wzorzec rozwiązania i wzory wariantów:</strong>
+                                <div class="font-mono font-medium text-neutral-900 dark:text-neutral-100">${escapeHtml(q.correct)}</div>
+                                <div class="text-neutral-600 dark:text-neutral-400 whitespace-pre-line border-t border-neutral-200 dark:border-neutral-700 pt-2">${escapeHtml(q.exp)}</div>
                             </div>
-                            <div class="flex items-center justify-between pt-2">
-                                <span class="text-xs text-slate-500 font-medium">Ocena punktowa:</span>
+                            <div class="flex items-center justify-between pt-1">
+                                <span class="text-xs text-neutral-500 font-medium">Ocena punktowa:</span>
                                 <div class="flex space-x-2">
-                                    <button onclick="selfAssess(${q.id}, false)" class="px-3 py-1.5 text-xs bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 rounded-lg font-bold hover:bg-red-200">Niezaliczone</button>
-                                    <button onclick="selfAssess(${q.id}, true)" class="px-3 py-1.5 text-xs bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-lg font-bold hover:bg-green-200">Zaliczone</button>
+                                    <button onclick="selfAssess(${q.id}, false)" class="px-2.5 py-1 text-xs border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 rounded-md hover:bg-rose-100 font-medium">Niezaliczone</button>
+                                    <button onclick="selfAssess(${q.id}, true)" class="px-2.5 py-1 text-xs border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md hover:bg-emerald-100 font-medium">Zaliczone</button>
                                 </div>
                             </div>
                         </div>
@@ -2235,21 +2299,15 @@
             const isPassed = percentage >= 50;
             const statusTitle = document.getElementById('exam-result-title');
             const finalGrade = document.getElementById('exam-final-grade');
-            const iconBg = document.getElementById('exam-result-icon-bg');
-            const icon = document.getElementById('exam-result-icon');
 
             if (isPassed) {
-                statusTitle.innerText = "Gratulacje! Zdałeś Egzamin!";
+                statusTitle.innerText = "Wynik: Egzamin Zaliczony";
                 finalGrade.innerText = "Pozytywna";
-                finalGrade.className = "text-2xl font-bold mt-1 text-green-600 dark:text-green-400";
-                iconBg.className = "inline-flex p-4 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400";
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>`;
+                finalGrade.className = "text-lg font-mono font-bold mt-0.5 text-emerald-600 dark:text-emerald-400";
             } else {
-                statusTitle.innerText = "Niestety, nie zdałeś!";
+                statusTitle.innerText = "Wynik: Egzamin Nieodpowiedni";
                 finalGrade.innerText = "Negatywna";
-                finalGrade.className = "text-2xl font-bold mt-1 text-red-600 dark:text-red-400";
-                iconBg.className = "inline-flex p-4 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400";
-                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>`;
+                finalGrade.className = "text-lg font-mono font-bold mt-0.5 text-rose-600 dark:text-rose-400";
             }
 
             triggerMathJax(reviewContainer);
@@ -2279,15 +2337,15 @@
             const card = document.getElementById(`self-assess-${qId}`);
             if (card) {
                 if (status) {
-                    card.className = "p-4 rounded-2xl border border-green-200 bg-green-50/50 dark:border-green-900/30 dark:bg-green-900/10 space-y-3";
-                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-green-600 font-bold flex items-center space-x-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    card.className = "p-4 rounded-lg border border-emerald-200 bg-emerald-50/40 dark:border-emerald-900/40 dark:bg-emerald-950/15 space-y-3";
+                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center space-x-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                         <span>Oznaczono jako zaliczone</span>
                     </span>`;
                 } else {
-                    card.className = "p-4 rounded-2xl border border-red-200 bg-red-50/50 dark:border-red-900/30 dark:bg-red-900/10 space-y-3";
-                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-red-600 font-bold flex items-center space-x-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    card.className = "p-4 rounded-lg border border-rose-200 bg-rose-50/40 dark:border-rose-900/40 dark:bg-rose-950/15 space-y-3";
+                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-rose-600 dark:text-rose-400 font-medium flex items-center space-x-1">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         <span>Oznaczono jako niezaliczone</span>
                     </span>`;
                 }
@@ -2302,7 +2360,7 @@
         }
 
         // ==========================================
-        // BROWSE DATABASE ENGINE (LAZY BATCH RENDERING)
+        // BROWSE DATABASE ENGINE
         // ==========================================
         function initBrowseDatabase() {
             applyBrowseFilter();
@@ -2324,7 +2382,6 @@
             const query = (document.getElementById('search-input').value || '').trim().toLowerCase();
             const labFilter = document.getElementById('browse-lab-filter') ? document.getElementById('browse-lab-filter').value : 'all';
 
-            // Filter in-memory questions in 0.1ms without DOM inspection
             browseFilteredList = questionBank.filter(q => {
                 const matchesLab = (labFilter === 'all') || (q.labs && q.labs.includes(parseInt(labFilter)));
                 if (!matchesLab) return false;
@@ -2332,7 +2389,7 @@
                 return q._searchText.includes(query) || String(q.id) === query;
             });
 
-            document.getElementById('browse-title').innerText = `Wszystkie pytania bazy (${browseFilteredList.length} ${browseFilteredList.length === 1 ? 'pytanie' : (browseFilteredList.length < 5 ? 'pytania' : 'pytań')})`;
+            document.getElementById('browse-title').innerText = `Baza pytań (${browseFilteredList.length})`;
 
             const list = document.getElementById('browse-list');
             list.innerHTML = '';
@@ -2340,8 +2397,8 @@
 
             if (browseFilteredList.length === 0) {
                 list.innerHTML = `
-                    <div class="text-center py-12 bg-white dark:bg-slate-800 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
-                        <p class="text-slate-400">Nie znaleziono pytań spełniających kryteria.</p>
+                    <div class="text-center py-12 bg-white dark:bg-[#18181b] rounded-lg border border-neutral-200 dark:border-neutral-800">
+                        <p class="text-xs text-neutral-500">Nie znaleziono pytań spełniających kryteria.</p>
                     </div>
                 `;
                 document.getElementById('browse-load-more-wrap').classList.add('hidden');
@@ -2352,29 +2409,28 @@
         }
 
         function createBrowseCardHTML(q) {
-            const badgeHTML = q.type === 'open' ? 
-                `<span class="text-xs bg-purple-50 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 font-bold px-2.5 py-1 rounded-lg">Otwarte</span>` : 
-                `<span class="text-xs ${isMultiChoiceQuestion(q) ? 'bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300' : 'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'} font-bold px-2.5 py-1 rounded-lg">${isMultiChoiceQuestion(q) ? 'Wielokrotny wybór' : 'Pojedynczy wybór'}</span>`;
+            const isMulti = isMultiChoiceQuestion(q);
+            const badgeText = q.type === 'open' ? 'Otwarte' : (isMulti ? 'Wielokrotny wybór' : 'Pojedynczy wybór');
 
             return `
-                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-md transition duration-150 space-y-3 browse-card" data-qid="${q.id}">
+                <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors space-y-3 browse-card" data-qid="${q.id}">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="text-xs font-bold text-slate-400">Pytanie ${q.id}</span>
+                            <span class="text-xs font-mono text-neutral-400">#${q.id}</span>
                             ${renderLabBadges(q.labs)}
                         </div>
                         <div class="flex items-center space-x-2">
-                            ${badgeHTML}
-                            <button onclick="studyNow(${q.id})" class="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 px-2.5 py-1 rounded-lg transition-colors font-semibold">Ucz się teraz</button>
+                            <span class="text-[11px] font-medium border border-neutral-200 dark:border-neutral-700 px-2 py-0.5 rounded text-neutral-600 dark:text-neutral-400">${badgeText}</span>
+                            <button onclick="studyNow(${q.id})" class="text-xs font-medium px-2.5 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 text-neutral-700 dark:text-neutral-300 transition-colors">Ćwicz &rarr;</button>
                         </div>
                     </div>
-                    <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                    <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                     ${renderQuestionImage(q.img)}
-                    <div class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1">
-                        <p class="font-bold text-blue-600 dark:text-blue-400">Wzorzec / Wyjaśnienie:</p>
+                    <div class="text-xs text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-850 p-3 rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1.5">
+                        <p class="font-medium text-neutral-900 dark:text-neutral-200">Wzorzec / Wyjaśnienie:</p>
                         <div class="leading-relaxed whitespace-pre-line">${escapeHtml(q.exp)}</div>
-                        ${q.type === 'open' && q.correct ? `<div class="mt-2 font-semibold text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-slate-600 pt-1.5">Wynik / Wzór: ${escapeHtml(q.correct)}</div>` : ''}
-                        ${q.type !== 'open' && q.correct ? `<div class="mt-2 font-semibold text-green-700 dark:text-green-400 border-t border-slate-200 dark:border-slate-600 pt-1.5">Poprawna odpowiedź: ${formatAnswerText(q, q.correct)}</div>` : ''}
+                        ${q.type === 'open' && q.correct ? `<div class="mt-2 font-mono font-medium text-neutral-900 dark:text-neutral-100 border-t border-neutral-200 dark:border-neutral-700 pt-1.5">Wynik / Wzór: ${escapeHtml(q.correct)}</div>` : ''}
+                        ${q.type !== 'open' && q.correct ? `<div class="mt-2 font-mono font-medium text-neutral-900 dark:text-neutral-100 border-t border-neutral-200 dark:border-neutral-700 pt-1.5">Poprawna: ${formatAnswerText(q, q.correct)}</div>` : ''}
                     </div>
                 </div>
             `;
@@ -2390,7 +2446,7 @@
 
             const nextBatch = browseFilteredList.slice(browseRenderedCount, browseRenderedCount + BROWSE_PAGE_SIZE);
             const fragment = document.createElement('div');
-            fragment.className = 'space-y-4';
+            fragment.className = 'space-y-3';
             fragment.innerHTML = nextBatch.map(createBrowseCardHTML).join('');
 
             list.appendChild(fragment);
@@ -2406,7 +2462,6 @@
                 wrap.classList.add('hidden');
             }
 
-            // Typeset ONLY the newly added fragment
             triggerMathJax(fragment);
         }
 
@@ -2443,7 +2498,7 @@
         };
 
         // ==========================================
-        // STARRED / FAVORITES ENGINE (TARGETED TYPESETTING)
+        // STARRED / FAVORITES ENGINE
         // ==========================================
         function loadStarredQuestions() {
             const list = document.getElementById('starred-list');
@@ -2451,9 +2506,9 @@
 
             if (stats.stars.length === 0) {
                 list.innerHTML = `
-                    <div class="text-center py-12 bg-white dark:bg-slate-800 rounded-3xl border border-dashed border-slate-200 dark:border-slate-700">
-                        <p class="text-slate-400">Nie dodałeś jeszcze żadnego pytania do ulubionych.</p>
-                        <button onclick="switchTab('study')" class="mt-4 text-blue-600 hover:underline font-semibold text-sm">Przejdź do nauki i oznacz gwiazdką</button>
+                    <div class="text-center py-12 bg-white dark:bg-[#18181b] rounded-lg border border-neutral-200 dark:border-neutral-800">
+                        <p class="text-xs text-neutral-500">Brak zapisanych ulubionych pytań.</p>
+                        <button onclick="switchTab('study')" class="mt-3 text-xs font-medium text-neutral-900 dark:text-neutral-100 underline hover:no-underline">Przejdź do nauki i oznacz gwiazdką</button>
                     </div>
                 `;
                 return;
@@ -2462,22 +2517,22 @@
             const starredQuestions = questionBank.filter(q => stats.stars.includes(q.id));
             list.innerHTML = starredQuestions.map(q => {
                 return `
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3">
+                    <div class="bg-white dark:bg-[#18181b] p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 space-y-3">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
-                                <span class="text-xs font-bold text-slate-400">Pytanie ${q.id}</span>
+                                <span class="text-xs font-mono text-neutral-400">#${q.id}</span>
                                 ${renderLabBadges(q.labs)}
                             </div>
                             <div class="flex items-center space-x-2">
-                                <button onclick="toggleStar(${q.id})" class="text-amber-500 hover:text-slate-400 transition-colors" title="Usuń z ulubionych">
-                                    <svg class="w-5 h-5 fill-current" stroke="currentColor" viewBox="0 0 24 24">
+                                <button onclick="toggleStar(${q.id})" class="text-amber-500 hover:text-neutral-400 p-1" title="Usuń z ulubionych">
+                                    <svg class="w-4 h-4 fill-current" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                                     </svg>
                                 </button>
-                                <button onclick="studyNow(${q.id})" class="text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 px-2.5 py-1 rounded-lg transition-colors font-semibold">Ucz się teraz</button>
+                                <button onclick="studyNow(${q.id})" class="text-xs font-medium px-2.5 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 text-neutral-700 dark:text-neutral-300">Ćwicz &rarr;</button>
                             </div>
                         </div>
-                        <p class="font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+                        <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                         ${renderQuestionImage(q.img)}
                     </div>
                 `;
@@ -2486,9 +2541,37 @@
             triggerMathJax(list);
         }
 
+        function parsePolishNumber(str) {
+            if (!str) return NaN;
+            const cleaned = String(str).replace(/\s+/g, '').replace(',', '.');
+            return parseFloat(cleaned);
+        }
+
+        function isAnswerCorrect(q, userAns) {
+            if (q.type === 'choice') {
+                return userAns === q.correct;
+            }
+            if (isMultiChoiceQuestion(q)) {
+                const correct = getCorrectAnswers(q).sort().join(',');
+                const user = normalizeAnswerList(userAns).join(',');
+                return user === correct;
+            }
+            if (q.type === 'open') {
+                if (q.numericTarget !== undefined && q.numericTarget !== null) {
+                    const parsed = parsePolishNumber(userAns);
+                    if (isNaN(parsed)) return false;
+                    const tolerance = q.tolerance !== undefined ? q.tolerance : 0.05;
+                    const target = q.numericTarget;
+                    return Math.abs(parsed - target) <= Math.abs(target * tolerance) + 0.005;
+                }
+                return false;
+            }
+            return false;
+        }
+
         function escapeHtml(text) {
             if (!text) return '';
-            return text
+            return String(text)
                 .replace(/&/g, "&amp;")
                 .replace(/</g, "&lt;")
                 .replace(/>/g, "&gt;")
@@ -2506,10 +2589,10 @@
             currentFormulaFilter = String(lab);
             const btns = document.querySelectorAll('.formula-filter-btn');
             btns.forEach(b => {
-                b.className = "formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600";
+                b.className = "formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-750";
             });
             if (btn) {
-                btn.className = "formula-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-sm";
+                btn.className = "formula-filter-btn px-3 py-1.5 rounded-md text-xs font-medium border border-neutral-900 dark:border-neutral-100 bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900";
             }
             applyFormulaFilters();
         }

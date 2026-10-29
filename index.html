@@ -835,7 +835,7 @@
                             <div><strong>Równoległe LC:</strong> \[I = |I_L - I_C| \quad (I = 0\text{ A przy rezonansie})\]</div>
                             <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Równoległe RC:</strong> \[I = \sqrt{I_R^2 + I_C^2}\]</div>
                             <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Szeregowe RLC:</strong> \[U = \sqrt{U_R^2 + (U_L - U_C)^2}\]</div>
-                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Szeregowe L1, L2, C:</strong> \[U = |(U_{L1} + U_{L2}) - U_C|\]</div>
+                            <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Szeregowe \(L_1, L_2, C\):</strong> \[U = |(U_{L1} + U_{L2}) - U_C|\]</div>
                         </div>
                     </div>
 
@@ -876,7 +876,7 @@
                             <span class="text-[11px] font-mono border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 px-2 py-0.5 rounded font-medium">Wejściówka 1 • Obwód DC</span>
                             <span class="text-[11px] font-mono text-neutral-500">Układ 4 rezystorów</span>
                         </div>
-                        <h3 class="font-medium text-sm text-neutral-900 dark:text-neutral-100">Prawa Kirchhoffa dla obwodu z 1 źródłem E</h3>
+                        <h3 class="font-medium text-sm text-neutral-900 dark:text-neutral-100">Prawa Kirchhoffa dla obwodu z 1 źródłem \(E\)</h3>
                         <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-2 font-mono text-xs">
                             <div><strong>Węzeł A:</strong> \[I_1 = I_2 + I_3\]</div>
                             <div class="border-t border-neutral-200 dark:border-neutral-700 pt-1.5"><strong>Oczko I:</strong> \[E = I_1 R_1 + I_2 R_2\]</div>
@@ -894,7 +894,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                             <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1.5 font-mono">
                                 <strong class="text-neutral-900 dark:text-neutral-100 block font-sans">Sinus vs Trójkąt (skuteczne):</strong>
-                                <div>\[\frac{I_{sk,sin}}{I_{sk,tr}} = \frac{I_m / \sqrt{2}}{I_m / \sqrt{3}} = \sqrt{1{,}5} \approx 1{,}2247\]</div>
+                                <div>\[\frac{I_{sk,\text{sin}}}{I_{sk,\text{tr}}} = \frac{I_m / \sqrt{2}}{I_m / \sqrt{3}} = \sqrt{1{,}5} \approx 1{,}2247\]</div>
                                 <p class="text-[11px] text-neutral-500 font-sans">Wartość skuteczna prądu sinusoidalnego jest o <strong>22,47% (ok. 22,5%)</strong> większa od fali trójkątnej.</p>
                             </div>
                             <div class="p-3 bg-neutral-50 dark:bg-[#202024] rounded-md border border-neutral-200 dark:border-neutral-800 space-y-1.5 font-mono">
@@ -1057,7 +1057,7 @@
             1
         ],
         "type": "open",
-        "numericTarget": 2.0,
+        "numericTarget": 2,
         "q": "Na okładkach kondensatora zgromadzono ładunek \\(Q = 14\\text{ mC}\\) przy napięciu \\(U = 7\\text{ V}\\). Oblicz pojemność \\(C\\) kondensatora (w milifaradach [mF]).",
         "correct": "2 mF (lub 0,002 F)",
         "exp": "Wzór ogólny:\n\\[C = \\frac{Q}{U}\\]\nPodstawienie dla danych z pytania (\\(Q = 14\\text{ mC} = 14 \\cdot 10^{-3}\\text{ C}, U = 7\\text{ V}\\)):\n\\[C = \\frac{14 \\cdot 10^{-3}\\text{ C}}{7\\text{ V}} = 2 \\cdot 10^{-3}\\text{ F} = 2\\text{ mF}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(Q = 45\\text{ mC}, U = 15\\text{ V}\\)): \\(C = \\frac{45}{15} = 3\\text{ mF}\\)\n• Wariant 3 (\\(Q = 50\\,\\mu\\text{C}, U = 10\\text{ V}\\)): \\(C = \\frac{50}{10} = 5\\,\\mu\\text{F}\\)"
@@ -1101,7 +1101,7 @@
             1
         ],
         "type": "open",
-        "numericTarget": 3.0,
+        "numericTarget": 3,
         "q": "W cewce przez którą płynie prąd \\(I = 2\\text{ A}\\), wytworzony strumień skojarzony wynosi \\(\\Psi = 6\\text{ mWb}\\). Oblicz indukcyjność własną \\(L\\) cewki (w milihenrach [mH]).",
         "correct": "3 mH",
         "exp": "Wzór ogólny:\n\\[L = \\frac{\\Psi}{I}\\]\nPodstawienie dla danych z pytania (\\(\\Psi = 6\\text{ mWb} = 6 \\cdot 10^{-3}\\text{ Wb}, I = 2\\text{ A}\\)):\n\\[L = \\frac{6 \\cdot 10^{-3}}{2} = 3 \\cdot 10^{-3}\\text{ H} = 3\\text{ mH}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(\\Psi = 28\\text{ mWb}, I = 4\\text{ A}\\)): \\(L = \\frac{28}{4} = 7\\text{ mH}\\)\n• Wariant 3 (\\(\\Psi = 15\\text{ mWb}, I = 3\\text{ A}\\)): \\(L = \\frac{15}{3} = 5\\text{ mH}\\)"
@@ -1112,7 +1112,7 @@
             1
         ],
         "type": "open",
-        "numericTarget": 5.0,
+        "numericTarget": 5,
         "q": "Dla cewki o indukcyjności \\(L = 5\\text{ mH}\\) wyznacz natężenie prądu \\(I\\) wywołujące strumień skojarzony \\(\\Psi = 25\\text{ mWb}\\) (w amperach [A]).",
         "correct": "5 A",
         "exp": "Wzór ogólny:\n\\[\\Psi = L \\cdot I \\iff I = \\frac{\\Psi}{L}\\]\nPodstawienie dla danych z pytania (\\(L = 5\\text{ mH} = 5 \\cdot 10^{-3}\\text{ H}, \\Psi = 25\\text{ mWb} = 25 \\cdot 10^{-3}\\text{ Wb}\\)):\n\\[I = \\frac{25 \\cdot 10^{-3}}{5 \\cdot 10^{-3}} = 5\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(L = 10\\text{ mH}, I = 2\\text{ A} \\implies \\Psi = 10 \\cdot 10^{-3} \\cdot 2 = 20\\text{ mWb}\\))\n• Wariant 3 (\\(L = 4\\text{ mH}, \\Psi = 16\\text{ mWb} \\implies I = 4\\text{ A}\\))"
@@ -1390,7 +1390,7 @@
             3
         ],
         "type": "open",
-        "numericTarget": 70.0,
+        "numericTarget": 70,
         "q": "W obwodzie włączono szeregowo amperomierz magnetoelektryczny (DC) oraz elektromagnetyczny (AC). Amperomierz magnetoelektryczny wskazał prąd \\(I_{DC} = 0{,}7\\text{ A}\\), a elektromagnetyczny prąd \\(I_{AC} = 2{,}8\\text{ A}\\). Oblicz ładunek elektryczny \\(Q\\), który przepłynął w obwodzie w czasie \\(t = 100\\text{ s}\\) (w kulombach [C]).",
         "correct": "70 C",
         "exp": "Wzór ogólny:\n\\[Q = I_{DC} \\cdot t\\]\nWyjaśnienie: Miernik magnetoelektryczny (DC) mierzy prąd średni związany z wypadkowym transportem ładunku elektrycznego, podczas gdy miernik elektromagnetyczny (AC) mierzy wartość skuteczną (działanie cieplne).\n\nPodstawienie dla danych z pytania (\\(I_{DC} = 0{,}7\\text{ A}, t = 100\\text{ s}\\)):\n\\[Q = 0{,}7\\text{ A} \\cdot 100\\text{ s} = 70\\text{ C}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_{DC} = 1{,}2\\text{ A}, I_{AC} = 3{,}5\\text{ A}, t = 200\\text{ s}\\)): \\(Q = 1{,}2 \\cdot 200 = 240\\text{ C}\\)\n• Wariant 3 (\\(I_{DC} = 2{,}0\\text{ A}, I_{AC} = 5{,}0\\text{ A}, t = 1\\text{ h} = 3600\\text{ s}\\)): \\(Q = 2 \\cdot 3600 = 7200\\text{ C} = 7{,}2\\text{ kC}\\)\n• Wariant 4 (\\(I_{DC} = 1{,}5\\text{ A}, I_{AC} = 4{,}0\\text{ A}, t = 60\\text{ s}\\)): \\(Q = 1{,}5 \\cdot 60 = 90\\text{ C}\\)\n• Wariant 5 (\\(I_{DC} = 0{,}8\\text{ A}, I_{AC} = 2{,}3\\text{ A}, t = 6\\text{ h} = 21600\\text{ s}\\)): \\[Q = 0{,}8 \\cdot 21600 = 17280\\text{ C} = 17{,}28\\text{ kC}\\]\n• Wariant 6 (\\(I_{DC} = 1{,}1\\text{ A}, I_{AC} = 2{,}9\\text{ A}, t = 9\\text{ h} = 32400\\text{ s}\\)): \\[Q = 1{,}1 \\cdot 32400 = 35640\\text{ C} = 35{,}64\\text{ kC}\\]\n• Wariant 7 (\\(I_{DC} = 0{,}9\\text{ A}, I_{AC} = 2{,}5\\text{ A}, t = 115\\text{ s}\\)): \\[Q = 0{,}9 \\cdot 115 = 103{,}5\\text{ C}\\]\n• Wariant 8 (\\(I_{DC} = 0{,}8\\text{ A}, I_{AC} = 2{,}7\\text{ A}, t = 115\\text{ s}\\)): \\[Q = 0{,}8 \\cdot 115 = 92\\text{ C}\\]"
@@ -1453,11 +1453,11 @@
             4
         ],
         "type": "open",
-        "q": "W laboratorium zbadano dwójnik szeregowy RC. Uzyskano następujące wyniki pomiarów: U = 193 V, I = 0,5 A, P = 34 W. Należy obliczyć pojemność elektryczną C tego dwójnika w mikrofaradach [μF]. Układ zasilano napięciem o częstotliwości technicznej (f = 50 Hz).",
-        "correct": "8,81",
         "numericTarget": 8.81,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nDla dwójnika szeregowego RC:\nImpedancja modułowa: \\[Z = \\frac{U}{I}\\]\nRezystancja czynna dwójnika: \\[R = \\frac{P}{I^2}\\]\nReaktancja pojemnościowa: \\[X_C = \\sqrt{Z^2 - R^2}\\]\nPojemność: \\[C = \\frac{1}{2\\pi f X_C} = \\frac{1}{100\\pi X_C}\\]\n\nPodstawienie danych (U = 193 V, I = 0,5 A, P = 34 W, f = 50 Hz):\n\\[Z = \\frac{193}{0{,}5} = 386\\,\\Omega\\]\n\\[R = \\frac{34}{0{,}5^2} = \\frac{34}{0{,}25} = 136\\,\\Omega\\]\n\\[X_C = \\sqrt{386^2 - 136^2} = \\sqrt{148996 - 18496} = \\sqrt{130500} \\approx 361{,}248\\,\\Omega\\]\n\\[C = \\frac{1}{2\\pi \\cdot 50 \\cdot 361{,}248} \\approx \\frac{1}{113489} \\approx 8{,}811 \\cdot 10^{-6}\\text{ F} \\approx 8{,}81\\,\\mu\\text{F}\\]\n\nPozostałe warianty z bazy:\n• Wariant 2 (U = 166 V, I = 0,5 A, P = 25 W): Z = 332 Ω, R = 100 Ω, X_C = 316,58 Ω → C ≈ 10,05 μF\n• Wariant 3 (U = 166 V, I = 0,5 A, P = 14 W): Z = 332 Ω, R = 56 Ω, X_C = 327,24 Ω → C ≈ 9,73 μF"
+        "q": "W laboratorium zbadano dwójnik szeregowy RC. Uzyskano następujące wyniki pomiarów: \\(U = 193\\text{ V}\\), \\(I = 0{,}5\\text{ A}\\), \\(P = 34\\text{ W}\\). Należy obliczyć pojemność elektryczną \\(C\\) tego dwójnika w mikrofaradach [\\(\\mu\\text{F}\\)]. Układ zasilano napięciem o częstotliwości technicznej (\\(f = 50\\text{ Hz}\\)).",
+        "correct": "8,81",
+        "exp": "Wzór ogólny:\nDla dwójnika szeregowego RC:\nImpedancja modułowa: \\[Z = \\frac{U}{I}\\]\nRezystancja czynna dwójnika: \\[R = \\frac{P}{I^2}\\]\nReaktancja pojemnościowa: \\[X_C = \\sqrt{Z^2 - R^2}\\]\nPojemność: \\[C = \\frac{1}{2\\pi f X_C}\\]\n\nPodstawienie dla danych z pytania (\\(U = 193\\text{ V}, I = 0{,}5\\text{ A}, P = 34\\text{ W}, f = 50\\text{ Hz}\\)):\n\\[Z = \\frac{193}{0{,}5} = 386\\,\\Omega\\]\n\\[R = \\frac{34}{0{,}5^2} = \\frac{34}{0{,}25} = 136\\,\\Omega\\]\n\\[X_C = \\sqrt{386^2 - 136^2} = \\sqrt{148996 - 18496} = \\sqrt{130500} \\approx 361{,}25\\,\\Omega\\]\n\\[C = \\frac{1}{2\\pi \\cdot 50 \\cdot 361{,}25} \\approx \\frac{1}{113489} \\approx 8{,}811 \\cdot 10^{-6}\\text{ F} \\approx 8{,}81\\,\\mu\\text{F}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U = 166\\text{ V}, I = 0{,}5\\text{ A}, P = 25\\text{ W}\\)): \\(Z = 332\\,\\Omega, R = 100\\,\\Omega, X_C \\approx 316{,}58\\,\\Omega \\implies C \\approx 10{,}05\\,\\mu\\text{F}\\)\n• Wariant 3 (\\(U = 166\\text{ V}, I = 0{,}5\\text{ A}, P = 14\\text{ W}\\)): \\(Z = 332\\,\\Omega, R = 56\\,\\Omega, X_C \\approx 327{,}24\\,\\Omega \\implies C \\approx 9{,}73\\,\\mu\\text{F}\\)"
     },
     {
         "id": 43,
@@ -1466,11 +1466,11 @@
         ],
         "type": "open",
         "img": "img/lab4_rownolegly_lc.png",
-        "q": "Dla przedstawionego obwodu równoległego LC wskazania amperomierzy wynoszą: I_L = 6 A, I_C = 6 A. Ile wynosi wskazanie amperomierza A mierzącego natężenie prądu źródła?",
-        "correct": "0",
-        "numericTarget": 0.0,
+        "numericTarget": 0,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nW obwodzie równoległym idealnej cewki i idealnego kondensatora prąd cewki I_L opóźnia się o 90° względem napięcia, a prąd kondensatora I_C wyprzedza napięcie o 90°. Są one zatem w przeciwfazie (przesunięcie 180°).\nWskazanie amperomierza głównego wynosi:\n\\[I = |I_L - I_C|\\]\n\nPodstawienie danych:\n\\[I = |6 - 6| = 0\\text{ A}\\]\n(Jest to stan rezonansu prądów – prąd całkowity pobierany ze źródła zanika do zera).\n\nPozostałe warianty:\n• Wariant 2: I_L = 1 A, I_C = 2 A → I = |1 - 2| = 1 A\n• Wariant 3: I_L = 4 A, I_C = 5 A → I = |4 - 5| = 1 A"
+        "q": "Dla przedstawionego obwodu równoległego LC wskazania amperomierzy wynoszą: \\(I_L = 6\\text{ A}\\), \\(I_C = 6\\text{ A}\\). Ile wynosi wskazanie amperomierza A mierzącego natężenie prądu źródła?",
+        "correct": "0",
+        "exp": "Wzór ogólny:\nW obwodzie równoległym idealnej cewki i idealnego kondensatora prąd cewki \\(I_L\\) opóźnia się o \\(90^\\circ\\) względem napięcia, a prąd kondensatora \\(I_C\\) wyprzedza napięcie o \\(90^\\circ\\). Prądy te są w przeciwfazie (przesunięcie \\(180^\\circ\\)).\nWskazanie amperomierza głównego wynosi:\n\\[I = |I_L - I_C|\\]\n\nPodstawienie dla danych z pytania (\\(I_L = 6\\text{ A}, I_C = 6\\text{ A}\\)):\n\\[I = |6 - 6| = 0\\text{ A}\\]\n(Jest to stan idealnego rezonansu prądów – prąd całkowity pobierany ze źródła wynosi zero).\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_L = 1\\text{ A}, I_C = 2\\text{ A}\\)): \\(I = |1 - 2| = 1\\text{ A}\\)\n• Wariant 3 (\\(I_L = 4\\text{ A}, I_C = 5\\text{ A}\\)): \\(I = |4 - 5| = 1\\text{ A}\\)"
     },
     {
         "id": 44,
@@ -1478,11 +1478,11 @@
             4
         ],
         "type": "open",
-        "q": "Zespolona wartość napięcia wynosi U = (-7 + j46) V. Jaka jest faza początkowa tego napięcia? Wynik należy podać w stopniach.",
-        "correct": "98,64",
         "numericTarget": 98.64,
-        "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nDla liczby zespolonej \\(\\underline{U} = a + jb\\), gdzie \\(a < 0\\) i \\(b > 0\\) (II ćwiartka płaszczyzny zespolonej), faza początkowa wynosi:\n\\[\\psi = 180^\\circ - \\arctan\\left(\\frac{b}{|a|}\\right)\\]\n\nPodstawienie danych (a = -7, b = 46):\n\\[\\frac{b}{|a|} = \\frac{46}{7} \\approx 6{,}5714\\]\n\\[\\arctan(6{,}5714) \\approx 81{,}357^\\circ\\]\n\\[\\psi = 180^\\circ - 81{,}357^\\circ = 98{,}643^\\circ \\approx 98{,}64^\\circ\\]\n\nPozostałe warianty:\n• Wariant 2: U = (-19 + j35) V: b/|a| = 35/19 ≈ 1,8421 → arctan(1,8421) ≈ 61,50° → ψ = 180° - 61,50° = 118,50°"
+        "tolerance": 0.1,
+        "q": "Zespolona wartość napięcia wynosi \\(\\underline{U} = (-7 + j46)\\text{ V}\\). Jaka jest faza początkowa tego napięcia? Wynik należy podać w stopniach.",
+        "correct": "98,64",
+        "exp": "Wzór ogólny:\nDla liczby zespolonej \\(\\underline{U} = a + jb\\), gdzie \\(a < 0\\) oraz \\(b > 0\\) (II ćwiartka płaszczyzny zespolonej), faza początkowa \\(\\psi\\) wynosi:\n\\[\\psi = 180^\\circ - \\operatorname{arctg}\\left(\\frac{b}{|a|}\\right)\\]\n\nPodstawienie dla danych z pytania (\\(a = -7, b = 46\\)):\n\\[\\frac{b}{|a|} = \\frac{46}{7} \\approx 6{,}5714\\]\n\\[\\operatorname{arctg}(6{,}5714) \\approx 81{,}357^\\circ\\]\n\\[\\psi = 180^\\circ - 81{,}357^\\circ = 98{,}643^\\circ \\approx 98{,}64^\\circ\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(\\underline{U} = (-19 + j35)\\text{ V}\\)): \\(\\frac{b}{|a|} = \\frac{35}{19} \\approx 1{,}8421 \\implies \\operatorname{arctg}(1{,}8421) \\approx 61{,}50^\\circ \\implies \\psi = 180^\\circ - 61{,}50^\\circ = 118{,}50^\\circ\\)"
     },
     {
         "id": 45,
@@ -1490,11 +1490,11 @@
             4
         ],
         "type": "open",
-        "q": "Cewkę o indukcyjności L = 0,30 H połączono szeregowo z kondensatorem C = 93 μF. Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości f = 40 Hz. Należy obliczyć moduł impedancji zastępczej |Z| obwodu w omach [Ω].",
-        "correct": "32,62",
         "numericTarget": 32.62,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nDla szeregowego połączenia L i C (bez rezystora R):\nReaktancja indukcyjna: \\[X_L = 2\\pi f L\\]\nReaktancja pojemnościowa: \\[X_C = \\frac{1}{2\\pi f C}\\]\nModuł impedancji: \\[|Z| = |X_L - X_C|\\]\n\nPodstawienie danych (L = 0,30 H, C = 93 μF, f = 40 Hz):\n\\[X_L = 2\\pi \\cdot 40 \\cdot 0{,}30 = 24\\pi \\approx 75{,}398\\,\\Omega\\]\n\\[X_C = \\frac{1}{2\\pi \\cdot 40 \\cdot 93 \\cdot 10^{-6}} = \\frac{1}{0{,}023373} \\approx 42{,}783\\,\\Omega\\]\n\\[|Z| = |75{,}398 - 42{,}783| = 32{,}615\\,\\Omega \\approx 32{,}62\\,\\Omega\\]\n\nPozostałe warianty:\n• Wariant 2: L = 0,53 H, C = 72 μF, f = 30 Hz: X_L = 99,90 Ω, X_C = 73,68 Ω → |Z| = |99,90 - 73,68| = 26,22 Ω"
+        "q": "Cewkę o indukcyjności \\(L = 0{,}30\\text{ H}\\) połączono szeregowo z kondensatorem \\(C = 93\\,\\mu\\text{F}\\). Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości \\(f = 40\\text{ Hz}\\). Należy obliczyć moduł impedancji zastępczej \\(|Z|\\) obwodu w omach [\\(\\Omega\\)].",
+        "correct": "32,62",
+        "exp": "Wzór ogólny:\nDla szeregowego połączenia elementów LC (bez rezystora \\(R\\)):\nReaktancja indukcyjna: \\[X_L = 2\\pi f L\\]\nReaktancja pojemnościowa: \\[X_C = \\frac{1}{2\\pi f C}\\]\nModuł impedancji: \\[|Z| = |X_L - X_C|\\]\n\nPodstawienie dla danych z pytania (\\(L = 0{,}30\\text{ H}, C = 93\\,\\mu\\text{F}, f = 40\\text{ Hz}\\)):\n\\[X_L = 2\\pi \\cdot 40 \\cdot 0{,}30 = 24\\pi \\approx 75{,}40\\,\\Omega\\]\n\\[X_C = \\frac{1}{2\\pi \\cdot 40 \\cdot 93 \\cdot 10^{-6}} = \\frac{1}{0{,}023373} \\approx 42{,}78\\,\\Omega\\]\n\\[|Z| = |75{,}40 - 42{,}78| = 32{,}62\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(L = 0{,}53\\text{ H}, C = 72\\,\\mu\\text{F}, f = 30\\text{ Hz}\\)): \\(X_L \\approx 99{,}90\\,\\Omega, X_C \\approx 73{,}68\\,\\Omega \\implies |Z| = |99{,}90 - 73{,}68| = 26{,}22\\,\\Omega\\)"
     },
     {
         "id": 46,
@@ -1503,11 +1503,11 @@
         ],
         "type": "open",
         "img": "img/lab4_szeregowy_rlc.png",
-        "q": "Dla przedstawionego obwodu szeregowego RLC wskazania woltomierzy wynoszą: U_R = 68 V, U_L = 61 V, U_C = 43 V. Ile wynosi wartość skuteczna napięcia zasilania w tym obwodzie?",
-        "correct": "70,34",
         "numericTarget": 70.34,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nW obwodzie szeregowym RLC napięcia na elementach reakcyjnych L i C odejmują się geometrycznie, a napięcie na rezystorze R jest prostopadłe do napięcia wypadkowego reaktancji:\n\\[U = \\sqrt{U_R^2 + (U_L - U_C)^2}\\]\n\nPodstawienie danych (U_R = 68 V, U_L = 61 V, U_C = 43 V):\n\\[U_L - U_C = 61 - 43 = 18\\text{ V}\\]\n\\[U = \\sqrt{68^2 + 18^2} = \\sqrt{4624 + 324} = \\sqrt{4948} \\approx 70{,}342\\text{ V} \\approx 70{,}34\\text{ V}\\]\n\nPozostałe warianty:\n• Wariant 2: U_R = 111 V, U_L = 68 V, U_C = 29 V → U_L - U_C = 39 V → U = √(111² + 39²) = √(12321 + 1521) = √13842 ≈ 117,65 V"
+        "q": "Dla przedstawionego obwodu szeregowego RLC wskazania woltomierzy wynoszą: \\(U_R = 68\\text{ V}\\), \\(U_L = 61\\text{ V}\\), \\(U_C = 43\\text{ V}\\). Ile wynosi wartość skuteczna napięcia zasilania w tym obwodzie?",
+        "correct": "70,34",
+        "exp": "Wzór ogólny:\nW obwodzie szeregowym RLC:\n\\[U = \\sqrt{U_R^2 + (U_L - U_C)^2}\\]\n\nPodstawienie dla danych z pytania (\\(U_R = 68\\text{ V}, U_L = 61\\text{ V}, U_C = 43\\text{ V}\\)):\n\\[U_L - U_C = 61 - 43 = 18\\text{ V}\\]\n\\[U = \\sqrt{68^2 + 18^2} = \\sqrt{4624 + 324} = \\sqrt{4948} \\approx 70{,}34\\text{ V}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_R = 111\\text{ V}, U_L = 68\\text{ V}, U_C = 29\\text{ V}\\)): \\(U_L - U_C = 39\\text{ V} \\implies U = \\sqrt{111^2 + 39^2} = \\sqrt{12321 + 1521} = \\sqrt{13842} \\approx 117{,}65\\text{ V}\\)"
     },
     {
         "id": 47,
@@ -1516,11 +1516,11 @@
         ],
         "type": "open",
         "img": "img/lab4_rownolegly_rc.png",
-        "q": "Dla przedstawionego obwodu równoległego RC wskazania amperomierzy wynoszą: I_R = 1 A, I_C = 8 A. Ile wynosi wskazanie amperomierza A mierzącego natężenie prądu źródła?",
-        "correct": "8,06",
         "numericTarget": 8.06,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nW obwodzie równoległym RC prąd rezystora I_R jest w fazie z napięciem, natomiast prąd kondensatora I_C wyprzedza napięcie o 90°. Są one do siebie prostopadłe (ortogonalne) na wykresie wskazowym:\n\\[I = \\sqrt{I_R^2 + I_C^2}\\]\n\nPodstawienie danych (I_R = 1 A, I_C = 8 A):\n\\[I = \\sqrt{1^2 + 8^2} = \\sqrt{1 + 64} = \\sqrt{65} \\approx 8{,}062\\text{ A} \\approx 8{,}06\\text{ A}\\]"
+        "q": "Dla przedstawionego obwodu równoległego RC wskazania amperomierzy wynoszą: \\(I_R = 1\\text{ A}\\), \\(I_C = 8\\text{ A}\\). Ile wynosi wskazanie amperomierza A mierzącego natężenie prądu źródła?",
+        "correct": "8,06",
+        "exp": "Wzór ogólny:\nW obwodzie równoległym RC prądy gałęziowe są przesunięte w fazie o \\(90^\\circ\\):\n\\[I = \\sqrt{I_R^2 + I_C^2}\\]\n\nPodstawienie dla danych z pytania (\\(I_R = 1\\text{ A}, I_C = 8\\text{ A}\\)):\n\\[I = \\sqrt{1^2 + 8^2} = \\sqrt{1 + 64} = \\sqrt{65} \\approx 8{,}06\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(I_R = 3\\text{ A}, I_C = 4\\text{ A}\\)): \\(I = \\sqrt{3^2 + 4^2} = 5\\text{ A}\\)"
     },
     {
         "id": 48,
@@ -1528,11 +1528,11 @@
             4
         ],
         "type": "open",
-        "q": "Wartość chwilowa natężenia prądu wynosi i(t) = 4 sin(85t + 111°) A. Ile wynosi część rzeczywista wartości zespolonej (skutecznej) tego prądu w amperach [A]?",
-        "correct": "-1,01",
         "numericTarget": -1.01,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nW elektrotechnice wartość zespolona prądu definiowana jest za pomocą wartości skutecznej \\(I_{sk} = \\frac{I_m}{\\sqrt{2}}\\):\n\\[\\underline{I} = I_{sk} e^{j\\psi} = \\frac{I_m}{\\sqrt{2}} (\\cos\\psi + j\\sin\\psi)\\]\nCzęść rzeczywista wynosi zatem:\n\\[\\operatorname{Re}(\\underline{I}) = \\frac{I_m}{\\sqrt{2}} \\cos\\psi\\]\n\nPodstawienie danych (I_m = 4 A, ψ = 111°):\n\\[\\operatorname{Re}(\\underline{I}) = \\frac{4}{\\sqrt{2}} \\cos(111^\\circ) = 2\\sqrt{2} \\cdot (-0{,}358368) \\approx 2{,}8284 \\cdot (-0{,}358368) \\approx -1{,}0136\\text{ A} \\approx -1{,}01\\text{ A}\\]\n\nPozostałe warianty:\n• Wariant 2 (i(t) = 2 sin(51t + 97°) A): Re(I) = (2/√2) · cos(97°) = √2 · (-0,12187) ≈ -0,172 A ≈ -0,17 A"
+        "q": "Wartość chwilowa natężenia prądu wynosi \\(i(t) = 4\\sin(85t + 111^\\circ)\\text{ A}\\). Ile wynosi część rzeczywista wartości zespolonej (skutecznej) tego prądu w amperach [A]?",
+        "correct": "-1,01",
+        "exp": "Wzór ogólny:\nW elektrotechnice zespolona wartość skuteczna prądu dana jest wzorem:\n\\[\\underline{I} = I_{sk} e^{j\\psi} = \\frac{I_m}{\\sqrt{2}} (\\cos\\psi + j\\sin\\psi)\\]\nCzęść rzeczywista wynosi:\n\\[\\operatorname{Re}(\\underline{I}) = \\frac{I_m}{\\sqrt{2}} \\cos\\psi\\]\n\nPodstawienie dla danych z pytania (\\(I_m = 4\\text{ A}, \\psi = 111^\\circ\\)):\n\\[\\operatorname{Re}(\\underline{I}) = \\frac{4}{\\sqrt{2}} \\cos(111^\\circ) = 2\\sqrt{2} \\cdot (-0{,}358368) \\approx 2{,}8284 \\cdot (-0{,}358368) \\approx -1{,}01\\text{ A}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(i(t) = 2\\sin(51t + 97^\\circ)\\text{ A}\\)): \\(\\operatorname{Re}(\\underline{I}) = \\frac{2}{\\sqrt{2}} \\cos(97^\\circ) = \\sqrt{2} \\cdot (-0{,}12187) \\approx -0{,}17\\text{ A}\\)"
     },
     {
         "id": 49,
@@ -1541,11 +1541,11 @@
         ],
         "type": "open",
         "img": "img/lab4_szeregowy_l1l2c.png",
-        "q": "Dla przedstawionego obwodu szeregowego wskazania woltomierzy wynoszą: U_L1 = 95 V, U_L2 = 95 V, U_C = 43 V. Ile wynosi wartość skuteczna napięcia zasilania w tym obwodzie?",
-        "correct": "147",
-        "numericTarget": 147.0,
+        "numericTarget": 147,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nCewki L1 i L2 połączone są szeregowo, a ich napięcia są dokładnie w tej samej fazie (dodają się algebraicznie):\n\\[U_L = U_{L1} + U_{L2}\\]\nNapięcie na kondensatorze U_C ma fazę przeciwną (180°) do napięcia na cewkach. Wypadkowe napięcie wynosi:\n\\[U = |(U_{L1} + U_{L2}) - U_C|\\]\n\nPodstawienie danych (U_L1 = 95 V, U_L2 = 95 V, U_C = 43 V):\n\\[U = |(95 + 95) - 43| = |190 - 43| = 147\\text{ V}\\]"
+        "q": "Dla przedstawionego obwodu szeregowego wskazania woltomierzy wynoszą: \\(U_{L1} = 95\\text{ V}\\), \\(U_{L2} = 95\\text{ V}\\), \\(U_C = 43\\text{ V}\\). Ile wynosi wartość skuteczna napięcia zasilania w tym obwodzie?",
+        "correct": "147",
+        "exp": "Wzór ogólny:\nDla gałęzi szeregowej złożonej z dwóch cewek i kondensatora napięcia na cewkach są w tej samej fazie (\\(U_L = U_{L1} + U_{L2}\\)), natomiast napięcie na kondensatorze \\(U_C\\) jest w przeciwfazie (\\(180^\\circ\\)):\n\\[U = |(U_{L1} + U_{L2}) - U_C|\\]\n\nPodstawienie dla danych z pytania (\\(U_{L1} = 95\\text{ V}, U_{L2} = 95\\text{ V}, U_C = 43\\text{ V}\\)):\n\\[U = |(95 + 95) - 43| = |190 - 43| = 147\\text{ V}\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U_{L1} = 60\\text{ V}, U_{L2} = 60\\text{ V}, U_C = 30\\text{ V}\\)): \\(U = |120 - 30| = 90\\text{ V}\\)"
     },
     {
         "id": 50,
@@ -1553,11 +1553,11 @@
             4
         ],
         "type": "open",
-        "q": "Rezystor R = 24 Ω połączono szeregowo z cewką o indukcyjności L = 0,44 H. Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości f = 55 Hz. Należy obliczyć moduł impedancji zastępczej |Z| obwodu w omach [Ω].",
-        "correct": "153,93",
-        "numericTarget": 153.93,
+        "numericTarget": 153.94,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nDla szeregowego obwodu RL:\nReaktancja indukcyjna: \\[X_L = 2\\pi f L\\]\nModuł impedancji: \\[|Z| = \\sqrt{R^2 + X_L^2}\\]\n\nPodstawienie danych (R = 24 Ω, L = 0,44 H, f = 55 Hz):\n\\[X_L = 2\\pi \\cdot 55 \\cdot 0{,}44 = 110\\pi \\cdot 0{,}44 = 48{,}4\\pi \\approx 152{,}053\\,\\Omega\\]\n\\[|Z| = \\sqrt{24^2 + 152{,}053^2} = \\sqrt{576 + 23120{,}1} = \\sqrt{23696{,}1} \\approx 153{,}935\\,\\Omega \\approx 153{,}93\\,\\Omega\\]"
+        "q": "Rezystor \\(R = 24\\,\\Omega\\) połączono szeregowo z cewką o indukcyjności \\(L = 0{,}44\\text{ H}\\). Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości \\(f = 55\\text{ Hz}\\). Należy obliczyć moduł impedancji zastępczej \\(|Z|\\) obwodu w omach [\\(\\Omega\\)].",
+        "correct": "153,94",
+        "exp": "Wzór ogólny:\nDla szeregowego połączenia RL:\nReaktancja indukcyjna: \\[X_L = 2\\pi f L\\]\nModuł impedancji: \\[|Z| = \\sqrt{R^2 + X_L^2}\\]\n\nPodstawienie dla danych z pytania (\\(R = 24\\,\\Omega, L = 0{,}44\\text{ H}, f = 55\\text{ Hz}\\)):\n\\[X_L = 2\\pi \\cdot 55 \\cdot 0{,}44 = 48{,}4\\pi \\approx 152{,}05\\,\\Omega\\]\n\\[|Z| = \\sqrt{24^2 + 152{,}05^2} = \\sqrt{576 + 23119{,}2} = \\sqrt{23695{,}2} \\approx 153{,}94\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(R = 15\\,\\Omega, L = 0{,}22\\text{ H}, f = 50\\text{ Hz}\\)): \\(X_L = 2\\pi \\cdot 50 \\cdot 0{,}22 \\approx 69{,}12\\,\\Omega \\implies |Z| = \\sqrt{15^2 + 69{,}12^2} \\approx 70{,}72\\,\\Omega\\)"
     },
     {
         "id": 51,
@@ -1565,11 +1565,11 @@
             4
         ],
         "type": "open",
-        "q": "W laboratorium zbadano dwójnik szeregowy RC. Uzyskano następujące wyniki pomiarów: U = 166 V, I = 0,5 A, P = 13 W. Należy obliczyć kąt fazowy φ tego dwójnika w stopniach.",
-        "correct": "-81,00",
-        "numericTarget": -81.0,
-        "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nWspółczynnik mocy: \\[\\cos|\\varphi| = \\frac{P}{S} = \\frac{P}{U \\cdot I}\\]\n\\[|\\varphi| = \\arccos\\left(\\frac{P}{U \\cdot I}\\right)\\]\nPonieważ dwójnik RC ma charakter pojemnościowy (prąd wyprzedza napięcie, \\(\\varphi_u - \\varphi_i < 0\\)), kąt przesunięcia fazowego impedancji jest ujemny:\n\\[\\varphi = -|\\varphi| = -\\arccos\\left(\\frac{P}{U \\cdot I}\\right)\\]\n\nPodstawienie danych (U = 166 V, I = 0,5 A, P = 13 W):\n\\[S = U \\cdot I = 166 \\cdot 0{,}5 = 83\\text{ VA}\\]\n\\[\\cos|\\varphi| = \\frac{13}{83} \\approx 0{,}156626\\]\n\\[|\\varphi| = \\arccos(0{,}156626) \\approx 81{,}00^\\circ \\implies \\varphi = -81{,}00^\\circ\\]"
+        "numericTarget": -81,
+        "tolerance": 0.1,
+        "q": "W laboratorium zbadano dwójnik szeregowy RC. Uzyskano następujące wyniki pomiarów: \\(U = 166\\text{ V}\\), \\(I = 0{,}5\\text{ A}\\), \\(P = 13\\text{ W}\\). Należy obliczyć kąt fazowy \\(\\varphi\\) tego dwójnika w stopniach.",
+        "correct": "-81",
+        "exp": "Wzór ogólny:\nWspółczynnik mocy dwójnika:\n\\[\\cos|\\varphi| = \\frac{P}{S} = \\frac{P}{U \\cdot I}\\]\nPonieważ dwójnik RC ma charakter pojemnościowy (prąd wyprzedza napięcie), kąt przesunięcia fazowego impedancji jest ujemny:\n\\[\\varphi = -|\\varphi| = -\\arccos\\left(\\frac{P}{U \\cdot I}\\right)\\]\n\nPodstawienie dla danych z pytania (\\(U = 166\\text{ V}, I = 0{,}5\\text{ A}, P = 13\\text{ W}\\)):\n\\[S = U \\cdot I = 166 \\cdot 0{,}5 = 83\\text{ VA}\\]\n\\[\\cos|\\varphi| = \\frac{13}{83} \\approx 0{,}156626\\]\n\\[|\\varphi| = \\arccos(0{,}156626) \\approx 81{,}00^\\circ \\implies \\varphi = -81{,}00^\\circ\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(U = 193\\text{ V}, I = 0{,}5\\text{ A}, P = 34\\text{ W}\\)): \\(\\cos|\\varphi| = \\frac{34}{96{,}5} \\approx 0{,}3523 \\implies \\varphi \\approx -69{,}37^\\circ\\)"
     },
     {
         "id": 52,
@@ -1577,11 +1577,11 @@
             4
         ],
         "type": "open",
-        "q": "Rezystor R = 28 Ω połączono szeregowo z kondensatorem C = 68 μF. Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości f = 51 Hz. Należy obliczyć moduł impedancji zastępczej |Z| obwodu w omach [Ω].",
-        "correct": "53,76",
         "numericTarget": 53.76,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nDla szeregowego obwodu RC:\nReaktancja pojemnościowa: \\[X_C = \\frac{1}{2\\pi f C}\\]\nModuł impedancji: \\[|Z| = \\sqrt{R^2 + X_C^2}\\]\n\nPodstawienie danych (R = 28 Ω, C = 68 μF, f = 51 Hz):\n\\[X_C = \\frac{1}{2\\pi \\cdot 51 \\cdot 68 \\cdot 10^{-6}} = \\frac{1}{0{,}02179} \\approx 45{,}892\\,\\Omega\\]\n\\[|Z| = \\sqrt{28^2 + 45{,}892^2} = \\sqrt{784 + 2106{,}08} = \\sqrt{2890{,}08} \\approx 53{,}759\\,\\Omega \\approx 53{,}76\\,\\Omega\\]"
+        "q": "Rezystor \\(R = 28\\,\\Omega\\) połączono szeregowo z kondensatorem \\(C = 68\\,\\mu\\text{F}\\). Obwód ten zasilany jest napięciem sinusoidalnym o częstotliwości \\(f = 51\\text{ Hz}\\). Należy obliczyć moduł impedancji zastępczej \\(|Z|\\) obwodu w omach [\\(\\Omega\\)].",
+        "correct": "53,76",
+        "exp": "Wzór ogólny:\nDla szeregowego obwodu RC:\nReaktancja pojemnościowa: \\[X_C = \\frac{1}{2\\pi f C}\\]\nModuł impedancji: \\[|Z| = \\sqrt{R^2 + X_C^2}\\]\n\nPodstawienie dla danych z pytania (\\(R = 28\\,\\Omega, C = 68\\,\\mu\\text{F}, f = 51\\text{ Hz}\\)):\n\\[X_C = \\frac{1}{2\\pi \\cdot 51 \\cdot 68 \\cdot 10^{-6}} = \\frac{1}{0{,}02179} \\approx 45{,}89\\,\\Omega\\]\n\\[|Z| = \\sqrt{28^2 + 45{,}89^2} = \\sqrt{784 + 2105{,}89} \\approx 53{,}76\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant 2 (\\(R = 20\\,\\Omega, C = 100\\,\\mu\\text{F}, f = 50\\text{ Hz}\\)): \\(X_C = \\frac{1}{2\\pi \\cdot 50 \\cdot 10^{-4}} \\approx 31{,}83\\,\\Omega \\implies |Z| = \\sqrt{20^2 + 31{,}83^2} \\approx 37{,}59\\,\\Omega\\)"
     },
     {
         "id": 53,
@@ -1589,11 +1589,11 @@
             "wejsciowka1"
         ],
         "type": "open",
-        "q": "Oblicz rezystancję R przewodu miedzianego o długości l = 200 m i polu przekroju poprzecznego S = 1,5 mm² w podwyższonej temperaturze T = 45°C. Rezystywność miedzi w temperaturze T_0 = 20°C wynosi ρ_20 = 17 nΩ·m, a temperaturowy współczynnik rezystancji miedzi wynosi α = 4·10⁻³ K⁻¹. Wynik podaj w omach [Ω].",
-        "correct": "2,49",
         "numericTarget": 2.49,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\n1. Zależność rezystywności od temperatury:\n\\[\\rho(T) = \\rho_{20} \\cdot [1 + \\alpha(T - T_0)]\\]\n2. Rezystancja przewodnika:\n\\[R = \\frac{\\rho(T) \\cdot l}{S}\\]\n\nPodstawienie danych:\n• Długość: \\(l = 200\\text{ m}\\)\n• Przekrój: \\(S = 1{,}5\\text{ mm}^2 = 1{,}5 \\cdot 10^{-6}\\text{ m}^2\\)\n• Przyrost temperatury: \\(\\Delta T = 45^\\circ\\text{C} - 20^\\circ\\text{C} = 25\\text{ K}\\)\n• Czynnik temperaturowy: \\(1 + \\alpha \\Delta T = 1 + 4 \\cdot 10^{-3} \\cdot 25 = 1 + 0{,}10 = 1{,}10\\)\n• Rezystywność w 45°C: \\(\\rho_{45} = 17 \\cdot 10^{-9} \\cdot 1{,}10 = 18{,}7 \\cdot 10^{-9}\\,\\Omega\\cdot\\text{m}\\)\n\nObliczenie rezystancji:\n\\[R = \\frac{18{,}7 \\cdot 10^{-9} \\cdot 200}{1{,}5 \\cdot 10^{-6}} = \\frac{3740 \\cdot 10^{-9}}{1{,}5 \\cdot 10^{-6}} = \\frac{3{,}74 \\cdot 10^{-6}}{1{,}5 \\cdot 10^{-6}} \\approx 2{,}4933\\,\\Omega \\approx 2{,}49\\,\\Omega\\]\n\nPozostałe warianty:\n• Wariant z ρ_20 = 14 nΩ·m: ρ_45 = 15,4 nΩ·m → R = (15,4·10⁻⁹ · 200)/(1,5·10⁻⁶) ≈ 2,05 Ω"
+        "q": "Oblicz rezystancję \\(R\\) przewodu miedzianego o długości \\(l = 200\\text{ m}\\) i polu przekroju poprzecznego \\(S = 1{,}5\\text{ mm}^2\\) w podwyższonej temperaturze \\(T = 45^\\circ\\text{C}\\). Rezystywność miedzi w temperaturze \\(T_0 = 20^\\circ\\text{C}\\) wynosi \\(\\rho_{20} = 17\\text{ n}\\Omega\\cdot\\text{m}\\), a temperaturowy współczynnik rezystancji miedzi wynosi \\(\\alpha = 4\\cdot 10^{-3}\\text{ K}^{-1}\\). Wynik podaj w omach [\\(\\Omega\\)].",
+        "correct": "2,49",
+        "exp": "Wzór ogólny:\n1. Zależność rezystywności od temperatury:\n\\[\\rho(T) = \\rho_{20} \\cdot [1 + \\alpha(T - T_0)]\\]\n2. Rezystancja przewodnika:\n\\[R = \\frac{\\rho(T) \\cdot l}{S}\\]\n\nPodstawienie dla danych z pytania:\n• Długość: \\(l = 200\\text{ m}\\)\n• Przekrój poprzeczny: \\(S = 1{,}5\\text{ mm}^2 = 1{,}5 \\cdot 10^{-6}\\text{ m}^2\\)\n• Przyrost temperatury: \\(\\Delta T = 45^\\circ\\text{C} - 20^\\circ\\text{C} = 25\\text{ K}\\)\n• Czynnik temperaturowy: \\(1 + \\alpha \\Delta T = 1 + 4 \\cdot 10^{-3} \\cdot 25 = 1 + 0{,}10 = 1{,}10\\)\n• Rezystywność w \\(45^\\circ\\text{C}\\): \\(\\rho_{45} = 17 \\cdot 10^{-9} \\cdot 1{,}10 = 18{,}7 \\cdot 10^{-9}\\,\\Omega\\cdot\\text{m}\\)\n\nObliczenie rezystancji:\n\\[R = \\frac{18{,}7 \\cdot 10^{-9} \\cdot 200}{1{,}5 \\cdot 10^{-6}} = \\frac{3{,}74 \\cdot 10^{-6}}{1{,}5 \\cdot 10^{-6}} \\approx 2{,}4933\\,\\Omega \\approx 2{,}49\\,\\Omega\\]\n\nPozostałe warianty ze zrzutów:\n• Wariant z \\(\\rho_{20} = 14\\text{ n}\\Omega\\cdot\\text{m}\\): \\(\\rho_{45} = 15{,}4\\text{ n}\\Omega\\cdot\\text{m} \\implies R = \\frac{15{,}4 \\cdot 10^{-9} \\cdot 200}{1{,}5 \\cdot 10^{-6}} \\approx 2{,}05\\,\\Omega\\)"
     },
     {
         "id": 54,
@@ -1602,14 +1602,14 @@
         ],
         "type": "multi",
         "img": "img/wejsciowka1_obwod_4rezystory.png",
-        "q": "Dla przedstawionego obwodu ze źródłem SEM E i czterema rezystorami R1, R2, R3, R4, wskaż poprawne równania I i II prawa Kirchhoffa dla prądów gałęziowych I1, I2, I3:",
-        "a": "I Prawo Kirchhoffa dla węzła A: I1 = I2 + I3",
-        "b": "II Prawo Kirchhoffa dla oczka I: E = I1·R1 + I2·R2",
-        "c": "II Prawo Kirchhoffa dla oczka II: I2·R2 = I3·(R3 + R4)",
-        "d": "I Prawo Kirchhoffa dla węzła A: I1 + I2 + I3 = 0",
-        "e": "II Prawo Kirchhoffa dla oczka zewnętrznego: E = I1·R1 + I3·(R3 + R4)",
+        "q": "Dla przedstawionego obwodu ze źródłem SEM \\(E\\) i czterema rezystorami \\(R_1, R_2, R_3, R_4\\), wskaż poprawne równania I i II prawa Kirchhoffa dla prądów gałęziowych \\(I_1, I_2, I_3\\):",
+        "a": "I Prawo Kirchhoffa dla węzła A: \\(I_1 = I_2 + I_3\\)",
+        "b": "II Prawo Kirchhoffa dla oczka I: \\(E = I_1 R_1 + I_2 R_2\\)",
+        "c": "II Prawo Kirchhoffa dla oczka II: \\(I_2 R_2 = I_3 (R_3 + R_4)\\)",
+        "d": "I Prawo Kirchhoffa dla węzła A: \\(I_1 + I_2 + I_3 = 0\\)",
+        "e": "II Prawo Kirchhoffa dla oczka zewnętrznego: \\(E = I_1 R_1 + I_3 (R_3 + R_4)\\)",
         "correct": "a,b,c,e",
-        "exp": "Wyjaśnienie praw Kirchhoffa w obwodzie:\n1. I Prawo Kirchhoffa (bilans prądów w węźle A):\nPrąd I1 dopływa do węzła A, a prądy I2 i I3 odpływają:\n\\[\\sum I_{dopływ} = \\sum I_{odpływ} \\implies I_1 = I_2 + I_3\\]\n(Równanie d jest błędne, ponieważ prądy nie mają jednakowego zwrotu względem węzła).\n\n2. II Prawo Kirchhoffa (bilans napięć w oczkach zgodnie z ruchem wskazówek zegara):\n• Oczko I (źródło E, rezystory R1 i R2):\n\\[E - I_1 R_1 - I_2 R_2 = 0 \\implies E = I_1 R_1 + I_2 R_2\\]\n• Oczko II (gałąź z R2 oraz gałąź z szeregowo połączonymi R3 i R4):\n\\[I_2 R_2 - I_3 R_3 - I_3 R_4 = 0 \\implies I_2 R_2 = I_3 (R_3 + R_4)\\]\n• Oczko zewnętrzne (obwiednia całego układu):\n\\[E - I_1 R_1 - I_3 R_3 - I_3 R_4 = 0 \\implies E = I_1 R_1 + I_3 (R_3 + R_4)\\]\n\nPrzykładowe wartości liczbowe:\nDla E = 24 V, R1 = 4 Ω, R2 = 12 Ω, R3 = 8 Ω, R4 = 4 Ω:\nR_{34} = 8 + 4 = 12 Ω. R_{2||34} = 12 || 12 = 6 Ω.\nRezystancja wypadkowa: R_z = R1 + 6 = 10 Ω.\nPrądy: I1 = E/R_z = 24/10 = 2,4 A; I2 = 1,2 A; I3 = 1,2 A."
+        "exp": "Wyjaśnienie praw Kirchhoffa w obwodzie:\n1. I Prawo Kirchhoffa (bilans prądów w węźle A):\nPrąd \\(I_1\\) dopływa do węzła A, a prądy \\(I_2\\) i \\(I_3\\) odpływają:\n\\[\\sum I_{\\text{dopływ}} = \\sum I_{\\text{odpływ}} \\implies I_1 = I_2 + I_3\\]\n(Równanie d jest błędne, ponieważ prądy nie mają jednakowego zwrotu względem węzła).\n\n2. II Prawo Kirchhoffa (bilans napięć w oczkach zgodnie z ruchem wskazówek zegara):\n• Oczko I (źródło \\(E\\), rezystory \\(R_1\\) i \\(R_2\\)):\n\\[E - I_1 R_1 - I_2 R_2 = 0 \\implies E = I_1 R_1 + I_2 R_2\\]\n• Oczko II (gałąź z \\(R_2\\) oraz gałąź z szeregowo połączonymi \\(R_3\\) i \\(R_4\\)):\n\\[I_2 R_2 - I_3 R_3 - I_3 R_4 = 0 \\implies I_2 R_2 = I_3 (R_3 + R_4)\\]\n• Oczko zewnętrzne (obwód obwiedniowy całego układu):\n\\[E - I_1 R_1 - I_3 R_3 - I_3 R_4 = 0 \\implies E = I_1 R_1 + I_3 (R_3 + R_4)\\]\n\nPrzykładowe wartości liczbowe:\nDla \\(E = 24\\text{ V}, R_1 = 4\\,\\Omega, R_2 = 12\\,\\Omega, R_3 = 8\\,\\Omega, R_4 = 4\\,\\Omega\\):\n\\(R_{34} = 8 + 4 = 12\\,\\Omega\\), \\(R_{2 \\parallel 34} = 12 \\parallel 12 = 6\\,\\Omega\\).\nRezystancja wypadkowa: \\(R_z = R_1 + 6 = 10\\,\\Omega\\).\nPrądy gałęziowe: \\(I_1 = \\frac{E}{R_z} = \\frac{24}{10} = 2{,}4\\text{ A}\\); \\(I_2 = 1{,}2\\text{ A}\\); \\(I_3 = 1{,}2\\text{ A}\\)."
     },
     {
         "id": 55,
@@ -1617,11 +1617,11 @@
             "wejsciowka1"
         ],
         "type": "open",
-        "q": "Dla wyprostowanego prądu porównaj wartość skuteczną przebiegu sinusoidalnego oraz trójkątnego o tej samej amplitudzie I_m. O ile procent wartość skuteczna prądu sinusoidalnego (I_sk = I_m / √2) jest większa od wartości skutecznej prądu trójkątnego (I_sk = I_m / √3)? Wynik podaj w procentach (np. 22,5).",
-        "correct": "22,47",
         "numericTarget": 22.47,
-        "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nWartość skuteczna prądu sinusoidalnego:\n\\[I_{sk,sin} = \\frac{I_m}{\\sqrt{2}}\\]\nWartość skuteczna prądu trójkątnego:\n\\[I_{sk,tr} = \\frac{I_m}{\\sqrt{3}}\\]\n\nStosunek wartości skutecznych:\n\\[\\frac{I_{sk,sin}}{I_{sk,tr}} = \\frac{I_m / \\sqrt{2}}{I_m / \\sqrt{3}} = \\frac{\\sqrt{3}}{\\sqrt{2}} = \\sqrt{\\frac{3}{2}} = \\sqrt{1{,}5} \\approx 1{,}224745\\]\n\nRóżnica względna (o ile procent większa):\n\\[\\delta = \\left(\\frac{I_{sk,sin} - I_{sk,tr}}{I_{sk,tr}}\\right) \\cdot 100\\% = (\\sqrt{1{,}5} - 1) \\cdot 100\\% \\approx (1{,}224745 - 1) \\cdot 100\\% \\approx 22{,}47\\% \\approx 22{,}5\\%\\]\n\nUwaga dodatkowa (dla wartości średnich):\nDla wartości średnich: I_{śr,sin} = 2 I_m / π ≈ 0,6366 I_m oraz I_{śr,tr} = I_m / 2 = 0,5 I_m.\nStosunek średnich: (2/π) / 0,5 = 4/π ≈ 1,2732 → o 27,32% większa."
+        "tolerance": 0.1,
+        "q": "Dla wyprostowanego prądu porównaj wartość skuteczną przebiegu sinusoidalnego oraz trójkątnego o tej samej amplitudzie \\(I_m\\). O ile procent wartość skuteczna prądu sinusoidalnego (\\(I_{sk} = \\frac{I_m}{\\sqrt{2}}\\)) jest większa od wartości skutecznej prądu trójkątnego (\\(I_{sk} = \\frac{I_m}{\\sqrt{3}}\\))? Wynik podaj w procentach (np. 22,5).",
+        "correct": "22,47",
+        "exp": "Wzór ogólny:\nWartość skuteczna prądu sinusoidalnego:\n\\[I_{sk,\\text{sin}} = \\frac{I_m}{\\sqrt{2}}\\]\nWartość skuteczna prądu trójkątnego:\n\\[I_{sk,\\text{tr}} = \\frac{I_m}{\\sqrt{3}}\\]\n\nStosunek wartości skutecznych:\n\\[\\frac{I_{sk,\\text{sin}}}{I_{sk,\\text{tr}}} = \\frac{I_m / \\sqrt{2}}{I_m / \\sqrt{3}} = \\frac{\\sqrt{3}}{\\sqrt{2}} = \\sqrt{\\frac{3}{2}} = \\sqrt{1{,}5} \\approx 1{,}224745\\]\n\nRóżnica względna (o ile procent większa):\n\\[\\delta = \\left(\\frac{I_{sk,\\text{sin}} - I_{sk,\\text{tr}}}{I_{sk,\\text{tr}}}\\right) \\cdot 100\\% = (\\sqrt{1{,}5} - 1) \\cdot 100\\% \\approx 22{,}47\\% \\approx 22{,}5\\%\\]\n\nUwaga dodatkowa (dla wartości średnich):\nDla wartości średnich: \\(I_{sr,\\text{sin}} = \\frac{2}{\\pi} I_m \\approx 0{,}6366 I_m\\) oraz \\(I_{sr,\\text{tr}} = \\frac{I_m}{2} = 0{,}5 I_m\\).\nStosunek średnich: \\(\\frac{2/\\pi}{0{,}5} = \\frac{4}{\\pi} \\approx 1{,}2732 \\implies\\) o \\(27{,}32\\%\\) większa."
     },
     {
         "id": 56,
@@ -1629,11 +1629,11 @@
             "wejsciowka1"
         ],
         "type": "open",
-        "q": "Cewka powietrzna (jednowarstwowy solenoid bez rdzenia) ma długość l = 25 cm = 0,25 m, promień karkasu r = 2 cm = 0,02 m oraz liczbę zwojów z = 500. Przyjmując przenikalność magnetyczną próżni μ0 = 4π·10⁻⁷ H/m, oblicz indukcyjność własną L tej cewki w milihenrach [mH].",
-        "correct": "1,58",
         "numericTarget": 1.58,
         "tolerance": 0.05,
-        "exp": "Wzór ogólny:\nPole przekroju poprzecznego cewki kołowej o promieniu r:\n\\[S = \\pi r^2\\]\nIndukcyjność własna solenoidu powietrznego:\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l} = \\mu_0 \\frac{z^2 \\cdot \\pi r^2}{l}\\]\n\nPodstawienie danych (l = 0,25 m, r = 0,02 m, z = 500, μ0 = 4π·10⁻⁷ H/m):\n\\[S = \\pi \\cdot (0{,}02)^2 = 4\\pi \\cdot 10^{-4}\\text{ m}^2 \\approx 1{,}2566 \\cdot 10^{-3}\\text{ m}^2\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{500^2 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot \\frac{250000 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25}\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{100\\pi}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot 400\\pi = 1600 \\pi^2 \\cdot 10^{-7}\\text{ H}\\]\n\\[L \\approx 1600 \\cdot 9{,}8696 \\cdot 10^{-7} \\approx 1{,}5791 \\cdot 10^{-3}\\text{ H} \\approx 1{,}58\\text{ mH}\\]\n\nWarianty:\n• Dla z = 1000 zwojów: L ≈ 6,32 mH\n• Dla l = 50 cm: L ≈ 0,79 mH"
+        "q": "Cewka powietrzna (jednowarstwowy solenoid bez rdzenia) ma długość \\(l = 25\\text{ cm} = 0{,}25\\text{ m}\\), promień karkasu \\(r = 2\\text{ cm} = 0{,}02\\text{ m}\\) oraz liczbę zwojów \\(z = 500\\). Przyjmując przenikalność magnetyczną próżni \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\), oblicz indukcyjność własną \\(L\\) tej cewki w milihenrach [mH].",
+        "correct": "1,58",
+        "exp": "Wzór ogólny:\nPole przekroju poprzecznego cewki kołowej o promieniu \\(r\\):\n\\[S = \\pi r^2\\]\nIndukcyjność własna solenoidu powietrznego:\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l} = \\mu_0 \\frac{z^2 \\cdot \\pi r^2}{l}\\]\n\nPodstawienie dla danych z pytania (\\(l = 0{,}25\\text{ m}, r = 0{,}02\\text{ m}, z = 500, \\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\)):\n\\[S = \\pi \\cdot (0{,}02)^2 = 4\\pi \\cdot 10^{-4}\\text{ m}^2 \\approx 1{,}2566 \\cdot 10^{-3}\\text{ m}^2\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{500^2 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot \\frac{250000 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25}\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{100\\pi}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot 400\\pi = 1600 \\pi^2 \\cdot 10^{-7}\\text{ H}\\]\n\\[L \\approx 1600 \\cdot 9{,}8696 \\cdot 10^{-7} \\approx 1{,}58\\text{ mH}\\]\n\nPozostałe warianty ze zrzutów:\n• Dla \\(z = 1000\\text{ zwojów}\\): \\(L \\approx 6{,}32\\text{ mH}\\)\n• Dla \\(l = 50\\text{ cm}\\): \\(L \\approx 0{,}79\\text{ mH}\\)"
     }
 ];
 

@@ -705,5 +705,189 @@
     "q": "Cewka powietrzna (jednowarstwowy solenoid bez rdzenia) ma długość \\(l = 25\\text{ cm} = 0{,}25\\text{ m}\\), promień karkasu \\(r = 2\\text{ cm} = 0{,}02\\text{ m}\\) oraz liczbę zwojów \\(z = 500\\). Przyjmując przenikalność magnetyczną próżni \\(\\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\), oblicz indukcyjność własną \\(L\\) tej cewki w milihenrach [mH].",
     "correct": "1,58",
     "exp": "Wzór ogólny:\nPole przekroju poprzecznego cewki kołowej o promieniu \\(r\\):\n\\[S = \\pi r^2\\]\nIndukcyjność własna solenoidu powietrznego:\n\\[L = \\mu_0 \\frac{z^2 \\cdot S}{l} = \\mu_0 \\frac{z^2 \\cdot \\pi r^2}{l}\\]\n\nPodstawienie dla danych z pytania (\\(l = 0{,}25\\text{ m}, r = 0{,}02\\text{ m}, z = 500, \\mu_0 = 4\\pi \\cdot 10^{-7}\\text{ H/m}\\)):\n\\[S = \\pi \\cdot (0{,}02)^2 = 4\\pi \\cdot 10^{-4}\\text{ m}^2 \\approx 1{,}2566 \\cdot 10^{-3}\\text{ m}^2\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{500^2 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot \\frac{250000 \\cdot 4\\pi \\cdot 10^{-4}}{0{,}25}\\]\n\\[L = 4\\pi \\cdot 10^{-7} \\cdot \\frac{100\\pi}{0{,}25} = 4\\pi \\cdot 10^{-7} \\cdot 400\\pi = 1600 \\pi^2 \\cdot 10^{-7}\\text{ H}\\]\n\\[L \\approx 1600 \\cdot 9{,}8696 \\cdot 10^{-7} \\approx 1{,}58\\text{ mH}\\]\n\nPozostałe warianty ze zrzutów:\n• Dla \\(z = 1000\\text{ zwojów}\\): \\(L \\approx 6{,}32\\text{ mH}\\)\n• Dla \\(l = 50\\text{ cm}\\): \\(L \\approx 0{,}79\\text{ mH}\\)"
+  },
+  {
+    "id": 57,
+    "labs": [
+      5
+    ],
+    "type": "multi",
+    "q": "Proszę zaznaczyć stwierdzenia prawdziwe w przypadku zjawiska rezonansu napięć (szeregowy obwód RLC):",
+    "a": "obwód szeregowy RLC",
+    "b": "najmniejsza impedancja obwodu",
+    "c": "największe natężenie prądu",
+    "d": "przesunięcie fazowe \\(\\varphi = 0\\)",
+    "e": "możliwe przepięcia (na elementach \\(L\\) i \\(C\\))",
+    "f": "obwód równoległy RLC",
+    "g": "największa impedancja obwodu",
+    "h": "najmniejsze natężenie prądu",
+    "i": "możliwe przetężenia",
+    "j": "przesunięcie fazowe \\(\\varphi = \\pm 45^\\circ\\)",
+    "correct": "a,b,c,d,e",
+    "exp": "Wyjaśnienie zjawiska rezonansu napięć:\n1. **Rodzaj obwodu:** Rezonans napięć zachodzi w **szeregowym obwodzie RLC**.\n2. **Warunek rezonansu:** Reaktancja indukcyjna równoważy reaktancję pojemnościową:\n\\[X_L = X_C \\iff \\omega L = \\frac{1}{\\omega C}\\]\n3. **Impedancja obwodu:** Reaktancje znoszą się (\\(X = X_L - X_C = 0\\)), więc impedancja osiąga **minimum** i jest czysto rezystancyjna:\n\\[Z = \\sqrt{R^2 + (X_L - X_C)^2} = R\\]\n4. **Natężenie prądu:** Przy minimalnej impedancji prąd pobierany ze źródła osiąga **maksimum**:\n\\[I = \\frac{U}{Z} = \\frac{U}{R}\\]\n5. **Przesunięcie fazowe:** Napięcie i prąd są w idealnej fazie – przesunięcie fazowe wynosi \\(\\varphi = 0\\) (\\(\\cos\\varphi = 1\\)).\n6. **Zagrożenie – przepięcia:** Ponieważ prąd w obwodzie jest duży, napięcia na cewce i kondensatorze wynoszą:\n\\[U_L = U_C = I \\cdot X_L = \\frac{U}{R} \\cdot \\omega_0 L = Q \\cdot U\\]\nPrzy dobroci obwodu \\(Q > 1\\) napięcia te znacznie przewyższają napięcie zasilające \\(U\\) (stąd nazwa: rezonans napięć / przepięcia)."
+  },
+  {
+    "id": 58,
+    "labs": [
+      5
+    ],
+    "type": "multi",
+    "q": "Proszę zaznaczyć stwierdzenia prawdziwe w przypadku zjawiska rezonansu prądów (równoległy obwód RLC):",
+    "a": "obwód równoległy RLC",
+    "b": "największa impedancja obwodu",
+    "c": "najmniejsze natężenie prądu ze źródła",
+    "d": "przesunięcie fazowe \\(\\varphi = 0\\)",
+    "e": "możliwe przetężenia (prądy w gałęziach większe niż prąd ze źródła)",
+    "f": "obwód szeregowy RLC",
+    "g": "najmniejsza impedancja obwodu",
+    "h": "największe natężenie prądu ze źródła",
+    "i": "możliwe przepięcia",
+    "j": "przesunięcie fazowe \\(\\varphi = \\pm 45^\\circ\\)",
+    "correct": "a,b,c,d,e",
+    "exp": "Wyjaśnienie zjawiska rezonansu prądów:\n1. **Rodzaj obwodu:** Rezonans prądów zachodzi w **równoległym obwodzie RLC**.\n2. **Warunek rezonansu:** Susceptancja indukcyjna równoważy susceptancję pojemnościową:\n\\[B_L = B_C \\iff \\frac{1}{\\omega L} = \\omega C\\]\n3. **Impedancja obwodu:** Admitancja osiąga minimum (\\(Y = G = 1/R\\)), co oznacza, że wypadkowa impedancja obwodu osiąga **maksimum** (dla elementów idealnych \\(Z \\to \\infty\\)).\n4. **Natężenie prądu ze źródła:** Skoro impedancja jest maksymalna, całkowity prąd pobierany ze źródła zasilania osiąga **minimum**:\n\\[I_0 = U \\cdot Y = \\frac{U}{R}\\]\n5. **Przesunięcie fazowe:** Całkowity prąd źródła i napięcie są w idealnej fazie – przesunięcie fazowe wynosi \\(\\varphi = 0\\).\n6. **Zagrożenie – przetężenia:** W gałęziach równoległych cewki i kondensatora płyną przeciwfazy prądy bierne:\n\\[I_L = I_C = Q \\cdot I_0\\]\nMogą one wielokrotnie przewyższać prąd \\(I_0\\) dopływający ze źródła zasilania (stąd nazwa: rezonans prądów / przetężenia)."
+  },
+  {
+    "id": 59,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 13.62,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby wywołać zjawisko rezonansu prądów w obwodzie równoległym o trzech gałęziach (z cewką idealną): \\(R = 13\\,\\Omega\\), \\(L = 1{,}3\\text{ H}\\) i \\(C = 105\\,\\mu\\text{F}\\)? Wynik podaj w hercach [Hz].",
+    "correct": "13,62",
+    "exp": "Wzór ogólny:\nCzęstotliwość rezonansowa dla obwodu o trzech równoległych gałęziach (R, idealne L, C):\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nWartość rezystancji \\(R = 13\\,\\Omega\\) nie wpływa na częstotliwość rezonansową.\n\nPodstawienie danych:\n• \\(L = 1{,}3\\text{ H}\\)\n• \\(C = 105\\,\\mu\\text{F} = 105 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}3 \\cdot 105 \\cdot 10^{-6} = 1{,}365 \\cdot 10^{-4}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{1{,}365 \\cdot 10^{-4}} \\approx 0{,}0116833\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}0116833} = \\frac{1}{0{,}073408} \\approx 13{,}62\\text{ Hz}\\]"
+  },
+  {
+    "id": 60,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 120.77,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}42\\text{ H}\\) została połączona szeregowo z kondensatorem \\(5\\,\\mu\\text{F}\\). Jaka jest rezystancja uzwojenia cewki, jeśli jej dobroć wynosi \\(2{,}4\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "120,77",
+    "exp": "Wzór ogólny:\n1. Częstotliwość rezonansowa:\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\n2. Reaktancja indukcyjna cewki w rezonansie:\n\\[X_L = 2\\pi f_r L = \\sqrt{\\frac{L}{C}} = \\rho\\]\n3. Rezystancja uzwojenia cewki z definicji dobroci \\(Q = \\frac{X_L}{R}\\):\n\\[R = \\frac{X_L}{Q} = \\frac{\\sqrt{L/C}}{Q}\\]\n\nPodstawienie danych (\\(L = 0{,}42\\text{ H}\\), \\(C = 5\\,\\mu\\text{F} = 5 \\cdot 10^{-6}\\text{ F}\\), \\(Q = 2{,}4\\)):\n\\[\\frac{L}{C} = \\frac{0{,}42}{5 \\cdot 10^{-6}} = 84\\,000\\,\\Omega^2\\]\n\\[X_L = \\sqrt{84\\,000} \\approx 289{,}83\\,\\Omega\\]\n(lub przez \\(f_r \\approx 109{,}83\\text{ Hz} \\implies X_L = 2\\pi \\cdot 109{,}83 \\cdot 0{,}42 = 289{,}83\\,\\Omega\\))\n\\[R = \\frac{289{,}83}{2{,}4} \\approx 120{,}76 - 120{,}77\\,\\Omega\\]"
+  },
+  {
+    "id": 61,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 11.11,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby doprowadzić obwód szeregowy składający się z rezystancji \\(7\\,\\Omega\\), indukcyjności \\(1{,}9\\text{ H}\\) i pojemności \\(108\\,\\mu\\text{F}\\) do rezonansu? Wynik podaj w hercach [Hz].",
+    "correct": "11,11",
+    "exp": "Wzór ogólny:\nWarunek rezonansu napięć w szeregowym obwodzie RLC (\\(X_L = X_C\\)):\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nWartość rezystancji \\(R = 7\\,\\Omega\\) nie wpływa na częstotliwość rezonansową.\n\nPodstawienie danych:\n• \\(L = 1{,}9\\text{ H}\\)\n• \\(C = 108\\,\\mu\\text{F} = 108 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}9 \\cdot 108 \\cdot 10^{-6} = 2{,}052 \\cdot 10^{-4}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{2{,}052 \\cdot 10^{-4}} \\approx 0{,}0143248\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}0143248} = \\frac{1}{0{,}090005} \\approx 11{,}11\\text{ Hz}\\]"
+  },
+  {
+    "id": 62,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 147.63,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}82\\text{ H}\\) zostanie wykorzystana w szeregowym obwodzie rezonansowym o \\(f_r = 149\\text{ Hz}\\). Jaka musi być rezystancja uzwojenia cewki, aby uzyskać dobroć na poziomie \\(5{,}2\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "147,63",
+    "exp": "Wzór ogólny:\n1. Reaktancja indukcyjna cewki dla częstotliwości rezonansowej \\(f_r\\):\n\\[X_L = 2\\pi f_r L\\]\n2. Rezystancja uzwojenia z definicji dobroci \\(Q = \\frac{X_L}{R}\\):\n\\[R = \\frac{X_L}{Q} = \\frac{2\\pi f_r L}{Q}\\]\n\nPodstawienie danych:\n• \\(L = 0{,}82\\text{ H}\\)\n• \\(f_r = 149\\text{ Hz}\\)\n• \\(Q = 5{,}2\\)\n\nObliczenia:\n\\[X_L = 2\\pi \\cdot 149 \\cdot 0{,}82 \\approx 767{,}68\\,\\Omega\\]\n\\[R = \\frac{767{,}68}{5{,}2} \\approx 147{,}63\\,\\Omega\\]"
+  },
+  {
+    "id": 63,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 101.68,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}51\\text{ H}\\) zostanie wykorzystana w szeregowym obwodzie rezonansowym o \\(f_r = 165\\text{ Hz}\\). Jaka musi być rezystancja uzwojenia cewki, aby uzyskać dobroć na poziomie \\(5{,}2\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "101,68",
+    "exp": "Wzór ogólny:\n1. Reaktancja indukcyjna cewki dla częstotliwości rezonansowej \\(f_r\\):\n\\[X_L = 2\\pi f_r L\\]\n2. Rezystancja uzwojenia cewki przy zadanej dobroci:\n\\[R = \\frac{X_L}{Q} = \\frac{2\\pi f_r L}{Q}\\]\n\nPodstawienie danych:\n• \\(L = 0{,}51\\text{ H}\\)\n• \\(f_r = 165\\text{ Hz}\\)\n• \\(Q = 5{,}2\\)\n\nObliczenia:\n\\[X_L = 2\\pi \\cdot 165 \\cdot 0{,}51 \\approx 528{,}73\\,\\Omega\\]\n\\[R = \\frac{528{,}73}{5{,}2} \\approx 101{,}68\\,\\Omega\\]"
+  },
+  {
+    "id": 64,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 14.5,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby wywołać zjawisko rezonansu prądów w obwodzie równoległym o trzech gałęziach (z cewką idealną): \\(R = 14\\,\\Omega\\), \\(L = 1{,}4\\text{ H}\\) i \\(C = 86\\,\\mu\\text{F}\\)? Wynik podaj w hercach [Hz].",
+    "correct": "14,5",
+    "exp": "Wzór ogólny:\nCzęstotliwość rezonansowa dla obwodu o trzech równoległych gałęziach (R, idealne L, C):\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nRezystancja \\(R = 14\\,\\Omega\\) nie wpływa na częstotliwość rezonansową.\n\nPodstawienie danych:\n• \\(L = 1{,}4\\text{ H}\\)\n• \\(C = 86\\,\\mu\\text{F} = 86 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}4 \\cdot 86 \\cdot 10^{-6} = 1{,}204 \\cdot 10^{-4}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{1{,}204 \\cdot 10^{-4}} \\approx 0{,}0109727\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}0109727} = \\frac{1}{0{,}068944} \\approx 14{,}50\\text{ Hz}\\]"
+  },
+  {
+    "id": 65,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 13.32,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby doprowadzić obwód szeregowy składający się z rezystancji \\(11\\,\\Omega\\), indukcyjności \\(1{,}4\\text{ H}\\) i pojemności \\(102\\,\\mu\\text{F}\\) do rezonansu? Wynik podaj w hercach [Hz].",
+    "correct": "13,32",
+    "exp": "Wzór ogólny:\nCzęstotliwość rezonansowa obwodu szeregowego RLC:\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nRezystancja \\(R = 11\\,\\Omega\\) nie wpływa na warunek rezonansu.\n\nPodstawienie danych:\n• \\(L = 1{,}4\\text{ H}\\)\n• \\(C = 102\\,\\mu\\text{F} = 102 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}4 \\cdot 102 \\cdot 10^{-6} = 1{,}428 \\cdot 10^{-4}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{1{,}428 \\cdot 10^{-4}} \\approx 0{,}01195\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}01195} = \\frac{1}{0{,}075083} \\approx 13{,}32\\text{ Hz}\\]"
+  },
+  {
+    "id": 66,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 108.63,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}59\\text{ H}\\) została połączona szeregowo z kondensatorem \\(8\\,\\mu\\text{F}\\). Jaka jest rezystancja uzwojenia cewki, jeśli jej dobroć wynosi \\(2{,}5\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "108,63",
+    "exp": "Wzór ogólny:\n1. Reaktancja cewki w rezonansie:\n\\[X_L = \\sqrt{\\frac{L}{C}} = \\rho\\]\n2. Rezystancja uzwojenia cewki przy danej dobroci:\n\\[R = \\frac{X_L}{Q} = \\frac{\\sqrt{L/C}}{Q}\\]\n\nPodstawienie danych (\\(L = 0{,}59\\text{ H}\\), \\(C = 8\\,\\mu\\text{F} = 8 \\cdot 10^{-6}\\text{ F}\\), \\(Q = 2{,}5\\)):\n\\[\\frac{L}{C} = \\frac{0{,}59}{8 \\cdot 10^{-6}} = 73\\,750\\,\\Omega^2\\]\n\\[X_L = \\sqrt{73\\,750} \\approx 271{,}57\\,\\Omega\\]\n\\[R = \\frac{271{,}57}{2{,}5} \\approx 108{,}63\\,\\Omega\\]"
+  },
+  {
+    "id": 67,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 78.68,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}78\\text{ H}\\) została połączona szeregowo z kondensatorem \\(14\\,\\mu\\text{F}\\). Jaka jest rezystancja uzwojenia cewki, jeśli jej dobroć wynosi \\(3{,}0\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "78,68",
+    "exp": "Wzór ogólny:\n1. Reaktancja cewki w rezonansie:\n\\[X_L = \\sqrt{\\frac{L}{C}} = \\rho\\]\n2. Rezystancja uzwojenia cewki przy danej dobroci:\n\\[R = \\frac{X_L}{Q} = \\frac{\\sqrt{L/C}}{Q}\\]\n\nPodstawienie danych (\\(L = 0{,}78\\text{ H}\\), \\(C = 14\\,\\mu\\text{F} = 14 \\cdot 10^{-6}\\text{ F}\\), \\(Q = 3{,}0\\)):\n\\[\\frac{L}{C} = \\frac{0{,}78}{14 \\cdot 10^{-6}} \\approx 55\\,714{,}29\\,\\Omega^2\\]\n\\[X_L = \\sqrt{55\\,714{,}29} \\approx 236{,}04\\,\\Omega\\]\n\\[R = \\frac{236{,}04}{3{,}0} \\approx 78{,}68\\,\\Omega\\]"
+  },
+  {
+    "id": 68,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 11.01,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby doprowadzić obwód szeregowy składający się z rezystancji \\(12\\,\\Omega\\), indukcyjności \\(1{,}9\\text{ H}\\) i pojemności \\(110\\,\\mu\\text{F}\\) do rezonansu? Wynik podaj w hercach [Hz].",
+    "correct": "11,01",
+    "exp": "Wzór ogólny:\nWarunek rezonansu napięć w szeregowym obwodzie RLC:\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nWartość \\(R = 12\\,\\Omega\\) nie wpływa na częstotliwość rezonansową.\n\nPodstawienie danych:\n• \\(L = 1{,}9\\text{ H}\\)\n• \\(C = 110\\,\\mu\\text{F} = 110 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}9 \\cdot 110 \\cdot 10^{-6} = 2{,}09 \\cdot 10^{-4}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{2{,}09 \\cdot 10^{-4}} \\approx 0{,}014457\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}014457} = \\frac{1}{0{,}090835} \\approx 11{,}01\\text{ Hz}\\]"
+  },
+  {
+    "id": 69,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 17.29,
+    "tolerance": 0.05,
+    "q": "Jaką należy nastawić częstotliwość generatora napięcia sinusoidalnego, aby wywołać zjawisko rezonansu prądów w obwodzie równoległym o trzech gałęziach (z cewką idealną): \\(R = 11\\,\\Omega\\), \\(L = 1{,}1\\text{ H}\\) i \\(C = 77\\,\\mu\\text{F}\\)? Wynik podaj w hercach [Hz].",
+    "correct": "17,29",
+    "exp": "Wzór ogólny:\nCzęstotliwość rezonansowa dla obwodu o trzech równoległych gałęziach (R, idealne L, C):\n\\[f_r = \\frac{1}{2\\pi \\sqrt{L \\cdot C}}\\]\nRezystancja \\(R = 11\\,\\Omega\\) nie wpływa na częstotliwość rezonansową.\n\nPodstawienie danych:\n• \\(L = 1{,}1\\text{ H}\\)\n• \\(C = 77\\,\\mu\\text{F} = 77 \\cdot 10^{-6}\\text{ F}\\)\n\nObliczenia:\n\\[L \\cdot C = 1{,}1 \\cdot 77 \\cdot 10^{-6} = 8{,}47 \\cdot 10^{-5}\\text{ s}^2\\]\n\\[\\sqrt{L \\cdot C} = \\sqrt{8{,}47 \\cdot 10^{-5}} \\approx 0{,}0092033\\text{ s}\\]\n\\[f_r = \\frac{1}{2\\pi \\cdot 0{,}0092033} = \\frac{1}{0{,}057826} \\approx 17{,}29\\text{ Hz}\\]"
+  },
+  {
+    "id": 70,
+    "labs": [
+      5
+    ],
+    "type": "open",
+    "numericTarget": 47.94,
+    "tolerance": 0.05,
+    "q": "Cewka rzeczywista \\(0{,}66\\text{ H}\\) została połączona szeregowo z kondensatorem \\(13\\,\\mu\\text{F}\\). Jaka jest rezystancja uzwojenia cewki, jeśli jej dobroć wynosi \\(4{,}7\\)? Wynik podaj w omach [\\(\\Omega\\)].",
+    "correct": "47,94",
+    "exp": "Wzór ogólny:\n1. Reaktancja cewki w rezonansie:\n\\[X_L = \\sqrt{\\frac{L}{C}} = \\rho\\]\n2. Rezystancja uzwojenia cewki przy danej dobroci:\n\\[R = \\frac{X_L}{Q} = \\frac{\\sqrt{L/C}}{Q}\\]\n\nPodstawienie danych (\\(L = 0{,}66\\text{ H}\\), \\(C = 13\\,\\mu\\text{F} = 13 \\cdot 10^{-6}\\text{ F}\\), \\(Q = 4{,}7\\)):\n\\[\\frac{L}{C} = \\frac{0{,}66}{13 \\cdot 10^{-6}} \\approx 50\\,769{,}23\\,\\Omega^2\\]\n\\[X_L = \\sqrt{50\\,769{,}23} \\approx 225{,}32\\,\\Omega\\]\n\\[R = \\frac{225{,}32}{4{,}7} \\approx 47{,}94\\,\\Omega\\]"
   }
 ]

@@ -2990,7 +2990,7 @@
                                     <span class="font-mono text-xs text-neutral-500">Pytanie ${idx + 1} (Zadanie obliczeniowe #${q.id})</span>
                                     ${renderLabBadges(q.labs)}
                                 </div>
-                                <span class="text-xs font-mono font-bold ${isAssessed ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/60 border border-emerald-300 dark:border-emerald-700' : 'text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-900/60 border border-rose-300 dark:border-rose-700'} px-2 py-0.5 rounded">${isAssessed ? '✓ Poprawna' : '✗ Błędna'}</span>
+                                <span id="self-assess-badge-${q.id}" class="text-xs font-mono font-bold ${isAssessed ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/60 border border-emerald-300 dark:border-emerald-700' : 'text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-900/60 border border-rose-300 dark:border-rose-700'} px-2 py-0.5 rounded">${isAssessed ? '✓ Poprawna' : '✗ Błędna'}</span>
                             </div>
                             <p class="font-medium text-sm leading-snug text-neutral-900 dark:text-neutral-100">${escapeHtml(q.q)}</p>
                             ${renderQuestionImage(q.img)}
@@ -3008,11 +3008,11 @@
                                 <div class="font-mono font-bold text-neutral-900 dark:text-neutral-100">${escapeHtml(q.correct)}</div>
                                 <div class="text-neutral-600 dark:text-neutral-400 whitespace-pre-line border-t border-neutral-200 dark:border-neutral-700 pt-2">${escapeHtml(q.exp)}</div>
                             </div>
-                            <div class="flex items-center justify-between pt-1">
+                            <div id="self-assess-actions-${q.id}" class="flex items-center justify-between pt-1">
                                 <span class="text-xs text-neutral-500 font-medium">Ocena punktowa:</span>
-                                <div class="flex space-x-2">
-                                    <button onclick="selfAssess(${q.id}, false)" class="px-3 py-1.5 text-xs bg-rose-600 hover:bg-rose-700 text-white rounded font-bold transition-colors">Niezaliczone</button>
-                                    <button onclick="selfAssess(${q.id}, true)" class="px-3 py-1.5 text-xs bg-emerald-600 hover:bg-emerald-700 text-white rounded font-bold transition-colors">Zaliczone</button>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="selfAssess(${q.id}, false)" class="px-3 py-1.5 text-xs rounded font-bold transition-all ${!isAssessed ? 'bg-rose-600 text-white shadow-sm ring-2 ring-rose-400/40' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-rose-600 hover:text-white'}">Niezaliczone</button>
+                                    <button onclick="selfAssess(${q.id}, true)" class="px-3 py-1.5 text-xs rounded font-bold transition-all ${isAssessed ? 'bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-400/40' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-emerald-600 hover:text-white'}">Zaliczone</button>
                                 </div>
                             </div>
                         </div>
@@ -3084,24 +3084,37 @@
             if (!examState.selfAssessments) examState.selfAssessments = {};
             examState.selfAssessments[qId] = status;
             const card = document.getElementById(`self-assess-${qId}`);
+            const badge = document.getElementById(`self-assess-badge-${qId}`);
+            const actions = document.getElementById(`self-assess-actions-${qId}`);
+
             if (card) {
                 if (status) {
                     card.className = "p-4 rounded-lg border-2 border-emerald-500/80 bg-emerald-50/70 dark:border-emerald-700/80 dark:bg-emerald-950/30 space-y-3";
-                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center space-x-1">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Oznaczono jako zaliczone</span>
-                    </span>`;
                 } else {
                     card.className = "p-4 rounded-lg border-2 border-rose-500/80 bg-rose-50/70 dark:border-rose-700/80 dark:bg-rose-950/30 space-y-3";
-                    card.querySelector('div:last-child').innerHTML = `<span class="text-xs text-rose-600 dark:text-rose-400 font-bold flex items-center space-x-1">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                        <span>Oznaczono jako niezaliczone</span>
-                    </span>`;
                 }
+            }
+            if (badge) {
+                if (status) {
+                    badge.className = "text-xs font-mono font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/60 border border-emerald-300 dark:border-emerald-700 px-2 py-0.5 rounded";
+                    badge.innerText = "✓ Poprawna";
+                } else {
+                    badge.className = "text-xs font-mono font-bold text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-900/60 border border-rose-300 dark:border-rose-700 px-2 py-0.5 rounded";
+                    badge.innerText = "✗ Błędna";
+                }
+            }
+            if (actions) {
+                actions.innerHTML = `
+                    <span class="text-xs text-neutral-500 font-medium">Ocena punktowa:</span>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="selfAssess(${qId}, false)" class="px-3 py-1.5 text-xs rounded font-bold transition-all ${!status ? 'bg-rose-600 text-white shadow-sm ring-2 ring-rose-400/40' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-rose-600 hover:text-white'}">Niezaliczone</button>
+                        <button onclick="selfAssess(${qId}, true)" class="px-3 py-1.5 text-xs rounded font-bold transition-all ${status ? 'bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-400/40' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-emerald-600 hover:text-white'}">Zaliczone</button>
+                    </div>
+                `;
             }
             refreshExamSummary();
             updateQuestionHistory(qId, status);
-        }
+        };
 
         function exitExam() {
             document.getElementById('exam-results').classList.add('hidden');

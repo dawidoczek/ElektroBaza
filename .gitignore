@@ -10,3 +10,4 @@ ehthumbs.db
 # Logs & temp
 *.log
 .dist/
+*.py

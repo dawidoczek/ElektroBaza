@@ -11,3 +11,6 @@ ehthumbs.db
 *.log
 .dist/
 *.py
+scripts/
+*.md
+.github/
